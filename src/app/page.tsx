@@ -166,8 +166,10 @@ export default function HomePage() {
           </div>
 
           {/* Right — animated globe */}
-          <div className="hidden lg:flex items-center justify-center">
-            <HeroGlobe />
+          <div className="flex items-center justify-center">
+            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px]">
+              <HeroGlobe />
+            </div>
           </div>
         </div>
       </section>
