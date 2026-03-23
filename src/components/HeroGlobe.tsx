@@ -26,8 +26,8 @@ const LON_ANGLES  = [0, 30, 60, 90, 120, 150]
 
 export default function HeroGlobe() {
   const svgRef   = useRef<SVGSVGElement>(null)
-  const rafRef   = useRef<number>()
-  const startRef = useRef<number>()
+  const rafRef   = useRef<number>(0)
+  const startRef = useRef<number>(0)
 
   useEffect(() => {
     const svg = svgRef.current
