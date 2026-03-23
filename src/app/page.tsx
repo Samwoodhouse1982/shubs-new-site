@@ -29,8 +29,8 @@ const services = [
   },
   {
     num: "06",
-    title: "Global Health Intelligence",
-    desc: "Strategic counsel on digital health in LMICs.",
+    title: "Health System Intelligence",
+    desc: "Strategic counsel for navigating complex health system contexts.",
   },
 ];
 
@@ -48,8 +48,8 @@ const outcomes = [
     desc: "Embedded clinical leadership helped a digital therapeutics company restructure its evidence strategy, resulting in a successful NHS procurement worth £3.4M.",
   },
   {
-    title: "WHO-aligned policy positioning across 12 LMICs",
-    desc: "Strategic counsel shaped national digital health roadmaps in partnership with ITU, securing political buy-in across three WHO regions.",
+    title: "Policy positioning across international health systems",
+    desc: "Strategic counsel shaped national digital health roadmaps in partnership with ITU and WHO, securing political and institutional buy-in across multiple health system contexts.",
   },
   {
     title: "From pilot to scale in 18 months",
@@ -141,9 +141,10 @@ export default function HomePage() {
               className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-xl"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
-              We help digital health companies, investors, and global
-              organisations build solutions that are clinically sound, equitable,
-              and trusted by the people they&apos;re meant to serve.
+              Senior clinical and strategic counsel for digital health companies,
+              investors, and health organisations — helping you build solutions
+              that are clinically sound, commercially credible, and trusted by
+              the people who need to use them.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -233,9 +234,9 @@ export default function HomePage() {
               >
                 We work at the intersection of clinical rigour, implementation
                 reality, and strategic clarity — helping organisations from
-                seed-stage startups to WHO programmes build digital health
-                solutions that are genuinely effective, equitable, and trusted.
-                Not just funded.
+                seed-stage startups to major health systems build digital health
+                solutions that are genuinely effective, commercially sustainable,
+                and trusted by the clinicians and patients they serve.
               </p>
             </div>
 
@@ -250,15 +251,14 @@ export default function HomePage() {
                 className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug italic"
                 style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
               >
-                &ldquo;Digital health must be built with the communities it
-                serves, evaluated by the outcomes that matter to patients, and
-                held accountable to the systems it claims to improve.
+                &ldquo;Digital health must be built around clinical reality, not
+                around what is easy to build or easy to sell.
                 <br /><br />
-                We don&apos;t accept that speed and safety are in tension. We
+                We don&apos;t accept that speed and rigour are in tension. We
                 don&apos;t accept that evidence is only for academics. We
-                don&apos;t accept that global health and commercial health are
-                different games. The stakes are just higher for some players
-                than others.&rdquo;
+                don&apos;t accept that commercial success and genuine clinical
+                value are different goals. The organisations that understand
+                this are the ones that last.&rdquo;
               </blockquote>
             </aside>
           </div>
@@ -409,24 +409,25 @@ export default function HomePage() {
                 className="text-base text-[#A8A49D] leading-relaxed"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                Dr Shubs Upadhyay is a physician, digital health strategist, and
-                global health advocate with over 15 years of experience spanning
-                clinical practice, health technology, and international
-                development. He has led clinical and strategic initiatives across
-                five continents, working with startups, NHS trusts, multilateral
-                agencies, and development finance institutions.
+                Dr Shubs Upadhyay is a physician and digital health strategist
+                with over 15 years of experience across clinical practice, health
+                technology, and health system strategy. He has led clinical and
+                strategic initiatives across the NHS, international health
+                agencies, and private sector organisations — from early-stage
+                startups through to multilateral programmes.
               </p>
 
               <p
                 className="text-base text-[#A8A49D] leading-relaxed"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                Shubs has served as a clinical lead at the International
+                He has served as a clinical lead at the International
                 Telecommunication Union (ITU) and contributed to WHO working
-                groups on digital health standards and equity. He founded SandiQ
-                to provide the kind of senior, independent clinical and strategic
-                counsel that digital health organisations rarely have access to —
-                without the overhead of a large consultancy.
+                groups on digital health standards. He founded SandiQ to provide
+                the kind of senior, independent clinical and strategic counsel
+                that digital health organisations rarely have access to — the
+                perspective of someone who has sat on both the clinical and the
+                commercial side of the table.
               </p>
 
               <p

@@ -37,7 +37,7 @@ const services = [
     description:
       "Health system procurement is a different game. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, is not something most digital health commercial teams are equipped for. We navigate this complexity on your behalf.",
     rightFor: [
-      "Companies seeking to enter NHS, African, or LMIC health markets",
+      "Companies seeking to enter NHS, European, US, or international health markets",
       "Startups that have great technology but struggle to communicate clinical value to non-technical buyers",
     ],
   },
@@ -53,12 +53,12 @@ const services = [
   },
   {
     num: "06",
-    title: "Global Health Intelligence",
+    title: "Health System Intelligence",
     description:
-      "Digital health in low- and middle-income countries operates under different constraints, different incentives, and different definitions of value. Our global health intelligence service provides strategic counsel for organisations working in or moving into LMIC contexts, drawing on 15+ years of on-the-ground relationships across Africa, Asia, and Latin America.",
+      "Every health system has its own logic — its own procurement culture, clinical hierarchies, regulatory expectations, and political pressures. Understanding that logic is as important as having good technology. We provide strategic counsel for organisations navigating complex or unfamiliar health system contexts, drawing on deep experience across the NHS, international agencies, and health systems in multiple regions.",
     rightFor: [
-      "Multilateral agencies and NGOs commissioning or evaluating digital health interventions",
-      "Investors and donors conducting due diligence on LMIC digital health opportunities",
+      "Organisations expanding into new national health systems or regulatory environments",
+      "Investors and funders conducting clinical or strategic due diligence on digital health opportunities",
     ],
   },
 ];
@@ -96,8 +96,8 @@ const segments = [
     desc: "Due diligence, portfolio support, and impact measurement for VCs, development finance institutions, and philanthropic funders in digital health.",
   },
   {
-    title: "Global Organisations",
-    desc: "Strategic and clinical counsel for WHO, ITU, UNICEF, and other multilateral agencies commissioning or evaluating digital health programmes.",
+    title: "Health Systems & Agencies",
+    desc: "Strategic and clinical counsel for national health bodies, multilateral agencies, and large health organisations commissioning or evaluating digital health programmes.",
   },
   {
     title: "Implementers & Researchers",
