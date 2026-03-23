@@ -1,0 +1,347 @@
+import Link from "next/link";
+
+const services = [
+  {
+    num: "01",
+    title: "Fractional CMO",
+    description:
+      "Senior clinical leadership doesn't have to mean a full-time hire. Our Fractional CMO service embeds experienced clinical leaders directly into your organisation, attending leadership meetings, shaping product roadmaps, and bridging the gap between clinical reality and commercial ambition.",
+    rightFor: [
+      "Health tech startups that need credible clinical leadership ahead of NHS or payer engagement",
+      "Scale-ups managing rapid growth without the budget for a full-time Chief Medical Officer",
+    ],
+  },
+  {
+    num: "02",
+    title: "Clinical Product Development",
+    description:
+      "Most digital health products fail at the point of clinical integration, not because the technology doesn't work, but because clinical workflows, safety considerations, and regulatory expectations were never properly built in. We integrate clinical insight from day one, not as a final audit.",
+    rightFor: [
+      "Product teams building regulated or clinically-adjacent software for healthcare settings",
+      "Founders navigating CE marking, DTAC, or FDA pathways for the first time",
+    ],
+  },
+  {
+    num: "03",
+    title: "Evidence Strategy & Generation",
+    description:
+      "We help you design evaluation frameworks that measure what actually matters to health systems, payers, and patients, not just what's easy to measure. From study design to health economic modelling, we build the evidence base that underpins sustainable commercial growth.",
+    rightFor: [
+      "Companies preparing for NHS procurement or NICE assessment",
+      "Organisations that need to demonstrate ROI or QALY-equivalent impact to commissioners",
+    ],
+  },
+  {
+    num: "04",
+    title: "Market Access & Clinical Credibility",
+    description:
+      "Health system procurement is a different game. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, is not something most digital health commercial teams are equipped for. We navigate this complexity on your behalf.",
+    rightFor: [
+      "Companies seeking to enter NHS, African, or LMIC health markets",
+      "Startups that have great technology but struggle to communicate clinical value to non-technical buyers",
+    ],
+  },
+  {
+    num: "05",
+    title: "Impact Communications",
+    description:
+      "The gap between your evidence and the decision you need is almost always a communications problem. We help you turn rigorous evidence into compelling narratives, for investors, commissioners, global health donors, and media, without oversimplifying or overstating.",
+    rightFor: [
+      "Organisations preparing impact reports, investment decks, or grant applications",
+      "Companies that need to position their evidence clearly for regulatory or procurement audiences",
+    ],
+  },
+  {
+    num: "06",
+    title: "Global Health Intelligence",
+    description:
+      "Digital health in low- and middle-income countries operates under different constraints, different incentives, and different definitions of value. Our global health intelligence service provides strategic counsel for organisations working in or moving into LMIC contexts, drawing on our network of in-country experts.",
+    rightFor: [
+      "Multilateral agencies and NGOs commissioning or evaluating digital health interventions",
+      "Investors and donors conducting due diligence on LMIC digital health opportunities",
+    ],
+  },
+];
+
+const process = [
+  {
+    step: "01",
+    label: "LISTEN",
+    desc: "We begin every engagement by deeply understanding your context: not just the brief, but the pressures, histories, and blind spots that shape it.",
+  },
+  {
+    step: "02",
+    label: "MATCH",
+    desc: "We match the right combination of SandiQ expertise and network members to the specific challenge, assembling a team built for your problem.",
+  },
+  {
+    step: "03",
+    label: "EMBED",
+    desc: "We work with your team, not at them. Our model is collaborative by design and we transfer knowledge as we deliver.",
+  },
+  {
+    step: "04",
+    label: "DELIVER",
+    desc: "We are accountable to outcomes. Every engagement ends with something tangible: a strategy, a product, an evidence base, a deal.",
+  },
+];
+
+const segments = [
+  {
+    title: "Startups & Scale-ups",
+    desc: "From MVP to market, we provide the clinical and strategic infrastructure that helps digital health companies move faster without cutting corners.",
+  },
+  {
+    title: "Investors & Donors",
+    desc: "Due diligence, portfolio support, and impact measurement for VCs, development finance institutions, and philanthropic funders in digital health.",
+  },
+  {
+    title: "Global Organisations",
+    desc: "Strategic and clinical counsel for WHO, ITU, UNICEF, and other multilateral agencies commissioning or evaluating digital health programmes.",
+  },
+  {
+    title: "Implementers & Researchers",
+    desc: "Implementation science support, evidence generation, and knowledge translation for academic institutions and delivery organisations.",
+  },
+];
+
+export default function ServicesPage() {
+  return (
+    <>
+      {/* ── HERO ──────────────────────────────────────────────── */}
+      <section className="pt-24 pb-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-8 bg-[#C9933A]" />
+            <p
+              className="text-xs tracking-widest text-[#C9933A] uppercase"
+              style={{ fontFamily: "var(--font-dm-mono)" }}
+            >
+              Services
+            </p>
+          </div>
+          <h1
+            className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8"
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+          >
+            We go where the work is hard.
+          </h1>
+          <p
+            className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl"
+            style={{ fontFamily: "var(--font-dm-sans)" }}
+          >
+            Six interconnected services, deployed individually or in
+            combination, for organisations serious about building digital health
+            that actually works.
+          </p>
+        </div>
+      </section>
+
+      {/* ── SERVICE CARDS ─────────────────────────────────────── */}
+      <section className="pb-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-px">
+          {services.map((service, i) => (
+            <div
+              key={service.num}
+              className={`border border-[#F2EFE9]/8 rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${
+                i % 2 === 0 ? "bg-[#0C0F0D]" : "bg-[#0e1210]"
+              }`}
+            >
+              <div className="lg:w-16 shrink-0">
+                <p
+                  className="text-xs text-[#C9933A] tracking-widest"
+                  style={{ fontFamily: "var(--font-dm-mono)" }}
+                >
+                  {service.num}
+                </p>
+              </div>
+
+              <div className="flex-1 flex flex-col gap-5">
+                <h2
+                  className="text-3xl lg:text-4xl text-[#F2EFE9] leading-tight"
+                  style={{
+                    fontFamily: "var(--font-cormorant)",
+                    fontWeight: 600,
+                  }}
+                >
+                  {service.title}
+                </h2>
+                <p
+                  className="text-base text-[#A8A49D] leading-relaxed max-w-2xl"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  {service.description}
+                </p>
+                <div className="flex flex-col gap-3">
+                  <p
+                    className="text-xs text-[#C9933A] tracking-widest uppercase"
+                    style={{ fontFamily: "var(--font-dm-mono)" }}
+                  >
+                    Right for you if...
+                  </p>
+                  <ul className="flex flex-col gap-2">
+                    {service.rightFor.map((point, j) => (
+                      <li
+                        key={j}
+                        className="flex items-start gap-3 text-sm text-[#A8A49D]"
+                        style={{ fontFamily: "var(--font-dm-sans)" }}
+                      >
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-[#C9933A] shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="lg:flex lg:items-end lg:shrink-0">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#C9933A]/40 text-[#C9933A] rounded hover:bg-[#C9933A] hover:text-[#0C0F0D] transition-colors duration-200 whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  Get in touch →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── PROCESS ───────────────────────────────────────────── */}
+      <section className="bg-[#111410] border-y border-[#F2EFE9]/6 py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col gap-4 mb-14">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-[#C9933A]" />
+              <p
+                className="text-xs tracking-widest text-[#C9933A] uppercase"
+                style={{ fontFamily: "var(--font-dm-mono)" }}
+              >
+                How we work
+              </p>
+            </div>
+            <h2
+              className="text-4xl lg:text-5xl text-[#F2EFE9]"
+              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+            >
+              A process built on depth, not speed.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#F2EFE9]/6 rounded-sm overflow-hidden">
+            {process.map((step) => (
+              <div
+                key={step.step}
+                className="bg-[#111410] p-8 flex flex-col gap-4"
+              >
+                <p
+                  className="text-xs text-[#A8A49D] tracking-widest"
+                  style={{ fontFamily: "var(--font-dm-mono)" }}
+                >
+                  {step.step}
+                </p>
+                <h3
+                  className="text-2xl text-[#C9933A] tracking-wide"
+                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+                >
+                  {step.label}
+                </h3>
+                <p
+                  className="text-sm text-[#A8A49D] leading-relaxed"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col gap-4 mb-14">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-[#C9933A]" />
+              <p
+                className="text-xs tracking-widest text-[#C9933A] uppercase"
+                style={{ fontFamily: "var(--font-dm-mono)" }}
+              >
+                Who we work with
+              </p>
+            </div>
+            <h2
+              className="text-4xl lg:text-5xl text-[#F2EFE9]"
+              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+            >
+              Built for the full ecosystem.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {segments.map((seg) => (
+              <div
+                key={seg.title}
+                className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 transition-colors duration-200"
+              >
+                <h3
+                  className="text-xl text-[#F2EFE9]"
+                  style={{
+                    fontFamily: "var(--font-cormorant)",
+                    fontWeight: 600,
+                  }}
+                >
+                  {seg.title}
+                </h3>
+                <p
+                  className="text-sm text-[#A8A49D] leading-relaxed"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  {seg.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER CTA ────────────────────────────────────────── */}
+      <section className="bg-[#111410] border-t border-[#F2EFE9]/6 py-24">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
+          <h2
+            className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight"
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+          >
+            Tell us what you&apos;re building.
+          </h2>
+          <p
+            className="text-base text-[#A8A49D] max-w-lg"
+            style={{ fontFamily: "var(--font-dm-sans)" }}
+          >
+            Every project starts with a conversation. Tell us what you&apos;re
+            working on and we&apos;ll tell you honestly whether and how we can
+            help.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="mailto:hello@sandiq.com"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#A8A49D] border border-[#F2EFE9]/15 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)" }}
+            >
+              hello@sandiq.com
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)" }}
+            >
+              Book a call →
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
