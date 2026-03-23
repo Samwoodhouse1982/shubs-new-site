@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { networkMembers } from "@/data/network";
+import HeroGlobe from "@/components/HeroGlobe";
 
 const services = [
   {
@@ -164,155 +165,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right — abstract globe SVG */}
+          {/* Right — animated globe */}
           <div className="hidden lg:flex items-center justify-center">
-            <svg
-              viewBox="0 0 400 400"
-              width="420"
-              height="420"
-              xmlns="http://www.w3.org/2000/svg"
-              className="opacity-60"
-            >
-              {/* Outer circle */}
-              <circle
-                cx="200"
-                cy="200"
-                r="180"
-                fill="none"
-                stroke="#C9933A"
-                strokeWidth="0.8"
-                opacity="0.4"
-              />
-              <circle
-                cx="200"
-                cy="200"
-                r="130"
-                fill="none"
-                stroke="#2A6B62"
-                strokeWidth="0.6"
-                opacity="0.3"
-              />
-              <circle
-                cx="200"
-                cy="200"
-                r="80"
-                fill="none"
-                stroke="#C9933A"
-                strokeWidth="0.5"
-                opacity="0.25"
-              />
-
-              {/* Latitude lines */}
-              {[-120, -80, -40, 0, 40, 80, 120].map((offset, i) => {
-                const y = 200 + offset;
-                const halfWidth = Math.sqrt(
-                  Math.max(0, 180 * 180 - offset * offset)
-                );
-                return (
-                  <line
-                    key={i}
-                    x1={200 - halfWidth}
-                    y1={y}
-                    x2={200 + halfWidth}
-                    y2={y}
-                    stroke="#C9933A"
-                    strokeWidth="0.5"
-                    opacity="0.2"
-                  />
-                );
-              })}
-
-              {/* Longitude lines */}
-              {[0, 30, 60, 90, 120, 150].map((angle, i) => {
-                const rad = (angle * Math.PI) / 180;
-                const x1 = 200 + 180 * Math.cos(rad);
-                const y1 = 200 + 180 * Math.sin(rad);
-                const x2 = 200 - 180 * Math.cos(rad);
-                const y2 = 200 - 180 * Math.sin(rad);
-                return (
-                  <line
-                    key={i}
-                    x1={x1}
-                    y1={y1}
-                    x2={x2}
-                    y2={y2}
-                    stroke="#2A6B62"
-                    strokeWidth="0.5"
-                    opacity="0.2"
-                  />
-                );
-              })}
-
-              {/* Scattered dots representing global network nodes */}
-              {[
-                [200, 170],
-                [140, 210],
-                [260, 190],
-                [180, 250],
-                [230, 150],
-                [170, 140],
-                [290, 220],
-                [150, 260],
-                [240, 270],
-                [200, 200],
-              ].map(([cx, cy], i) => (
-                <circle
-                  key={i}
-                  cx={cx}
-                  cy={cy}
-                  r={i === 9 ? 4 : 2.5}
-                  fill={i % 2 === 0 ? "#C9933A" : "#2A6B62"}
-                  opacity={i === 9 ? 0.9 : 0.6}
-                />
-              ))}
-
-              {/* Connection lines */}
-              <line
-                x1="200"
-                y1="200"
-                x2="200"
-                y2="170"
-                stroke="#C9933A"
-                strokeWidth="0.6"
-                opacity="0.3"
-              />
-              <line
-                x1="200"
-                y1="200"
-                x2="140"
-                y2="210"
-                stroke="#C9933A"
-                strokeWidth="0.6"
-                opacity="0.3"
-              />
-              <line
-                x1="200"
-                y1="200"
-                x2="260"
-                y2="190"
-                stroke="#2A6B62"
-                strokeWidth="0.6"
-                opacity="0.3"
-              />
-              <line
-                x1="200"
-                y1="200"
-                x2="180"
-                y2="250"
-                stroke="#2A6B62"
-                strokeWidth="0.6"
-                opacity="0.3"
-              />
-              <line
-                x1="200"
-                y1="200"
-                x2="290"
-                y2="220"
-                stroke="#C9933A"
-                strokeWidth="0.6"
-                opacity="0.3"
-              />
-            </svg>
+            <HeroGlobe />
           </div>
         </div>
       </section>
