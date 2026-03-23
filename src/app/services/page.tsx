@@ -55,7 +55,7 @@ const services = [
     num: "06",
     title: "Global Health Intelligence",
     description:
-      "Digital health in low- and middle-income countries operates under different constraints, different incentives, and different definitions of value. Our global health intelligence service provides strategic counsel for organisations working in or moving into LMIC contexts, drawing on our network of in-country experts.",
+      "Digital health in low- and middle-income countries operates under different constraints, different incentives, and different definitions of value. Our global health intelligence service provides strategic counsel for organisations working in or moving into LMIC contexts, drawing on 15+ years of on-the-ground relationships across Africa, Asia, and Latin America.",
     rightFor: [
       "Multilateral agencies and NGOs commissioning or evaluating digital health interventions",
       "Investors and donors conducting due diligence on LMIC digital health opportunities",
@@ -72,7 +72,7 @@ const process = [
   {
     step: "02",
     label: "MATCH",
-    desc: "We match the right combination of SandiQ expertise and network members to the specific challenge, assembling a team built for your problem.",
+    desc: "We identify the right approach and skill set for the specific challenge at hand — bringing in trusted independent specialists where the engagement calls for it.",
   },
   {
     step: "03",

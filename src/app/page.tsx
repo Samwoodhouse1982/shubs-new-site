@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { networkMembers } from "@/data/network";
 import HeroGlobe from "@/components/HeroGlobe";
 
 const services = [
@@ -39,7 +38,7 @@ const stats = [
   { value: "15+", label: "Years across the digital health ecosystem" },
   { value: "5", label: "Countries with multi-million pound contracts protected" },
   { value: "50+", label: "International experts led at ITU/WHO" },
-  { value: "20+", label: "Countries in the SandiQ Network" },
+  { value: "20+", label: "Countries with active client engagements" },
   { value: "60+", label: "Countries reached via podcast" },
 ];
 
@@ -198,6 +197,74 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                <div className="h-px w-8 bg-[#C9933A]" />
+                <p
+                  className="text-xs tracking-widest text-[#C9933A] uppercase"
+                  style={{ fontFamily: "var(--font-dm-mono)" }}
+                >
+                  About SandiQ
+                </p>
+              </div>
+              <h2
+                className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight"
+                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+              >
+                We exist because the industry keeps asking the wrong questions.
+              </h2>
+              <p
+                className="text-base text-[#A8A49D] leading-relaxed"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                SandiQ was founded on a simple but uncomfortable observation:
+                the digital health industry has a systemic tendency to optimise
+                for the wrong outcomes. It chases adoption metrics instead of
+                health outcomes. It talks about disruption without engaging with
+                systems. It builds for idealised users rather than real ones.
+              </p>
+              <p
+                className="text-base text-[#A8A49D] leading-relaxed"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                We work at the intersection of clinical rigour, implementation
+                reality, and strategic clarity — helping organisations from
+                seed-stage startups to WHO programmes build digital health
+                solutions that are genuinely effective, equitable, and trusted.
+                Not just funded.
+              </p>
+            </div>
+
+            <aside className="border border-[#C9933A]/25 rounded-sm p-8 bg-[#C9933A]/5 flex flex-col justify-center">
+              <p
+                className="text-xs tracking-widest text-[#C9933A] uppercase mb-6"
+                style={{ fontFamily: "var(--font-dm-mono)" }}
+              >
+                The SandiQ Manifesto
+              </p>
+              <blockquote
+                className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug italic"
+                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
+              >
+                &ldquo;Digital health must be built with the communities it
+                serves, evaluated by the outcomes that matter to patients, and
+                held accountable to the systems it claims to improve.
+                <br /><br />
+                We don&apos;t accept that speed and safety are in tension. We
+                don&apos;t accept that evidence is only for academics. We
+                don&apos;t accept that global health and commercial health are
+                different games. The stakes are just higher for some players
+                than others.&rdquo;
+              </blockquote>
+            </aside>
+          </div>
+        </div>
+      </section>
+
       {/* ── SERVICES STRIP ─────────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -302,94 +369,126 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SANDIQ NETWORK ─────────────────────────────────────── */}
+      {/* ── THE FOUNDER ────────────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="h-px w-8 bg-[#C9933A]" />
-                <p
-                  className="text-xs tracking-widest text-[#C9933A] uppercase"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Portrait placeholder */}
+            <div className="lg:col-span-1">
+              <div className="w-full aspect-square max-w-xs bg-[#2A6B62]/15 border border-[#2A6B62]/25 rounded-sm flex items-center justify-center">
+                <span
+                  className="text-4xl text-[#2A6B62]/50"
+                  style={{ fontFamily: "var(--font-cormorant)" }}
                 >
-                  The SandiQ Network
-                </p>
+                  SU
+                </span>
               </div>
-              <h2
-                className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight"
-                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-              >
-                One consultancy.
-                <br />A global collective.
-              </h2>
             </div>
-            <div className="flex flex-col gap-5 justify-center">
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
-                SandiQ draws on a curated international network of clinical,
-                policy, and implementation experts, assembled project by
-                project to match the specific challenge at hand.
-              </p>
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
-                This isn&apos;t a directory. It&apos;s a working collective of
-                people who have delivered difficult things in hard contexts.
-              </p>
-              <Link
-                href="/about"
-                className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200 self-start"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
-                Meet the team →
-              </Link>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {networkMembers.slice(0, 3).map((member) => (
-              <div
-                key={member.id}
-                className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 transition-colors duration-200"
+            {/* Bio */}
+            <div className="lg:col-span-2 flex flex-col gap-6">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-px w-8 bg-[#C9933A]" />
+                  <p
+                    className="text-xs tracking-widest text-[#C9933A] uppercase"
+                    style={{ fontFamily: "var(--font-dm-mono)" }}
+                  >
+                    Founding Partner
+                  </p>
+                </div>
+                <h2
+                  className="text-4xl lg:text-5xl text-[#F2EFE9]"
+                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+                >
+                  Dr Shubs Upadhyay
+                </h2>
+              </div>
+
+              <p
+                className="text-base text-[#A8A49D] leading-relaxed"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                <div className="w-12 h-12 rounded-full bg-[#2A6B62]/30 border border-[#2A6B62]/40 flex items-center justify-center">
+                Dr Shubs Upadhyay is a physician, digital health strategist, and
+                global health advocate with over 15 years of experience spanning
+                clinical practice, health technology, and international
+                development. He has led clinical and strategic initiatives across
+                five continents, working with startups, NHS trusts, multilateral
+                agencies, and development finance institutions.
+              </p>
+
+              <p
+                className="text-base text-[#A8A49D] leading-relaxed"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                Shubs has served as a clinical lead at the International
+                Telecommunication Union (ITU) and contributed to WHO working
+                groups on digital health standards and equity. He founded SandiQ
+                to provide the kind of senior, independent clinical and strategic
+                counsel that digital health organisations rarely have access to —
+                without the overhead of a large consultancy.
+              </p>
+
+              <p
+                className="text-base text-[#A8A49D] leading-relaxed"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                He hosts the GPODH (Global Perspectives on Digital Health)
+                podcast, which has reached listeners in over 60 countries, and
+                writes the Shubstack newsletter on digital health strategy,
+                evidence, and equity.
+              </p>
+
+              {/* Credentials */}
+              <div className="border-t border-[#F2EFE9]/8 pt-6 flex flex-wrap gap-3">
+                {[
+                  "MBBS",
+                  "MSc Global Health",
+                  "Former ITU Clinical Lead",
+                  "WHO Contributor",
+                  "NHS Digital Health Advisor",
+                ].map((cred) => (
                   <span
-                    className="text-xs text-[#2A6B62]"
+                    key={cred}
+                    className="px-3 py-1 text-xs border border-[#F2EFE9]/12 text-[#A8A49D] rounded-sm"
                     style={{ fontFamily: "var(--font-dm-mono)" }}
                   >
-                    {member.name
-                      .split(" ")
-                      .slice(-1)[0]
-                      .slice(0, 2)
-                      .toUpperCase()}
+                    {cred}
                   </span>
-                </div>
-                <div>
-                  <p
-                    className="text-base text-[#F2EFE9] font-medium"
-                    style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600, fontSize: "1.1rem" }}
-                  >
-                    {member.name}
-                  </p>
-                  <p
-                    className="text-xs text-[#C9933A] mt-1"
-                    style={{ fontFamily: "var(--font-dm-mono)" }}
-                  >
-                    {member.role} · {member.country}
-                  </p>
-                </div>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed line-clamp-3"
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-wrap gap-6">
+                <a
+                  href="https://linkedin.com/in/shubs-upadhyay"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
                   style={{ fontFamily: "var(--font-dm-sans)" }}
                 >
-                  {member.bio}
-                </p>
+                  LinkedIn →
+                </a>
+                <a
+                  href="https://shubstack.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  Shubstack →
+                </a>
+                <a
+                  href="https://gpodh.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  GPODH Podcast →
+                </a>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -452,7 +551,7 @@ export default function HomePage() {
                 className="text-xs tracking-widest text-[#C9933A] uppercase"
                 style={{ fontFamily: "var(--font-dm-mono)" }}
               >
-                From the SandiQ Network
+                From the founder
               </p>
             </div>
             <h2
@@ -564,7 +663,7 @@ export default function HomePage() {
           >
             Whether you&apos;re launching a new digital health product, seeking
             to enter a new market, or trying to prove the value of what you
-            already have. Let&apos;s talk.
+            already have — start with a conversation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a

@@ -91,7 +91,7 @@ export default function ThinkingPage() {
             className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl"
             style={{ fontFamily: "var(--font-dm-sans)" }}
           >
-            Essays, analysis, and perspective from the SandiQ network, on
+            Essays, analysis, and perspective from Dr Shubs Upadhyay, on
             digital health strategy, evidence, equity, and the uncomfortable
             questions the industry tends to avoid.
           </p>
