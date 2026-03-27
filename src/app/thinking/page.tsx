@@ -10,42 +10,42 @@ const articles = [
     date: "Nov 2025",
     excerpt:
       "Why most digital health evaluation frameworks measure the wrong things, and what rigorous value assessment actually looks like in practice. A guide for founders, commissioners, and funders.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Level up your evidence comms",
     date: "Jul 2025",
     excerpt:
       "The gap between what your data shows and what your audience understands is almost always a communications problem. Here's a practical framework for closing it without oversimplifying.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Spotlight on underserved communities at HLTH Europe",
     date: "Jun 2025",
     excerpt:
       "Reflections from HLTH Europe on who was in the room, who wasn't, and what it tells us about the structural blind spots in mainstream digital health investment and innovation.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Can Global Health and Venture Capital get along?",
     date: "May 2025",
     excerpt:
       "On the deep structural tensions between impact-driven global health work and the return expectations of venture capital, and whether alignment is actually possible, or just well-branded.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Mental health and digital health solutions",
     date: "Mar 2025",
     excerpt:
       "Digital mental health is one of the most overhyped and underevidenced corners of the industry. Here's an honest assessment of what works, what doesn't, and why it matters.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Negotiating ethical approaches to product development",
     date: "Feb 2025",
     excerpt:
       "Ethics in digital health product development is rarely a binary decision. More often it's a negotiation between speed and safety, between ideal and possible. How to navigate it honestly.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
 ];
 
@@ -53,22 +53,22 @@ const episodes = [
   {
     title: "The economics of digital health in Sub-Saharan Africa",
     desc: "A frank conversation about what makes digital health business models viable, or not, across different African health system contexts.",
-    href: "https://gpodh.org",
+    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "What the NHS really wants from digital health vendors",
     desc: "An insider perspective on NHS procurement, what commissioners actually read, and how to stop pitching to the wrong people.",
-    href: "https://gpodh.org",
+    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "AI in diagnostics: hype, evidence, and deployment reality",
     desc: "Moving beyond the press releases: what clinical AI actually looks like when deployed in under-resourced health systems.",
-    href: "https://gpodh.org",
+    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Designing for the last mile: lessons from implementation science",
     desc: "Why so many evidence-based interventions fail to reach the people who need them most, and what implementation science tells us to do differently.",
-    href: "https://gpodh.org",
+    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
 ];
 
@@ -100,11 +100,11 @@ export default function ThinkingPage() {
               </p>
               <p className="text-sm text-[#A8A49D] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Read the essays on{" "}
-                <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
                   Shubstack
                 </a>
                 , listen to the conversations on the{" "}
-                <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                <a href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
                   GPODH podcast
                 </a>
                 , or{" "}
@@ -196,7 +196,7 @@ export default function ThinkingPage() {
               <div className="flex items-center gap-6">
                 <BroadcastGraphic size={52} />
                 <a
-                  href="https://gpodh.org"
+                  href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 self-start px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
@@ -267,7 +267,7 @@ export default function ThinkingPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="https://shubstack.substack.com"
+              href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
@@ -276,7 +276,7 @@ export default function ThinkingPage() {
               Subscribe to Shubstack →
             </a>
             <a
-              href="https://gpodh.org"
+              href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"

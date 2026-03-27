@@ -71,19 +71,19 @@ const articles = [
     title: "Evaluating tech in healthcare: measuring what matters",
     date: "Nov 2025",
     excerpt: "Why most digital health evaluation frameworks miss the point, and what rigorous value measurement actually looks like.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
   },
   {
     title: "Level up your evidence comms",
     date: "Jul 2025",
     excerpt: "The gap between what your data shows and what your audience hears is a communications problem. Here's how to close it.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
   },
   {
     title: "Can Global Health and Venture Capital get along?",
     date: "May 2025",
     excerpt: "On the structural tensions between impact-driven global health work and the return expectations of venture capital.",
-    href: "https://shubstack.substack.com",
+    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
   },
 ];
 
@@ -393,8 +393,8 @@ export default function HomePage() {
 
               <div className="flex flex-wrap gap-6">
                 <a href="https://linkedin.com/in/shubs-upadhyay" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>LinkedIn →</a>
-                <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>Shubstack →</a>
-                <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>GPODH Podcast →</a>
+                <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>Shubstack →</a>
+                <a href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=homepage" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>GPODH Podcast →</a>
               </div>
             </FadeIn>
           </div>
@@ -486,7 +486,7 @@ export default function HomePage() {
                   Candid conversations with the people reshaping digital health across 60+ countries.
                 </p>
               </div>
-              <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer"
+              <a href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=homepage" target="_blank" rel="noopener noreferrer"
                 className="shrink-0 inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
                 style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Listen on gpodh.org →

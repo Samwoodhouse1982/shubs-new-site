@@ -75,7 +75,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a
-              href="https://gpodh.org"
+              href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
@@ -84,7 +84,7 @@ export default function Footer() {
               GPODH Podcast
             </a>
             <a
-              href="https://shubstack.substack.com"
+              href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
