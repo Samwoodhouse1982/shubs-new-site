@@ -4,11 +4,11 @@ import { useEffect, useRef } from 'react'
 // Two dots tracing a Lissajous figure-8, representing two parties in conversation.
 // A = amber,  B = teal — always on opposite sides of the loop.
 
-const SIZE = 320
+const SIZE = 440
 const CX   = SIZE / 2
 const CY    = SIZE / 2
-const RX    = 90   // horizontal radius of the figure-8
-const RY    = 52   // vertical radius
+const RX    = 124  // horizontal radius of the figure-8
+const RY    = 72   // vertical radius
 const SPEED = 0.45 // radians / second
 const TRAIL = 28   // number of trailing positions to draw
 
