@@ -133,7 +133,7 @@ export default function ServicesPage() {
                   Services
                 </p>
               </div>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-[1.1] max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Clinical expertise, deployed where it counts.
               </h1>
               <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -167,7 +167,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="flex-1 flex flex-col gap-5">
-                  <h2 className="text-3xl lg:text-4xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  <h2 className="text-3xl lg:text-4xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {service.title}
                   </h2>
                   <p className="text-base text-[#C4C0B8] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -211,7 +211,7 @@ export default function ServicesPage() {
                 How we work
               </p>
             </div>
-            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               A process built on depth, not speed.
             </h2>
           </FadeIn>
@@ -253,7 +253,7 @@ export default function ServicesPage() {
                 Who we work with
               </p>
             </div>
-            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               Built for the full ecosystem.
             </h2>
           </FadeIn>
@@ -291,7 +291,7 @@ export default function ServicesPage() {
         <CtaGeometricGraphic />
 
         <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
-          <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+          <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Tell us what you&apos;re building.
           </h2>
           <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>

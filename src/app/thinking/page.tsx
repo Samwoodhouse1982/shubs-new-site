@@ -92,7 +92,7 @@ export default function ThinkingPage() {
                   Thinking
                 </p>
               </div>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-[1.1] max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Clinical depth. Strategic clarity.
               </h1>
               <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -198,7 +198,7 @@ export default function ThinkingPage() {
                   The GPODH Podcast
                 </p>
               </div>
-              <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Global Perspectives on Digital Health
               </h2>
               <p className="text-base text-[#C4C0B8] leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -290,7 +290,7 @@ export default function ThinkingPage() {
             </p>
             <div className="h-px w-8 bg-[#C9933A]" />
           </div>
-          <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+          <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Honest thinking, direct to your inbox.
           </h2>
           <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>

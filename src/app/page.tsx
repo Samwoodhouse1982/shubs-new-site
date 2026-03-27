@@ -172,7 +172,7 @@ export default function HomePage() {
         <FlatlineGraphic />
         <FadeIn>
           <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-tight italic text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
+            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.1] italic text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
               &ldquo;Most digital health fails not because of bad technology. It
               fails because it&apos;s built against the wrong definition of
               value.&rdquo;
@@ -204,7 +204,7 @@ export default function HomePage() {
                   About SandiQ
                 </p>
               </div>
-              <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 We exist because the industry keeps asking the wrong questions.
               </h2>
               <p className="text-base text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -262,7 +262,7 @@ export default function HomePage() {
                 What we do
               </p>
             </div>
-            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               Services built for complex health challenges.
             </h2>
           </FadeIn>
@@ -352,7 +352,7 @@ export default function HomePage() {
                     Founding Partner
                   </p>
                 </div>
-                <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                   Dr Shubs Upadhyay
                 </h2>
               </div>
@@ -412,7 +412,7 @@ export default function HomePage() {
                 Outcomes
               </p>
             </div>
-            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               What we&apos;ve delivered.
             </h2>
           </FadeIn>
@@ -448,7 +448,7 @@ export default function HomePage() {
                 From the founder
               </p>
             </div>
-            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               The industry talks to itself. We don&apos;t.
             </h2>
           </FadeIn>
@@ -504,7 +504,7 @@ export default function HomePage() {
         <CtaGeometricGraphic />
 
         <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Ready to build something that actually works?
           </h2>
           <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
