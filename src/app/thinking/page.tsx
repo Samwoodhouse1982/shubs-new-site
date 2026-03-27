@@ -1,5 +1,4 @@
 import FadeIn from "@/components/FadeIn";
-import BroadcastGraphic from "@/components/BroadcastGraphic";
 import PodcastArtGraphic from "@/components/PodcastArtGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import NeuralGlobeGraphic from "@/components/NeuralGlobeGraphic";
@@ -204,19 +203,15 @@ export default function ThinkingPage() {
               <p className="text-base text-[#C4C0B8] leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Candid, substantive conversations with the people reshaping digital health across 60+ countries. No press releases. No PR spin. Just honest thinking about hard problems.
               </p>
-              {/* Broadcast rings + CTA inline */}
-              <div className="flex items-center gap-6">
-                <BroadcastGraphic size={52} />
-                <a
-                  href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 self-start px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  Listen on gpodh.org →
-                </a>
-              </div>
+              <a
+                href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 self-start px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                Listen on gpodh.org →
+              </a>
             </FadeIn>
           </div>
 

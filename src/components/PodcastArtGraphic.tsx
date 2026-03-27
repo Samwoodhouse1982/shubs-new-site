@@ -3,23 +3,31 @@ import { useEffect, useRef } from 'react'
 
 const SIZE = 240
 const CX   = SIZE / 2
-const CY    = SIZE / 2
+const CY   = SIZE / 2
 
-const RING_RADII  = [28, 44, 60, 76, 92, 106]
-const WAVE_COUNT  = 18
+// Listener dots — angle (degrees) and orbital radius
+const LISTENERS = [
+  { angle:  20, r: 68 }, { angle:  80, r: 54 }, { angle: 140, r: 82 },
+  { angle: 195, r: 62 }, { angle: 255, r: 76 }, { angle: 310, r: 58 },
+  { angle: 345, r: 90 }, { angle: 115, r: 96 },
+]
+
+// Number of expanding broadcast rings
+const RING_COUNT = 3
 
 export default function PodcastArtGraphic() {
-  const svgRef  = useRef<SVGSVGElement>(null)
-  const rafRef  = useRef<number>(0)
-  const t0      = useRef<number>(0)
+  const svgRef = useRef<SVGSVGElement>(null)
+  const rafRef = useRef<number>(0)
+  const t0     = useRef<number>(0)
 
   useEffect(() => {
     const svg = svgRef.current
     if (!svg) return
 
-    const spinGroup  = svg.querySelector<SVGGElement>('#pa-spin')
-    const centerDot  = svg.querySelector<SVGCircleElement>('#pa-center')
-    const waveDots   = Array.from(svg.querySelectorAll<SVGCircleElement>('.pa-wave'))
+    const spinGroup    = svg.querySelector<SVGGElement>('#pa-spin')
+    const centerDot    = svg.querySelector<SVGCircleElement>('#pa-center')
+    const bcastRings   = Array.from(svg.querySelectorAll<SVGCircleElement>('.pa-bcast'))
+    const listenerDots = Array.from(svg.querySelectorAll<SVGCircleElement>('.pa-listener'))
 
     function tick(ts: number) {
       if (!t0.current) t0.current = ts
@@ -32,17 +40,30 @@ export default function PodcastArtGraphic() {
 
       // Pulse centre dot
       if (centerDot) {
-        const r = 6 + 2.5 * Math.abs(Math.sin(t * 1.8))
+        const r = 5 + 2 * Math.abs(Math.sin(t * 1.8))
         centerDot.setAttribute('r', String(r))
-        centerDot.setAttribute('opacity', String(0.65 + 0.3 * Math.abs(Math.sin(t * 1.8))))
+        centerDot.setAttribute('opacity', String(0.7 + 0.25 * Math.abs(Math.sin(t * 1.8))))
       }
 
-      // Wave dots at bottom — oscillate vertically
-      waveDots.forEach((dot, i) => {
-        const baseY = SIZE - 22
-        const amp   = 7 * Math.sin(t * 3.2 + i * 0.45)
-        dot.setAttribute('cy',      String(baseY + amp))
-        dot.setAttribute('opacity', String(0.25 + 0.35 * ((Math.sin(t * 2.5 + i * 0.4) + 1) / 2)))
+      // Expanding broadcast rings — staggered phase, cycle out and reset
+      bcastRings.forEach((ring, i) => {
+        const phase   = ((t * 0.5 + i / RING_COUNT) % 1)
+        const radius  = 6 + phase * 100
+        const opacity = (1 - phase) * 0.55
+        ring.setAttribute('r',       String(radius))
+        ring.setAttribute('opacity', String(opacity))
+      })
+
+      // Listener dots — slow orbit + subtle brightness pulse
+      listenerDots.forEach((dot, i) => {
+        const { angle: baseAngle, r: orbR } = LISTENERS[i]
+        const speed = i % 2 === 0 ? 3 : -2
+        const angle = (baseAngle + t * speed) * (Math.PI / 180)
+        const x = CX + orbR * Math.cos(angle)
+        const y = CY + orbR * Math.sin(angle)
+        dot.setAttribute('cx',      String(x))
+        dot.setAttribute('cy',      String(y))
+        dot.setAttribute('opacity', String(0.3 + 0.45 * ((Math.sin(t * 1.5 + i * 0.9) + 1) / 2)))
       })
 
       rafRef.current = requestAnimationFrame(tick)
@@ -63,13 +84,11 @@ export default function PodcastArtGraphic() {
     >
       {/* Background disc */}
       <circle cx={CX} cy={CY} r={SIZE / 2 - 2} fill="#080E0C" />
-
-      {/* Static outer border ring */}
       <circle cx={CX} cy={CY} r={SIZE / 2 - 3} fill="none" stroke="#2A6B62" strokeWidth="1" opacity="0.35" />
 
       {/* Rotating groove rings */}
       <g id="pa-spin">
-        {RING_RADII.map((r, i) => (
+        {[28, 44, 60, 76, 92, 106].map((r, i) => (
           <circle
             key={r}
             cx={CX} cy={CY} r={r}
@@ -77,27 +96,39 @@ export default function PodcastArtGraphic() {
             stroke={i % 2 === 0 ? '#2A6B62' : '#C9933A'}
             strokeWidth={i % 3 === 0 ? '0.7' : '0.4'}
             strokeDasharray={i % 2 === 0 ? '4 3' : 'none'}
-            opacity={0.12 + (RING_RADII.length - i) * 0.045}
+            opacity={0.12 + (6 - i) * 0.045}
           />
         ))}
       </g>
 
-      {/* Centre spindle dot */}
-      <circle id="pa-center" cx={CX} cy={CY} r="6" fill="#C9933A" opacity="0.8" />
-      <circle cx={CX} cy={CY} r="2.5" fill="#080E0C" />
-
-      {/* Animated waveform strip at bottom */}
-      {Array.from({ length: WAVE_COUNT }, (_, i) => (
+      {/* Expanding broadcast rings */}
+      {Array.from({ length: RING_COUNT }, (_, i) => (
         <circle
           key={i}
-          className="pa-wave"
-          cx={CX - (WAVE_COUNT / 2) * 7 + i * 7 + 3}
-          cy={SIZE - 22}
-          r="1.8"
-          fill="#C9933A"
-          opacity="0.3"
+          className="pa-bcast"
+          cx={CX} cy={CY} r="6"
+          fill="none"
+          stroke="#2A6B62"
+          strokeWidth="1.2"
+          opacity="0"
         />
       ))}
+
+      {/* Listener / viewer dots */}
+      {LISTENERS.map((_, i) => (
+        <circle
+          key={i}
+          className="pa-listener"
+          cx={CX} cy={CY}
+          r={i % 3 === 0 ? '2.5' : '1.8'}
+          fill={i % 2 === 0 ? '#C9933A' : '#2A6B62'}
+          opacity="0.4"
+        />
+      ))}
+
+      {/* Centre source dot */}
+      <circle id="pa-center" cx={CX} cy={CY} r="5" fill="#C9933A" opacity="0.9" />
+      <circle cx={CX} cy={CY} r="2" fill="#080E0C" />
     </svg>
   )
 }
