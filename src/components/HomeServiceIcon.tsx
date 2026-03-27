@@ -7,32 +7,63 @@ type ServiceNum = '01' | '02' | '03' | '04' | '05' | '06'
 const AMBER = '#C9933A'
 const TEAL  = '#2A6B62'
 
+const eio = (t: number) =>
+  t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2
+const eo = (t: number) => 1 - (1 - t) ** 2
+
 // ── 01 · Fractional CMO ──────────────────────────────────────────────────────
-// Person silhouette with two staggered sonar rings — amber outer, teal inner
+// An amber node (the CMO) drifts into an existing teal team triangle,
+// connection lines form as it embeds, then it retreats and cycles.
 function CmoIcon() {
+  const TEAM = [{ x: 12, y: 12 }, { x: 44, y: 10 }, { x: 28, y: 44 }]
+  const OUT  = { x: 54, y: 2 }
+  const IN   = { x: 28, y: 24 }
+
   const svgRef   = useRef<SVGSVGElement>(null)
   const rafRef   = useRef<number>(0)
   const startRef = useRef<number>(0)
 
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const r1 = svg.querySelector<SVGCircleElement>('#cmo-r1')
-    const r2 = svg.querySelector<SVGCircleElement>('#cmo-r2')
-    const r3 = svg.querySelector<SVGCircleElement>('#cmo-r3')
+    const node  = svg.querySelector<SVGCircleElement>('#cmo-node')
+    const lines = Array.from(svg.querySelectorAll<SVGLineElement>('.cmo-line'))
+
+    // Phases: wait → approach → dwell → leave (total 5s)
+    const CYCLE = 5.0
+    const T_APP = 1.2;  const D_APP = 1.0
+    const T_DWL = T_APP + D_APP; const D_DWL = 1.4
+    const T_LEV = T_DWL + D_DWL; const D_LEV = 0.9
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts
-      const t = (ts - startRef.current) / 1000
-      // Three staggered rings, cycle every 2.4 s
-      const speed = 1 / 2.4
-      const p1 = (t * speed) % 1
-      const p2 = ((t * speed) + 0.33) % 1
-      const p3 = ((t * speed) + 0.66) % 1
-      const ease = (p: number) => 1 - (1 - p) ** 2
+      const t = ((ts - startRef.current) / 1000) % CYCLE
 
-      if (r1) { r1.setAttribute('r', String(8 + ease(p1) * 18)); r1.setAttribute('opacity', String((1 - p1) * 0.5)) }
-      if (r2) { r2.setAttribute('r', String(8 + ease(p2) * 18)); r2.setAttribute('opacity', String((1 - p2) * 0.4)) }
-      if (r3) { r3.setAttribute('r', String(8 + ease(p3) * 18)); r3.setAttribute('opacity', String((1 - p3) * 0.3)) }
+      let cx = OUT.x, cy = OUT.y, lineAlpha = 0, r = 2.5
+
+      if (t >= T_APP && t < T_DWL) {
+        const p = eio((t - T_APP) / D_APP)
+        cx = OUT.x + (IN.x - OUT.x) * p
+        cy = OUT.y + (IN.y - OUT.y) * p
+        lineAlpha = p * 0.65
+        r = 2.5 + p * 1.5
+      } else if (t >= T_DWL && t < T_LEV) {
+        cx = IN.x; cy = IN.y; lineAlpha = 0.65; r = 4
+      } else if (t >= T_LEV) {
+        const p = eio((t - T_LEV) / D_LEV)
+        cx = IN.x + (OUT.x - IN.x) * p
+        cy = IN.y + (OUT.y - IN.y) * p
+        lineAlpha = (1 - p) * 0.65
+        r = 4 - p * 1.5
+      }
+
+      node?.setAttribute('cx', String(cx))
+      node?.setAttribute('cy', String(cy))
+      node?.setAttribute('r',  String(r))
+      lines.forEach((ln, i) => {
+        ln.setAttribute('x1', String(cx)); ln.setAttribute('y1', String(cy))
+        ln.setAttribute('x2', String(TEAM[i].x)); ln.setAttribute('y2', String(TEAM[i].y))
+        ln.setAttribute('opacity', String(lineAlpha))
+      })
 
       rafRef.current = requestAnimationFrame(tick)
     }
@@ -42,22 +73,27 @@ function CmoIcon() {
 
   return (
     <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
-      {/* Sonar rings from head */}
-      <circle id="cmo-r1" cx={28} cy={14} r={8} stroke={AMBER} strokeWidth={0.8} opacity={0} />
-      <circle id="cmo-r2" cx={28} cy={14} r={8} stroke={TEAL}  strokeWidth={0.8} opacity={0} />
-      <circle id="cmo-r3" cx={28} cy={14} r={8} stroke={AMBER} strokeWidth={0.6} opacity={0} />
-      {/* Person — head */}
-      <circle cx={28} cy={14} r={6} fill={AMBER} opacity={0.9} />
-      {/* Person — body */}
-      <path d="M10 46a18 18 0 0 1 36 0" stroke={AMBER} strokeWidth={1.5} strokeLinecap="round" opacity={0.7} />
-      {/* Teal accent line */}
-      <line x1={20} y1={46} x2={36} y2={46} stroke={TEAL} strokeWidth={1} opacity={0.4} />
+      {/* Static team connections */}
+      <line x1={12} y1={12} x2={44} y2={10} stroke={TEAL} strokeWidth={0.7} opacity={0.25} />
+      <line x1={44} y1={10} x2={28} y2={44} stroke={TEAL} strokeWidth={0.7} opacity={0.25} />
+      <line x1={28} y1={44} x2={12} y2={12} stroke={TEAL} strokeWidth={0.7} opacity={0.25} />
+      {/* Team nodes */}
+      {TEAM.map((n, i) => <circle key={i} cx={n.x} cy={n.y} r={3.5} fill={TEAL} opacity={0.75} />)}
+      {/* Lines from CMO to each team member */}
+      {TEAM.map((_, i) => (
+        <line key={i} className="cmo-line"
+          x1={OUT.x} y1={OUT.y} x2={TEAM[i].x} y2={TEAM[i].y}
+          stroke={AMBER} strokeWidth={1} strokeDasharray="3 3" opacity={0} />
+      ))}
+      {/* CMO node */}
+      <circle id="cmo-node" cx={OUT.x} cy={OUT.y} r={2.5} fill={AMBER} opacity={0.95} />
     </svg>
   )
 }
 
 // ── 02 · Clinical Product Development ───────────────────────────────────────
-// Monitor with a vertical scanline sweeping across; cross pulses on contact
+// A product box draws itself; a clinical cross then draws inside it.
+// Both pulse together — clinical insight built in from the start.
 function ProductIcon() {
   const svgRef   = useRef<SVGSVGElement>(null)
   const rafRef   = useRef<number>(0)
@@ -65,31 +101,66 @@ function ProductIcon() {
 
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const scan  = svg.querySelector<SVGLineElement>('#pr-scan')
-    const cross = svg.querySelector<SVGGElement>('#pr-cross')
+    const box   = svg.querySelector<SVGRectElement>('#pd-box')
+    const crossH = svg.querySelector<SVGLineElement>('#pd-ch')
+    const crossV = svg.querySelector<SVGLineElement>('#pd-cv')
+    if (!box || !crossH || !crossV) return
 
-    // Monitor inner bounds: x 8–48, y 6–38
-    const xMin = 10, xMax = 46
+    const bx: SVGRectElement   = box
+    const ch: SVGLineElement   = crossH
+    const cv: SVGLineElement   = crossV
+
+    const boxPerim = 2 * (32 + 30) // rect 32w 30h ≈ 124
+    bx.style.strokeDasharray  = String(boxPerim)
+    bx.style.strokeDashoffset = String(boxPerim)
+    const hLen = 16, vLen = 16
+    ch.style.strokeDasharray  = String(hLen); ch.style.strokeDashoffset = String(hLen)
+    cv.style.strokeDasharray  = String(vLen); cv.style.strokeDashoffset = String(vLen)
+
+    const CYCLE = 4.5
+    const D_BOX = 1.1; const D_CROSS = 0.7; const D_PULSE = 0.8; const D_FADE = 0.6
+    const T_CROSS = D_BOX + 0.3
+    const T_PULSE = T_CROSS + D_CROSS
+    const T_FADE  = T_PULSE + D_PULSE
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts
-      const t = (ts - startRef.current) / 1000
-      const cycle = 2.2
-      const raw = (t % cycle) / cycle
-      const x = xMin + (xMax - xMin) * raw
+      const t = ((ts - startRef.current) / 1000) % CYCLE
 
-      if (scan) {
-        scan.setAttribute('x1', String(x))
-        scan.setAttribute('x2', String(x))
-        scan.setAttribute('opacity', String(0.5 - 0.4 * raw))
+      // Box draws on
+      const bp = Math.min(t / D_BOX, 1)
+      bx.style.strokeDashoffset = String(boxPerim * (1 - eo(bp)))
+
+      // Cross draws on (after box)
+      if (t >= T_CROSS) {
+        const cp = Math.min((t - T_CROSS) / D_CROSS, 1)
+        ch.style.strokeDashoffset = String(hLen * (1 - eo(cp)))
+        cv.style.strokeDashoffset = String(vLen * (1 - eo(cp)))
+        ch.style.opacity = String(eo(cp))
+        cv.style.opacity = String(eo(cp))
       }
 
-      // Cross scales up when scan passes center (x≈28)
-      if (cross) {
-        const dist = Math.abs(x - 28)
-        const boost = Math.max(0, 1 - dist / 10)
-        const s = 1 + 0.25 * boost
-        cross.setAttribute('transform', `scale(${s}) translate(${28 * (1 - s) / s}, ${24 * (1 - s) / s})`)
+      // Pulse opacity
+      if (t >= T_PULSE && t < T_FADE) {
+        const pp = (t - T_PULSE) / D_PULSE
+        const glow = 0.6 + 0.35 * Math.abs(Math.sin(pp * Math.PI))
+        bx.style.opacity = String(glow)
+      }
+
+      // Fade everything out before reset
+      if (t >= T_FADE) {
+        const fp = Math.min((t - T_FADE) / D_FADE, 1)
+        const alpha = 1 - fp
+        bx.style.opacity = String(alpha * 0.6)
+        ch.style.opacity = String(alpha); cv.style.opacity = String(alpha)
+        if (fp >= 1) {
+          // Reset for next cycle
+          bx.style.strokeDashoffset = String(boxPerim)
+          ch.style.strokeDashoffset = String(hLen)
+          cv.style.strokeDashoffset = String(vLen)
+          bx.style.opacity = '0.6'; ch.style.opacity = '0'; cv.style.opacity = '0'
+          startRef.current = ts
+        }
       }
 
       rafRef.current = requestAnimationFrame(tick)
@@ -100,155 +171,182 @@ function ProductIcon() {
 
   return (
     <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
-      {/* Monitor */}
-      <rect x={4} y={4} width={48} height={34} rx={3} stroke={AMBER} strokeWidth={1.2} opacity={0.6} />
-      {/* Stand */}
-      <line x1={28} y1={38} x2={28} y2={46} stroke={AMBER} strokeWidth={1.2} opacity={0.5} />
-      <line x1={18} y1={46} x2={38} y2={46} stroke={AMBER} strokeWidth={1.2} opacity={0.5} />
-      {/* Scanline */}
-      <line id="pr-scan" x1={10} y1={6} x2={10} y2={36} stroke={TEAL} strokeWidth={1.5} opacity={0.5} />
-      {/* Cross */}
-      <g id="pr-cross">
-        <line x1={21} y1={21} x2={35} y2={21} stroke={AMBER} strokeWidth={1.5} strokeLinecap="round" />
-        <line x1={28} y1={14} x2={28} y2={28} stroke={AMBER} strokeWidth={1.5} strokeLinecap="round" />
-      </g>
-      {/* Teal corner accent */}
-      <circle cx={46} cy={38} r={2} fill={TEAL} opacity={0.5} />
+      {/* Product box */}
+      <rect id="pd-box" x={12} y={12} width={32} height={30} rx={2}
+        stroke={AMBER} strokeWidth={1.4} opacity={0.6} />
+      {/* Clinical cross inside */}
+      <line id="pd-ch" x1={20} y1={27} x2={36} y2={27}
+        stroke={TEAL} strokeWidth={1.8} strokeLinecap="round" opacity={0} />
+      <line id="pd-cv" x1={28} y1={19} x2={28} y2={35}
+        stroke={TEAL} strokeWidth={1.8} strokeLinecap="round" opacity={0} />
+      {/* Corner accent */}
+      <circle cx={44} cy={42} r={2} fill={AMBER} opacity={0.3} />
     </svg>
   )
 }
 
 // ── 03 · Evidence Strategy ───────────────────────────────────────────────────
-// Ascending line chart — dot traces along the line, then resets
+// Five dots start scattered, then sort themselves into an ascending trend.
+// A line draws through once they're aligned — signal extracted from noise.
 function EvidenceIcon() {
+  const SCRAMBLED: [number, number][] = [[8,44],[18,22],[30,40],[40,16],[50,32]]
+  const SORTED:    [number, number][] = [[8,44],[18,36],[30,28],[40,20],[50,12]]
+
   const svgRef   = useRef<SVGSVGElement>(null)
   const rafRef   = useRef<number>(0)
   const startRef = useRef<number>(0)
 
-  // Chart waypoints (x, y)
-  const PTS: [number, number][] = [[8, 44], [18, 36], [28, 26], [36, 30], [46, 14]]
-  const TOTAL_LEN = PTS.reduce((sum, pt, i) => {
-    if (i === 0) return 0
-    const prev = PTS[i - 1]
-    return sum + Math.hypot(pt[0] - prev[0], pt[1] - prev[1])
-  }, 0)
-
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const dot   = svg.querySelector<SVGCircleElement>('#ev-dot')
-    const trail = svg.querySelector<SVGPolylineElement>('#ev-trail')
+    const dots = Array.from(svg.querySelectorAll<SVGCircleElement>('.ev-dot'))
+    const trendLine = svg.querySelector<SVGPolylineElement>('#ev-trend')
+    if (!trendLine) return
+    const tl: SVGPolylineElement = trendLine
+    const tLen = 48 // approximate polyline length
+    tl.style.strokeDasharray  = String(tLen)
+    tl.style.strokeDashoffset = String(tLen)
 
-    function posAlongPath(progress: number): [number, number] {
-      const target = progress * TOTAL_LEN
-      let acc = 0
-      for (let i = 1; i < PTS.length; i++) {
-        const seg = Math.hypot(PTS[i][0] - PTS[i-1][0], PTS[i][1] - PTS[i-1][1])
-        if (acc + seg >= target) {
-          const t = (target - acc) / seg
-          return [PTS[i-1][0] + t * (PTS[i][0] - PTS[i-1][0]), PTS[i-1][1] + t * (PTS[i][1] - PTS[i-1][1])]
-        }
-        acc += seg
-      }
-      return PTS[PTS.length - 1]
-    }
+    const CYCLE = 5.0
+    const D_SORT = 1.4; const D_HOLD = 0.8; const D_LINE = 0.7; const D_FADE = 0.6
+    const T_HOLD = D_SORT
+    const T_LINE = T_HOLD + D_HOLD
+    const T_FADE = T_LINE + D_LINE + 0.5
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts
-      const t = (ts - startRef.current) / 1000
-      const cycle = 3.0
-      const raw  = (t % cycle) / cycle
-      const ease = raw < 0.8 ? raw / 0.8 : 1 - (raw - 0.8) / 0.2 * 0.05 // hold at end briefly
+      const t = ((ts - startRef.current) / 1000) % CYCLE
 
-      const [x, y] = posAlongPath(Math.min(ease, 1))
+      // Sort dots
+      const sp = Math.min(t < D_SORT ? t / D_SORT : 1, 1)
+      const ep = eio(sp)
+      dots.forEach((dot, i) => {
+        const [sx, sy] = SCRAMBLED[i]
+        const [dx, dy] = SORTED[i]
+        dot.setAttribute('cx', String(sx + (dx - sx) * ep))
+        dot.setAttribute('cy', String(sy + (dy - sy) * ep))
+      })
 
-      if (dot) {
-        dot.setAttribute('cx', String(x))
-        dot.setAttribute('cy', String(y))
-        dot.setAttribute('opacity', String(0.9))
+      // Trend line draws after sorting
+      if (t >= T_LINE) {
+        const lp = Math.min((t - T_LINE) / D_LINE, 1)
+        tl.style.strokeDashoffset = String(tLen * (1 - eo(lp)))
+        tl.style.opacity = '0.7'
       }
 
-      // Trail: points from start up to current
-      if (trail) {
-        const progress = Math.min(ease, 1)
-        const trailPts: string[] = []
-        for (let s = 0; s <= progress; s += 0.04) {
-          const [px, py] = posAlongPath(s)
-          trailPts.push(`${px},${py}`)
+      // Fade out before reset
+      if (t >= T_FADE) {
+        const fp = Math.min((t - T_FADE) / D_FADE, 1)
+        tl.style.opacity = String(0.7 * (1 - fp))
+        dots.forEach(dot => dot.setAttribute('opacity', String(0.8 * (1 - fp))))
+        if (fp >= 1) {
+          tl.style.strokeDashoffset = String(tLen)
+          tl.style.opacity = '0'
+          dots.forEach((dot, i) => {
+            dot.setAttribute('cx', String(SCRAMBLED[i][0]))
+            dot.setAttribute('cy', String(SCRAMBLED[i][1]))
+            dot.setAttribute('opacity', '0.8')
+          })
+          startRef.current = ts
         }
-        trailPts.push(`${x},${y}`)
-        trail.setAttribute('points', trailPts.join(' '))
       }
 
       rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(rafRef.current)
-  }, [TOTAL_LEN])
+  }, [])
 
-  const ptStr = PTS.map(([x, y]) => `${x},${y}`).join(' ')
+  const trendPts = SORTED.map(([x, y]) => `${x},${y}`).join(' ')
 
   return (
     <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
-      {/* Ghost path */}
-      <polyline points={ptStr} stroke={AMBER} strokeWidth={1} opacity={0.12} strokeLinejoin="round" />
-      {/* Animated trail */}
-      <polyline id="ev-trail" points={ptStr} stroke={AMBER} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" opacity={0.75} />
-      {/* Waypoint dots */}
-      {PTS.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r={2} fill={i === PTS.length - 1 ? TEAL : AMBER} opacity={0.35} />
-      ))}
-      {/* Moving dot */}
-      <circle id="ev-dot" cx={8} cy={44} r={3.5} fill={AMBER} opacity={0.9} />
       {/* Baseline */}
-      <line x1={6} y1={47} x2={50} y2={47} stroke={TEAL} strokeWidth={0.8} opacity={0.3} />
+      <line x1={4} y1={48} x2={52} y2={48} stroke={TEAL} strokeWidth={0.7} opacity={0.2} />
+      {/* Trend line (draws on) */}
+      <polyline id="ev-trend" points={trendPts}
+        stroke={AMBER} strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round"
+        style={{ opacity: 0 }} />
+      {/* Scatter dots */}
+      {SCRAMBLED.map(([x, y], i) => (
+        <circle key={i} className="ev-dot" cx={x} cy={y} r={3}
+          fill={i % 2 === 0 ? AMBER : TEAL} opacity={0.8} />
+      ))}
     </svg>
   )
 }
 
 // ── 04 · Market Access ───────────────────────────────────────────────────────
-// Shield outline draws on (teal), checkmark draws on (amber), then loops
+// A dot navigates a winding path through a complex space to reach a destination.
+// The route isn't straight — the expertise is knowing the way.
 function MarketIcon() {
+  // Winding waypoints: complex route left→right
+  const PATH: [number, number][] = [[6,28],[14,12],[24,38],[36,16],[46,34],[52,22]]
+  const SEG_LENS: number[] = []
+  let totalLen = 0
+  for (let i = 1; i < PATH.length; i++) {
+    const d = Math.hypot(PATH[i][0]-PATH[i-1][0], PATH[i][1]-PATH[i-1][1])
+    SEG_LENS.push(d); totalLen += d
+  }
+
   const svgRef   = useRef<SVGSVGElement>(null)
   const rafRef   = useRef<number>(0)
   const startRef = useRef<number>(0)
 
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const shield = svg.querySelector<SVGPathElement>('#mk-shield')
-    const check  = svg.querySelector<SVGPathElement>('#mk-check')
-    if (!shield || !check) return
-    const sh: SVGPathElement = shield
-    const ck: SVGPathElement = check
-    const sLen = sh.getTotalLength()
-    const cLen = ck.getTotalLength()
+    const dot   = svg.querySelector<SVGCircleElement>('#mk-dot')
+    const trail = svg.querySelector<SVGPolylineElement>('#mk-trail')
+    const dest  = svg.querySelector<SVGCircleElement>('#mk-dest')
 
-    sh.style.strokeDasharray = String(sLen)
-    ck.style.strokeDasharray = String(cLen)
+    function posAt(progress: number): [number, number] {
+      const target = progress * totalLen
+      let acc = 0
+      for (let i = 0; i < SEG_LENS.length; i++) {
+        if (acc + SEG_LENS[i] >= target) {
+          const t = (target - acc) / SEG_LENS[i]
+          return [PATH[i][0] + t*(PATH[i+1][0]-PATH[i][0]), PATH[i][1] + t*(PATH[i+1][1]-PATH[i][1])]
+        }
+        acc += SEG_LENS[i]
+      }
+      return PATH[PATH.length - 1]
+    }
+
+    const CYCLE = 4.2
+    const D_TRAVEL = 2.2; const D_ARRIVE = 0.6; const D_RESET = 0.4
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts
-      const t = (ts - startRef.current) / 1000
-      const cycle = 4.0
-      const raw = (t % cycle) / cycle
+      const t = ((ts - startRef.current) / 1000) % CYCLE
 
-      // 0–0.4: shield draws on; 0.4–0.7: check draws on; 0.7–1.0: fade hold
-      if (raw < 0.4) {
-        const p = raw / 0.4
-        sh.style.strokeDashoffset = String(sLen * (1 - p))
-        ck.style.strokeDashoffset = String(cLen)
-        sh.style.opacity = '0.7'
-        ck.style.opacity = '0'
-      } else if (raw < 0.7) {
-        const p = (raw - 0.4) / 0.3
-        sh.style.strokeDashoffset = '0'
-        ck.style.strokeDashoffset = String(cLen * (1 - p))
-        sh.style.opacity = '0.7'
-        ck.style.opacity = String(p * 0.9)
+      if (t < D_TRAVEL) {
+        const p = eio(t / D_TRAVEL)
+        const [x, y] = posAt(p)
+        dot?.setAttribute('cx', String(x)); dot?.setAttribute('cy', String(y))
+        dot?.setAttribute('opacity', '0.9')
+
+        // Trail: points from start up to current
+        const trailPts: string[] = []
+        for (let s = 0; s <= p; s += 0.04) {
+          const [px, py] = posAt(s); trailPts.push(`${px},${py}`)
+        }
+        trailPts.push(`${x},${y}`)
+        trail?.setAttribute('points', trailPts.join(' '))
+        trail?.setAttribute('opacity', '0.35')
+        dest?.setAttribute('opacity', '0.3')
+      } else if (t < D_TRAVEL + D_ARRIVE) {
+        const [lx, ly] = PATH[PATH.length - 1]
+        dot?.setAttribute('cx', String(lx)); dot?.setAttribute('cy', String(ly))
+        const ap = (t - D_TRAVEL) / D_ARRIVE
+        dot?.setAttribute('r', String(3 + ap * 2))
+        dest?.setAttribute('opacity', String(0.3 + ap * 0.6))
+        dest?.setAttribute('r', String(4 + ap * 6))
       } else {
-        sh.style.strokeDashoffset = '0'
-        ck.style.strokeDashoffset = '0'
-        sh.style.opacity = String(0.7 - (raw - 0.7) / 0.3 * 0.3)
-        ck.style.opacity = String(0.9 - (raw - 0.7) / 0.3 * 0.6)
+        // Reset
+        const [sx, sy] = PATH[0]
+        dot?.setAttribute('cx', String(sx)); dot?.setAttribute('cy', String(sy))
+        dot?.setAttribute('r', '3'); dot?.setAttribute('opacity', '0')
+        trail?.setAttribute('points', `${sx},${sy}`)
+        dest?.setAttribute('r', '4'); dest?.setAttribute('opacity', '0.3')
       }
 
       rafRef.current = requestAnimationFrame(tick)
@@ -257,49 +355,91 @@ function MarketIcon() {
     return () => cancelAnimationFrame(rafRef.current)
   }, [])
 
+  const pathPts = PATH.map(([x, y]) => `${x},${y}`).join(' ')
+
   return (
     <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
-      {/* Ghost shield fill */}
-      <path d="M28 4l18 8v12c0 10-7.8 18.8-18 22-10.2-3.2-18-12-18-22V12l18-8z" fill={TEAL} opacity={0.07} />
-      {/* Drawing shield outline */}
-      <path id="mk-shield" d="M28 4l18 8v12c0 10-7.8 18.8-18 22-10.2-3.2-18-12-18-22V12l18-8z"
-        stroke={TEAL} strokeWidth={1.4} strokeLinejoin="round" opacity={0.7} />
-      {/* Drawing checkmark */}
-      <path id="mk-check" d="M19 28l6 6 12-13"
-        stroke={AMBER} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" opacity={0} />
+      {/* Ghost path — the route */}
+      <polyline points={pathPts} stroke={TEAL} strokeWidth={0.8}
+        strokeDasharray="3 4" strokeLinejoin="round" opacity={0.25} />
+      {/* Trail */}
+      <polyline id="mk-trail" points={`${PATH[0][0]},${PATH[0][1]}`}
+        stroke={AMBER} strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" opacity={0} />
+      {/* Destination */}
+      <circle id="mk-dest" cx={PATH[PATH.length-1][0]} cy={PATH[PATH.length-1][1]}
+        r={4} stroke={TEAL} strokeWidth={0.8} fill="none" opacity={0.3} />
+      {/* Moving dot */}
+      <circle id="mk-dot" cx={PATH[0][0]} cy={PATH[0][1]} r={3} fill={AMBER} opacity={0} />
+      {/* Start marker */}
+      <circle cx={PATH[0][0]} cy={PATH[0][1]} r={2} fill={TEAL} opacity={0.5} />
     </svg>
   )
 }
 
 // ── 05 · Impact Communications ───────────────────────────────────────────────
-// Broadcast rings expanding from a dot; arrow pulses right
+// Three scattered data points converge to a focal point, then a single
+// clear beam fires outward — complex evidence becomes a sharp narrative.
 function CommsIcon() {
+  const SOURCES: [number, number][] = [[6, 8], [6, 28], [6, 48]]
+  const FOCAL: [number, number] = [22, 28]
+  const TARGET: [number, number] = [52, 28]
+
   const svgRef   = useRef<SVGSVGElement>(null)
   const rafRef   = useRef<number>(0)
   const startRef = useRef<number>(0)
 
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const rings = Array.from(svg.querySelectorAll<SVGCircleElement>('.cm-ring'))
-    const arrow = svg.querySelector<SVGPathElement>('#cm-arrow')
+    const dots  = Array.from(svg.querySelectorAll<SVGCircleElement>('.co-dot'))
+    const beam  = svg.querySelector<SVGLineElement>('#co-beam')
+    const burst = svg.querySelector<SVGCircleElement>('#co-burst')
+
+    const CYCLE = 4.0
+    const D_CONV = 1.1; const D_HOLD = 0.3; const D_BEAM = 0.6; const D_BURST = 0.6
+    const T_BEAM  = D_CONV + D_HOLD
+    const T_BURST = T_BEAM + D_BEAM
+    const T_FADE  = T_BURST + D_BURST
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts
-      const t = (ts - startRef.current) / 1000
-      const speed = 1 / 2.8
+      const t = ((ts - startRef.current) / 1000) % CYCLE
 
-      rings.forEach((ring, i) => {
-        const p = ((t * speed) + i * 0.28) % 1
-        const ease = 1 - (1 - p) ** 2
-        ring.setAttribute('r',       String(4 + ease * 22))
-        ring.setAttribute('opacity', String((1 - p) * (i % 2 === 0 ? 0.55 : 0.35)))
+      // Dots converge to focal point
+      const cp = Math.min(t / D_CONV, 1)
+      const ce = eio(cp)
+      dots.forEach((dot, i) => {
+        const [sx, sy] = SOURCES[i]
+        dot.setAttribute('cx', String(sx + (FOCAL[0] - sx) * ce))
+        dot.setAttribute('cy', String(sy + (FOCAL[1] - sy) * ce))
+        dot.setAttribute('opacity', String(1 - ce * 0.4))
       })
 
-      // Arrow pulses right
-      if (arrow) {
-        const shift = 2.5 * Math.abs(Math.sin(t * 1.8))
-        arrow.setAttribute('transform', `translate(${shift}, 0)`)
-        arrow.setAttribute('opacity', String(0.55 + 0.35 * Math.abs(Math.sin(t * 1.8))))
+      // Beam fires
+      if (t >= T_BEAM) {
+        const bp = Math.min((t - T_BEAM) / D_BEAM, 1)
+        beam?.setAttribute('x2', String(FOCAL[0] + (TARGET[0] - FOCAL[0]) * eo(bp)))
+        beam?.setAttribute('opacity', String(0.8))
+        dots.forEach(dot => dot.setAttribute('opacity', String(0.1 + (1-bp) * 0.4)))
+      }
+
+      // Burst at target
+      if (t >= T_BURST) {
+        const rp = Math.min((t - T_BURST) / D_BURST, 1)
+        burst?.setAttribute('r', String(3 + rp * 12))
+        burst?.setAttribute('opacity', String((1 - rp) * 0.5))
+      }
+
+      // Fade + reset
+      if (t >= T_FADE) {
+        beam?.setAttribute('opacity', '0')
+        burst?.setAttribute('r', '3'); burst?.setAttribute('opacity', '0')
+        dots.forEach((dot, i) => {
+          dot.setAttribute('cx', String(SOURCES[i][0]))
+          dot.setAttribute('cy', String(SOURCES[i][1]))
+          dot.setAttribute('opacity', '0.8')
+        })
+        beam?.setAttribute('x2', String(FOCAL[0]))
+        startRef.current = ts
       }
 
       rafRef.current = requestAnimationFrame(tick)
@@ -310,49 +450,83 @@ function CommsIcon() {
 
   return (
     <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
-      {/* Rings from left-center source */}
-      {[0, 1, 2, 3].map(i => (
-        <circle key={i} className="cm-ring" cx={14} cy={28} r={4}
-          stroke={i % 2 === 0 ? AMBER : TEAL} strokeWidth={0.9} opacity={0} />
+      {/* Source dots */}
+      {SOURCES.map(([x, y], i) => (
+        <circle key={i} className="co-dot" cx={x} cy={y} r={3}
+          fill={TEAL} opacity={0.8} />
       ))}
-      {/* Source dot */}
-      <circle cx={14} cy={28} r={3.5} fill={AMBER} opacity={0.9} />
-      {/* Arrow */}
-      <path id="cm-arrow" d="M32 22l10 6-10 6M42 28H28"
-        stroke={AMBER} strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" opacity={0.6} />
+      {/* Beam */}
+      <line id="co-beam" x1={FOCAL[0]} y1={FOCAL[1]} x2={FOCAL[0]} y2={FOCAL[1]}
+        stroke={AMBER} strokeWidth={1.8} strokeLinecap="round" opacity={0} />
+      {/* Burst at target */}
+      <circle id="co-burst" cx={TARGET[0]} cy={TARGET[1]} r={3}
+        stroke={AMBER} strokeWidth={0.8} fill="none" opacity={0} />
+      {/* Focal point indicator */}
+      <circle cx={FOCAL[0]} cy={FOCAL[1]} r={2} fill={AMBER} opacity={0.4} />
     </svg>
   )
 }
 
 // ── 06 · Health System Intelligence ──────────────────────────────────────────
-// Central node with two orbiting satellites at different radii and speeds
+// Six nodes in a constellation. Most connections stay faint. Sequentially,
+// a chosen path lights up amber — knowing exactly which connections matter.
 function NetworkIcon() {
+  const NODES6: [number, number][] = [
+    [28, 6], [50, 18], [50, 38], [28, 50], [6, 38], [6, 18],
+  ]
+  // All possible edges
+  const ALL_EDGES: [number, number][] = [
+    [0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,2],[1,3],[2,4],[3,5],[4,0],[5,1]
+  ]
+  // The "intelligent path" — the 4 connections that get lit up in sequence
+  const PATH_EDGES = [0, 2, 7, 4] // indices into ALL_EDGES
+
   const svgRef   = useRef<SVGSVGElement>(null)
   const rafRef   = useRef<number>(0)
   const startRef = useRef<number>(0)
 
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const s1  = svg.querySelector<SVGCircleElement>('#nw-s1')
-    const s2  = svg.querySelector<SVGCircleElement>('#nw-s2')
-    const l1  = svg.querySelector<SVGLineElement>('#nw-l1')
-    const l2  = svg.querySelector<SVGLineElement>('#nw-l2')
-    const cx = 28, cy = 28
+    const edges = Array.from(svg.querySelectorAll<SVGLineElement>('.ni-edge'))
+    const nodes = Array.from(svg.querySelectorAll<SVGCircleElement>('.ni-node'))
+
+    // Each path edge lights up for 0.6s then hands off
+    const D_EACH = 0.65
+    const CYCLE  = PATH_EDGES.length * D_EACH + 1.5 // pause at end
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts
-      const t = (ts - startRef.current) / 1000
+      const t = ((ts - startRef.current) / 1000) % CYCLE
 
-      const a1 = t * 0.7
-      const a2 = -(t * 1.1)
+      // Reset all edges to dim
+      edges.forEach((e, i) => {
+        e.setAttribute('stroke', i % 2 === 0 ? TEAL : AMBER)
+        e.setAttribute('opacity', '0.1')
+        e.setAttribute('stroke-width', '0.7')
+      })
 
-      const x1 = cx + 15 * Math.cos(a1), y1 = cy + 15 * Math.sin(a1)
-      const x2 = cx + 20 * Math.cos(a2), y2 = cy + 20 * Math.sin(a2)
+      // Light up the active path edge
+      const step = Math.floor(t / D_EACH)
+      const stepT = (t % D_EACH) / D_EACH
+      PATH_EDGES.forEach((edgeIdx, s) => {
+        if (s < step) {
+          // Past steps: medium glow
+          edges[edgeIdx]?.setAttribute('opacity', '0.3')
+          edges[edgeIdx]?.setAttribute('stroke', AMBER)
+        } else if (s === step && step < PATH_EDGES.length) {
+          // Active step: bright, fades in/out
+          const alpha = 0.3 + 0.6 * Math.abs(Math.sin(stepT * Math.PI))
+          edges[edgeIdx]?.setAttribute('opacity', String(alpha))
+          edges[edgeIdx]?.setAttribute('stroke', AMBER)
+          edges[edgeIdx]?.setAttribute('stroke-width', '1.4')
+        }
+      })
 
-      if (s1) { s1.setAttribute('cx', String(x1)); s1.setAttribute('cy', String(y1)) }
-      if (s2) { s2.setAttribute('cx', String(x2)); s2.setAttribute('cy', String(y2)) }
-      if (l1) { l1.setAttribute('x1', String(cx)); l1.setAttribute('y1', String(cy)); l1.setAttribute('x2', String(x1)); l1.setAttribute('y2', String(y1)) }
-      if (l2) { l2.setAttribute('x1', String(cx)); l2.setAttribute('y1', String(cy)); l2.setAttribute('x2', String(x2)); l2.setAttribute('y2', String(y2)) }
+      // Pulse nodes that are part of the active edge
+      nodes.forEach((node, i) => {
+        const r = 3 + 0.8 * Math.abs(Math.sin(t * 1.2 + i * 0.9))
+        node.setAttribute('r', String(r))
+      })
 
       rafRef.current = requestAnimationFrame(tick)
     }
@@ -362,18 +536,18 @@ function NetworkIcon() {
 
   return (
     <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
-      {/* Orbit paths */}
-      <circle cx={28} cy={28} r={15} stroke={AMBER} strokeWidth={0.5} strokeDasharray="3 4" opacity={0.2} />
-      <circle cx={28} cy={28} r={20} stroke={TEAL}  strokeWidth={0.5} strokeDasharray="3 4" opacity={0.15} />
-      {/* Spoke lines */}
-      <line id="nw-l1" x1={28} y1={28} x2={43} y2={28} stroke={AMBER} strokeWidth={0.8} opacity={0.4} />
-      <line id="nw-l2" x1={28} y1={28} x2={48} y2={28} stroke={TEAL}  strokeWidth={0.8} opacity={0.35} />
-      {/* Orbiting satellites */}
-      <circle id="nw-s1" cx={43} cy={28} r={3.5} fill={AMBER} opacity={0.85} />
-      <circle id="nw-s2" cx={48} cy={28} r={3}   fill={TEAL}  opacity={0.8} />
-      {/* Centre node */}
-      <circle cx={28} cy={28} r={5} fill={AMBER} opacity={0.9} />
-      <circle cx={28} cy={28} r={8} stroke={AMBER} strokeWidth={0.6} opacity={0.2} />
+      {/* All edges (dim by default) */}
+      {ALL_EDGES.map(([a, b], i) => (
+        <line key={i} className="ni-edge"
+          x1={NODES6[a][0]} y1={NODES6[a][1]}
+          x2={NODES6[b][0]} y2={NODES6[b][1]}
+          stroke={TEAL} strokeWidth={0.7} opacity={0.1} />
+      ))}
+      {/* Nodes */}
+      {NODES6.map(([x, y], i) => (
+        <circle key={i} className="ni-node" cx={x} cy={y} r={3}
+          fill={i % 2 === 0 ? AMBER : TEAL} opacity={0.8} />
+      ))}
     </svg>
   )
 }
