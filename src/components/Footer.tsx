@@ -23,7 +23,7 @@ export default function Footer() {
               <span className="text-[#C9933A]">Q</span>
             </Link>
             <p
-              className="text-sm text-[#A8A49D] leading-relaxed"
+              className="text-sm text-[#C4C0B8] leading-relaxed"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               Real value in digital health.
@@ -42,7 +42,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
+                className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
                 {link.label}
@@ -60,7 +60,7 @@ export default function Footer() {
             </p>
             <a
               href="mailto:hello@sandiq.com"
-              className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
+              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               hello@sandiq.com
@@ -69,7 +69,7 @@ export default function Footer() {
               href="https://linkedin.com/company/sandiq"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
+              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               LinkedIn
@@ -78,7 +78,7 @@ export default function Footer() {
               href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
+              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               GPODH Podcast
@@ -87,7 +87,7 @@ export default function Footer() {
               href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
+              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               Substack
@@ -98,13 +98,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-[#F2EFE9]/8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p
-            className="text-xs text-[#A8A49D]"
+            className="text-sm text-[#C4C0B8]"
             style={{ fontFamily: "var(--font-dm-mono)" }}
           >
             © SandiQ Global, Registered in France
           </p>
           <p
-            className="text-xs text-[#A8A49D]/60"
+            className="text-sm text-[#C4C0B8]"
             style={{ fontFamily: "var(--font-dm-mono)" }}
           >
             Real value in digital health.

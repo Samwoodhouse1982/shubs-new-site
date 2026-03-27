@@ -140,7 +140,7 @@ export default function ContactPage() {
               <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Start with an honest conversation.
               </h1>
-              <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Whether you&apos;re a health tech startup navigating clinical integration, a global health programme needing strategic direction, or an investor conducting digital health due diligence: we&apos;d like to hear from you. Every project starts with an honest conversation.
               </p>
             </div>
@@ -184,7 +184,7 @@ export default function ContactPage() {
                 <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   LinkedIn
                 </p>
-                <a href="https://linkedin.com/company/sandiq" target="_blank" rel="noopener noreferrer" className="text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <a href="https://linkedin.com/company/sandiq" target="_blank" rel="noopener noreferrer" className="text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200 text-sm" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   linkedin.com/company/sandiq →
                 </a>
               </div>
@@ -201,7 +201,7 @@ export default function ContactPage() {
                     "Initial calls are 30 minutes, no hard sell",
                     "We'll tell you honestly if we're not the right fit",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-[#A8A49D]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    <li key={i} className="flex items-start gap-3 text-sm text-[#C4C0B8]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                       {/* Sonar dot accent */}
                       <span className="relative shrink-0 mt-1.5">
                         <span className="absolute inset-0 w-2 h-2 rounded-full bg-[#C9933A]/20 sonar-ring" style={{ animationDelay: `${i * 0.7}s` }} aria-hidden />
@@ -230,7 +230,7 @@ export default function ContactPage() {
                   <h2 className="text-3xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     Message received.
                   </h2>
-                  <p className="text-base text-[#A8A49D] max-w-md leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-base text-[#C4C0B8] max-w-md leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Thank you for reaching out. We&apos;ll review your message and get back to you within 2 business days.
                   </p>
                   <button
@@ -249,7 +249,7 @@ export default function ContactPage() {
                         Name *
                       </label>
                       <input id="name" name="name" type="text" required value={form.name} onChange={handleChange} placeholder="Dr Jane Smith"
-                        className="w-full bg-transparent border border-[#F2EFE9]/12 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/40 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
+                        className="w-full bg-transparent border border-[#F2EFE9]/22 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/65 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
                         style={{ fontFamily: "var(--font-dm-sans)" }} />
                     </div>
 
@@ -258,7 +258,7 @@ export default function ContactPage() {
                         Organisation
                       </label>
                       <input id="organisation" name="organisation" type="text" value={form.organisation} onChange={handleChange} placeholder="Acme Health Tech"
-                        className="w-full bg-transparent border border-[#F2EFE9]/12 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/40 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
+                        className="w-full bg-transparent border border-[#F2EFE9]/22 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/65 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
                         style={{ fontFamily: "var(--font-dm-sans)" }} />
                     </div>
                   </div>
@@ -268,7 +268,7 @@ export default function ContactPage() {
                       Your Role
                     </label>
                     <input id="role" name="role" type="text" value={form.role} onChange={handleChange} placeholder="CEO, Clinical Director, Programme Manager..."
-                      className="w-full bg-transparent border border-[#F2EFE9]/12 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/40 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
+                      className="w-full bg-transparent border border-[#F2EFE9]/22 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/65 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
                       style={{ fontFamily: "var(--font-dm-sans)" }} />
                   </div>
 
@@ -278,7 +278,7 @@ export default function ContactPage() {
                     </label>
                     <textarea id="message" name="message" required value={form.message} onChange={handleChange} rows={5}
                       placeholder="Tell us about your project, challenge, or question. The more context you give, the more useful our response will be."
-                      className="w-full bg-transparent border border-[#F2EFE9]/12 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/40 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200 resize-none"
+                      className="w-full bg-transparent border border-[#F2EFE9]/22 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] placeholder-[#A8A49D]/65 focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200 resize-none"
                       style={{ fontFamily: "var(--font-dm-sans)" }} />
                   </div>
 
@@ -287,9 +287,9 @@ export default function ContactPage() {
                       How did you hear about SandiQ?
                     </label>
                     <select id="referral" name="referral" value={form.referral} onChange={handleChange}
-                      className="w-full bg-[#0C0F0D] border border-[#F2EFE9]/12 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
+                      className="w-full bg-[#0C0F0D] border border-[#F2EFE9]/22 rounded-sm px-4 py-3 text-sm text-[#F2EFE9] focus:outline-none focus:border-[#C9933A]/50 transition-colors duration-200"
                       style={{ fontFamily: "var(--font-dm-sans)" }}>
-                      <option value="" className="text-[#A8A49D]">Select an option</option>
+                      <option value="" className="text-[#C4C0B8]">Select an option</option>
                       <option value="linkedin">LinkedIn</option>
                       <option value="podcast">GPODH Podcast</option>
                       <option value="substack">Shubstack / Substack</option>

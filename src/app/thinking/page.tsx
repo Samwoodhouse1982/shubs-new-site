@@ -95,10 +95,10 @@ export default function ThinkingPage() {
               <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Clinical depth. Strategic clarity.
               </h1>
-              <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Perspectives from Dr Shubs Upadhyay on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
               </p>
-              <p className="text-sm text-[#A8A49D] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-sm text-[#C4C0B8] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Read the essays on{" "}
                 <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
                   Shubstack
@@ -147,16 +147,16 @@ export default function ThinkingPage() {
                   rel="noopener noreferrer"
                   className="border border-[#F2EFE9]/8 rounded-sm p-8 flex flex-col gap-5 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full"
                 >
-                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  <p className="text-sm text-[#C4C0B8] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {article.date}
                   </p>
                   <h2 className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {article.title}
                   </h2>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {article.excerpt}
                   </p>
-                  <span className="text-xs text-[#C9933A] group-hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <span className="text-sm text-[#C9933A] group-hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Read on Substack →
                   </span>
                 </a>
@@ -201,7 +201,7 @@ export default function ThinkingPage() {
               <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Global Perspectives on Digital Health
               </h2>
-              <p className="text-base text-[#A8A49D] leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base text-[#C4C0B8] leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Candid, substantive conversations with the people reshaping digital health across 60+ countries. No press releases. No PR spin. Just honest thinking about hard problems.
               </p>
               {/* Broadcast rings + CTA inline */}
@@ -235,10 +235,10 @@ export default function ThinkingPage() {
                   <h3 className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#2A6B62] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {ep.title}
                   </h3>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {ep.desc}
                   </p>
-                  <span className="text-xs text-[#2A6B62]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <span className="text-sm text-[#2A6B62]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Listen →
                   </span>
                 </a>
@@ -274,7 +274,7 @@ export default function ThinkingPage() {
           <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Honest thinking, direct to your inbox.
           </h2>
-          <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+          <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Subscribe to Shubstack for essays on digital health strategy, evidence, and equity. Written by Dr Shubs Upadhyay. No filler.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

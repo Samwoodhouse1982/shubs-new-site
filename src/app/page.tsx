@@ -140,7 +140,7 @@ export default function HomePage() {
               </h1>
             </div>
 
-            <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+            <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
               Senior clinical and strategic counsel for digital health companies,
               investors, and health organisations. We help you build solutions
               that are clinically sound, commercially credible, and trusted by
@@ -207,14 +207,14 @@ export default function HomePage() {
               <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 We exist because the industry keeps asking the wrong questions.
               </h2>
-              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 SandiQ was founded on a simple but uncomfortable observation:
                 the digital health industry has a systemic tendency to optimise
                 for the wrong outcomes. It chases adoption metrics instead of
                 health outcomes. It talks about disruption without engaging with
                 systems. It builds for idealised users rather than real ones.
               </p>
-              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 We work at the intersection of clinical rigour, implementation
                 reality, and strategic clarity, helping organisations from
                 seed-stage startups to major health systems build digital health
@@ -276,14 +276,14 @@ export default function HomePage() {
                     <div className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                       <HomeServiceIcon num={s.num} />
                     </div>
-                    <p className="text-xs text-[#C9933A]/50 tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                    <p className="text-sm text-[#C9933A]/80 tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                       {s.num}
                     </p>
                   </div>
                   <h3 className="text-xl text-[#F2EFE9] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {s.title}
                   </h3>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {s.desc}
                   </p>
                   <Link href="/services" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200 mt-2" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -323,7 +323,7 @@ export default function HomePage() {
                     className="text-5xl lg:text-6xl text-[#C9933A]"
                     style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
                   />
-                  <p className="text-xs text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {stat.label}
                   </p>
                 </div>
@@ -357,7 +357,7 @@ export default function HomePage() {
                 </h2>
               </div>
 
-              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Dr Shubs Upadhyay is a physician and digital health strategist
                 with over 15 years of experience across clinical practice, health
                 technology, and health system strategy. He has led clinical and
@@ -366,7 +366,7 @@ export default function HomePage() {
                 startups through to multilateral programmes.
               </p>
 
-              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 He has served as a clinical lead at the International
                 Telecommunication Union (ITU) and contributed to WHO working
                 groups on digital health standards. He founded SandiQ to provide
@@ -376,7 +376,7 @@ export default function HomePage() {
                 commercial side of the table.
               </p>
 
-              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 He hosts the GPODH (Global Perspectives on Digital Health)
                 podcast, which has reached listeners in over 60 countries, and
                 writes the Shubstack newsletter on digital health strategy,
@@ -385,7 +385,7 @@ export default function HomePage() {
 
               <div className="border-t border-[#F2EFE9]/8 pt-6 flex flex-wrap gap-3">
                 {["MBBS", "MSc Global Health", "Former ITU Clinical Lead", "WHO Contributor", "NHS Digital Health Advisor"].map((cred) => (
-                  <span key={cred} className="px-3 py-1 text-xs border border-[#F2EFE9]/12 text-[#A8A49D] rounded-sm" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  <span key={cred} className="px-3 py-1 text-sm border border-[#F2EFE9]/22 text-[#C4C0B8] rounded-sm" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {cred}
                   </span>
                 ))}
@@ -427,7 +427,7 @@ export default function HomePage() {
                   <h3 className="text-xl text-[#F2EFE9] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {outcome.title}
                   </h3>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {outcome.desc}
                   </p>
                 </div>
@@ -458,12 +458,12 @@ export default function HomePage() {
               <FadeIn key={i} delay={i * 100}>
                 <a href={article.href} target="_blank" rel="noopener noreferrer"
                   className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full">
-                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>{article.date}</p>
+                  <p className="text-sm text-[#C4C0B8] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>{article.date}</p>
                   <h3 className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {article.title}
                   </h3>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>{article.excerpt}</p>
-                  <span className="text-xs text-[#C9933A]" style={{ fontFamily: "var(--font-dm-sans)" }}>Read on Substack →</span>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>{article.excerpt}</p>
+                  <span className="text-sm text-[#C9933A]" style={{ fontFamily: "var(--font-dm-sans)" }}>Read on Substack →</span>
                 </a>
               </FadeIn>
             ))}
@@ -482,7 +482,7 @@ export default function HomePage() {
                 <p className="text-lg text-[#F2EFE9] mb-2" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                   Global Perspectives on Digital Health
                 </p>
-                <p className="text-sm text-[#A8A49D]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <p className="text-sm text-[#C4C0B8]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   Candid conversations with the people reshaping digital health across 60+ countries.
                 </p>
               </div>
@@ -507,14 +507,14 @@ export default function HomePage() {
           <h2 className="text-4xl lg:text-5xl xl:text-6xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Ready to build something that actually works?
           </h2>
-          <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+          <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Whether you&apos;re launching a new digital health product, seeking
             to enter a new market, or trying to prove the value of what you
             already have: start with a conversation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="mailto:hello@sandiq.com"
-              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#A8A49D] border border-[#F2EFE9]/15 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#C4C0B8] border border-[#F2EFE9]/25 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}>
               hello@sandiq.com
             </a>

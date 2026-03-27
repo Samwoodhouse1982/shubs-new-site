@@ -33,7 +33,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
+                className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
                 {link.label}
@@ -80,7 +80,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-base text-[#A8A49D] hover:text-[#F2EFE9] transition-colors duration-200"
+                className="text-base text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
                 {link.label}

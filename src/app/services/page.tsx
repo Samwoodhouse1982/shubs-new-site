@@ -136,7 +136,7 @@ export default function ServicesPage() {
               <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Clinical expertise, deployed where it counts.
               </h1>
-              <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Six interconnected services, deployed individually or in combination, for organisations serious about building digital health that actually works.
               </p>
             </div>
@@ -161,7 +161,7 @@ export default function ServicesPage() {
             <FadeIn key={service.num} delay={i * 60}>
               <div className={`border border-[#F2EFE9]/8 rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${i % 2 === 0 ? "bg-[#0C0F0D]" : "bg-[#0e1210]"}`}>
                 <div className="lg:w-16 shrink-0">
-                  <p className="text-xs text-[#C9933A] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  <p className="text-sm text-[#C9933A] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {service.num}
                   </p>
                 </div>
@@ -170,7 +170,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl lg:text-4xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {service.title}
                   </h2>
-                  <p className="text-base text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-base text-[#C4C0B8] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {service.description}
                   </p>
                   <div className="flex flex-col gap-3">
@@ -179,7 +179,7 @@ export default function ServicesPage() {
                     </p>
                     <ul className="flex flex-col gap-2">
                       {service.rightFor.map((point, j) => (
-                        <li key={j} className="flex items-start gap-3 text-sm text-[#A8A49D]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                        <li key={j} className="flex items-start gap-3 text-sm text-[#C4C0B8]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                           <span className="mt-1.5 w-1 h-1 rounded-full bg-[#C9933A] shrink-0" />
                           {point}
                         </li>
@@ -224,13 +224,13 @@ export default function ServicesPage() {
                   <div className="mb-1">
                     <ProcessStepIcon type={step.type} />
                   </div>
-                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  <p className="text-sm text-[#C4C0B8] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {step.step}
                   </p>
                   <h3 className="text-2xl text-[#C9933A] tracking-wide" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {step.label}
                   </h3>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {step.desc}
                   </p>
                 </div>
@@ -265,7 +265,7 @@ export default function ServicesPage() {
                   <h3 className="text-xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {seg.title}
                   </h3>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {seg.desc}
                   </p>
                 </div>
@@ -294,11 +294,11 @@ export default function ServicesPage() {
           <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Tell us what you&apos;re building.
           </h2>
-          <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+          <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Every project starts with a conversation. Tell us what you&apos;re working on and we&apos;ll tell you honestly whether and how we can help.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:hello@sandiq.com" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#A8A49D] border border-[#F2EFE9]/15 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+            <a href="mailto:hello@sandiq.com" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#C4C0B8] border border-[#F2EFE9]/25 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
               hello@sandiq.com
             </a>
             <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
