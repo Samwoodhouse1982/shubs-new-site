@@ -1,36 +1,77 @@
 import Link from "next/link";
 import HeroGlobe from "@/components/HeroGlobe";
+import FadeIn from "@/components/FadeIn";
+import StatCounter from "@/components/StatCounter";
 
 const services = [
   {
     num: "01",
     title: "Fractional CMO",
     desc: "Senior clinical leadership embedded in your teams.",
+    icon: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <circle cx="12" cy="7.5" r="3.5" />
+        <path d="M3 21a9 9 0 0 1 18 0" />
+      </svg>
+    ),
   },
   {
     num: "02",
     title: "Clinical Product Development",
     desc: "Integrate clinical insight from day one.",
+    icon: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+        <path d="M9 10h6M12 7v6" />
+      </svg>
+    ),
   },
   {
     num: "03",
     title: "Evidence Strategy & Generation",
     desc: "Measure what actually matters.",
+    icon: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M4 19V13M9 19V9M14 19V5M19 19V11" />
+        <path d="M2 19h20" />
+      </svg>
+    ),
   },
   {
     num: "04",
     title: "Market Access & Clinical Credibility",
     desc: "Navigate complex health system procurement.",
+    icon: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M12 2l8 3.5v5.5c0 4.4-3.4 8.2-8 9.5C7.4 19.2 4 15.4 4 11V5.5L12 2z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    ),
   },
   {
     num: "05",
     title: "Impact Communications",
     desc: "Turn evidence into narratives that move buyers.",
+    icon: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H8l-4 3V6a1 1 0 0 1 1-1z" />
+        <path d="M8 9.5h8M8 12.5h5" />
+      </svg>
+    ),
   },
   {
     num: "06",
     title: "Health System Intelligence",
     desc: "Strategic counsel for navigating complex health system contexts.",
+    icon: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <circle cx="12" cy="5" r="2.5" />
+        <circle cx="4.5" cy="18" r="2.5" />
+        <circle cx="19.5" cy="18" r="2.5" />
+        <path d="M11 7l-5.5 9M13 7l5.5 9M7 18h10" />
+      </svg>
+    ),
   },
 ];
 
@@ -113,6 +154,17 @@ export default function HomePage() {
           </svg>
         </div>
 
+        {/* Radial glow — amber left */}
+        <div
+          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(201,147,58,0.10) 0%, transparent 70%)' }}
+        />
+        {/* Radial glow — teal right */}
+        <div
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.10) 0%, transparent 70%)' }}
+        />
+
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div className="flex flex-col gap-8">
@@ -131,7 +183,16 @@ export default function HomePage() {
                 className="text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight"
                 style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
               >
-                <span className="text-[#C9933A]">Real value</span>
+                <span
+                  style={{
+                    background: 'linear-gradient(135deg, #E8B86D 0%, #C9933A 55%, #D4A050 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  Real value
+                </span>
                 <br />
                 <span className="text-[#F2EFE9]">in digital health.</span>
               </h1>
@@ -176,33 +237,35 @@ export default function HomePage() {
 
       {/* ── PROBLEM BAND ───────────────────────────────────────── */}
       <section className="bg-[#111410] border-y border-[#F2EFE9]/6 py-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <blockquote
-            className="text-3xl lg:text-4xl xl:text-5xl leading-tight italic text-[#F2EFE9]"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
-          >
-            &ldquo;Most digital health fails not because of bad technology. It
-            fails because it&apos;s built against the wrong definition of
-            value.&rdquo;
-          </blockquote>
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <div className="h-px w-8 bg-[#C9933A]" />
-            <Link
-              href="/thinking"
-              className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <blockquote
+              className="text-3xl lg:text-4xl xl:text-5xl leading-tight italic text-[#F2EFE9]"
+              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
             >
-              Read our thinking →
-            </Link>
+              &ldquo;Most digital health fails not because of bad technology. It
+              fails because it&apos;s built against the wrong definition of
+              value.&rdquo;
+            </blockquote>
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <div className="h-px w-8 bg-[#C9933A]" />
+              <Link
+                href="/thinking"
+                className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                Read our thinking →
+              </Link>
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="flex flex-col gap-6">
+            <FadeIn className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
                 <div className="h-px w-8 bg-[#C9933A]" />
                 <p
@@ -238,29 +301,31 @@ export default function HomePage() {
                 solutions that are genuinely effective, commercially sustainable,
                 and trusted by the clinicians and patients they serve.
               </p>
-            </div>
+            </FadeIn>
 
-            <aside className="border border-[#C9933A]/25 rounded-sm p-8 bg-[#C9933A]/5 flex flex-col justify-center">
-              <p
-                className="text-xs tracking-widest text-[#C9933A] uppercase mb-6"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
-                The SandiQ Manifesto
-              </p>
-              <blockquote
-                className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug italic"
-                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
-              >
-                &ldquo;Digital health must be built around clinical reality, not
-                around what is easy to build or easy to sell.
-                <br /><br />
-                We don&apos;t accept that speed and rigour are in tension. We
-                don&apos;t accept that evidence is only for academics. We
-                don&apos;t accept that commercial success and genuine clinical
-                value are different goals. The organisations that understand
-                this are the ones that last.&rdquo;
-              </blockquote>
-            </aside>
+            <FadeIn delay={150} className="flex">
+              <aside className="border border-[#C9933A]/25 rounded-sm p-8 bg-[#C9933A]/5 flex flex-col justify-center w-full" style={{ backdropFilter: 'blur(4px)' }}>
+                <p
+                  className="text-xs tracking-widest text-[#C9933A] uppercase mb-6"
+                  style={{ fontFamily: "var(--font-dm-mono)" }}
+                >
+                  The SandiQ Manifesto
+                </p>
+                <blockquote
+                  className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug italic"
+                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
+                >
+                  &ldquo;Digital health must be built around clinical reality, not
+                  around what is easy to build or easy to sell.
+                  <br /><br />
+                  We don&apos;t accept that speed and rigour are in tension. We
+                  don&apos;t accept that evidence is only for academics. We
+                  don&apos;t accept that commercial success and genuine clinical
+                  value are different goals. The organisations that understand
+                  this are the ones that last.&rdquo;
+                </blockquote>
+              </aside>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -268,7 +333,7 @@ export default function HomePage() {
       {/* ── SERVICES STRIP ─────────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col gap-4 mb-14">
+          <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
               <p
@@ -284,88 +349,104 @@ export default function HomePage() {
             >
               Services built for complex health systems.
             </h2>
-          </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#F2EFE9]/6 rounded-sm overflow-hidden">
-            {services.map((s) => (
-              <div
-                key={s.num}
-                className="bg-[#0C0F0D] p-8 flex flex-col gap-4 group hover:bg-[#111410] transition-colors duration-200"
-              >
-                <p
-                  className="text-xs text-[#C9933A] tracking-widest"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
+          <FadeIn delay={100}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#F2EFE9]/6 rounded-sm overflow-hidden">
+              {services.map((s) => (
+                <div
+                  key={s.num}
+                  className="bg-[#0C0F0D] p-8 flex flex-col gap-4 group hover:bg-[#141810] transition-colors duration-300"
                 >
-                  {s.num}
-                </p>
-                <h3
-                  className="text-xl text-[#F2EFE9] leading-snug"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {s.title}
-                </h3>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed flex-1"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {s.desc}
-                </p>
-                <Link
-                  href="/services"
-                  className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200 mt-2"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  Learn more →
-                </Link>
-              </div>
-            ))}
-          </div>
+                  <div className="flex items-start justify-between">
+                    <div className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                      {s.icon}
+                    </div>
+                    <p
+                      className="text-xs text-[#C9933A]/50 tracking-widest"
+                      style={{ fontFamily: "var(--font-dm-mono)" }}
+                    >
+                      {s.num}
+                    </p>
+                  </div>
+                  <h3
+                    className="text-xl text-[#F2EFE9] leading-snug"
+                    style={{
+                      fontFamily: "var(--font-cormorant)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {s.title}
+                  </h3>
+                  <p
+                    className="text-sm text-[#A8A49D] leading-relaxed flex-1"
+                    style={{ fontFamily: "var(--font-dm-sans)" }}
+                  >
+                    {s.desc}
+                  </p>
+                  <Link
+                    href="/services"
+                    className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200 mt-2"
+                    style={{ fontFamily: "var(--font-dm-sans)" }}
+                  >
+                    Learn more →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ── IMPACT NUMBERS ─────────────────────────────────────── */}
-      <section className="bg-[#111410] py-20 border-y border-[#F2EFE9]/6">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col gap-4 mb-14 text-center">
-            <div className="flex items-center justify-center gap-3">
-              <div className="h-px w-8 bg-[#C9933A]" />
-              <p
-                className="text-xs tracking-widest text-[#C9933A] uppercase"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
-                Track record
-              </p>
-              <div className="h-px w-8 bg-[#C9933A]" />
-            </div>
-          </div>
+      <section className="relative bg-[#111410] py-20 border-y border-[#F2EFE9]/6 overflow-hidden">
+        {/* Radial glow */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden
+        >
+          <div
+            className="w-[700px] h-[220px] rounded-full"
+            style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.07) 0%, transparent 70%)' }}
+          />
+        </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {stats.map((stat) => (
-              <div
-                key={stat.value}
-                className="flex flex-col items-center text-center gap-3"
-              >
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="flex flex-col gap-4 mb-14 text-center">
+              <div className="flex items-center justify-center gap-3">
+                <div className="h-px w-8 bg-[#C9933A]" />
                 <p
-                  className="text-5xl lg:text-6xl text-[#C9933A]"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {stat.value}
-                </p>
-                <p
-                  className="text-xs text-[#A8A49D] leading-relaxed"
+                  className="text-xs tracking-widest text-[#C9933A] uppercase"
                   style={{ fontFamily: "var(--font-dm-mono)" }}
                 >
-                  {stat.label}
+                  Track record
                 </p>
+                <div className="h-px w-8 bg-[#C9933A]" />
               </div>
-            ))}
-          </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+              {stats.map((stat) => (
+                <div
+                  key={stat.value}
+                  className="flex flex-col items-center text-center gap-3"
+                >
+                  <StatCounter
+                    value={stat.value}
+                    className="text-5xl lg:text-6xl text-[#C9933A]"
+                    style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+                  />
+                  <p
+                    className="text-xs text-[#A8A49D] leading-relaxed"
+                    style={{ fontFamily: "var(--font-dm-mono)" }}
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -374,7 +455,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Portrait placeholder */}
-            <div className="lg:col-span-1">
+            <FadeIn className="lg:col-span-1">
               <div className="w-full aspect-square max-w-xs bg-[#2A6B62]/15 border border-[#2A6B62]/25 rounded-sm flex items-center justify-center">
                 <span
                   className="text-4xl text-[#2A6B62]/50"
@@ -383,10 +464,10 @@ export default function HomePage() {
                   SU
                 </span>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Bio */}
-            <div className="lg:col-span-2 flex flex-col gap-6">
+            <FadeIn delay={120} className="lg:col-span-2 flex flex-col gap-6">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px w-8 bg-[#C9933A]" />
@@ -489,7 +570,7 @@ export default function HomePage() {
                   GPODH Podcast →
                 </a>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -497,7 +578,7 @@ export default function HomePage() {
       {/* ── WHAT WE'VE DELIVERED ───────────────────────────────── */}
       <section className="bg-[#111410] py-24 border-y border-[#F2EFE9]/6">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col gap-4 mb-14">
+          <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
               <p
@@ -513,30 +594,29 @@ export default function HomePage() {
             >
               What we&apos;ve delivered.
             </h2>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {outcomes.map((outcome, i) => (
-              <div
-                key={i}
-                className="border-l-2 border-[#C9933A] pl-6 py-2 flex flex-col gap-3"
-              >
-                <h3
-                  className="text-xl text-[#F2EFE9] leading-snug"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {outcome.title}
-                </h3>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {outcome.desc}
-                </p>
-              </div>
+              <FadeIn key={i} delay={i * 120}>
+                <div className="border-l-2 border-[#C9933A] pl-6 py-2 flex flex-col gap-3 h-full">
+                  <h3
+                    className="text-xl text-[#F2EFE9] leading-snug"
+                    style={{
+                      fontFamily: "var(--font-cormorant)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {outcome.title}
+                  </h3>
+                  <p
+                    className="text-sm text-[#A8A49D] leading-relaxed"
+                    style={{ fontFamily: "var(--font-dm-sans)" }}
+                  >
+                    {outcome.desc}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -545,7 +625,7 @@ export default function HomePage() {
       {/* ── THOUGHT LEADERSHIP ─────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col gap-4 mb-14">
+          <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
               <p
@@ -561,95 +641,109 @@ export default function HomePage() {
             >
               The industry talks to itself. We don&apos;t.
             </h2>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {articles.map((article, i) => (
-              <a
-                key={i}
-                href={article.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 transition-colors duration-200 group"
-              >
-                <p
-                  className="text-xs text-[#A8A49D] tracking-widest"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
+              <FadeIn key={i} delay={i * 100}>
+                <a
+                  href={article.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full"
                 >
-                  {article.date}
-                </p>
-                <h3
-                  className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {article.title}
-                </h3>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed flex-1"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {article.excerpt}
-                </p>
-                <span
-                  className="text-xs text-[#C9933A]"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  Read on Substack →
-                </span>
-              </a>
+                  <p
+                    className="text-xs text-[#A8A49D] tracking-widest"
+                    style={{ fontFamily: "var(--font-dm-mono)" }}
+                  >
+                    {article.date}
+                  </p>
+                  <h3
+                    className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200"
+                    style={{
+                      fontFamily: "var(--font-cormorant)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {article.title}
+                  </h3>
+                  <p
+                    className="text-sm text-[#A8A49D] leading-relaxed flex-1"
+                    style={{ fontFamily: "var(--font-dm-sans)" }}
+                  >
+                    {article.excerpt}
+                  </p>
+                  <span
+                    className="text-xs text-[#C9933A]"
+                    style={{ fontFamily: "var(--font-dm-sans)" }}
+                  >
+                    Read on Substack →
+                  </span>
+                </a>
+              </FadeIn>
             ))}
           </div>
 
           {/* Podcast strip */}
-          <div className="border border-[#2A6B62]/30 rounded-sm p-8 flex flex-col md:flex-row items-center gap-8 bg-[#2A6B62]/5">
-            <div className="w-20 h-20 rounded-sm bg-[#2A6B62]/20 border border-[#2A6B62]/40 flex items-center justify-center shrink-0">
-              <span
-                className="text-[10px] text-[#2A6B62] text-center leading-tight"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
-                GPODH
-              </span>
-            </div>
-            <div className="flex-1">
-              <p
-                className="text-xs text-[#2A6B62] tracking-widest uppercase mb-2"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
-                The GPODH Podcast
-              </p>
-              <p
-                className="text-lg text-[#F2EFE9] mb-2"
-                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-              >
-                Global Perspectives on Digital Health
-              </p>
-              <p
-                className="text-sm text-[#A8A49D]"
+          <FadeIn delay={100}>
+            <div className="border border-[#2A6B62]/30 rounded-sm p-8 flex flex-col md:flex-row items-center gap-8 bg-[#2A6B62]/5">
+              <div className="w-20 h-20 rounded-sm bg-[#2A6B62]/20 border border-[#2A6B62]/40 flex items-center justify-center shrink-0">
+                <span
+                  className="text-[10px] text-[#2A6B62] text-center leading-tight"
+                  style={{ fontFamily: "var(--font-dm-mono)" }}
+                >
+                  GPODH
+                </span>
+              </div>
+              <div className="flex-1">
+                <p
+                  className="text-xs text-[#2A6B62] tracking-widest uppercase mb-2"
+                  style={{ fontFamily: "var(--font-dm-mono)" }}
+                >
+                  The GPODH Podcast
+                </p>
+                <p
+                  className="text-lg text-[#F2EFE9] mb-2"
+                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+                >
+                  Global Perspectives on Digital Health
+                </p>
+                <p
+                  className="text-sm text-[#A8A49D]"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  Candid conversations with the people reshaping digital health
+                  across 60+ countries.
+                </p>
+              </div>
+              <a
+                href="https://gpodh.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                Candid conversations with the people reshaping digital health
-                across 60+ countries.
-              </p>
+                Listen on gpodh.org →
+              </a>
             </div>
-            <a
-              href="https://gpodh.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
-              Listen on gpodh.org →
-            </a>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ── FOOTER CTA BAND ────────────────────────────────────── */}
-      <section className="bg-[#111410] border-t border-[#F2EFE9]/6 py-24">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
+      <section className="relative bg-[#111410] border-t border-[#F2EFE9]/6 py-24 overflow-hidden">
+        {/* Radial glow */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden
+        >
+          <div
+            className="w-[600px] h-[300px] rounded-full"
+            style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.07) 0%, transparent 65%)' }}
+          />
+        </div>
+
+        <FadeIn className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
           <h2
             className="text-4xl lg:text-5xl xl:text-6xl text-[#F2EFE9] leading-tight"
             style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
@@ -682,7 +776,7 @@ export default function HomePage() {
               Book a call →
             </Link>
           </div>
-        </div>
+        </FadeIn>
       </section>
     </>
   );
