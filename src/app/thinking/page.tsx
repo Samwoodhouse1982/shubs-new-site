@@ -117,7 +117,7 @@ export default function ThinkingPage() {
 
             {/* Right: neural globe graphic */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="w-[380px] h-[380px] opacity-85">
+              <div className="w-[380px] h-[380px] opacity-85" style={{ animation: 'slow-spin 90s linear infinite' }}>
                 <NeuralGlobeGraphic />
               </div>
             </div>
