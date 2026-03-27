@@ -2,6 +2,7 @@ import FadeIn from "@/components/FadeIn";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import PodcastArtGraphic from "@/components/PodcastArtGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
+import NeuralGlobeGraphic from "@/components/NeuralGlobeGraphic";
 
 const articles = [
   {
@@ -82,33 +83,45 @@ export default function ThinkingPage() {
         <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.07) 0%, transparent 65%)' }} aria-hidden />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8 bg-[#C9933A]" />
-            <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-              Thinking
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left: text */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-8 bg-[#C9933A]" />
+                <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  Thinking
+                </p>
+              </div>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                Clinical depth. Strategic clarity.
+              </h1>
+              <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Essays, analysis, and perspective from Dr Shubs Upadhyay, on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
+              </p>
+              <p className="text-sm text-[#A8A49D] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Read the essays on{" "}
+                <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                  Shubstack
+                </a>
+                , listen to the conversations on the{" "}
+                <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                  GPODH podcast
+                </a>
+                , or{" "}
+                <a href="/contact" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                  get in touch
+                </a>{" "}
+                if something raises a question worth exploring further. We read everything.
+              </p>
+            </div>
+
+            {/* Right: neural globe graphic */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="w-[380px] h-[380px] opacity-85">
+                <NeuralGlobeGraphic />
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-            Clinical depth. Strategic clarity.
-          </h1>
-          <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            Essays, analysis, and perspective from Dr Shubs Upadhyay, on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
-          </p>
-          <p className="text-sm text-[#A8A49D] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            Read the essays on{" "}
-            <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
-              Shubstack
-            </a>
-            , listen to the conversations on the{" "}
-            <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
-              GPODH podcast
-            </a>
-            , or{" "}
-            <a href="/contact" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
-              get in touch
-            </a>{" "}
-            if something raises a question worth exploring further. We read everything.
-          </p>
         </div>
       </section>
 
