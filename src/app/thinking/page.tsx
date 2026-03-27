@@ -99,7 +99,7 @@ export default function ThinkingPage() {
                 Perspectives from Dr Shubs Upadhyay on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
               </p>
               <p className="text-sm text-[#C4C0B8] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Read the essays on{" "}
+                Read the thinking on{" "}
                 <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
                   Shubstack
                 </a>
@@ -172,7 +172,7 @@ export default function ThinkingPage() {
               className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[#C9933A]/40 text-[#C9933A] rounded hover:bg-[#C9933A]/10 hover:border-[#C9933A] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
-              Read all essays on Shubstack →
+              Read more thinking on Shubstack →
             </a>
           </FadeIn>
         </div>
@@ -220,6 +220,13 @@ export default function ThinkingPage() {
             </FadeIn>
           </div>
 
+          <FadeIn className="flex items-center gap-3 mb-8">
+            <div className="h-px w-8 bg-[#2A6B62]" />
+            <p className="text-xs tracking-widest text-[#2A6B62] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+              GPODH highlights
+            </p>
+          </FadeIn>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {episodes.map((ep, i) => (
               <FadeIn key={i} delay={i * 90}>
@@ -245,6 +252,18 @@ export default function ThinkingPage() {
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn delay={400} className="flex justify-center mt-10">
+            <a
+              href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)" }}
+            >
+              Listen to all episodes on gpodh.org →
+            </a>
+          </FadeIn>
         </div>
       </section>
 
@@ -275,7 +294,7 @@ export default function ThinkingPage() {
             Honest thinking, direct to your inbox.
           </h2>
           <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            Subscribe to Shubstack for essays on digital health strategy, evidence, and equity. Written by Dr Shubs Upadhyay. No filler.
+            Subscribe to Shubstack for thinking on digital health strategy, evidence, and equity. Written by Dr Shubs Upadhyay. No filler.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
