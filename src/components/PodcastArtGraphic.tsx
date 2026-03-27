@@ -82,33 +82,9 @@ export default function PodcastArtGraphic() {
         ))}
       </g>
 
-      {/* GPODH label */}
-      <text
-        x={CX} y={CY - 2}
-        textAnchor="middle"
-        fill="#2A6B62"
-        fontSize="30"
-        fontWeight="600"
-        opacity="0.85"
-        style={{ fontFamily: 'var(--font-cormorant)' }}
-      >
-        GPODH
-      </text>
-      <text
-        x={CX} y={CY + 16}
-        textAnchor="middle"
-        fill="#A8A49D"
-        fontSize="5.5"
-        letterSpacing="2.5"
-        opacity="0.5"
-        style={{ fontFamily: 'var(--font-dm-mono)' }}
-      >
-        DIGITAL HEALTH
-      </text>
-
       {/* Centre spindle dot */}
-      <circle id="pa-center" cx={CX} cy={CY + 30} r="6" fill="#C9933A" opacity="0.8" />
-      <circle cx={CX} cy={CY + 30} r="2.5" fill="#080E0C" />
+      <circle id="pa-center" cx={CX} cy={CY} r="6" fill="#C9933A" opacity="0.8" />
+      <circle cx={CX} cy={CY} r="2.5" fill="#080E0C" />
 
       {/* Animated waveform strip at bottom */}
       {Array.from({ length: WAVE_COUNT }, (_, i) => (
