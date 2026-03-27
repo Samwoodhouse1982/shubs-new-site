@@ -270,7 +270,7 @@ export default function HomePage() {
           <FadeIn delay={100}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#F2EFE9]/6 rounded-sm overflow-hidden">
               {services.map((s) => (
-                <div key={s.num} className="bg-[#0C0F0D] p-8 flex flex-col gap-4 group hover:bg-[#141810] transition-colors duration-300">
+                <Link key={s.num} href={`/services#service-${s.num}`} className="bg-[#0C0F0D] p-8 flex flex-col gap-4 group hover:bg-[#141810] transition-colors duration-300">
                   <div className="flex items-start justify-between">
                     {/* Animated icon (replaces static SVG) */}
                     <div className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
@@ -286,10 +286,10 @@ export default function HomePage() {
                   <p className="text-sm text-[#C4C0B8] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {s.desc}
                   </p>
-                  <Link href="/services" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200 mt-2" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <span className="text-sm text-[#C9933A] group-hover:text-[#F2EFE9] transition-colors duration-200 mt-2" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Learn more →
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               ))}
             </div>
           </FadeIn>
