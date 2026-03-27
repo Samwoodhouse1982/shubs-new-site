@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import ScrollDot from "@/components/ScrollDot";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -44,6 +45,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#0C0F0D] text-[#F2EFE9]">
         <Nav />
+        <ScrollDot />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

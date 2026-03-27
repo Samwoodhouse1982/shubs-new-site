@@ -6,7 +6,6 @@ import FlatlineGraphic from "@/components/FlatlineGraphic";
 import VennGraphic from "@/components/VennGraphic";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
-import SectionConnector from "@/components/SectionConnector";
 import HomeServiceIcon from "@/components/HomeServiceIcon";
 
 type ServiceNum = '01' | '02' | '03' | '04' | '05' | '06'
@@ -167,8 +166,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section connector */}
-      <SectionConnector />
 
       {/* ── PROBLEM BAND ───────────────────────────────────────── */}
       <section className="relative bg-[#111410] border-y border-[#F2EFE9]/6 py-20 overflow-hidden">
@@ -190,8 +187,6 @@ export default function HomePage() {
         </FadeIn>
       </section>
 
-      {/* Section connector */}
-      <SectionConnector />
 
       {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}
       {/*
@@ -256,8 +251,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section connector */}
-      <SectionConnector />
 
       {/* ── SERVICES STRIP ─────────────────────────────────────── */}
       <section className="py-24">
@@ -303,8 +296,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section connector */}
-      <SectionConnector />
 
       {/* ── IMPACT NUMBERS ─────────────────────────────────────── */}
       <section className="relative bg-[#111410] py-20 border-y border-[#F2EFE9]/6 overflow-hidden">
@@ -342,8 +333,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section connector */}
-      <SectionConnector />
 
       {/* ── THE FOUNDER ────────────────────────────────────────── */}
       <section className="py-24">
@@ -412,8 +401,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section connector */}
-      <SectionConnector />
 
       {/* ── WHAT WE'VE DELIVERED ───────────────────────────────── */}
       <section className="bg-[#111410] py-24 border-y border-[#F2EFE9]/6">
@@ -450,8 +437,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section connector */}
-      <SectionConnector />
 
       {/* ── THOUGHT LEADERSHIP ─────────────────────────────────── */}
       <section className="py-24">

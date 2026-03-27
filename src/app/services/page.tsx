@@ -3,7 +3,6 @@ import FadeIn from "@/components/FadeIn";
 import ServicesMeshGraphic from "@/components/ServicesMeshGraphic";
 import ProcessStepIcon from "@/components/ProcessStepIcon";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
-import SectionConnector from "@/components/SectionConnector";
 
 const services = [
   {
@@ -147,7 +146,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── SERVICE CARDS ─────────────────────────────────────── */}
       <section className="pb-24">
@@ -194,7 +192,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── PROCESS ───────────────────────────────────────────── */}
       {/* Graphic: ProcessStepIcon — unique animation per step */}
@@ -236,7 +233,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
       <section className="py-24">
@@ -270,7 +266,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── FOOTER CTA ────────────────────────────────────────── */}
       {/* Graphic: CtaGeometricGraphic — rotating diamonds (reused from homepage) */}

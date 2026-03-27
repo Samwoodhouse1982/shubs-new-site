@@ -2,7 +2,6 @@ import FadeIn from "@/components/FadeIn";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import PodcastArtGraphic from "@/components/PodcastArtGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
-import SectionConnector from "@/components/SectionConnector";
 
 const articles = [
   {
@@ -99,7 +98,6 @@ export default function ThinkingPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── ARTICLES ──────────────────────────────────────────── */}
       <section className="pb-24">
@@ -139,7 +137,6 @@ export default function ThinkingPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── PODCAST ───────────────────────────────────────────── */}
       {/* Graphic: PodcastArtGraphic replaces bare placeholder; BroadcastGraphic accent */}
@@ -210,7 +207,6 @@ export default function ThinkingPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── SUBSCRIBE CTA ─────────────────────────────────────── */}
       {/* Graphic: rotating diamonds (reused from homepage) */}

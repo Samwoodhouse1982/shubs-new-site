@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import ContactOrbitGraphic from "@/components/ContactOrbitGraphic";
-import SectionConnector from "@/components/SectionConnector";
 
 interface FormData {
   name: string;
@@ -149,7 +148,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <SectionConnector />
 
       {/* ── FORM + CONTACT INFO ───────────────────────────────── */}
       <section className="pb-24">
