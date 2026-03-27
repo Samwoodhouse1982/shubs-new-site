@@ -115,7 +115,7 @@ export default function HeroGlobe() {
       height="100%"
       style={{ display: 'block' }}
       xmlns="http://www.w3.org/2000/svg"
-      className="opacity-60"
+      className="opacity-90"
     >
       {/* Outer dashed ring — counter-rotates */}
       <circle

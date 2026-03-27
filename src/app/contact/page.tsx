@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import ContactOrbitGraphic from "@/components/ContactOrbitGraphic";
+import SectionConnector from "@/components/SectionConnector";
 
 interface FormData {
   name: string;
@@ -133,10 +134,10 @@ export default function ContactPage() {
                 </p>
               </div>
               <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-                Let&apos;s talk about what you&apos;re building.
+                Start with an honest conversation.
               </h1>
               <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Whether you&apos;re a startup preparing for your first NHS engagement, a global health programme needing clinical strategy, or an investor conducting digital health due diligence: we&apos;d like to hear from you. Every project starts with an honest conversation.
+                Whether you&apos;re a health tech startup navigating clinical integration, a global health programme needing strategic direction, or an investor conducting digital health due diligence: we&apos;d like to hear from you. Every project starts with an honest conversation.
               </p>
             </div>
 
@@ -147,6 +148,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <SectionConnector />
 
       {/* ── FORM + CONTACT INFO ───────────────────────────────── */}
       <section className="pb-24">

@@ -3,6 +3,7 @@ import FadeIn from "@/components/FadeIn";
 import ServicesMeshGraphic from "@/components/ServicesMeshGraphic";
 import ProcessStepIcon from "@/components/ProcessStepIcon";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
+import SectionConnector from "@/components/SectionConnector";
 
 const services = [
   {
@@ -59,7 +60,7 @@ const services = [
     num: "06",
     title: "Health System Intelligence",
     description:
-      "Every health system has its own logic — its own procurement culture, clinical hierarchies, regulatory expectations, and political pressures. Understanding that logic is as important as having good technology. We provide strategic counsel for organisations navigating complex or unfamiliar health system contexts, drawing on deep experience across the NHS, international agencies, and health systems in multiple regions.",
+      "Every health system has its own logic: its own procurement culture, clinical hierarchies, regulatory expectations, and political pressures. Understanding that logic is as important as having good technology. We provide strategic counsel for organisations navigating complex or unfamiliar health system contexts, drawing on deep experience across international agencies and health systems in multiple regions.",
     rightFor: [
       "Organisations expanding into new national health systems or regulatory environments",
       "Investors and funders conducting clinical or strategic due diligence on digital health opportunities",
@@ -78,7 +79,7 @@ const process = [
     step: "02",
     label: "MATCH",
     type: "match" as const,
-    desc: "We identify the right approach and skill set for the specific challenge at hand — bringing in trusted independent specialists where the engagement calls for it.",
+    desc: "We identify the right approach and skill set for the specific challenge at hand, bringing in trusted independent specialists where the engagement calls for it.",
   },
   {
     step: "03",
@@ -129,7 +130,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-                We go where the work is hard.
+                Clinical expertise, deployed where it counts.
               </h1>
               <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Six interconnected services, deployed individually or in combination, for organisations serious about building digital health that actually works.
@@ -145,6 +146,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <SectionConnector />
 
       {/* ── SERVICE CARDS ─────────────────────────────────────── */}
       <section className="pb-24">
@@ -191,6 +194,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <SectionConnector />
+
       {/* ── PROCESS ───────────────────────────────────────────── */}
       {/* Graphic: ProcessStepIcon — unique animation per step */}
       <section className="bg-[#111410] border-y border-[#F2EFE9]/6 py-24">
@@ -231,6 +236,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <SectionConnector />
+
       {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -262,6 +269,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <SectionConnector />
 
       {/* ── FOOTER CTA ────────────────────────────────────────── */}
       {/* Graphic: CtaGeometricGraphic — rotating diamonds (reused from homepage) */}

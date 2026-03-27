@@ -6,82 +6,47 @@ import FlatlineGraphic from "@/components/FlatlineGraphic";
 import VennGraphic from "@/components/VennGraphic";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
+import SectionConnector from "@/components/SectionConnector";
+import HomeServiceIcon from "@/components/HomeServiceIcon";
 
-const services = [
+type ServiceNum = '01' | '02' | '03' | '04' | '05' | '06'
+
+const services: { num: ServiceNum; title: string; desc: string }[] = [
   {
     num: "01",
     title: "Fractional CMO",
     desc: "Senior clinical leadership embedded in your teams.",
-    icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <circle cx="12" cy="7.5" r="3.5" />
-        <path d="M3 21a9 9 0 0 1 18 0" />
-      </svg>
-    ),
   },
   {
     num: "02",
     title: "Clinical Product Development",
     desc: "Integrate clinical insight from day one.",
-    icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
-        <path d="M9 10h6M12 7v6" />
-      </svg>
-    ),
   },
   {
     num: "03",
     title: "Evidence Strategy & Generation",
     desc: "Measure what actually matters.",
-    icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M4 19V13M9 19V9M14 19V5M19 19V11" />
-        <path d="M2 19h20" />
-      </svg>
-    ),
   },
   {
     num: "04",
     title: "Market Access & Clinical Credibility",
     desc: "Navigate complex health system procurement.",
-    icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M12 2l8 3.5v5.5c0 4.4-3.4 8.2-8 9.5C7.4 19.2 4 15.4 4 11V5.5L12 2z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
   },
   {
     num: "05",
     title: "Impact Communications",
     desc: "Turn evidence into narratives that move buyers.",
-    icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H8l-4 3V6a1 1 0 0 1 1-1z" />
-        <path d="M8 9.5h8M8 12.5h5" />
-      </svg>
-    ),
   },
   {
     num: "06",
     title: "Health System Intelligence",
     desc: "Strategic counsel for navigating complex health system contexts.",
-    icon: (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <circle cx="12" cy="5" r="2.5" />
-        <circle cx="4.5" cy="18" r="2.5" />
-        <circle cx="19.5" cy="18" r="2.5" />
-        <path d="M11 7l-5.5 9M13 7l5.5 9M7 18h10" />
-      </svg>
-    ),
   },
 ];
 
 const stats = [
   { value: "15+", label: "Years across the digital health ecosystem" },
-  { value: "5", label: "Countries with multi-million pound contracts protected" },
+  { value: "5",   label: "Countries with multi-million pound contracts protected" },
   { value: "50+", label: "International experts led at ITU/WHO" },
   { value: "20+", label: "Countries with active client engagements" },
   { value: "60+", label: "Countries reached via podcast" },
@@ -106,22 +71,19 @@ const articles = [
   {
     title: "Evaluating tech in healthcare: measuring what matters",
     date: "Nov 2025",
-    excerpt:
-      "Why most digital health evaluation frameworks miss the point, and what rigorous value measurement actually looks like.",
+    excerpt: "Why most digital health evaluation frameworks miss the point, and what rigorous value measurement actually looks like.",
     href: "https://shubstack.substack.com",
   },
   {
     title: "Level up your evidence comms",
     date: "Jul 2025",
-    excerpt:
-      "The gap between what your data shows and what your audience hears is a communications problem. Here's how to close it.",
+    excerpt: "The gap between what your data shows and what your audience hears is a communications problem. Here's how to close it.",
     href: "https://shubstack.substack.com",
   },
   {
     title: "Can Global Health and Venture Capital get along?",
     date: "May 2025",
-    excerpt:
-      "On the structural tensions between impact-driven global health work and the return expectations of venture capital.",
+    excerpt: "On the structural tensions between impact-driven global health work and the return expectations of venture capital.",
     href: "https://shubstack.substack.com",
   },
 ];
@@ -131,7 +93,7 @@ export default function HomePage() {
     <>
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background grid decoration */}
+        {/* Background grid */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -143,18 +105,18 @@ export default function HomePage() {
           </svg>
         </div>
 
-        {/* Radial glow — amber left */}
+        {/* Amber glow — top left */}
         <div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(201,147,58,0.10) 0%, transparent 70%)' }}
+          className="absolute -top-32 -left-32 w-[700px] h-[700px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(201,147,58,0.12) 0%, transparent 70%)' }}
         />
-        {/* Radial glow — teal right */}
+        {/* Teal glow — behind globe */}
         <div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.10) 0%, transparent 70%)' }}
+          className="absolute -bottom-20 -right-20 w-[700px] h-[700px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.15) 0%, transparent 68%)' }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left */}
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
@@ -181,7 +143,7 @@ export default function HomePage() {
 
             <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
               Senior clinical and strategic counsel for digital health companies,
-              investors, and health organisations — helping you build solutions
+              investors, and health organisations. We help you build solutions
               that are clinically sound, commercially credible, and trusted by
               the people who need to use them.
             </p>
@@ -196,17 +158,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right — animated globe */}
+          {/* Right — animated globe, larger and more prominent */}
           <div className="flex items-center justify-center">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px]">
+            <div className="w-72 h-72 sm:w-[380px] sm:h-[380px] lg:w-[520px] lg:h-[520px]">
               <HeroGlobe />
             </div>
           </div>
         </div>
       </section>
 
+      {/* Section connector */}
+      <SectionConnector />
+
       {/* ── PROBLEM BAND ───────────────────────────────────────── */}
-      {/* Graphic: scrolling ECG/flatline behind the quote */}
       <section className="relative bg-[#111410] border-y border-[#F2EFE9]/6 py-20 overflow-hidden">
         <FlatlineGraphic />
         <FadeIn>
@@ -226,18 +190,18 @@ export default function HomePage() {
         </FadeIn>
       </section>
 
+      {/* Section connector */}
+      <SectionConnector />
+
       {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}
-      {/* Graphic: three-circle Venn (Clinical × Implementation × Strategy) */}
+      {/*
+        Venn is now the right column — full column width at ~500px on desktop.
+        Manifesto sits below as a full-width panel.
+      */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* Venn diagram — centred above the two-column grid */}
-          <FadeIn className="flex justify-center mb-12">
-            <div className="w-[240px] h-[200px]">
-              <VennGraphic />
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left: text */}
             <FadeIn className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
                 <div className="h-px w-8 bg-[#C9933A]" />
@@ -257,33 +221,43 @@ export default function HomePage() {
               </p>
               <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 We work at the intersection of clinical rigour, implementation
-                reality, and strategic clarity — helping organisations from
+                reality, and strategic clarity, helping organisations from
                 seed-stage startups to major health systems build digital health
                 solutions that are genuinely effective, commercially sustainable,
                 and trusted by the clinicians and patients they serve.
               </p>
             </FadeIn>
 
-            <FadeIn delay={150} className="flex">
-              <aside className="border border-[#C9933A]/25 rounded-sm p-8 bg-[#C9933A]/5 flex flex-col justify-center w-full" style={{ backdropFilter: 'blur(4px)' }}>
-                <p className="text-xs tracking-widest text-[#C9933A] uppercase mb-6" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                  The SandiQ Manifesto
-                </p>
-                <blockquote className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-                  &ldquo;Digital health must be built around clinical reality, not
-                  around what is easy to build or easy to sell.
-                  <br /><br />
-                  We don&apos;t accept that speed and rigour are in tension. We
-                  don&apos;t accept that evidence is only for academics. We
-                  don&apos;t accept that commercial success and genuine clinical
-                  value are different goals. The organisations that understand
-                  this are the ones that last.&rdquo;
-                </blockquote>
-              </aside>
+            {/* Right: Venn — large feature graphic */}
+            <FadeIn delay={120}>
+              <div className="w-full max-w-[480px] mx-auto" style={{ height: 390 }}>
+                <VennGraphic />
+              </div>
             </FadeIn>
           </div>
+
+          {/* Full-width manifesto below */}
+          <FadeIn delay={200} className="mt-14">
+            <aside className="border border-[#C9933A]/25 rounded-sm p-10 bg-[#C9933A]/5" style={{ backdropFilter: 'blur(4px)' }}>
+              <p className="text-xs tracking-widest text-[#C9933A] uppercase mb-6" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                The SandiQ Manifesto
+              </p>
+              <blockquote className="text-xl lg:text-2xl xl:text-3xl text-[#F2EFE9] leading-snug italic max-w-4xl" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
+                &ldquo;Digital health must be built around clinical reality, not
+                around what is easy to build or easy to sell.
+                We don&apos;t accept that speed and rigour are in tension. We
+                don&apos;t accept that evidence is only for academics. We
+                don&apos;t accept that commercial success and genuine clinical
+                value are different goals. The organisations that understand
+                this are the ones that last.&rdquo;
+              </blockquote>
+            </aside>
+          </FadeIn>
         </div>
       </section>
+
+      {/* Section connector */}
+      <SectionConnector />
 
       {/* ── SERVICES STRIP ─────────────────────────────────────── */}
       <section className="py-24">
@@ -305,8 +279,9 @@ export default function HomePage() {
               {services.map((s) => (
                 <div key={s.num} className="bg-[#0C0F0D] p-8 flex flex-col gap-4 group hover:bg-[#141810] transition-colors duration-300">
                   <div className="flex items-start justify-between">
+                    {/* Animated icon (replaces static SVG) */}
                     <div className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                      {s.icon}
+                      <HomeServiceIcon num={s.num} />
                     </div>
                     <p className="text-xs text-[#C9933A]/50 tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                       {s.num}
@@ -328,16 +303,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section connector */}
+      <SectionConnector />
+
       {/* ── IMPACT NUMBERS ─────────────────────────────────────── */}
       <section className="relative bg-[#111410] py-20 border-y border-[#F2EFE9]/6 overflow-hidden">
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          aria-hidden
-        >
-          <div
-            className="w-[700px] h-[220px] rounded-full"
-            style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.07) 0%, transparent 70%)' }}
-          />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
+          <div className="w-[700px] h-[220px] rounded-full" style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.07) 0%, transparent 70%)' }} />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -370,15 +342,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section connector */}
+      <SectionConnector />
+
       {/* ── THE FOUNDER ────────────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <FadeIn className="lg:col-span-1">
               <div className="w-full aspect-square max-w-xs bg-[#2A6B62]/15 border border-[#2A6B62]/25 rounded-sm flex items-center justify-center">
-                <span className="text-4xl text-[#2A6B62]/50" style={{ fontFamily: "var(--font-cormorant)" }}>
-                  SU
-                </span>
+                <span className="text-4xl text-[#2A6B62]/50" style={{ fontFamily: "var(--font-cormorant)" }}>SU</span>
               </div>
             </FadeIn>
 
@@ -400,7 +373,7 @@ export default function HomePage() {
                 with over 15 years of experience across clinical practice, health
                 technology, and health system strategy. He has led clinical and
                 strategic initiatives across the NHS, international health
-                agencies, and private sector organisations — from early-stage
+                agencies, and private sector organisations, from early-stage
                 startups through to multilateral programmes.
               </p>
 
@@ -409,7 +382,7 @@ export default function HomePage() {
                 Telecommunication Union (ITU) and contributed to WHO working
                 groups on digital health standards. He founded SandiQ to provide
                 the kind of senior, independent clinical and strategic counsel
-                that digital health organisations rarely have access to — the
+                that digital health organisations rarely have access to: the
                 perspective of someone who has sat on both the clinical and the
                 commercial side of the table.
               </p>
@@ -430,23 +403,19 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-wrap gap-6">
-                <a href="https://linkedin.com/in/shubs-upadhyay" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  LinkedIn →
-                </a>
-                <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  Shubstack →
-                </a>
-                <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  GPODH Podcast →
-                </a>
+                <a href="https://linkedin.com/in/shubs-upadhyay" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>LinkedIn →</a>
+                <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>Shubstack →</a>
+                <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>GPODH Podcast →</a>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
+      {/* Section connector */}
+      <SectionConnector />
+
       {/* ── WHAT WE'VE DELIVERED ───────────────────────────────── */}
-      {/* Graphic: sonar pulse dot at the top of each card's amber border */}
       <section className="bg-[#111410] py-24 border-y border-[#F2EFE9]/6">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex flex-col gap-4 mb-14">
@@ -464,7 +433,6 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {outcomes.map((outcome, i) => (
               <FadeIn key={i} delay={i * 120}>
-                {/* Sonar origin dot at top of amber border */}
                 <div className="relative border-l-2 border-[#C9933A] pl-6 py-2 flex flex-col gap-3 h-full">
                   <span className="absolute -top-1 -left-[4px] w-2 h-2 rounded-full bg-[#C9933A]/30 sonar-ring" style={{ animationDelay: `${i * 0.4}s` }} aria-hidden />
                   <span className="absolute -top-1 -left-[4px] w-2 h-2 rounded-full bg-[#C9933A]/30 sonar-ring-delay" style={{ animationDelay: `${i * 0.4 + 1.1}s` }} aria-hidden />
@@ -481,6 +449,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Section connector */}
+      <SectionConnector />
 
       {/* ── THOUGHT LEADERSHIP ─────────────────────────────────── */}
       <section className="py-24">
@@ -500,33 +471,22 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {articles.map((article, i) => (
               <FadeIn key={i} delay={i * 100}>
-                <a
-                  href={article.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full"
-                >
-                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                    {article.date}
-                  </p>
+                <a href={article.href} target="_blank" rel="noopener noreferrer"
+                  className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full">
+                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>{article.date}</p>
                   <h3 className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {article.title}
                   </h3>
-                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    {article.excerpt}
-                  </p>
-                  <span className="text-xs text-[#C9933A]" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    Read on Substack →
-                  </span>
+                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>{article.excerpt}</p>
+                  <span className="text-xs text-[#C9933A]" style={{ fontFamily: "var(--font-dm-sans)" }}>Read on Substack →</span>
                 </a>
               </FadeIn>
             ))}
           </div>
 
-          {/* Podcast strip — BroadcastGraphic replaces static GPODH square */}
+          {/* Podcast strip */}
           <FadeIn delay={100}>
             <div className="border border-[#2A6B62]/30 rounded-sm p-8 flex flex-col md:flex-row items-center gap-8 bg-[#2A6B62]/5">
-              {/* Animated broadcast graphic */}
               <div className="shrink-0">
                 <BroadcastGraphic size={80} />
               </div>
@@ -538,17 +498,12 @@ export default function HomePage() {
                   Global Perspectives on Digital Health
                 </p>
                 <p className="text-sm text-[#A8A49D]" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  Candid conversations with the people reshaping digital health
-                  across 60+ countries.
+                  Candid conversations with the people reshaping digital health across 60+ countries.
                 </p>
               </div>
-              <a
-                href="https://gpodh.org"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer"
                 className="shrink-0 inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+                style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Listen on gpodh.org →
               </a>
             </div>
@@ -557,46 +512,30 @@ export default function HomePage() {
       </section>
 
       {/* ── FOOTER CTA BAND ────────────────────────────────────── */}
-      {/* Graphic: rotating nested diamond frames behind the CTA */}
       <section className="relative bg-[#111410] border-t border-[#F2EFE9]/6 py-24 overflow-hidden">
-        {/* Ambient radial glow */}
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          aria-hidden
-        >
-          <div
-            className="w-[600px] h-[300px] rounded-full"
-            style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.07) 0%, transparent 65%)' }}
-          />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
+          <div className="w-[600px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.07) 0%, transparent 65%)' }} />
         </div>
-
-        {/* Rotating diamond frames */}
         <CtaGeometricGraphic />
 
         <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-            Ready to build something
-            <br />
-            that actually works?
+            Ready to build something that actually works?
           </h2>
           <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Whether you&apos;re launching a new digital health product, seeking
             to enter a new market, or trying to prove the value of what you
-            already have — start with a conversation.
+            already have: start with a conversation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="mailto:hello@sandiq.com"
+            <a href="mailto:hello@sandiq.com"
               className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#A8A49D] border border-[#F2EFE9]/15 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
+              style={{ fontFamily: "var(--font-dm-sans)" }}>
               hello@sandiq.com
             </a>
-            <Link
-              href="/contact"
+            <Link href="/contact"
               className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
+              style={{ fontFamily: "var(--font-dm-sans)" }}>
               Book a call →
             </Link>
           </div>

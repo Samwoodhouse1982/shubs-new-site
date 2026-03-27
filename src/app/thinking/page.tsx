@@ -2,6 +2,7 @@ import FadeIn from "@/components/FadeIn";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import PodcastArtGraphic from "@/components/PodcastArtGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
+import SectionConnector from "@/components/SectionConnector";
 
 const articles = [
   {
@@ -90,13 +91,15 @@ export default function ThinkingPage() {
             </p>
           </div>
           <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-            The work demands honest thinking.
+            Analysis that holds up under scrutiny.
           </h1>
           <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Essays, analysis, and perspective from Dr Shubs Upadhyay, on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
           </p>
         </div>
       </section>
+
+      <SectionConnector />
 
       {/* ── ARTICLES ──────────────────────────────────────────── */}
       <section className="pb-24">
@@ -135,6 +138,8 @@ export default function ThinkingPage() {
           </div>
         </div>
       </section>
+
+      <SectionConnector />
 
       {/* ── PODCAST ───────────────────────────────────────────── */}
       {/* Graphic: PodcastArtGraphic replaces bare placeholder; BroadcastGraphic accent */}
@@ -205,6 +210,8 @@ export default function ThinkingPage() {
         </div>
       </section>
 
+      <SectionConnector />
+
       {/* ── SUBSCRIBE CTA ─────────────────────────────────────── */}
       {/* Graphic: rotating diamonds (reused from homepage) */}
       <section className="relative py-24 overflow-hidden">
@@ -233,15 +240,26 @@ export default function ThinkingPage() {
           <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Subscribe to Shubstack for essays on digital health strategy, evidence, and equity. Written by Dr Shubs Upadhyay. No filler.
           </p>
-          <a
-            href="https://shubstack.substack.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            Subscribe to Shubstack →
-          </a>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="https://shubstack.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)" }}
+            >
+              Subscribe to Shubstack →
+            </a>
+            <a
+              href="https://gpodh.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)" }}
+            >
+              Listen to GPODH →
+            </a>
+          </div>
         </FadeIn>
       </section>
     </>
