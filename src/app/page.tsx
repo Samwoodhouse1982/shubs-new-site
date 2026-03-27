@@ -2,6 +2,10 @@ import Link from "next/link";
 import HeroGlobe from "@/components/HeroGlobe";
 import FadeIn from "@/components/FadeIn";
 import StatCounter from "@/components/StatCounter";
+import FlatlineGraphic from "@/components/FlatlineGraphic";
+import VennGraphic from "@/components/VennGraphic";
+import BroadcastGraphic from "@/components/BroadcastGraphic";
+import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 
 const services = [
   {
@@ -129,25 +133,10 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Background grid decoration */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <svg
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice"
-          >
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <pattern
-                id="grid"
-                width="60"
-                height="60"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 60 0 L 0 0 0 60"
-                  fill="none"
-                  stroke="#C9933A"
-                  strokeWidth="0.5"
-                />
+              <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#C9933A" strokeWidth="0.5" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
@@ -171,26 +160,18 @@ export default function HomePage() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <div className="h-px w-8 bg-[#C9933A]" />
-                <p
-                  className="text-xs tracking-widest text-[#C9933A] uppercase"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
+                <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   Global Digital Health Consultancy
                 </p>
               </div>
 
-              <h1
-                className="text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight"
-                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-              >
-                <span
-                  style={{
-                    background: 'linear-gradient(135deg, #E8B86D 0%, #C9933A 55%, #D4A050 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                <span style={{
+                  background: 'linear-gradient(135deg, #E8B86D 0%, #C9933A 55%, #D4A050 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>
                   Real value
                 </span>
                 <br />
@@ -198,10 +179,7 @@ export default function HomePage() {
               </h1>
             </div>
 
-            <p
-              className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-xl"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
+            <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
               Senior clinical and strategic counsel for digital health companies,
               investors, and health organisations — helping you build solutions
               that are clinically sound, commercially credible, and trusted by
@@ -209,18 +187,10 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Work with SandiQ →
               </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border border-[#F2EFE9]/20 text-[#F2EFE9] rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <Link href="/services" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border border-[#F2EFE9]/20 text-[#F2EFE9] rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Our services →
               </Link>
             </div>
@@ -236,24 +206,19 @@ export default function HomePage() {
       </section>
 
       {/* ── PROBLEM BAND ───────────────────────────────────────── */}
-      <section className="bg-[#111410] border-y border-[#F2EFE9]/6 py-20">
+      {/* Graphic: scrolling ECG/flatline behind the quote */}
+      <section className="relative bg-[#111410] border-y border-[#F2EFE9]/6 py-20 overflow-hidden">
+        <FlatlineGraphic />
         <FadeIn>
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <blockquote
-              className="text-3xl lg:text-4xl xl:text-5xl leading-tight italic text-[#F2EFE9]"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
-            >
+          <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-tight italic text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
               &ldquo;Most digital health fails not because of bad technology. It
               fails because it&apos;s built against the wrong definition of
               value.&rdquo;
             </blockquote>
             <div className="mt-8 flex items-center justify-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
-              <Link
-                href="/thinking"
-                className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <Link href="/thinking" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Read our thinking →
               </Link>
             </div>
@@ -262,39 +227,35 @@ export default function HomePage() {
       </section>
 
       {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}
+      {/* Graphic: three-circle Venn (Clinical × Implementation × Strategy) */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          {/* Venn diagram — centred above the two-column grid */}
+          <FadeIn className="flex justify-center mb-12">
+            <div className="w-[240px] h-[200px]">
+              <VennGraphic />
+            </div>
+          </FadeIn>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <FadeIn className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
                 <div className="h-px w-8 bg-[#C9933A]" />
-                <p
-                  className="text-xs tracking-widest text-[#C9933A] uppercase"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
+                <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   About SandiQ
                 </p>
               </div>
-              <h2
-                className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight"
-                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-              >
+              <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 We exist because the industry keeps asking the wrong questions.
               </h2>
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 SandiQ was founded on a simple but uncomfortable observation:
                 the digital health industry has a systemic tendency to optimise
                 for the wrong outcomes. It chases adoption metrics instead of
                 health outcomes. It talks about disruption without engaging with
                 systems. It builds for idealised users rather than real ones.
               </p>
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 We work at the intersection of clinical rigour, implementation
                 reality, and strategic clarity — helping organisations from
                 seed-stage startups to major health systems build digital health
@@ -305,16 +266,10 @@ export default function HomePage() {
 
             <FadeIn delay={150} className="flex">
               <aside className="border border-[#C9933A]/25 rounded-sm p-8 bg-[#C9933A]/5 flex flex-col justify-center w-full" style={{ backdropFilter: 'blur(4px)' }}>
-                <p
-                  className="text-xs tracking-widest text-[#C9933A] uppercase mb-6"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
+                <p className="text-xs tracking-widest text-[#C9933A] uppercase mb-6" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   The SandiQ Manifesto
                 </p>
-                <blockquote
-                  className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug italic"
-                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
-                >
+                <blockquote className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
                   &ldquo;Digital health must be built around clinical reality, not
                   around what is easy to build or easy to sell.
                   <br /><br />
@@ -336,17 +291,11 @@ export default function HomePage() {
           <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
-              <p
-                className="text-xs tracking-widest text-[#C9933A] uppercase"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
+              <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                 What we do
               </p>
             </div>
-            <h2
-              className="text-4xl lg:text-5xl text-[#F2EFE9]"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-            >
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               Services built for complex health systems.
             </h2>
           </FadeIn>
@@ -354,41 +303,22 @@ export default function HomePage() {
           <FadeIn delay={100}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#F2EFE9]/6 rounded-sm overflow-hidden">
               {services.map((s) => (
-                <div
-                  key={s.num}
-                  className="bg-[#0C0F0D] p-8 flex flex-col gap-4 group hover:bg-[#141810] transition-colors duration-300"
-                >
+                <div key={s.num} className="bg-[#0C0F0D] p-8 flex flex-col gap-4 group hover:bg-[#141810] transition-colors duration-300">
                   <div className="flex items-start justify-between">
                     <div className="opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                       {s.icon}
                     </div>
-                    <p
-                      className="text-xs text-[#C9933A]/50 tracking-widest"
-                      style={{ fontFamily: "var(--font-dm-mono)" }}
-                    >
+                    <p className="text-xs text-[#C9933A]/50 tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                       {s.num}
                     </p>
                   </div>
-                  <h3
-                    className="text-xl text-[#F2EFE9] leading-snug"
-                    style={{
-                      fontFamily: "var(--font-cormorant)",
-                      fontWeight: 600,
-                    }}
-                  >
+                  <h3 className="text-xl text-[#F2EFE9] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {s.title}
                   </h3>
-                  <p
-                    className="text-sm text-[#A8A49D] leading-relaxed flex-1"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
+                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {s.desc}
                   </p>
-                  <Link
-                    href="/services"
-                    className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200 mt-2"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
+                  <Link href="/services" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200 mt-2" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Learn more →
                   </Link>
                 </div>
@@ -400,7 +330,6 @@ export default function HomePage() {
 
       {/* ── IMPACT NUMBERS ─────────────────────────────────────── */}
       <section className="relative bg-[#111410] py-20 border-y border-[#F2EFE9]/6 overflow-hidden">
-        {/* Radial glow */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           aria-hidden
@@ -416,10 +345,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4 mb-14 text-center">
               <div className="flex items-center justify-center gap-3">
                 <div className="h-px w-8 bg-[#C9933A]" />
-                <p
-                  className="text-xs tracking-widest text-[#C9933A] uppercase"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
+                <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   Track record
                 </p>
                 <div className="h-px w-8 bg-[#C9933A]" />
@@ -428,19 +354,13 @@ export default function HomePage() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {stats.map((stat) => (
-                <div
-                  key={stat.value}
-                  className="flex flex-col items-center text-center gap-3"
-                >
+                <div key={stat.value} className="flex flex-col items-center text-center gap-3">
                   <StatCounter
                     value={stat.value}
                     className="text-5xl lg:text-6xl text-[#C9933A]"
                     style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
                   />
-                  <p
-                    className="text-xs text-[#A8A49D] leading-relaxed"
-                    style={{ fontFamily: "var(--font-dm-mono)" }}
-                  >
+                  <p className="text-xs text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {stat.label}
                   </p>
                 </div>
@@ -454,42 +374,28 @@ export default function HomePage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Portrait placeholder */}
             <FadeIn className="lg:col-span-1">
               <div className="w-full aspect-square max-w-xs bg-[#2A6B62]/15 border border-[#2A6B62]/25 rounded-sm flex items-center justify-center">
-                <span
-                  className="text-4xl text-[#2A6B62]/50"
-                  style={{ fontFamily: "var(--font-cormorant)" }}
-                >
+                <span className="text-4xl text-[#2A6B62]/50" style={{ fontFamily: "var(--font-cormorant)" }}>
                   SU
                 </span>
               </div>
             </FadeIn>
 
-            {/* Bio */}
             <FadeIn delay={120} className="lg:col-span-2 flex flex-col gap-6">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px w-8 bg-[#C9933A]" />
-                  <p
-                    className="text-xs tracking-widest text-[#C9933A] uppercase"
-                    style={{ fontFamily: "var(--font-dm-mono)" }}
-                  >
+                  <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     Founding Partner
                   </p>
                 </div>
-                <h2
-                  className="text-4xl lg:text-5xl text-[#F2EFE9]"
-                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-                >
+                <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                   Dr Shubs Upadhyay
                 </h2>
               </div>
 
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Dr Shubs Upadhyay is a physician and digital health strategist
                 with over 15 years of experience across clinical practice, health
                 technology, and health system strategy. He has led clinical and
@@ -498,10 +404,7 @@ export default function HomePage() {
                 startups through to multilateral programmes.
               </p>
 
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 He has served as a clinical lead at the International
                 Telecommunication Union (ITU) and contributed to WHO working
                 groups on digital health standards. He founded SandiQ to provide
@@ -511,62 +414,29 @@ export default function HomePage() {
                 commercial side of the table.
               </p>
 
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
+              <p className="text-base text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 He hosts the GPODH (Global Perspectives on Digital Health)
                 podcast, which has reached listeners in over 60 countries, and
                 writes the Shubstack newsletter on digital health strategy,
                 evidence, and equity.
               </p>
 
-              {/* Credentials */}
               <div className="border-t border-[#F2EFE9]/8 pt-6 flex flex-wrap gap-3">
-                {[
-                  "MBBS",
-                  "MSc Global Health",
-                  "Former ITU Clinical Lead",
-                  "WHO Contributor",
-                  "NHS Digital Health Advisor",
-                ].map((cred) => (
-                  <span
-                    key={cred}
-                    className="px-3 py-1 text-xs border border-[#F2EFE9]/12 text-[#A8A49D] rounded-sm"
-                    style={{ fontFamily: "var(--font-dm-mono)" }}
-                  >
+                {["MBBS", "MSc Global Health", "Former ITU Clinical Lead", "WHO Contributor", "NHS Digital Health Advisor"].map((cred) => (
+                  <span key={cred} className="px-3 py-1 text-xs border border-[#F2EFE9]/12 text-[#A8A49D] rounded-sm" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {cred}
                   </span>
                 ))}
               </div>
 
-              {/* Links */}
               <div className="flex flex-wrap gap-6">
-                <a
-                  href="https://linkedin.com/in/shubs-upadhyay"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
+                <a href="https://linkedin.com/in/shubs-upadhyay" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   LinkedIn →
                 </a>
-                <a
-                  href="https://shubstack.substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
+                <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   Shubstack →
                 </a>
-                <a
-                  href="https://gpodh.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
+                <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-sm text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   GPODH Podcast →
                 </a>
               </div>
@@ -576,22 +446,17 @@ export default function HomePage() {
       </section>
 
       {/* ── WHAT WE'VE DELIVERED ───────────────────────────────── */}
+      {/* Graphic: sonar pulse dot at the top of each card's amber border */}
       <section className="bg-[#111410] py-24 border-y border-[#F2EFE9]/6">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
-              <p
-                className="text-xs tracking-widest text-[#C9933A] uppercase"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
+              <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                 Outcomes
               </p>
             </div>
-            <h2
-              className="text-4xl lg:text-5xl text-[#F2EFE9]"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-            >
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               What we&apos;ve delivered.
             </h2>
           </FadeIn>
@@ -599,20 +464,15 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {outcomes.map((outcome, i) => (
               <FadeIn key={i} delay={i * 120}>
-                <div className="border-l-2 border-[#C9933A] pl-6 py-2 flex flex-col gap-3 h-full">
-                  <h3
-                    className="text-xl text-[#F2EFE9] leading-snug"
-                    style={{
-                      fontFamily: "var(--font-cormorant)",
-                      fontWeight: 600,
-                    }}
-                  >
+                {/* Sonar origin dot at top of amber border */}
+                <div className="relative border-l-2 border-[#C9933A] pl-6 py-2 flex flex-col gap-3 h-full">
+                  <span className="absolute -top-1 -left-[4px] w-2 h-2 rounded-full bg-[#C9933A]/30 sonar-ring" style={{ animationDelay: `${i * 0.4}s` }} aria-hidden />
+                  <span className="absolute -top-1 -left-[4px] w-2 h-2 rounded-full bg-[#C9933A]/30 sonar-ring-delay" style={{ animationDelay: `${i * 0.4 + 1.1}s` }} aria-hidden />
+                  <span className="absolute -top-[3px] -left-[3px] w-[6px] h-[6px] rounded-full bg-[#C9933A]" aria-hidden />
+                  <h3 className="text-xl text-[#F2EFE9] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {outcome.title}
                   </h3>
-                  <p
-                    className="text-sm text-[#A8A49D] leading-relaxed"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
+                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {outcome.desc}
                   </p>
                 </div>
@@ -628,17 +488,11 @@ export default function HomePage() {
           <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
-              <p
-                className="text-xs tracking-widest text-[#C9933A] uppercase"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
+              <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                 From the founder
               </p>
             </div>
-            <h2
-              className="text-4xl lg:text-5xl text-[#F2EFE9]"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-            >
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               The industry talks to itself. We don&apos;t.
             </h2>
           </FadeIn>
@@ -652,31 +506,16 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full"
                 >
-                  <p
-                    className="text-xs text-[#A8A49D] tracking-widest"
-                    style={{ fontFamily: "var(--font-dm-mono)" }}
-                  >
+                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {article.date}
                   </p>
-                  <h3
-                    className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200"
-                    style={{
-                      fontFamily: "var(--font-cormorant)",
-                      fontWeight: 600,
-                    }}
-                  >
+                  <h3 className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {article.title}
                   </h3>
-                  <p
-                    className="text-sm text-[#A8A49D] leading-relaxed flex-1"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
+                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {article.excerpt}
                   </p>
-                  <span
-                    className="text-xs text-[#C9933A]"
-                    style={{ fontFamily: "var(--font-dm-sans)" }}
-                  >
+                  <span className="text-xs text-[#C9933A]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Read on Substack →
                   </span>
                 </a>
@@ -684,34 +523,21 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Podcast strip */}
+          {/* Podcast strip — BroadcastGraphic replaces static GPODH square */}
           <FadeIn delay={100}>
             <div className="border border-[#2A6B62]/30 rounded-sm p-8 flex flex-col md:flex-row items-center gap-8 bg-[#2A6B62]/5">
-              <div className="w-20 h-20 rounded-sm bg-[#2A6B62]/20 border border-[#2A6B62]/40 flex items-center justify-center shrink-0">
-                <span
-                  className="text-[10px] text-[#2A6B62] text-center leading-tight"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
-                  GPODH
-                </span>
+              {/* Animated broadcast graphic */}
+              <div className="shrink-0">
+                <BroadcastGraphic size={80} />
               </div>
               <div className="flex-1">
-                <p
-                  className="text-xs text-[#2A6B62] tracking-widest uppercase mb-2"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
+                <p className="text-xs text-[#2A6B62] tracking-widest uppercase mb-2" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   The GPODH Podcast
                 </p>
-                <p
-                  className="text-lg text-[#F2EFE9] mb-2"
-                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-                >
+                <p className="text-lg text-[#F2EFE9] mb-2" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                   Global Perspectives on Digital Health
                 </p>
-                <p
-                  className="text-sm text-[#A8A49D]"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
+                <p className="text-sm text-[#A8A49D]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   Candid conversations with the people reshaping digital health
                   across 60+ countries.
                 </p>
@@ -731,8 +557,9 @@ export default function HomePage() {
       </section>
 
       {/* ── FOOTER CTA BAND ────────────────────────────────────── */}
+      {/* Graphic: rotating nested diamond frames behind the CTA */}
       <section className="relative bg-[#111410] border-t border-[#F2EFE9]/6 py-24 overflow-hidden">
-        {/* Radial glow */}
+        {/* Ambient radial glow */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           aria-hidden
@@ -743,19 +570,16 @@ export default function HomePage() {
           />
         </div>
 
-        <FadeIn className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
-          <h2
-            className="text-4xl lg:text-5xl xl:text-6xl text-[#F2EFE9] leading-tight"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-          >
+        {/* Rotating diamond frames */}
+        <CtaGeometricGraphic />
+
+        <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Ready to build something
             <br />
             that actually works?
           </h2>
-          <p
-            className="text-base text-[#A8A49D] max-w-lg"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
+          <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Whether you&apos;re launching a new digital health product, seeking
             to enter a new market, or trying to prove the value of what you
             already have — start with a conversation.
