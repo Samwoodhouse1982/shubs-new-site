@@ -184,8 +184,8 @@ export default function ThinkingPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-14">
             {/* Animated podcast artwork */}
-            <FadeIn className="lg:col-span-1">
-              <div className="aspect-square max-w-[240px] rounded-sm overflow-hidden">
+            <FadeIn className="lg:col-span-1 flex items-center justify-center">
+              <div className="aspect-square max-w-[240px] w-full rounded-sm overflow-hidden">
                 <PodcastArtGraphic />
               </div>
             </FadeIn>
