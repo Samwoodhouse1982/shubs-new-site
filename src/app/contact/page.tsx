@@ -137,7 +137,7 @@ export default function ContactPage() {
                   Contact
                 </p>
               </div>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-[1.1] max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-[1.0] max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Start with an honest conversation.
               </h1>
               <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
