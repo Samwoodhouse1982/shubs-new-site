@@ -159,7 +159,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-px">
           {services.map((service, i) => (
             <FadeIn key={service.num} delay={i * 60}>
-              <div id={`service-${service.num}`} className={`border border-[#F2EFE9]/8 rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${i % 2 === 0 ? "bg-[#0C0F0D]" : "bg-[#0e1210]"}`}>
+              <div id={`service-${service.num}`} className={`scroll-mt-24 border border-[#F2EFE9]/8 rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${i % 2 === 0 ? "bg-[#0C0F0D]" : "bg-[#0e1210]"}`}>
                 <div className="lg:w-16 shrink-0">
                   <p className="text-sm text-[#C9933A] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {service.num}
