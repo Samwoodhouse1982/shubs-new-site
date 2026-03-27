@@ -263,7 +263,7 @@ export default function HomePage() {
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-              Services built for complex health systems.
+              Services built for complex health challenges.
             </h2>
           </FadeIn>
 
