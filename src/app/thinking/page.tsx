@@ -96,7 +96,7 @@ export default function ThinkingPage() {
                 Clinical depth. Strategic clarity.
               </h1>
               <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Essays, analysis, and perspective from Dr Shubs Upadhyay, on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
+                Perspectives from Dr Shubs Upadhyay on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
               </p>
               <p className="text-sm text-[#A8A49D] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Read the essays on{" "}
