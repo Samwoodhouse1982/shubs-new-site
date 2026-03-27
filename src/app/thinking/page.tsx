@@ -163,6 +163,18 @@ export default function ThinkingPage() {
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn delay={520} className="flex justify-center mt-10">
+            <a
+              href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[#C9933A]/40 text-[#C9933A] rounded hover:bg-[#C9933A]/10 hover:border-[#C9933A] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)" }}
+            >
+              Read all essays on Shubstack →
+            </a>
+          </FadeIn>
         </div>
       </section>
 
