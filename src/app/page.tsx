@@ -122,7 +122,7 @@ export default function HomePage() {
               <div className="flex items-center gap-3">
                 <div className="h-px w-8 bg-[#C9933A]" />
                 <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                  Global Digital Health Consultancy
+                  Tackling global digital health
                 </p>
               </div>
 
