@@ -1,11 +1,11 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-const CIRCLES = [
-  { cx: 120, cy: 72,  r: 58, stroke: '#C9933A', label: 'CLINICAL RIGOUR',      lx: 120, ly: 14  },
-  { cx: 86,  cy: 132, r: 58, stroke: '#2A6B62', label: 'IMPLEMENTATION',        lx: 34,  ly: 178 },
-  { cx: 154, cy: 132, r: 58, stroke: '#A8A49D', label: 'STRATEGIC CLARITY',     lx: 206, ly: 178 },
-]
+// Geometry — viewBox 0 0 320 268
+// Circles large enough to overlap clearly; labels placed outside each circle
+const TOP = { cx: 160, cy: 100, r: 72 }  // amber — Clinical Rigour
+const BL  = { cx: 112, cy: 176, r: 72 }  // teal  — Implementation
+const BR  = { cx: 208, cy: 176, r: 72 }  // stone — Strategic Clarity
 
 export default function VennGraphic() {
   const svgRef = useRef<SVGSVGElement>(null)
@@ -18,25 +18,24 @@ export default function VennGraphic() {
 
     const fills   = Array.from(svg.querySelectorAll<SVGCircleElement>('.vg-fill'))
     const borders = Array.from(svg.querySelectorAll<SVGCircleElement>('.vg-border'))
+    const radii   = [TOP.r, BL.r, BR.r]
 
     function tick(ts: number) {
       if (!t0.current) t0.current = ts
       const t = (ts - t0.current) / 1000
 
       fills.forEach((c, i) => {
-        const ph   = (i * Math.PI * 2) / 3
-        const base = CIRCLES[i].r
-        c.setAttribute('r',       String(base + 2.5 * Math.sin(t * 0.65 + ph)))
-        c.setAttribute('opacity', String(0.055 + 0.022 * Math.sin(t * 0.5 + ph)))
+        const ph = (i * Math.PI * 2) / 3
+        c.setAttribute('r',       String(radii[i] + 3 * Math.sin(t * 0.55 + ph)))
+        c.setAttribute('opacity', String(0.05 + 0.02 * Math.sin(t * 0.45 + ph)))
       })
 
       borders.forEach((c, i) => {
-        const ph   = (i * Math.PI * 2) / 3
-        const base = CIRCLES[i].r
-        c.setAttribute('r', String(base + 2.5 * Math.sin(t * 0.65 + ph)))
-        // Spin the dashed stroke — alternate direction per circle
+        const ph  = (i * Math.PI * 2) / 3
+        c.setAttribute('r', String(radii[i] + 3 * Math.sin(t * 0.55 + ph)))
+        // Slow rotating dashes — much gentler than before
         const dir    = i % 2 === 0 ? 1 : -1
-        const offset = (t * 18 * dir) % 100
+        const offset = (t * 5 * dir) % 100
         c.setAttribute('stroke-dashoffset', String(offset))
       })
 
@@ -50,64 +49,72 @@ export default function VennGraphic() {
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 240 195"
+      viewBox="0 0 320 268"
       width="100%"
       height="100%"
       aria-hidden
     >
-      {/* Filled circles (breathe) */}
-      {CIRCLES.map((c, i) => (
-        <circle
-          key={`fill-${i}`}
-          className="vg-fill"
-          cx={c.cx} cy={c.cy} r={c.r}
-          fill={c.stroke}
-          opacity="0.055"
-        />
-      ))}
+      <defs>
+        {/* Static clip paths for triple-intersection fill */}
+        <clipPath id="vcp-top"><circle cx={TOP.cx} cy={TOP.cy} r={TOP.r} /></clipPath>
+        <clipPath id="vcp-bl"> <circle cx={BL.cx}  cy={BL.cy}  r={BL.r}  /></clipPath>
+      </defs>
 
-      {/* Dashed stroke borders (spin) */}
-      {CIRCLES.map((c, i) => (
-        <circle
-          key={`border-${i}`}
-          className="vg-border"
-          cx={c.cx} cy={c.cy} r={c.r}
-          fill="none"
-          stroke={c.stroke}
-          strokeWidth="0.7"
-          strokeDasharray="5 3"
-          opacity="0.4"
-        />
-      ))}
+      {/* ── Circle fills (breathe) ─────────────────────────── */}
+      <circle className="vg-fill" cx={TOP.cx} cy={TOP.cy} r={TOP.r} fill="#C9933A" opacity="0.05" />
+      <circle className="vg-fill" cx={BL.cx}  cy={BL.cy}  r={BL.r}  fill="#2A6B62" opacity="0.05" />
+      <circle className="vg-fill" cx={BR.cx}  cy={BR.cy}  r={BR.r}  fill="#A8A49D" opacity="0.05" />
 
-      {/* Centre label */}
+      {/* ── Triple-intersection highlight ──────────────────── */}
+      {/* Nested clip groups = circle1 ∩ circle2 ∩ circle3 */}
+      <g clipPath="url(#vcp-top)">
+        <g clipPath="url(#vcp-bl)">
+          <circle cx={BR.cx} cy={BR.cy} r={BR.r} fill="#C9933A" opacity="0.28" />
+        </g>
+      </g>
+
+      {/* ── Dashed borders (breathe + slow rotate) ─────────── */}
+      <circle className="vg-border" cx={TOP.cx} cy={TOP.cy} r={TOP.r}
+        fill="none" stroke="#C9933A" strokeWidth="0.9" strokeDasharray="6 4" opacity="0.45" />
+      <circle className="vg-border" cx={BL.cx}  cy={BL.cy}  r={BL.r}
+        fill="none" stroke="#2A6B62" strokeWidth="0.9" strokeDasharray="6 4" opacity="0.4"  />
+      <circle className="vg-border" cx={BR.cx}  cy={BR.cy}  r={BR.r}
+        fill="none" stroke="#A8A49D" strokeWidth="0.9" strokeDasharray="6 4" opacity="0.35" />
+
+      {/* ── SANDIQ — centre of triple intersection ─────────── */}
       <text
-        x="120" y="108"
+        x="160" y="148"
         textAnchor="middle"
         fill="#C9933A"
-        fontSize="6"
-        letterSpacing="1.5"
-        opacity="0.65"
+        fontSize="7"
+        letterSpacing="2"
+        opacity="0.85"
         style={{ fontFamily: 'var(--font-dm-mono)' }}
       >
         SANDIQ
       </text>
 
-      {/* Outer labels */}
-      {CIRCLES.map((c, i) => (
-        <text
-          key={`lbl-${i}`}
-          x={c.lx} y={c.ly}
-          textAnchor="middle"
-          fill={c.stroke}
-          fontSize="5.2"
-          letterSpacing="0.8"
-          opacity="0.5"
-          style={{ fontFamily: 'var(--font-dm-mono)' }}
-        >
-          {c.label}
-        </text>
-      ))}
+      {/* ── Outer labels — clearly outside the circles ─────── */}
+      {/* Clinical Rigour — above top circle (top edge ≈ y 28) */}
+      <text x="160" y="10"
+        textAnchor="middle" fill="#C9933A" fontSize="6" letterSpacing="1"
+        opacity="0.55" style={{ fontFamily: 'var(--font-dm-mono)' }}>
+        CLINICAL RIGOUR
+      </text>
+
+      {/* Implementation — below-left of BL circle (bottom ≈ y 248) */}
+      <text x="50" y="262"
+        textAnchor="middle" fill="#2A6B62" fontSize="6" letterSpacing="1"
+        opacity="0.55" style={{ fontFamily: 'var(--font-dm-mono)' }}>
+        IMPLEMENTATION
+      </text>
+
+      {/* Strategic Clarity — below-right of BR circle */}
+      <text x="270" y="262"
+        textAnchor="middle" fill="#A8A49D" fontSize="6" letterSpacing="1"
+        opacity="0.55" style={{ fontFamily: 'var(--font-dm-mono)' }}>
+        STRATEGIC CLARITY
+      </text>
     </svg>
   )
 }

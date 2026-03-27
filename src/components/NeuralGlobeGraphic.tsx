@@ -1,20 +1,24 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
+// Canvas is 480×480 with centre at (240,240) — gives 80px clearance beyond
+// the outer ring (~r170) so plucked nodes never clip the canvas edge.
+const CX = 240, CY = 240
+
 // ── Node positions forming a brain-like sphere (viewed from front) ────────────
 const NODES = [
   // Outer ring — 12 nodes (indices 0–11, eligible to be plucked)
-  { x: 200, y:  52 }, { x: 278, y:  68 }, { x: 338, y: 122 },
-  { x: 356, y: 196 }, { x: 335, y: 268 }, { x: 276, y: 328 },
-  { x: 200, y: 348 }, { x: 124, y: 328 }, { x:  65, y: 268 },
-  { x:  44, y: 196 }, { x:  65, y: 122 }, { x: 122, y:  68 },
+  { x: 240, y:  92 }, { x: 318, y: 108 }, { x: 378, y: 162 },
+  { x: 396, y: 236 }, { x: 375, y: 308 }, { x: 316, y: 368 },
+  { x: 240, y: 388 }, { x: 164, y: 368 }, { x: 105, y: 308 },
+  { x:  84, y: 236 }, { x: 105, y: 162 }, { x: 162, y: 108 },
   // Inner ring — 8 nodes
-  { x: 200, y: 112 }, { x: 278, y: 148 }, { x: 308, y: 200 },
-  { x: 268, y: 262 }, { x: 200, y: 290 }, { x: 132, y: 262 },
-  { x:  92, y: 200 }, { x: 122, y: 148 },
+  { x: 240, y: 152 }, { x: 318, y: 188 }, { x: 348, y: 240 },
+  { x: 308, y: 302 }, { x: 240, y: 330 }, { x: 172, y: 302 },
+  { x: 132, y: 240 }, { x: 162, y: 188 },
   // Centre cluster — 5 nodes
-  { x: 200, y: 168 }, { x: 236, y: 200 }, { x: 200, y: 232 },
-  { x: 164, y: 200 }, { x: 200, y: 200 },
+  { x: 240, y: 208 }, { x: 276, y: 240 }, { x: 240, y: 272 },
+  { x: 204, y: 240 }, { x: 240, y: 240 },
 ]
 
 // Only outer-ring nodes can be plucked (they have a clear outward direction)
@@ -93,17 +97,18 @@ export default function NeuralGlobeGraphic() {
     }
 
     function startPluck() {
-      // Pick a random outer-ring node, push it radially outward to r≈255
+      // Pick a random outer-ring node, push it radially outward to r≈230
+      // (outer ring ≈ r170; target r230 → 60px clearance; canvas 480 → fits all)
       const idx = PLUCKABLE[Math.floor(Math.random() * PLUCKABLE.length)]
       const node = NODES[idx]
-      const dx = node.x - 200
-      const dy = node.y - 200
+      const dx = node.x - CX
+      const dy = node.y - CY
       const dist = Math.sqrt(dx * dx + dy * dy) || 1
-      const targetR = 255
+      const targetR = 230
       pluck.nodeIdx   = idx
       pluck.ox = node.x; pluck.oy = node.y
-      pluck.tx = 200 + (dx / dist) * targetR
-      pluck.ty = 200 + (dy / dist) * targetR
+      pluck.tx = CX + (dx / dist) * targetR
+      pluck.ty = CY + (dy / dist) * targetR
       pluck.cx = node.x; pluck.cy = node.y
       pluck.elapsed   = 0
       pluck.glowPulse = 0
@@ -146,17 +151,17 @@ export default function NeuralGlobeGraphic() {
         }
       }
 
-      c2d.clearRect(0, 0, 400, 400)
+      c2d.clearRect(0, 0, 480, 480)
 
       // ── Sphere rings ────────────────────────────────────────────────────
       c2d.beginPath()
-      c2d.arc(200, 200, 170, 0, Math.PI * 2)
+      c2d.arc(CX, CY, 170, 0, Math.PI * 2)
       c2d.strokeStyle = 'rgba(201,147,58,0.08)'
       c2d.lineWidth = 1
       c2d.stroke()
 
       c2d.beginPath()
-      c2d.arc(200, 200, 155, 0, Math.PI * 2)
+      c2d.arc(CX, CY, 155, 0, Math.PI * 2)
       c2d.strokeStyle = 'rgba(42,107,98,0.06)'
       c2d.lineWidth = 0.8
       c2d.stroke()
@@ -166,7 +171,7 @@ export default function NeuralGlobeGraphic() {
         const threadAlpha = pluck.phase === 'dwelling' ? 0.22 : 0.12
         c2d.setLineDash([4, 6])
         c2d.beginPath()
-        c2d.moveTo(200, 200)
+        c2d.moveTo(CX, CY)
         c2d.lineTo(pluck.cx, pluck.cy)
         c2d.strokeStyle = `rgba(201,147,58,${threadAlpha})`
         c2d.lineWidth = 0.8
@@ -288,8 +293,8 @@ export default function NeuralGlobeGraphic() {
   return (
     <canvas
       ref={canvasRef}
-      width={400}
-      height={400}
+      width={480}
+      height={480}
       style={{ display: 'block', width: '100%', height: '100%' }}
     />
   )
