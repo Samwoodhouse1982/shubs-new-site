@@ -90,10 +90,25 @@ export default function ThinkingPage() {
             </p>
           </div>
           <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-            Analysis that holds up under scrutiny.
+            Clinical depth. Strategic clarity.
           </h1>
-          <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+          <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Essays, analysis, and perspective from Dr Shubs Upadhyay, on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
+          </p>
+          <p className="text-sm text-[#A8A49D] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
+            Read the essays on{" "}
+            <a href="https://shubstack.substack.com" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+              Shubstack
+            </a>
+            , listen to the conversations on the{" "}
+            <a href="https://gpodh.org" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+              GPODH podcast
+            </a>
+            , or{" "}
+            <a href="/contact" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+              get in touch
+            </a>{" "}
+            if something raises a question worth exploring further. We read everything.
           </p>
         </div>
       </section>
