@@ -4,227 +4,381 @@ import { useEffect, useRef } from 'react'
 
 type ServiceNum = '01' | '02' | '03' | '04' | '05' | '06'
 
-// ── Individual animated icons ────────────────────────────────────────────────
+const AMBER = '#C9933A'
+const TEAL  = '#2A6B62'
 
+// ── 01 · Fractional CMO ──────────────────────────────────────────────────────
+// Person silhouette with two staggered sonar rings — amber outer, teal inner
 function CmoIcon() {
-  // Person with expanding sonar ring from head
-  const svgRef = useRef<SVGSVGElement>(null)
-  const rafRef = useRef<number>(0)
-  const t0     = useRef<number>(0)
+  const svgRef   = useRef<SVGSVGElement>(null)
+  const rafRef   = useRef<number>(0)
+  const startRef = useRef<number>(0)
+
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const ring = svg.querySelector<SVGCircleElement>('#cmo-ring')
-    const ring2 = svg.querySelector<SVGCircleElement>('#cmo-ring2')
+    const r1 = svg.querySelector<SVGCircleElement>('#cmo-r1')
+    const r2 = svg.querySelector<SVGCircleElement>('#cmo-r2')
+    const r3 = svg.querySelector<SVGCircleElement>('#cmo-r3')
+
     function tick(ts: number) {
-      if (!t0.current) t0.current = ts
-      const t = (ts - t0.current) / 1000
-      // Two staggered sonar rings from head (cx=14, cy=7.5, r=3.5)
-      const p1 = (t * 0.7) % 1
-      const p2 = ((t * 0.7) + 0.5) % 1
-      if (ring) {
-        ring.setAttribute('r', String(3.5 + p1 * 8))
-        ring.setAttribute('opacity', String((1 - p1) * 0.5))
-      }
-      if (ring2) {
-        ring2.setAttribute('r', String(3.5 + p2 * 8))
-        ring2.setAttribute('opacity', String((1 - p2) * 0.5))
-      }
+      if (!startRef.current) startRef.current = ts
+      const t = (ts - startRef.current) / 1000
+      // Three staggered rings, cycle every 2.4 s
+      const speed = 1 / 2.4
+      const p1 = (t * speed) % 1
+      const p2 = ((t * speed) + 0.33) % 1
+      const p3 = ((t * speed) + 0.66) % 1
+      const ease = (p: number) => 1 - (1 - p) ** 2
+
+      if (r1) { r1.setAttribute('r', String(8 + ease(p1) * 18)); r1.setAttribute('opacity', String((1 - p1) * 0.5)) }
+      if (r2) { r2.setAttribute('r', String(8 + ease(p2) * 18)); r2.setAttribute('opacity', String((1 - p2) * 0.4)) }
+      if (r3) { r3.setAttribute('r', String(8 + ease(p3) * 18)); r3.setAttribute('opacity', String((1 - p3) * 0.3)) }
+
       rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(rafRef.current)
   }, [])
+
   return (
-    <svg ref={svgRef} viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <circle id="cmo-ring"  cx="14" cy="7.5" r="3.5" fill="none" stroke="#C9933A" strokeWidth="0.8" opacity="0" />
-      <circle id="cmo-ring2" cx="14" cy="7.5" r="3.5" fill="none" stroke="#C9933A" strokeWidth="0.8" opacity="0" />
-      <circle cx="14" cy="7.5" r="3.5" />
-      <path d="M3.5 24.5a10.5 10.5 0 0 1 21 0" />
+    <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
+      {/* Sonar rings from head */}
+      <circle id="cmo-r1" cx={28} cy={14} r={8} stroke={AMBER} strokeWidth={0.8} opacity={0} />
+      <circle id="cmo-r2" cx={28} cy={14} r={8} stroke={TEAL}  strokeWidth={0.8} opacity={0} />
+      <circle id="cmo-r3" cx={28} cy={14} r={8} stroke={AMBER} strokeWidth={0.6} opacity={0} />
+      {/* Person — head */}
+      <circle cx={28} cy={14} r={6} fill={AMBER} opacity={0.9} />
+      {/* Person — body */}
+      <path d="M10 46a18 18 0 0 1 36 0" stroke={AMBER} strokeWidth={1.5} strokeLinecap="round" opacity={0.7} />
+      {/* Teal accent line */}
+      <line x1={20} y1={46} x2={36} y2={46} stroke={TEAL} strokeWidth={1} opacity={0.4} />
     </svg>
   )
 }
 
+// ── 02 · Clinical Product Development ───────────────────────────────────────
+// Monitor with a vertical scanline sweeping across; cross pulses on contact
 function ProductIcon() {
-  // Monitor with cross that pulses outward
-  const svgRef = useRef<SVGSVGElement>(null)
-  const rafRef = useRef<number>(0)
-  const t0     = useRef<number>(0)
+  const svgRef   = useRef<SVGSVGElement>(null)
+  const rafRef   = useRef<number>(0)
+  const startRef = useRef<number>(0)
+
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const cross = svg.querySelector<SVGGElement>('#prod-cross')
+    const scan  = svg.querySelector<SVGLineElement>('#pr-scan')
+    const cross = svg.querySelector<SVGGElement>('#pr-cross')
+
+    // Monitor inner bounds: x 8–48, y 6–38
+    const xMin = 10, xMax = 46
+
     function tick(ts: number) {
-      if (!t0.current) t0.current = ts
-      const t = (ts - t0.current) / 1000
-      const scale = 1 + 0.12 * Math.abs(Math.sin(t * 1.8))
-      if (cross) cross.setAttribute('transform', `scale(${scale}) translate(${14 * (1 - scale) / scale}, ${10 * (1 - scale) / scale})`)
+      if (!startRef.current) startRef.current = ts
+      const t = (ts - startRef.current) / 1000
+      const cycle = 2.2
+      const raw = (t % cycle) / cycle
+      const x = xMin + (xMax - xMin) * raw
+
+      if (scan) {
+        scan.setAttribute('x1', String(x))
+        scan.setAttribute('x2', String(x))
+        scan.setAttribute('opacity', String(0.5 - 0.4 * raw))
+      }
+
+      // Cross scales up when scan passes center (x≈28)
+      if (cross) {
+        const dist = Math.abs(x - 28)
+        const boost = Math.max(0, 1 - dist / 10)
+        const s = 1 + 0.25 * boost
+        cross.setAttribute('transform', `scale(${s}) translate(${28 * (1 - s) / s}, ${24 * (1 - s) / s})`)
+      }
+
       rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(rafRef.current)
   }, [])
+
   return (
-    <svg ref={svgRef} viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <rect x="2" y="3" width="24" height="16" rx="2" />
-      <path d="M9 25h10M14 19v6" />
-      <g id="prod-cross">
-        <path d="M10.5 11h7M14 7.5v7" />
+    <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
+      {/* Monitor */}
+      <rect x={4} y={4} width={48} height={34} rx={3} stroke={AMBER} strokeWidth={1.2} opacity={0.6} />
+      {/* Stand */}
+      <line x1={28} y1={38} x2={28} y2={46} stroke={AMBER} strokeWidth={1.2} opacity={0.5} />
+      <line x1={18} y1={46} x2={38} y2={46} stroke={AMBER} strokeWidth={1.2} opacity={0.5} />
+      {/* Scanline */}
+      <line id="pr-scan" x1={10} y1={6} x2={10} y2={36} stroke={TEAL} strokeWidth={1.5} opacity={0.5} />
+      {/* Cross */}
+      <g id="pr-cross">
+        <line x1={21} y1={21} x2={35} y2={21} stroke={AMBER} strokeWidth={1.5} strokeLinecap="round" />
+        <line x1={28} y1={14} x2={28} y2={28} stroke={AMBER} strokeWidth={1.5} strokeLinecap="round" />
       </g>
+      {/* Teal corner accent */}
+      <circle cx={46} cy={38} r={2} fill={TEAL} opacity={0.5} />
     </svg>
   )
 }
 
+// ── 03 · Evidence Strategy ───────────────────────────────────────────────────
+// Ascending line chart — dot traces along the line, then resets
 function EvidenceIcon() {
-  // Bar chart — bars grow sequentially then loop
-  const svgRef = useRef<SVGSVGElement>(null)
-  const rafRef = useRef<number>(0)
-  const t0     = useRef<number>(0)
-  const BASE_HEIGHTS = [12, 17, 22, 14] // natural heights of 4 bars
-  const XS = [4, 9, 14, 19]
+  const svgRef   = useRef<SVGSVGElement>(null)
+  const rafRef   = useRef<number>(0)
+  const startRef = useRef<number>(0)
+
+  // Chart waypoints (x, y)
+  const PTS: [number, number][] = [[8, 44], [18, 36], [28, 26], [36, 30], [46, 14]]
+  const TOTAL_LEN = PTS.reduce((sum, pt, i) => {
+    if (i === 0) return 0
+    const prev = PTS[i - 1]
+    return sum + Math.hypot(pt[0] - prev[0], pt[1] - prev[1])
+  }, 0)
+
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const bars = Array.from(svg.querySelectorAll<SVGRectElement>('.ev-bar'))
+    const dot   = svg.querySelector<SVGCircleElement>('#ev-dot')
+    const trail = svg.querySelector<SVGPolylineElement>('#ev-trail')
+
+    function posAlongPath(progress: number): [number, number] {
+      const target = progress * TOTAL_LEN
+      let acc = 0
+      for (let i = 1; i < PTS.length; i++) {
+        const seg = Math.hypot(PTS[i][0] - PTS[i-1][0], PTS[i][1] - PTS[i-1][1])
+        if (acc + seg >= target) {
+          const t = (target - acc) / seg
+          return [PTS[i-1][0] + t * (PTS[i][0] - PTS[i-1][0]), PTS[i-1][1] + t * (PTS[i][1] - PTS[i-1][1])]
+        }
+        acc += seg
+      }
+      return PTS[PTS.length - 1]
+    }
+
     function tick(ts: number) {
-      if (!t0.current) t0.current = ts
-      const t = (ts - t0.current) / 1000
-      bars.forEach((bar, i) => {
-        const phase = i * 0.35
-        const mult  = 0.6 + 0.4 * Math.abs(Math.sin(t * 1.1 + phase))
-        const h = BASE_HEIGHTS[i] * mult
-        bar.setAttribute('height', String(h))
-        bar.setAttribute('y', String(23 - h))
-        bar.setAttribute('opacity', String(0.5 + 0.4 * Math.abs(Math.sin(t * 1.1 + phase))))
-      })
+      if (!startRef.current) startRef.current = ts
+      const t = (ts - startRef.current) / 1000
+      const cycle = 3.0
+      const raw  = (t % cycle) / cycle
+      const ease = raw < 0.8 ? raw / 0.8 : 1 - (raw - 0.8) / 0.2 * 0.05 // hold at end briefly
+
+      const [x, y] = posAlongPath(Math.min(ease, 1))
+
+      if (dot) {
+        dot.setAttribute('cx', String(x))
+        dot.setAttribute('cy', String(y))
+        dot.setAttribute('opacity', String(0.9))
+      }
+
+      // Trail: points from start up to current
+      if (trail) {
+        const progress = Math.min(ease, 1)
+        const trailPts: string[] = []
+        for (let s = 0; s <= progress; s += 0.04) {
+          const [px, py] = posAlongPath(s)
+          trailPts.push(`${px},${py}`)
+        }
+        trailPts.push(`${x},${y}`)
+        trail.setAttribute('points', trailPts.join(' '))
+      }
+
       rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(rafRef.current)
-  }, [])
+  }, [TOTAL_LEN])
+
+  const ptStr = PTS.map(([x, y]) => `${x},${y}`).join(' ')
+
   return (
-    <svg ref={svgRef} viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" aria-hidden>
-      {XS.map((x, i) => (
-        <rect key={i} className="ev-bar" x={x} y={23 - BASE_HEIGHTS[i]} width="4" height={BASE_HEIGHTS[i]} rx="1" fill="#C9933A" stroke="none" opacity="0.7" />
+    <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
+      {/* Ghost path */}
+      <polyline points={ptStr} stroke={AMBER} strokeWidth={1} opacity={0.12} strokeLinejoin="round" />
+      {/* Animated trail */}
+      <polyline id="ev-trail" points={ptStr} stroke={AMBER} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" opacity={0.75} />
+      {/* Waypoint dots */}
+      {PTS.map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r={2} fill={i === PTS.length - 1 ? TEAL : AMBER} opacity={0.35} />
       ))}
-      <path d="M2 23h24" strokeWidth="1" />
+      {/* Moving dot */}
+      <circle id="ev-dot" cx={8} cy={44} r={3.5} fill={AMBER} opacity={0.9} />
+      {/* Baseline */}
+      <line x1={6} y1={47} x2={50} y2={47} stroke={TEAL} strokeWidth={0.8} opacity={0.3} />
     </svg>
   )
 }
 
+// ── 04 · Market Access ───────────────────────────────────────────────────────
+// Shield outline draws on (teal), checkmark draws on (amber), then loops
 function MarketIcon() {
-  // Shield that breathes, checkmark draws on
-  const svgRef = useRef<SVGSVGElement>(null)
-  const rafRef = useRef<number>(0)
-  const t0     = useRef<number>(0)
+  const svgRef   = useRef<SVGSVGElement>(null)
+  const rafRef   = useRef<number>(0)
+  const startRef = useRef<number>(0)
+
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const shield = svg.querySelector<SVGPathElement>('#mkt-shield')
-    const check  = svg.querySelector<SVGPathElement>('#mkt-check')
-    if (!check) return
+    const shield = svg.querySelector<SVGPathElement>('#mk-shield')
+    const check  = svg.querySelector<SVGPathElement>('#mk-check')
+    if (!shield || !check) return
+    const sh: SVGPathElement = shield
     const ck: SVGPathElement = check
-    const tLen = ck.getTotalLength()
+    const sLen = sh.getTotalLength()
+    const cLen = ck.getTotalLength()
+
+    sh.style.strokeDasharray = String(sLen)
+    ck.style.strokeDasharray = String(cLen)
+
     function tick(ts: number) {
-      if (!t0.current) t0.current = ts
-      const t = (ts - t0.current) / 1000
-      // Shield pulse
-      if (shield) {
-        const s = 1 + 0.03 * Math.sin(t * 1.5)
-        shield.setAttribute('transform', `scale(${s}) translate(${14 * (1 - s) / s}, ${13 * (1 - s) / s})`)
-      }
-      // Checkmark draws on and fades, looping every 3s
-      const cycle = t % 3
-      let dashOffset: number
-      if (cycle < 1.2) {
-        dashOffset = tLen * (1 - cycle / 1.2)
+      if (!startRef.current) startRef.current = ts
+      const t = (ts - startRef.current) / 1000
+      const cycle = 4.0
+      const raw = (t % cycle) / cycle
+
+      // 0–0.4: shield draws on; 0.4–0.7: check draws on; 0.7–1.0: fade hold
+      if (raw < 0.4) {
+        const p = raw / 0.4
+        sh.style.strokeDashoffset = String(sLen * (1 - p))
+        ck.style.strokeDashoffset = String(cLen)
+        sh.style.opacity = '0.7'
+        ck.style.opacity = '0'
+      } else if (raw < 0.7) {
+        const p = (raw - 0.4) / 0.3
+        sh.style.strokeDashoffset = '0'
+        ck.style.strokeDashoffset = String(cLen * (1 - p))
+        sh.style.opacity = '0.7'
+        ck.style.opacity = String(p * 0.9)
       } else {
-        dashOffset = 0
+        sh.style.strokeDashoffset = '0'
+        ck.style.strokeDashoffset = '0'
+        sh.style.opacity = String(0.7 - (raw - 0.7) / 0.3 * 0.3)
+        ck.style.opacity = String(0.9 - (raw - 0.7) / 0.3 * 0.6)
       }
-      ck.style.strokeDasharray  = String(tLen)
-      ck.style.strokeDashoffset = String(dashOffset)
+
       rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(rafRef.current)
   }, [])
+
   return (
-    <svg ref={svgRef} viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path id="mkt-shield" d="M14 2l9 4v6c0 5-3.9 9.4-9 11-5.1-1.6-9-6-9-11V6l9-4z" />
-      <path id="mkt-check" d="M10 14l2.5 2.5 5-5.5" />
+    <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
+      {/* Ghost shield fill */}
+      <path d="M28 4l18 8v12c0 10-7.8 18.8-18 22-10.2-3.2-18-12-18-22V12l18-8z" fill={TEAL} opacity={0.07} />
+      {/* Drawing shield outline */}
+      <path id="mk-shield" d="M28 4l18 8v12c0 10-7.8 18.8-18 22-10.2-3.2-18-12-18-22V12l18-8z"
+        stroke={TEAL} strokeWidth={1.4} strokeLinejoin="round" opacity={0.7} />
+      {/* Drawing checkmark */}
+      <path id="mk-check" d="M19 28l6 6 12-13"
+        stroke={AMBER} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" opacity={0} />
     </svg>
   )
 }
 
+// ── 05 · Impact Communications ───────────────────────────────────────────────
+// Broadcast rings expanding from a dot; arrow pulses right
 function CommsIcon() {
-  // Speech bubble with lines that animate typing left-to-right
-  const svgRef = useRef<SVGSVGElement>(null)
-  const rafRef = useRef<number>(0)
-  const t0     = useRef<number>(0)
+  const svgRef   = useRef<SVGSVGElement>(null)
+  const rafRef   = useRef<number>(0)
+  const startRef = useRef<number>(0)
+
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const lines = Array.from(svg.querySelectorAll<SVGLineElement>('.comms-line'))
+    const rings = Array.from(svg.querySelectorAll<SVGCircleElement>('.cm-ring'))
+    const arrow = svg.querySelector<SVGPathElement>('#cm-arrow')
+
     function tick(ts: number) {
-      if (!t0.current) t0.current = ts
-      const t = (ts - t0.current) / 1000
-      lines.forEach((line, i) => {
-        const phase  = i * 0.6
-        const cycle  = (t * 0.7 + phase) % 2  // 2s cycle
-        const full   = i === 0 ? 10 : 7        // full width of line
-        const x2 = parseFloat(line.getAttribute('x1') || '8') + (cycle < 1 ? cycle * full : full)
-        line.setAttribute('x2', String(x2))
-        line.setAttribute('opacity', String(cycle < 1 ? 0.4 + cycle * 0.4 : 0.8))
+      if (!startRef.current) startRef.current = ts
+      const t = (ts - startRef.current) / 1000
+      const speed = 1 / 2.8
+
+      rings.forEach((ring, i) => {
+        const p = ((t * speed) + i * 0.28) % 1
+        const ease = 1 - (1 - p) ** 2
+        ring.setAttribute('r',       String(4 + ease * 22))
+        ring.setAttribute('opacity', String((1 - p) * (i % 2 === 0 ? 0.55 : 0.35)))
       })
+
+      // Arrow pulses right
+      if (arrow) {
+        const shift = 2.5 * Math.abs(Math.sin(t * 1.8))
+        arrow.setAttribute('transform', `translate(${shift}, 0)`)
+        arrow.setAttribute('opacity', String(0.55 + 0.35 * Math.abs(Math.sin(t * 1.8))))
+      }
+
       rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(rafRef.current)
   }, [])
+
   return (
-    <svg ref={svgRef} viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M4 5h20a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-5 4V6a1 1 0 0 1 1-1z" />
-      <line className="comms-line" x1="8" y1="10.5" x2="8" y2="10.5" stroke="#C9933A" strokeWidth="1.5" />
-      <line className="comms-line" x1="8" y1="13.5" x2="8" y2="13.5" stroke="#C9933A" strokeWidth="1.5" />
+    <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
+      {/* Rings from left-center source */}
+      {[0, 1, 2, 3].map(i => (
+        <circle key={i} className="cm-ring" cx={14} cy={28} r={4}
+          stroke={i % 2 === 0 ? AMBER : TEAL} strokeWidth={0.9} opacity={0} />
+      ))}
+      {/* Source dot */}
+      <circle cx={14} cy={28} r={3.5} fill={AMBER} opacity={0.9} />
+      {/* Arrow */}
+      <path id="cm-arrow" d="M32 22l10 6-10 6M42 28H28"
+        stroke={AMBER} strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" opacity={0.6} />
     </svg>
   )
 }
 
+// ── 06 · Health System Intelligence ──────────────────────────────────────────
+// Central node with two orbiting satellites at different radii and speeds
 function NetworkIcon() {
-  // Three nodes — connections flash in sequence
-  const svgRef = useRef<SVGSVGElement>(null)
-  const rafRef = useRef<number>(0)
-  const t0     = useRef<number>(0)
+  const svgRef   = useRef<SVGSVGElement>(null)
+  const rafRef   = useRef<number>(0)
+  const startRef = useRef<number>(0)
+
   useEffect(() => {
     const svg = svgRef.current; if (!svg) return
-    const conns = Array.from(svg.querySelectorAll<SVGLineElement>('.net-conn'))
-    const nodes = Array.from(svg.querySelectorAll<SVGCircleElement>('.net-node'))
+    const s1  = svg.querySelector<SVGCircleElement>('#nw-s1')
+    const s2  = svg.querySelector<SVGCircleElement>('#nw-s2')
+    const l1  = svg.querySelector<SVGLineElement>('#nw-l1')
+    const l2  = svg.querySelector<SVGLineElement>('#nw-l2')
+    const cx = 28, cy = 28
+
     function tick(ts: number) {
-      if (!t0.current) t0.current = ts
-      const t = (ts - t0.current) / 1000
-      conns.forEach((conn, i) => {
-        const phase   = (i * Math.PI * 2) / conns.length
-        const opacity = 0.2 + 0.6 * ((Math.sin(t * 1.5 + phase) + 1) / 2)
-        conn.setAttribute('opacity', String(opacity))
-      })
-      nodes.forEach((node, i) => {
-        const phase   = (i * Math.PI * 2) / nodes.length
-        const r       = 2.5 + 0.8 * Math.abs(Math.sin(t * 1.2 + phase))
-        node.setAttribute('r', String(r))
-      })
+      if (!startRef.current) startRef.current = ts
+      const t = (ts - startRef.current) / 1000
+
+      const a1 = t * 0.7
+      const a2 = -(t * 1.1)
+
+      const x1 = cx + 15 * Math.cos(a1), y1 = cy + 15 * Math.sin(a1)
+      const x2 = cx + 20 * Math.cos(a2), y2 = cy + 20 * Math.sin(a2)
+
+      if (s1) { s1.setAttribute('cx', String(x1)); s1.setAttribute('cy', String(y1)) }
+      if (s2) { s2.setAttribute('cx', String(x2)); s2.setAttribute('cy', String(y2)) }
+      if (l1) { l1.setAttribute('x1', String(cx)); l1.setAttribute('y1', String(cy)); l1.setAttribute('x2', String(x1)); l1.setAttribute('y2', String(y1)) }
+      if (l2) { l2.setAttribute('x1', String(cx)); l2.setAttribute('y1', String(cy)); l2.setAttribute('x2', String(x2)); l2.setAttribute('y2', String(y2)) }
+
       rafRef.current = requestAnimationFrame(tick)
     }
     rafRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(rafRef.current)
   }, [])
+
   return (
-    <svg ref={svgRef} viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="#C9933A" strokeWidth="1.5" strokeLinecap="round" aria-hidden>
-      <line className="net-conn" x1="14" y1="5" x2="5.5" y2="21" stroke="#C9933A" strokeWidth="0.8" />
-      <line className="net-conn" x1="14" y1="5" x2="22.5" y2="21" stroke="#C9933A" strokeWidth="0.8" />
-      <line className="net-conn" x1="5.5" y1="21" x2="22.5" y2="21" stroke="#C9933A" strokeWidth="0.8" />
-      <circle className="net-node" cx="14"   cy="5"  r="2.5" fill="#C9933A" />
-      <circle className="net-node" cx="5.5"  cy="21" r="2.5" fill="#C9933A" />
-      <circle className="net-node" cx="22.5" cy="21" r="2.5" fill="#C9933A" />
+    <svg ref={svgRef} viewBox="0 0 56 56" width={56} height={56} fill="none" aria-hidden>
+      {/* Orbit paths */}
+      <circle cx={28} cy={28} r={15} stroke={AMBER} strokeWidth={0.5} strokeDasharray="3 4" opacity={0.2} />
+      <circle cx={28} cy={28} r={20} stroke={TEAL}  strokeWidth={0.5} strokeDasharray="3 4" opacity={0.15} />
+      {/* Spoke lines */}
+      <line id="nw-l1" x1={28} y1={28} x2={43} y2={28} stroke={AMBER} strokeWidth={0.8} opacity={0.4} />
+      <line id="nw-l2" x1={28} y1={28} x2={48} y2={28} stroke={TEAL}  strokeWidth={0.8} opacity={0.35} />
+      {/* Orbiting satellites */}
+      <circle id="nw-s1" cx={43} cy={28} r={3.5} fill={AMBER} opacity={0.85} />
+      <circle id="nw-s2" cx={48} cy={28} r={3}   fill={TEAL}  opacity={0.8} />
+      {/* Centre node */}
+      <circle cx={28} cy={28} r={5} fill={AMBER} opacity={0.9} />
+      <circle cx={28} cy={28} r={8} stroke={AMBER} strokeWidth={0.6} opacity={0.2} />
     </svg>
   )
 }
 
-// ── Public component ─────────────────────────────────────────────────────────
+// ── Public component ──────────────────────────────────────────────────────────
 
 const MAP: Record<ServiceNum, () => React.JSX.Element> = {
   '01': CmoIcon,

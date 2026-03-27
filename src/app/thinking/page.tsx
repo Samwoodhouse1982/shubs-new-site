@@ -76,12 +76,11 @@ export default function ThinkingPage() {
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section className="relative pt-24 pb-20 overflow-hidden">
-        {/* Subtle amber glow behind hero text */}
-        <div
-          className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
-          style={{ background: 'radial-gradient(circle at 80% 30%, rgba(201,147,58,0.07) 0%, transparent 65%)' }}
-          aria-hidden
-        />
+        {/* Ambient glows */}
+        <div className="absolute top-0 right-0 w-[600px] h-[500px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle at 80% 20%, rgba(201,147,58,0.09) 0%, transparent 65%)' }} aria-hidden />
+        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.07) 0%, transparent 65%)' }} aria-hidden />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-8 bg-[#C9933A]" />
@@ -115,7 +114,9 @@ export default function ThinkingPage() {
 
 
       {/* ── ARTICLES ──────────────────────────────────────────── */}
-      <section className="pb-24">
+      <section className="relative pb-24 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(201,147,58,0.05) 0%, transparent 65%)' }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex items-center gap-3 mb-10">
             <div className="h-px w-8 bg-[#C9933A]" />

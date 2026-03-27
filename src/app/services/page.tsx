@@ -118,8 +118,13 @@ export default function ServicesPage() {
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
       {/* Graphic: ServicesMeshGraphic — particle network in right column */}
-      <section className="pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative pt-24 pb-20 overflow-hidden">
+        {/* Ambient glows */}
+        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(201,147,58,0.08) 0%, transparent 65%)' }} />
+        <div className="absolute top-20 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.1) 0%, transparent 65%)' }} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -148,7 +153,9 @@ export default function ServicesPage() {
 
 
       {/* ── SERVICE CARDS ─────────────────────────────────────── */}
-      <section className="pb-24">
+      <section className="relative pb-24 overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.06) 0%, transparent 65%)' }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-px">
           {services.map((service, i) => (
             <FadeIn key={service.num} delay={i * 60}>
@@ -235,7 +242,9 @@ export default function ServicesPage() {
 
 
       {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
-      <section className="py-24">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.06) 0%, transparent 65%)' }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
