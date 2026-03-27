@@ -1,3 +1,8 @@
+import FadeIn from "@/components/FadeIn";
+import BroadcastGraphic from "@/components/BroadcastGraphic";
+import PodcastArtGraphic from "@/components/PodcastArtGraphic";
+import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
+
 const articles = [
   {
     title: "Evaluating tech in healthcare: measuring what matters",
@@ -70,30 +75,25 @@ export default function ThinkingPage() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="relative pt-24 pb-20 overflow-hidden">
+        {/* Subtle amber glow behind hero text */}
+        <div
+          className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle at 80% 30%, rgba(201,147,58,0.07) 0%, transparent 65%)' }}
+          aria-hidden
+        />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-8 bg-[#C9933A]" />
-            <p
-              className="text-xs tracking-widest text-[#C9933A] uppercase"
-              style={{ fontFamily: "var(--font-dm-mono)" }}
-            >
+            <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
               Thinking
             </p>
           </div>
-          <h1
-            className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-          >
+          <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             The work demands honest thinking.
           </h1>
-          <p
-            className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            Essays, analysis, and perspective from Dr Shubs Upadhyay, on
-            digital health strategy, evidence, equity, and the uncomfortable
-            questions the industry tends to avoid.
+          <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+            Essays, analysis, and perspective from Dr Shubs Upadhyay, on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
           </p>
         </div>
       </section>
@@ -101,187 +101,137 @@ export default function ThinkingPage() {
       {/* ── ARTICLES ──────────────────────────────────────────── */}
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-10">
+          <FadeIn className="flex items-center gap-3 mb-10">
             <div className="h-px w-8 bg-[#C9933A]" />
-            <p
-              className="text-xs tracking-widest text-[#C9933A] uppercase"
-              style={{ fontFamily: "var(--font-dm-mono)" }}
-            >
+            <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
               Shubstack, by Dr Shubs Upadhyay
             </p>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article, i) => (
-              <a
-                key={i}
-                href={article.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#F2EFE9]/8 rounded-sm p-8 flex flex-col gap-5 hover:border-[#C9933A]/30 transition-colors duration-200 group"
-              >
-                <p
-                  className="text-xs text-[#A8A49D] tracking-widest"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
+              <FadeIn key={i} delay={i * 80}>
+                <a
+                  href={article.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-[#F2EFE9]/8 rounded-sm p-8 flex flex-col gap-5 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full"
                 >
-                  {article.date}
-                </p>
-                <h2
-                  className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {article.title}
-                </h2>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed flex-1"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {article.excerpt}
-                </p>
-                <span
-                  className="text-xs text-[#C9933A] group-hover:text-[#F2EFE9] transition-colors duration-200"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  Read on Substack →
-                </span>
-              </a>
+                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                    {article.date}
+                  </p>
+                  <h2 className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    {article.title}
+                  </h2>
+                  <p className="text-sm text-[#A8A49D] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    {article.excerpt}
+                  </p>
+                  <span className="text-xs text-[#C9933A] group-hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    Read on Substack →
+                  </span>
+                </a>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── PODCAST ───────────────────────────────────────────── */}
+      {/* Graphic: PodcastArtGraphic replaces bare placeholder; BroadcastGraphic accent */}
       <section className="bg-[#111410] border-y border-[#F2EFE9]/6 py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-14">
-            <div className="lg:col-span-1">
-              <div className="aspect-square max-w-[240px] bg-[#2A6B62]/15 border border-[#2A6B62]/25 rounded-sm flex items-center justify-center">
-                <div className="text-center">
-                  <p
-                    className="text-3xl text-[#2A6B62]/70"
-                    style={{
-                      fontFamily: "var(--font-cormorant)",
-                      fontWeight: 600,
-                    }}
-                  >
-                    GPODH
-                  </p>
-                  <p
-                    className="text-xs text-[#A8A49D]/60 mt-1"
-                    style={{ fontFamily: "var(--font-dm-mono)" }}
-                  >
-                    Podcast artwork
-                  </p>
-                </div>
+            {/* Animated podcast artwork */}
+            <FadeIn className="lg:col-span-1">
+              <div className="aspect-square max-w-[240px] rounded-sm overflow-hidden">
+                <PodcastArtGraphic />
               </div>
-            </div>
+            </FadeIn>
 
-            <div className="lg:col-span-2 flex flex-col gap-5 justify-center">
+            <FadeIn delay={120} className="lg:col-span-2 flex flex-col gap-5 justify-center">
               <div className="flex items-center gap-3">
                 <div className="h-px w-8 bg-[#2A6B62]" />
-                <p
-                  className="text-xs tracking-widest text-[#2A6B62] uppercase"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
+                <p className="text-xs tracking-widest text-[#2A6B62] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   The GPODH Podcast
                 </p>
               </div>
-              <h2
-                className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight"
-                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-              >
+              <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Global Perspectives on Digital Health
               </h2>
-              <p
-                className="text-base text-[#A8A49D] leading-relaxed max-w-lg"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
-                Candid, substantive conversations with the people reshaping
-                digital health across 60+ countries. No press releases. No PR
-                spin. Just honest thinking about hard problems.
+              <p className="text-base text-[#A8A49D] leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Candid, substantive conversations with the people reshaping digital health across 60+ countries. No press releases. No PR spin. Just honest thinking about hard problems.
               </p>
-              <a
-                href="https://gpodh.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 self-start px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
-              >
-                Listen on gpodh.org →
-              </a>
-            </div>
+              {/* Broadcast rings + CTA inline */}
+              <div className="flex items-center gap-6">
+                <BroadcastGraphic size={52} />
+                <a
+                  href="https://gpodh.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 self-start px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
+                  style={{ fontFamily: "var(--font-dm-sans)" }}
+                >
+                  Listen on gpodh.org →
+                </a>
+              </div>
+            </FadeIn>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {episodes.map((ep, i) => (
-              <a
-                key={i}
-                href={ep.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#2A6B62]/40 transition-colors duration-200 group"
-              >
-                <p
-                  className="text-xs text-[#2A6B62] tracking-widest uppercase"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
+              <FadeIn key={i} delay={i * 90}>
+                <a
+                  href={ep.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#2A6B62]/40 transition-colors duration-200 group h-full"
                 >
-                  Episode
-                </p>
-                <h3
-                  className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#2A6B62] transition-colors duration-200"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {ep.title}
-                </h3>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {ep.desc}
-                </p>
-                <span
-                  className="text-xs text-[#2A6B62]"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  Listen →
-                </span>
-              </a>
+                  <p className="text-xs text-[#2A6B62] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                    Episode
+                  </p>
+                  <h3 className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#2A6B62] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    {ep.title}
+                  </h3>
+                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    {ep.desc}
+                  </p>
+                  <span className="text-xs text-[#2A6B62]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    Listen →
+                  </span>
+                </a>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── SUBSCRIBE CTA ─────────────────────────────────────── */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
+      {/* Graphic: rotating diamonds (reused from homepage) */}
+      <section className="relative py-24 overflow-hidden">
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden
+        >
+          <div
+            className="w-[500px] h-[260px] rounded-full"
+            style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.06) 0%, transparent 65%)' }}
+          />
+        </div>
+        <CtaGeometricGraphic />
+
+        <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-8 bg-[#C9933A]" />
-            <p
-              className="text-xs tracking-widest text-[#C9933A] uppercase"
-              style={{ fontFamily: "var(--font-dm-mono)" }}
-            >
+            <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
               Subscribe
             </p>
             <div className="h-px w-8 bg-[#C9933A]" />
           </div>
-          <h2
-            className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-          >
+          <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Honest thinking, direct to your inbox.
           </h2>
-          <p
-            className="text-base text-[#A8A49D] max-w-lg"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            Subscribe to Shubstack for essays on digital health strategy,
-            evidence, and equity. Written by Dr Shubs Upadhyay. No filler.
+          <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+            Subscribe to Shubstack for essays on digital health strategy, evidence, and equity. Written by Dr Shubs Upadhyay. No filler.
           </p>
           <a
             href="https://shubstack.substack.com"
@@ -292,7 +242,7 @@ export default function ThinkingPage() {
           >
             Subscribe to Shubstack →
           </a>
-        </div>
+        </FadeIn>
       </section>
     </>
   );

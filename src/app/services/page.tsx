@@ -1,4 +1,8 @@
 import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import ServicesMeshGraphic from "@/components/ServicesMeshGraphic";
+import ProcessStepIcon from "@/components/ProcessStepIcon";
+import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 
 const services = [
   {
@@ -67,21 +71,25 @@ const process = [
   {
     step: "01",
     label: "LISTEN",
+    type: "listen" as const,
     desc: "We begin every engagement by deeply understanding your context: not just the brief, but the pressures, histories, and blind spots that shape it.",
   },
   {
     step: "02",
     label: "MATCH",
+    type: "match" as const,
     desc: "We identify the right approach and skill set for the specific challenge at hand — bringing in trusted independent specialists where the engagement calls for it.",
   },
   {
     step: "03",
     label: "EMBED",
+    type: "embed" as const,
     desc: "We work with your team, not at them. Our model is collaborative by design and we transfer knowledge as we deliver.",
   },
   {
     step: "04",
     label: "DELIVER",
+    type: "deliver" as const,
     desc: "We are accountable to outcomes. Every engagement ends with something tangible: a strategy, a product, an evidence base, a deal.",
   },
 ];
@@ -109,31 +117,32 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
+      {/* Graphic: ServicesMeshGraphic — particle network in right column */}
       <section className="pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8 bg-[#C9933A]" />
-            <p
-              className="text-xs tracking-widest text-[#C9933A] uppercase"
-              style={{ fontFamily: "var(--font-dm-mono)" }}
-            >
-              Services
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-8 bg-[#C9933A]" />
+                <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  Services
+                </p>
+              </div>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                We go where the work is hard.
+              </h1>
+              <p className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Six interconnected services, deployed individually or in combination, for organisations serious about building digital health that actually works.
+              </p>
+            </div>
+
+            {/* Particle mesh graphic */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="w-[380px] h-[320px] opacity-80">
+                <ServicesMeshGraphic />
+              </div>
+            </div>
           </div>
-          <h1
-            className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-tight max-w-3xl mb-8"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-          >
-            We go where the work is hard.
-          </h1>
-          <p
-            className="text-base lg:text-lg text-[#A8A49D] leading-relaxed max-w-2xl"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            Six interconnected services, deployed individually or in
-            combination, for organisations serious about building digital health
-            that actually works.
-          </p>
         </div>
       </section>
 
@@ -141,119 +150,82 @@ export default function ServicesPage() {
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-px">
           {services.map((service, i) => (
-            <div
-              key={service.num}
-              className={`border border-[#F2EFE9]/8 rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${
-                i % 2 === 0 ? "bg-[#0C0F0D]" : "bg-[#0e1210]"
-              }`}
-            >
-              <div className="lg:w-16 shrink-0">
-                <p
-                  className="text-xs text-[#C9933A] tracking-widest"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
-                  {service.num}
-                </p>
-              </div>
-
-              <div className="flex-1 flex flex-col gap-5">
-                <h2
-                  className="text-3xl lg:text-4xl text-[#F2EFE9] leading-tight"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {service.title}
-                </h2>
-                <p
-                  className="text-base text-[#A8A49D] leading-relaxed max-w-2xl"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {service.description}
-                </p>
-                <div className="flex flex-col gap-3">
-                  <p
-                    className="text-xs text-[#C9933A] tracking-widest uppercase"
-                    style={{ fontFamily: "var(--font-dm-mono)" }}
-                  >
-                    Right for you if...
+            <FadeIn key={service.num} delay={i * 60}>
+              <div className={`border border-[#F2EFE9]/8 rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${i % 2 === 0 ? "bg-[#0C0F0D]" : "bg-[#0e1210]"}`}>
+                <div className="lg:w-16 shrink-0">
+                  <p className="text-xs text-[#C9933A] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                    {service.num}
                   </p>
-                  <ul className="flex flex-col gap-2">
-                    {service.rightFor.map((point, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-3 text-sm text-[#A8A49D]"
-                        style={{ fontFamily: "var(--font-dm-sans)" }}
-                      >
-                        <span className="mt-1.5 w-1 h-1 rounded-full bg-[#C9933A] shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                </div>
+
+                <div className="flex-1 flex flex-col gap-5">
+                  <h2 className="text-3xl lg:text-4xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    {service.title}
+                  </h2>
+                  <p className="text-base text-[#A8A49D] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    {service.description}
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    <p className="text-xs text-[#C9933A] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                      Right for you if...
+                    </p>
+                    <ul className="flex flex-col gap-2">
+                      {service.rightFor.map((point, j) => (
+                        <li key={j} className="flex items-start gap-3 text-sm text-[#A8A49D]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                          <span className="mt-1.5 w-1 h-1 rounded-full bg-[#C9933A] shrink-0" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="lg:flex lg:items-end lg:shrink-0">
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#C9933A]/40 text-[#C9933A] rounded hover:bg-[#C9933A] hover:text-[#0C0F0D] transition-colors duration-200 whitespace-nowrap" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    Get in touch →
+                  </Link>
                 </div>
               </div>
-
-              <div className="lg:flex lg:items-end lg:shrink-0">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#C9933A]/40 text-[#C9933A] rounded hover:bg-[#C9933A] hover:text-[#0C0F0D] transition-colors duration-200 whitespace-nowrap"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  Get in touch →
-                </Link>
-              </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </section>
 
       {/* ── PROCESS ───────────────────────────────────────────── */}
+      {/* Graphic: ProcessStepIcon — unique animation per step */}
       <section className="bg-[#111410] border-y border-[#F2EFE9]/6 py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col gap-4 mb-14">
+          <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
-              <p
-                className="text-xs tracking-widest text-[#C9933A] uppercase"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
+              <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                 How we work
               </p>
             </div>
-            <h2
-              className="text-4xl lg:text-5xl text-[#F2EFE9]"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-            >
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               A process built on depth, not speed.
             </h2>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#F2EFE9]/6 rounded-sm overflow-hidden">
-            {process.map((step) => (
-              <div
-                key={step.step}
-                className="bg-[#111410] p-8 flex flex-col gap-4"
-              >
-                <p
-                  className="text-xs text-[#A8A49D] tracking-widest"
-                  style={{ fontFamily: "var(--font-dm-mono)" }}
-                >
-                  {step.step}
-                </p>
-                <h3
-                  className="text-2xl text-[#C9933A] tracking-wide"
-                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-                >
-                  {step.label}
-                </h3>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {step.desc}
-                </p>
-              </div>
+            {process.map((step, i) => (
+              <FadeIn key={step.step} delay={i * 100}>
+                <div className="bg-[#111410] p-8 flex flex-col gap-4 h-full">
+                  {/* Animated step icon */}
+                  <div className="mb-1">
+                    <ProcessStepIcon type={step.type} />
+                  </div>
+                  <p className="text-xs text-[#A8A49D] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                    {step.step}
+                  </p>
+                  <h3 className="text-2xl text-[#C9933A] tracking-wide" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    {step.label}
+                  </h3>
+                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    {step.desc}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -262,85 +234,65 @@ export default function ServicesPage() {
       {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col gap-4 mb-14">
+          <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[#C9933A]" />
-              <p
-                className="text-xs tracking-widest text-[#C9933A] uppercase"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
+              <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                 Who we work with
               </p>
             </div>
-            <h2
-              className="text-4xl lg:text-5xl text-[#F2EFE9]"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-            >
+            <h2 className="text-4xl lg:text-5xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
               Built for the full ecosystem.
             </h2>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {segments.map((seg) => (
-              <div
-                key={seg.title}
-                className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 transition-colors duration-200"
-              >
-                <h3
-                  className="text-xl text-[#F2EFE9]"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {seg.title}
-                </h3>
-                <p
-                  className="text-sm text-[#A8A49D] leading-relaxed"
-                  style={{ fontFamily: "var(--font-dm-sans)" }}
-                >
-                  {seg.desc}
-                </p>
-              </div>
+            {segments.map((seg, i) => (
+              <FadeIn key={seg.title} delay={i * 80}>
+                <div className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#C9933A]/30 transition-colors duration-200 h-full">
+                  <h3 className="text-xl text-[#F2EFE9]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    {seg.title}
+                  </h3>
+                  <p className="text-sm text-[#A8A49D] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    {seg.desc}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── FOOTER CTA ────────────────────────────────────────── */}
-      <section className="bg-[#111410] border-t border-[#F2EFE9]/6 py-24">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
-          <h2
-            className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-          >
+      {/* Graphic: CtaGeometricGraphic — rotating diamonds (reused from homepage) */}
+      <section className="relative bg-[#111410] border-t border-[#F2EFE9]/6 py-24 overflow-hidden">
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden
+        >
+          <div
+            className="w-[600px] h-[300px] rounded-full"
+            style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.06) 0%, transparent 65%)' }}
+          />
+        </div>
+        <CtaGeometricGraphic />
+
+        <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
+          <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-tight" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Tell us what you&apos;re building.
           </h2>
-          <p
-            className="text-base text-[#A8A49D] max-w-lg"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            Every project starts with a conversation. Tell us what you&apos;re
-            working on and we&apos;ll tell you honestly whether and how we can
-            help.
+          <p className="text-base text-[#A8A49D] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+            Every project starts with a conversation. Tell us what you&apos;re working on and we&apos;ll tell you honestly whether and how we can help.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="mailto:hello@sandiq.com"
-              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#A8A49D] border border-[#F2EFE9]/15 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
+            <a href="mailto:hello@sandiq.com" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[#A8A49D] border border-[#F2EFE9]/15 rounded hover:border-[#C9933A] hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
               hello@sandiq.com
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
+            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
               Book a call →
             </Link>
           </div>
-        </div>
+        </FadeIn>
       </section>
     </>
   );
