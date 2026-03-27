@@ -35,19 +35,19 @@ export default function PodcastArtGraphic() {
 
       // Slow groove rotation
       if (spinGroup) {
-        spinGroup.setAttribute('transform', `rotate(${t * 4}, ${CX}, ${CY})`)
+        spinGroup.setAttribute('transform', `rotate(${t * 1.5}, ${CX}, ${CY})`)
       }
 
       // Pulse centre dot
       if (centerDot) {
-        const r = 5 + 2 * Math.abs(Math.sin(t * 1.8))
+        const r = 5 + 2 * Math.abs(Math.sin(t * 0.7))
         centerDot.setAttribute('r', String(r))
-        centerDot.setAttribute('opacity', String(0.7 + 0.25 * Math.abs(Math.sin(t * 1.8))))
+        centerDot.setAttribute('opacity', String(0.7 + 0.25 * Math.abs(Math.sin(t * 0.7))))
       }
 
       // Expanding broadcast rings — staggered phase, cycle out and reset
       bcastRings.forEach((ring, i) => {
-        const phase   = ((t * 0.5 + i / RING_COUNT) % 1)
+        const phase   = ((t * 0.18 + i / RING_COUNT) % 1)
         const radius  = 6 + phase * 100
         const opacity = (1 - phase) * 0.55
         ring.setAttribute('r',       String(radius))
@@ -57,13 +57,13 @@ export default function PodcastArtGraphic() {
       // Listener dots — slow orbit + subtle brightness pulse
       listenerDots.forEach((dot, i) => {
         const { angle: baseAngle, r: orbR } = LISTENERS[i]
-        const speed = i % 2 === 0 ? 3 : -2
+        const speed = i % 2 === 0 ? 1.2 : -0.8
         const angle = (baseAngle + t * speed) * (Math.PI / 180)
         const x = CX + orbR * Math.cos(angle)
         const y = CY + orbR * Math.sin(angle)
         dot.setAttribute('cx',      String(x))
         dot.setAttribute('cy',      String(y))
-        dot.setAttribute('opacity', String(0.3 + 0.45 * ((Math.sin(t * 1.5 + i * 0.9) + 1) / 2)))
+        dot.setAttribute('opacity', String(0.3 + 0.45 * ((Math.sin(t * 0.6 + i * 0.9) + 1) / 2)))
       })
 
       rafRef.current = requestAnimationFrame(tick)
