@@ -180,3 +180,22 @@ body::after {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .sonar-ring,
+  .sonar-ring-delay {
+    animation: none;
+  }
+  .fade-up {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  [style*="slow-spin"] {
+    animation: none !important;
+  }
+}

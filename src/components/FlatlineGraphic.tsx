@@ -102,6 +102,7 @@ export default function FlatlineGraphic() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
+      aria-hidden
       style={{ opacity: 0.07 }}
     />
   )

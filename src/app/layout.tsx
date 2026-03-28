@@ -54,9 +54,16 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col" style={{ backgroundColor: 'var(--sq-bg)', color: 'var(--sq-ink)' }}>
         <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:text-sm focus:rounded focus:font-medium"
+            style={{ backgroundColor: 'var(--sq-amber)', color: 'var(--sq-bg)', fontFamily: 'var(--font-dm-sans)' }}
+          >
+            Skip to main content
+          </a>
           <Nav />
           <ScrollDot />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

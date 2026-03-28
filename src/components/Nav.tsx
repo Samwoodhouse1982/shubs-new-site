@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Thinking", href: "/thinking" },
   { label: "Contact", href: "/contact" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav
@@ -36,18 +38,22 @@ export default function Nav() {
 
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--sq-ink)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--sq-muted)')}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  className="text-sm transition-colors duration-200"
+                  style={{ fontFamily: "var(--font-dm-sans)", color: isActive ? 'var(--sq-ink)' : 'var(--sq-muted)' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--sq-ink)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = isActive ? 'var(--sq-ink)' : 'var(--sq-muted)')}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </div>
 
           {/* CTA + theme toggle + hamburger */}
@@ -73,6 +79,7 @@ export default function Nav() {
               style={{ color: 'var(--sq-ink)' }}
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
+              aria-expanded={open}
             >
               <span
                 className={`block w-6 h-px transition-all duration-300 ${open ? "rotate-45 translate-y-2" : ""}`}
@@ -98,17 +105,21 @@ export default function Nav() {
           style={{ borderColor: 'var(--sq-ink-8)', backgroundColor: 'var(--sq-bg)' }}
         >
           <div className="px-6 py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-base transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className="text-base transition-colors duration-200"
+                  style={{ fontFamily: "var(--font-dm-sans)", color: isActive ? 'var(--sq-ink)' : 'var(--sq-muted)' }}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
             <Link
               href="/contact"
               onClick={() => setOpen(false)}

@@ -222,6 +222,7 @@ export default function ContactOrbitGraphic() {
       width={SIZE}
       height={SIZE}
       className="pointer-events-none opacity-70"
+      aria-hidden
       style={{ width: SIZE, height: SIZE, display: 'block' }}
     />
   )

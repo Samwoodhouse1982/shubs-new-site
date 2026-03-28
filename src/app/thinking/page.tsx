@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import PodcastArtGraphic from "@/components/PodcastArtGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import NeuralGlobeGraphic from "@/components/NeuralGlobeGraphic";
+
+export const metadata: Metadata = {
+  title: "Thinking | SandiQ",
+  description:
+    "Digital health strategy, evidence, and equity. Perspectives from Dr Shubs Upadhyay via Shubstack and the GPODH podcast.",
+};
 
 const articles = [
   {
@@ -110,7 +117,7 @@ export default function ThinkingPage() {
                 <a href="/contact" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
                   get in touch
                 </a>{" "}
-                if something raises a question worth exploring further. We read everything.
+                if something raises a question worth exploring further. We respond to everything.
               </p>
             </div>
 
@@ -144,7 +151,7 @@ export default function ThinkingPage() {
                   href={article.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-[var(--sq-ink-8)] rounded-sm p-8 flex flex-col gap-5 hover:border-[var(--sq-amber-30)] hover:bg-[#0F1209] transition-colors duration-200 group h-full"
+                  className="border border-[var(--sq-ink-8)] rounded-sm p-8 flex flex-col gap-5 hover:border-[var(--sq-amber-30)] hover:bg-[var(--sq-surface)] transition-colors duration-200 group h-full"
                 >
                   <p className="text-sm text-[var(--sq-muted)] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {article.date}

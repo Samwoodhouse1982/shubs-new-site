@@ -223,7 +223,7 @@ export default function ContactPage() {
               }}
             >
               {submitted ? (
-                <div className="border border-[var(--sq-amber-30)] rounded-sm p-12 flex flex-col items-center gap-6 text-center bg-[var(--sq-amber-5)]">
+                <div role="status" aria-live="polite" aria-atomic="true" className="border border-[var(--sq-amber-30)] rounded-sm p-12 flex flex-col items-center gap-6 text-center bg-[var(--sq-amber-5)]">
                   {/* Animated draw-on checkmark */}
                   <AnimatedCheck />
                   <h2 className="text-3xl text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
@@ -247,7 +247,7 @@ export default function ContactPage() {
                       <label htmlFor="name" className="text-xs text-[var(--sq-amber)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                         Name *
                       </label>
-                      <input id="name" name="name" type="text" required value={form.name} onChange={handleChange} placeholder="Dr Jane Smith"
+                      <input id="name" name="name" type="text" required autoComplete="name" value={form.name} onChange={handleChange} placeholder="Dr Jane Smith"
                         className="w-full bg-transparent border border-[var(--sq-ink-22)] rounded-sm px-4 py-3 text-sm text-[var(--sq-ink)] placeholder-[#A8A49D]/65 focus:outline-none focus:border-[var(--sq-amber-50)] transition-colors duration-200"
                         style={{ fontFamily: "var(--font-dm-sans)" }} />
                     </div>
@@ -256,7 +256,7 @@ export default function ContactPage() {
                       <label htmlFor="organisation" className="text-xs text-[var(--sq-amber)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                         Organisation
                       </label>
-                      <input id="organisation" name="organisation" type="text" value={form.organisation} onChange={handleChange} placeholder="Acme Health Tech"
+                      <input id="organisation" name="organisation" type="text" autoComplete="organization" value={form.organisation} onChange={handleChange} placeholder="Acme Health Tech"
                         className="w-full bg-transparent border border-[var(--sq-ink-22)] rounded-sm px-4 py-3 text-sm text-[var(--sq-ink)] placeholder-[#A8A49D]/65 focus:outline-none focus:border-[var(--sq-amber-50)] transition-colors duration-200"
                         style={{ fontFamily: "var(--font-dm-sans)" }} />
                     </div>

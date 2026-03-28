@@ -1,10 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import ServicesMeshGraphic from "@/components/ServicesMeshGraphic";
 import ProcessStepIcon from "@/components/ProcessStepIcon";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 
-const services = [
+export const metadata: Metadata = {
+  title: "Services | SandiQ",
+  description:
+    "Six interconnected clinical and strategic services for digital health organisations, deployed individually or in combination.",
+};
+
+const services: { num: string; title: string; description: string; rightFor: string[]; cta: string }[] = [
   {
     num: "01",
     title: "Fractional CMO",
@@ -14,6 +21,7 @@ const services = [
       "Health tech startups that need credible clinical leadership ahead of NHS or payer engagement",
       "Scale-ups managing rapid growth without the budget for a full-time Chief Medical Officer",
     ],
+    cta: "Discuss clinical leadership →",
   },
   {
     num: "02",
@@ -24,6 +32,7 @@ const services = [
       "Product teams building regulated or clinically-adjacent software for healthcare settings",
       "Founders navigating CE marking, DTAC, or FDA pathways for the first time",
     ],
+    cta: "Discuss your product →",
   },
   {
     num: "03",
@@ -34,16 +43,18 @@ const services = [
       "Companies preparing for NHS procurement or NICE assessment",
       "Organisations that need to demonstrate ROI or QALY-equivalent impact to commissioners",
     ],
+    cta: "Discuss your evidence →",
   },
   {
     num: "04",
     title: "Market Access & Clinical Credibility",
     description:
-      "Health system procurement is a different game. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, is not something most digital health commercial teams are equipped for. We navigate this complexity on your behalf.",
+      "Health system procurement is a different game. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, is a different discipline from what most digital health commercial teams are built for. We navigate this complexity on your behalf.",
     rightFor: [
       "Companies seeking to enter NHS, European, US, or international health markets",
       "Startups that have great technology but struggle to communicate clinical value to non-technical buyers",
     ],
+    cta: "Discuss market access →",
   },
   {
     num: "05",
@@ -54,6 +65,7 @@ const services = [
       "Organisations preparing impact reports, investment decks, or grant applications",
       "Companies that need to position their evidence clearly for regulatory or procurement audiences",
     ],
+    cta: "Discuss communications →",
   },
   {
     num: "06",
@@ -64,6 +76,7 @@ const services = [
       "Organisations expanding into new national health systems or regulatory environments",
       "Investors and funders conducting clinical or strategic due diligence on digital health opportunities",
     ],
+    cta: "Discuss your market →",
   },
 ];
 
@@ -198,7 +211,7 @@ export default function ServicesPage() {
 
                 <div className="lg:flex lg:items-end lg:shrink-0">
                   <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200 whitespace-nowrap" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    Get in touch →
+                    {service.cta}
                   </Link>
                 </div>
               </div>

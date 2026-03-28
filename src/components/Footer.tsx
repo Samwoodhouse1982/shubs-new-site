@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const navLinks = [
@@ -5,6 +7,13 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Thinking", href: "/thinking" },
   { label: "Contact", href: "/contact" },
+];
+
+const connectLinks = [
+  { label: "hello@sandiq.com", href: "mailto:hello@sandiq.com", external: false },
+  { label: "LinkedIn", href: "https://linkedin.com/company/sandiq", external: true },
+  { label: "GPODH Podcast", href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=footer", external: true },
+  { label: "Substack", href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=footer", external: true },
 ];
 
 export default function Footer() {
@@ -44,6 +53,8 @@ export default function Footer() {
                 href={link.href}
                 className="text-sm transition-colors duration-200"
                 style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--sq-ink)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--sq-muted)')}
               >
                 {link.label}
               </Link>
@@ -58,40 +69,19 @@ export default function Footer() {
             >
               Connect
             </p>
-            <a
-              href="mailto:hello@sandiq.com"
-              className="text-sm transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
-            >
-              hello@sandiq.com
-            </a>
-            <a
-              href="https://linkedin.com/company/sandiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
-            >
-              GPODH Podcast
-            </a>
-            <a
-              href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
-            >
-              Substack
-            </a>
+            {connectLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="text-sm transition-colors duration-200"
+                style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--sq-ink)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--sq-muted)')}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
 

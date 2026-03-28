@@ -7,6 +7,13 @@ import VennGraphic from "@/components/VennGraphic";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import HomeServiceIcon from "@/components/HomeServiceIcon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SandiQ — Real Value in Digital Health",
+  description:
+    "Senior clinical and strategic counsel for digital health companies, investors, and health organisations. Clinically sound, commercially credible, trusted.",
+};
 
 type ServiceNum = '01' | '02' | '03' | '04' | '05' | '06'
 
@@ -239,13 +246,12 @@ export default function HomePage() {
               </p>
               <blockquote className="text-xl lg:text-2xl xl:text-3xl text-[var(--sq-ink)] leading-snug italic max-w-4xl" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
                 &ldquo;Digital health must be built around clinical reality, not
-                around what is easy to build or easy to sell.
-                We don&apos;t accept that speed and rigour are in tension. We
-                don&apos;t accept that evidence is only for academics. We
-                don&apos;t accept that commercial success and genuine clinical
-                value are different goals. The organisations that understand
-                this are the ones that last.&rdquo;
+                around what is easy to build or easy to sell. The organisations
+                that understand this are the ones that last.&rdquo;
               </blockquote>
+              <Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Read our full manifesto →
+              </Link>
             </aside>
           </FadeIn>
         </div>
@@ -313,6 +319,9 @@ export default function HomePage() {
                 </p>
                 <div className="h-px w-8 bg-[var(--sq-amber)]" />
               </div>
+              <p className="text-base text-[var(--sq-muted)] max-w-xl mx-auto" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Fifteen years of clinical and strategic work across the NHS, multilateral agencies, and private sector digital health organisations, delivered by our founding partner.
+              </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
@@ -413,7 +422,7 @@ export default function HomePage() {
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-              What we&apos;ve delivered.
+              What our founding partner has delivered.
             </h2>
           </FadeIn>
 

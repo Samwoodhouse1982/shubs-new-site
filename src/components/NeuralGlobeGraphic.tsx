@@ -298,6 +298,7 @@ export default function NeuralGlobeGraphic() {
       ref={canvasRef}
       width={480}
       height={480}
+      aria-hidden
       style={{ display: 'block', width: '100%', height: '100%' }}
     />
   )
