@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 
@@ -104,8 +105,15 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <FadeIn className="lg:col-span-1">
-              <div className="w-full aspect-square max-w-xs bg-[var(--sq-teal-15)] border border-[var(--sq-teal-25)] rounded-sm flex items-center justify-center">
-                <span className="text-4xl text-[var(--sq-teal)]/50" style={{ fontFamily: "var(--font-cormorant)" }}>SU</span>
+              <div className="w-full aspect-square max-w-xs rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/shubs-headshot.webp"
+                  alt="Dr Shubs Upadhyay"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
             </FadeIn>
 
@@ -136,6 +144,15 @@ export default function AboutPage() {
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 He hosts the GPODH (Global Perspectives on Digital Health) podcast, which has reached listeners in over 60 countries, and writes the Shubstack newsletter on digital health strategy, evidence, and equity.
               </p>
+
+              <blockquote className="border-l-2 border-[var(--sq-teal)] pl-6 py-1 my-2">
+                <p
+                  className="text-xl lg:text-2xl text-[var(--sq-ink)] leading-relaxed italic"
+                  style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
+                >
+                  &ldquo;The moment I knew I had to build something different was in a policy meeting where a minister asked me whether a particular app would actually help his population. Everyone else was answering diplomatically. I was the only person there who could answer honestly. That&apos;s what SandiQ is.&rdquo;
+                </p>
+              </blockquote>
 
               <div className="border-t border-[var(--sq-ink-8)] pt-6 flex flex-wrap gap-3">
                 {["MBBS", "MSc Global Health", "Former ITU Clinical Lead", "WHO Contributor", "NHS Digital Health Advisor"].map((cred) => (

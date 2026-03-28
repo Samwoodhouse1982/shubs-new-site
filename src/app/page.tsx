@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import HeroGlobe from "@/components/HeroGlobe";
 import FadeIn from "@/components/FadeIn";
 import StatCounter from "@/components/StatCounter";
@@ -7,10 +8,11 @@ import VennGraphic from "@/components/VennGraphic";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import HomeServiceIcon from "@/components/HomeServiceIcon";
+import PopulationFigureGraphic from "@/components/PopulationFigureGraphic";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SandiQ — Real Value in Digital Health",
+  title: "SandiQ | Real Value in Digital Health",
   description:
     "Senior clinical and strategic counsel for digital health companies, investors, and health organisations. Clinically sound, commercially credible, trusted.",
 };
@@ -195,6 +197,36 @@ export default function HomePage() {
       </section>
 
 
+      {/* ── FOUNDER VOICE ──────────────────────────────────────── */}
+      <section className="py-20 border-b border-[var(--sq-ink-6)]">
+        <FadeIn>
+          <div className="max-w-3xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-8">
+            <blockquote
+              className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-relaxed italic"
+              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
+            >
+              &ldquo;I&apos;ve sat in clinical settings across three continents and the gap is always the same: technology that doesn&apos;t understand the system it&apos;s entering. I started SandiQ because that gap is fixable, but only if someone is being honest about it.&rdquo;
+            </blockquote>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--sq-amber-25)]">
+                <Image
+                  src="/images/shubs-headshot.webp"
+                  alt="Dr Shubs Upadhyay"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-left">
+                <p className="text-sm text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 500 }}>Dr Shubs Upadhyay</p>
+                <p className="text-xs text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-mono)" }}>Founding Partner, SandiQ</p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+
       {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}
       {/*
         Venn is now the right column — full column width at ~500px on desktop.
@@ -348,8 +380,14 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <FadeIn className="lg:col-span-1">
-              <div className="w-full aspect-square max-w-xs bg-[var(--sq-teal-15)] border border-[var(--sq-teal-25)] rounded-sm flex items-center justify-center">
-                <span className="text-4xl text-[var(--sq-teal)]/50" style={{ fontFamily: "var(--font-cormorant)" }}>SU</span>
+              <div className="w-full aspect-square max-w-xs rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/shubs-headshot.webp"
+                  alt="Dr Shubs Upadhyay"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </FadeIn>
 
@@ -426,6 +464,26 @@ export default function HomePage() {
             </h2>
           </FadeIn>
 
+          {/* Population impact visual */}
+          <FadeIn delay={80}>
+            <div className="mb-14 flex flex-col md:flex-row items-center gap-10 border border-[var(--sq-ink-8)] rounded-sm p-8 bg-[var(--sq-bg)]">
+              <div className="shrink-0">
+                <PopulationFigureGraphic total={120} highlighted={30} cols={12} className="w-64 h-auto opacity-90" />
+              </div>
+              <div className="flex flex-col gap-3">
+                <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  Population impact
+                </p>
+                <p className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  200,000 women reached through a single digital health programme.
+                </p>
+                <p className="text-sm text-[var(--sq-muted)] leading-relaxed max-w-md" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  Implementation science support helped transform a promising maternal health pilot into a government-endorsed programme. Each figure here is a real person in the system.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {outcomes.map((outcome, i) => (
               <FadeIn key={i} delay={i * 120}>
@@ -481,12 +539,21 @@ export default function HomePage() {
           {/* Podcast strip */}
           <FadeIn delay={100}>
             <div className="border border-[var(--sq-teal-30)] rounded-sm p-8 flex flex-col md:flex-row items-center gap-8 bg-[var(--sq-teal-5)]">
-              <div className="shrink-0">
-                <BroadcastGraphic size={80} />
+              <div className="shrink-0 flex items-center gap-4">
+                <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-[var(--sq-teal)]/30">
+                  <Image
+                    src="/images/shubs-headshot.webp"
+                    alt="Dr Shubs Upadhyay — host"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <BroadcastGraphic size={56} />
               </div>
               <div className="flex-1">
                 <p className="text-xs text-[var(--sq-teal)] tracking-widest uppercase mb-2" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                  The GPODH Podcast
+                  Hosted by Dr Shubs Upadhyay · The GPODH Podcast
                 </p>
                 <p className="text-lg text-[var(--sq-ink)] mb-2" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                   Global Perspectives on Digital Health
