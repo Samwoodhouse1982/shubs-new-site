@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollDot from "@/components/ScrollDot";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -43,11 +44,21 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0C0F0D] text-[#F2EFE9]">
-        <Nav />
-        <ScrollDot />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <head>
+        {/* Anti-FOUC: apply saved theme before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('sq-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col" style={{ backgroundColor: 'var(--sq-bg)', color: 'var(--sq-ink)' }}>
+        <ThemeProvider>
+          <Nav />
+          <ScrollDot />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

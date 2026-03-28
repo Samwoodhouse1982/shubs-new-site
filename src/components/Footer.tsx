@@ -9,7 +9,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0C0F0D] border-t border-[#F2EFE9]/8">
+    <footer className="border-t" style={{ backgroundColor: 'var(--sq-bg)', borderColor: 'var(--sq-ink-8)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Left — logo + tagline */}
@@ -19,12 +19,12 @@ export default function Footer() {
               className="text-2xl tracking-tight"
               style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
             >
-              <span className="text-[#F2EFE9]">Sandi</span>
-              <span className="text-[#C9933A]">Q</span>
+              <span style={{ color: 'var(--sq-ink)' }}>Sandi</span>
+              <span style={{ color: 'var(--sq-amber)' }}>Q</span>
             </Link>
             <p
-              className="text-sm text-[#C4C0B8] leading-relaxed"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
+              className="text-sm leading-relaxed"
+              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
             >
               Real value in digital health.
             </p>
@@ -33,8 +33,8 @@ export default function Footer() {
           {/* Center — nav links */}
           <div className="flex flex-col gap-3">
             <p
-              className="text-xs tracking-widest text-[#C9933A] uppercase mb-2"
-              style={{ fontFamily: "var(--font-dm-mono)" }}
+              className="text-xs tracking-widest uppercase mb-2"
+              style={{ fontFamily: "var(--font-dm-mono)", color: 'var(--sq-amber)' }}
             >
               Navigation
             </p>
@@ -42,8 +42,8 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
-                style={{ fontFamily: "var(--font-dm-sans)" }}
+                className="text-sm transition-colors duration-200"
+                style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
               >
                 {link.label}
               </Link>
@@ -53,15 +53,15 @@ export default function Footer() {
           {/* Right — contact + social */}
           <div className="flex flex-col gap-3">
             <p
-              className="text-xs tracking-widest text-[#C9933A] uppercase mb-2"
-              style={{ fontFamily: "var(--font-dm-mono)" }}
+              className="text-xs tracking-widest uppercase mb-2"
+              style={{ fontFamily: "var(--font-dm-mono)", color: 'var(--sq-amber)' }}
             >
               Connect
             </p>
             <a
               href="mailto:hello@sandiq.com"
-              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
+              className="text-sm transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
             >
               hello@sandiq.com
             </a>
@@ -69,8 +69,8 @@ export default function Footer() {
               href="https://linkedin.com/company/sandiq"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
+              className="text-sm transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
             >
               LinkedIn
             </a>
@@ -78,8 +78,8 @@ export default function Footer() {
               href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
+              className="text-sm transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
             >
               GPODH Podcast
             </a>
@@ -87,8 +87,8 @@ export default function Footer() {
               href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=footer"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#C4C0B8] hover:text-[#F2EFE9] transition-colors duration-200"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
+              className="text-sm transition-colors duration-200"
+              style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
             >
               Substack
             </a>
@@ -96,16 +96,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-[#F2EFE9]/8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-16 pt-8 border-t flex flex-col md:flex-row items-center justify-between gap-4"
+          style={{ borderColor: 'var(--sq-ink-8)' }}>
           <p
-            className="text-sm text-[#C4C0B8]"
-            style={{ fontFamily: "var(--font-dm-mono)" }}
+            className="text-sm"
+            style={{ fontFamily: "var(--font-dm-mono)", color: 'var(--sq-muted)' }}
           >
             © SandiQ Global, Registered in France
           </p>
           <p
-            className="text-sm text-[#C4C0B8]"
-            style={{ fontFamily: "var(--font-dm-mono)" }}
+            className="text-sm"
+            style={{ fontFamily: "var(--font-dm-mono)", color: 'var(--sq-muted)' }}
           >
             Real value in digital health.
           </p>

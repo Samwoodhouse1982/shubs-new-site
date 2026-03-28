@@ -28,13 +28,19 @@ export default function FlatlineGraphic() {
     ro.observe(cvs)
 
     function onScroll() {
-      // Each 1px of scroll advances the wave ~0.5px — gentle drift
       scrollOffset = window.scrollY * 0.5
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
 
-    const CYCLE = 300 // px per heartbeat
+    // Read theme color; update when data-theme changes
+    let amber = getComputedStyle(document.documentElement).getPropertyValue('--sq-amber').trim()
+    const mo = new MutationObserver(() => {
+      amber = getComputedStyle(document.documentElement).getPropertyValue('--sq-amber').trim()
+    })
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+
+    const CYCLE = 300
 
     function sample(px: number): number {
       const mid = H / 2
@@ -68,7 +74,7 @@ export default function FlatlineGraphic() {
 
     function draw() {
       c2d.clearRect(0, 0, W, H)
-      c2d.strokeStyle = '#C9933A'
+      c2d.strokeStyle = amber || '#C9933A'
       c2d.lineWidth   = 1.2
       c2d.lineJoin    = 'round'
       c2d.globalAlpha = 1
@@ -87,6 +93,7 @@ export default function FlatlineGraphic() {
     return () => {
       cancelAnimationFrame(rafRef.current)
       ro.unobserve(cvs)
+      mo.disconnect()
       window.removeEventListener('scroll', onScroll)
     }
   }, [])

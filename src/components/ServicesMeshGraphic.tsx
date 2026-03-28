@@ -1,8 +1,6 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-const AMBER = '#C9933A'
-const TEAL  = '#2A6B62'
 const SPEED = 0.35
 const RADIUS = 2.5
 const NODE_OPACITY = 0.7
@@ -27,7 +25,6 @@ function makeNodes(w: number, h: number): Node[] {
       y: Math.random() * h,
       vx: Math.cos(angle) * SPEED,
       vy: Math.sin(angle) * SPEED,
-      // ~2/3 amber, ~1/3 teal
       amber: i < Math.round(NODE_COUNT * (2 / 3)),
     })
   }
@@ -45,39 +42,46 @@ export default function ServicesMeshGraphic() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    // Seed nodes once we know the initial size
     const initW = canvas.offsetWidth  || 400
     const initH = canvas.offsetHeight || 300
     nodesRef.current = makeNodes(initW, initH)
 
-    // Keep canvas buffer matched to rendered size
     const ro = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const { width, height } = entry.contentRect
         canvas.width  = Math.round(width)
         canvas.height = Math.round(height)
-        // Reinitialise node positions when canvas changes size significantly
         nodesRef.current = makeNodes(canvas.width, canvas.height)
       }
     })
     ro.observe(canvas)
 
-    // Set initial buffer size
     canvas.width  = initW
     canvas.height = initH
 
-    // Capture non-null refs into typed consts before any closure uses them
     const c: HTMLCanvasElement          = canvas
     const g: CanvasRenderingContext2D   = ctx
+
+    // Read theme colors; update when data-theme changes
+    function readColors() {
+      const style = getComputedStyle(document.documentElement)
+      return {
+        amber: style.getPropertyValue('--sq-amber').trim() || '#C9933A',
+        teal:  style.getPropertyValue('--sq-teal').trim()  || '#2A6B62',
+      }
+    }
+    let colors = readColors()
+    const mo = new MutationObserver(() => { colors = readColors() })
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
 
     function tick() {
       const w = c.width
       const h = c.height
       const nodes = nodesRef.current
+      const { amber, teal } = colors
 
       g.clearRect(0, 0, w, h)
 
-      // Update positions and bounce
       for (const node of nodes) {
         node.x += node.vx
         node.y += node.vy
@@ -87,7 +91,6 @@ export default function ServicesMeshGraphic() {
         if (node.y > h - RADIUS) { node.y = h - RADIUS; node.vy = -Math.abs(node.vy) }
       }
 
-      // Draw connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i]
@@ -100,10 +103,9 @@ export default function ServicesMeshGraphic() {
             g.beginPath()
             g.moveTo(a.x, a.y)
             g.lineTo(b.x, b.y)
-            // Blend amber→teal when connecting across types
             g.strokeStyle = a.amber === b.amber
-              ? (a.amber ? AMBER : TEAL)
-              : AMBER
+              ? (a.amber ? amber : teal)
+              : amber
             g.globalAlpha = opacity
             g.lineWidth   = LINE_WIDTH
             g.stroke()
@@ -111,11 +113,10 @@ export default function ServicesMeshGraphic() {
         }
       }
 
-      // Draw nodes
       for (const node of nodes) {
         g.beginPath()
         g.arc(node.x, node.y, RADIUS, 0, Math.PI * 2)
-        g.fillStyle   = node.amber ? AMBER : TEAL
+        g.fillStyle   = node.amber ? amber : teal
         g.globalAlpha = NODE_OPACITY
         g.fill()
       }
@@ -130,6 +131,7 @@ export default function ServicesMeshGraphic() {
     return () => {
       cancelAnimationFrame(rafRef.current)
       ro.disconnect()
+      mo.disconnect()
     }
   }, [])
 

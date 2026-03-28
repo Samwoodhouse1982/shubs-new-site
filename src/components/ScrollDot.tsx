@@ -32,7 +32,7 @@ export default function ScrollDot() {
           bottom: '10%',
           width: 1,
           background:
-            'linear-gradient(to bottom, transparent 0%, rgba(201,147,58,0.12) 15%, rgba(201,147,58,0.12) 85%, transparent 100%)',
+            'linear-gradient(to bottom, transparent 0%, var(--sq-amber-12) 15%, var(--sq-amber-12) 85%, transparent 100%)',
         }}
       />
 
@@ -47,13 +47,16 @@ export default function ScrollDot() {
           className="absolute sonar-ring rounded-full"
           style={{
             inset: -4,
-            background: 'rgba(201,147,58,0.18)',
+            background: 'var(--sq-amber-15)',
           }}
         />
         {/* Core dot */}
         <span
-          className="block w-2 h-2 rounded-full bg-[#C9933A]"
-          style={{ boxShadow: '0 0 7px rgba(201,147,58,0.55)' }}
+          className="block w-2 h-2 rounded-full"
+          style={{
+            backgroundColor: 'var(--sq-amber)',
+            boxShadow: '0 0 7px var(--sq-amber-50)',
+          }}
         />
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function BroadcastGraphic({ size = 80 }: { size?: number }) {
 
       rings.forEach((ring, i) => {
         const phase   = i / NUM_RINGS
-        const p       = ((t * 0.65 + phase) % 1) // 0→1 expanding cycle
+        const p       = ((t * 0.65 + phase) % 1)
         const r       = 6 + p * 32
         const opacity = (1 - p) * 0.65
         ring.setAttribute('r',       String(r))
@@ -50,16 +50,14 @@ export default function BroadcastGraphic({ size = 80 }: { size?: number }) {
           className="bcr"
           cx={cx} cy={cy} r="6"
           fill="none"
-          stroke={i % 2 === 0 ? '#2A6B62' : '#C9933A'}
+          style={{ stroke: i % 2 === 0 ? 'var(--sq-teal)' : 'var(--sq-amber)' }}
           strokeWidth="1.2"
           opacity="0"
         />
       ))}
-      {/* Outer static ring */}
-      <circle cx={cx} cy={cy} r={size / 2 - 2} fill="none" stroke="#2A6B62" strokeWidth="0.5" opacity="0.2" />
-      {/* Centre dot */}
-      <circle cx={cx} cy={cy} r="5" fill="#2A6B62" opacity="0.5" />
-      <circle cx={cx} cy={cy} r="2.5" fill="#C9933A" opacity="1" />
+      <circle cx={cx} cy={cy} r={size / 2 - 2} fill="none" style={{ stroke: 'var(--sq-teal)' }} strokeWidth="0.5" opacity="0.2" />
+      <circle cx={cx} cy={cy} r="5" style={{ fill: 'var(--sq-teal)' }} opacity="0.5" />
+      <circle cx={cx} cy={cy} r="2.5" style={{ fill: 'var(--sq-amber)' }} opacity="1" />
     </svg>
   )
 }

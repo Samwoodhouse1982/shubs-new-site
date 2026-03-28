@@ -12,11 +12,101 @@
   --font-mono: var(--font-dm-mono);
 }
 
+/* ── Theme tokens ─────────────────────────────────────── */
 :root {
-  --background: #0C0F0D;
-  --foreground: #F2EFE9;
+  /* Dark theme (default) */
+  --sq-bg:       #0C0F0D;
+  --sq-bg2:      #111410;
+  --sq-bg3:      #0e1210;
+  --sq-surface:  #141810;
+  --sq-ink:      #F2EFE9;
+  --sq-muted:    #C4C0B8;
+  --sq-amber:    #C9933A;
+  --sq-amber-d:  #b8832e;
+  --sq-teal:     #2A6B62;
+  --sq-teal-d:   #215a52;
+
+  /* RGB triplets for dynamic rgba() usage in inline styles and canvas */
+  --sq-amber-rgb: 201, 147, 58;
+  --sq-teal-rgb:  42, 107, 98;
+  --sq-ink-rgb:   242, 239, 233;
+  --sq-bg-rgb:    12, 15, 13;
+
+  /* Pre-computed opacity tokens for Tailwind arbitrary values */
+  --sq-ink-5:    rgba(242,239,233,0.05);
+  --sq-ink-6:    rgba(242,239,233,0.06);
+  --sq-ink-8:    rgba(242,239,233,0.08);
+  --sq-ink-20:   rgba(242,239,233,0.20);
+  --sq-ink-22:   rgba(242,239,233,0.22);
+  --sq-ink-25:   rgba(242,239,233,0.25);
+  --sq-amber-5:  rgba(201,147,58,0.05);
+  --sq-amber-7:  rgba(201,147,58,0.07);
+  --sq-amber-10: rgba(201,147,58,0.10);
+  --sq-amber-12: rgba(201,147,58,0.12);
+  --sq-amber-15: rgba(201,147,58,0.15);
+  --sq-amber-20: rgba(201,147,58,0.20);
+  --sq-amber-25: rgba(201,147,58,0.25);
+  --sq-amber-30: rgba(201,147,58,0.30);
+  --sq-amber-40: rgba(201,147,58,0.40);
+  --sq-amber-50: rgba(201,147,58,0.50);
+  --sq-amber-80: rgba(201,147,58,0.80);
+  --sq-teal-5:   rgba(42,107,98,0.05);
+  --sq-teal-7:   rgba(42,107,98,0.07);
+  --sq-teal-10:  rgba(42,107,98,0.10);
+  --sq-teal-15:  rgba(42,107,98,0.15);
+  --sq-teal-25:  rgba(42,107,98,0.25);
+  --sq-teal-30:  rgba(42,107,98,0.30);
+  --sq-teal-40:  rgba(42,107,98,0.40);
+  --sq-teal-50:  rgba(42,107,98,0.50);
+  --sq-nav-bg:   rgba(12,15,13,0.95);
 }
 
+[data-theme="light"] {
+  --sq-bg:       #F5F1EA;
+  --sq-bg2:      #EBE6DC;
+  --sq-bg3:      #E8E2D5;
+  --sq-surface:  #DDD7CB;
+  --sq-ink:      #1C1F1D;
+  --sq-muted:    #5A5650;
+  --sq-amber:    #B5701F;
+  --sq-amber-d:  #9A5E18;
+  --sq-teal:     #1D5148;
+  --sq-teal-d:   #164039;
+
+  --sq-amber-rgb: 181, 112, 31;
+  --sq-teal-rgb:  29, 81, 72;
+  --sq-ink-rgb:   28, 31, 29;
+  --sq-bg-rgb:    245, 241, 234;
+
+  --sq-ink-5:    rgba(28,31,29,0.05);
+  --sq-ink-6:    rgba(28,31,29,0.07);
+  --sq-ink-8:    rgba(28,31,29,0.10);
+  --sq-ink-20:   rgba(28,31,29,0.16);
+  --sq-ink-22:   rgba(28,31,29,0.18);
+  --sq-ink-25:   rgba(28,31,29,0.20);
+  --sq-amber-5:  rgba(181,112,31,0.07);
+  --sq-amber-7:  rgba(181,112,31,0.09);
+  --sq-amber-10: rgba(181,112,31,0.12);
+  --sq-amber-12: rgba(181,112,31,0.14);
+  --sq-amber-15: rgba(181,112,31,0.18);
+  --sq-amber-20: rgba(181,112,31,0.22);
+  --sq-amber-25: rgba(181,112,31,0.28);
+  --sq-amber-30: rgba(181,112,31,0.35);
+  --sq-amber-40: rgba(181,112,31,0.45);
+  --sq-amber-50: rgba(181,112,31,0.55);
+  --sq-amber-80: rgba(181,112,31,0.85);
+  --sq-teal-5:   rgba(29,81,72,0.07);
+  --sq-teal-7:   rgba(29,81,72,0.09);
+  --sq-teal-10:  rgba(29,81,72,0.12);
+  --sq-teal-15:  rgba(29,81,72,0.18);
+  --sq-teal-25:  rgba(29,81,72,0.28);
+  --sq-teal-30:  rgba(29,81,72,0.35);
+  --sq-teal-40:  rgba(29,81,72,0.45);
+  --sq-teal-50:  rgba(29,81,72,0.55);
+  --sq-nav-bg:   rgba(245,241,234,0.95);
+}
+
+/* ── Base styles ──────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -28,8 +118,8 @@ html {
 }
 
 body {
-  background-color: #0C0F0D;
-  color: #F2EFE9;
+  background-color: var(--sq-bg);
+  color: var(--sq-ink);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,6 +127,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-cormorant), Georgia, serif;
+}
+
+/* Smooth theme transition — applied only during toggle */
+.theme-transitioning,
+.theme-transitioning * {
+  transition:
+    background-color 0.25s ease,
+    color 0.2s ease,
+    border-color 0.25s ease,
+    fill 0.25s ease,
+    stroke 0.25s ease !important;
 }
 
 /* Grain/noise texture overlay */

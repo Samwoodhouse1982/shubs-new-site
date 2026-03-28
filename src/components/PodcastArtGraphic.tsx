@@ -5,14 +5,12 @@ const SIZE = 240
 const CX   = SIZE / 2
 const CY   = SIZE / 2
 
-// Listener dots — angle (degrees) and orbital radius
 const LISTENERS = [
   { angle:  20, r: 68 }, { angle:  80, r: 54 }, { angle: 140, r: 82 },
   { angle: 195, r: 62 }, { angle: 255, r: 76 }, { angle: 310, r: 58 },
   { angle: 345, r: 90 }, { angle: 115, r: 96 },
 ]
 
-// Number of expanding broadcast rings
 const RING_COUNT = 3
 
 export default function PodcastArtGraphic() {
@@ -33,19 +31,16 @@ export default function PodcastArtGraphic() {
       if (!t0.current) t0.current = ts
       const t = (ts - t0.current) / 1000
 
-      // Slow groove rotation
       if (spinGroup) {
         spinGroup.setAttribute('transform', `rotate(${t * 1.5}, ${CX}, ${CY})`)
       }
 
-      // Pulse centre dot
       if (centerDot) {
         const r = 5 + 2 * Math.abs(Math.sin(t * 0.7))
         centerDot.setAttribute('r', String(r))
         centerDot.setAttribute('opacity', String(0.7 + 0.25 * Math.abs(Math.sin(t * 0.7))))
       }
 
-      // Expanding broadcast rings — staggered phase, cycle out and reset
       bcastRings.forEach((ring, i) => {
         const phase   = ((t * 0.18 + i / RING_COUNT) % 1)
         const radius  = 6 + phase * 100
@@ -54,7 +49,6 @@ export default function PodcastArtGraphic() {
         ring.setAttribute('opacity', String(opacity))
       })
 
-      // Listener dots — slow orbit + subtle brightness pulse
       listenerDots.forEach((dot, i) => {
         const { angle: baseAngle, r: orbR } = LISTENERS[i]
         const speed = i % 2 === 0 ? 1.2 : -0.8
@@ -83,8 +77,8 @@ export default function PodcastArtGraphic() {
       aria-hidden
     >
       {/* Background disc */}
-      <circle cx={CX} cy={CY} r={SIZE / 2 - 2} fill="#080E0C" />
-      <circle cx={CX} cy={CY} r={SIZE / 2 - 3} fill="none" stroke="#2A6B62" strokeWidth="1" opacity="0.35" />
+      <circle cx={CX} cy={CY} r={SIZE / 2 - 2} style={{ fill: 'var(--sq-bg2)' }} />
+      <circle cx={CX} cy={CY} r={SIZE / 2 - 3} fill="none" style={{ stroke: 'var(--sq-teal)' }} strokeWidth="1" opacity="0.35" />
 
       {/* Rotating groove rings */}
       <g id="pa-spin">
@@ -93,7 +87,7 @@ export default function PodcastArtGraphic() {
             key={r}
             cx={CX} cy={CY} r={r}
             fill="none"
-            stroke={i % 2 === 0 ? '#2A6B62' : '#C9933A'}
+            style={{ stroke: i % 2 === 0 ? 'var(--sq-teal)' : 'var(--sq-amber)' }}
             strokeWidth={i % 3 === 0 ? '0.7' : '0.4'}
             strokeDasharray={i % 2 === 0 ? '4 3' : 'none'}
             opacity={0.12 + (6 - i) * 0.045}
@@ -108,7 +102,7 @@ export default function PodcastArtGraphic() {
           className="pa-bcast"
           cx={CX} cy={CY} r="6"
           fill="none"
-          stroke="#2A6B62"
+          style={{ stroke: 'var(--sq-teal)' }}
           strokeWidth="1.2"
           opacity="0"
         />
@@ -121,14 +115,14 @@ export default function PodcastArtGraphic() {
           className="pa-listener"
           cx={CX} cy={CY}
           r={i % 3 === 0 ? '2.5' : '1.8'}
-          fill={i % 2 === 0 ? '#C9933A' : '#2A6B62'}
+          style={{ fill: i % 2 === 0 ? 'var(--sq-amber)' : 'var(--sq-teal)' }}
           opacity="0.4"
         />
       ))}
 
       {/* Centre source dot */}
-      <circle id="pa-center" cx={CX} cy={CY} r="5" fill="#C9933A" opacity="0.9" />
-      <circle cx={CX} cy={CY} r="2" fill="#080E0C" />
+      <circle id="pa-center" cx={CX} cy={CY} r="5" style={{ fill: 'var(--sq-amber)' }} opacity="0.9" />
+      <circle cx={CX} cy={CY} r="2" style={{ fill: 'var(--sq-bg2)' }} />
     </svg>
   )
 }

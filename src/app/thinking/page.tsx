@@ -78,36 +78,36 @@ export default function ThinkingPage() {
       <section className="relative pt-24 pb-20 overflow-hidden">
         {/* Ambient glows */}
         <div className="absolute top-0 right-0 w-[600px] h-[500px] pointer-events-none"
-          style={{ background: 'radial-gradient(circle at 80% 20%, rgba(201,147,58,0.09) 0%, transparent 65%)' }} aria-hidden />
+          style={{ background: 'radial-gradient(circle at 80% 20%, rgba(var(--sq-amber-rgb),0.09) 0%, transparent 65%)' }} aria-hidden />
         <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(42,107,98,0.07) 0%, transparent 65%)' }} aria-hidden />
+          style={{ background: 'radial-gradient(circle, rgba(var(--sq-teal-rgb),0.07) 0%, transparent 65%)' }} aria-hidden />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left: text */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="h-px w-8 bg-[#C9933A]" />
-                <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                <div className="h-px w-8 bg-[var(--sq-amber)]" />
+                <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   Thinking
                 </p>
               </div>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[#F2EFE9] leading-[1.1] max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl text-[var(--sq-ink)] leading-[1.1] max-w-3xl mb-8" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Clinical depth. Strategic clarity.
               </h1>
-              <p className="text-base lg:text-lg text-[#C4C0B8] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl mb-8" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Perspectives from Dr Shubs Upadhyay on digital health strategy, evidence, equity, and the uncomfortable questions the industry tends to avoid.
               </p>
-              <p className="text-sm text-[#C4C0B8] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-sm text-[var(--sq-muted)] max-w-xl mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Read the thinking on{" "}
-                <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
                   Shubstack
                 </a>
                 , listen to the conversations on the{" "}
-                <a href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                <a href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
                   GPODH podcast
                 </a>
                 , or{" "}
-                <a href="/contact" className="text-[#C9933A] hover:text-[#F2EFE9] transition-colors duration-200">
+                <a href="/contact" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
                   get in touch
                 </a>{" "}
                 if something raises a question worth exploring further. We read everything.
@@ -128,11 +128,11 @@ export default function ThinkingPage() {
       {/* ── ARTICLES ──────────────────────────────────────────── */}
       <section className="relative pb-24 overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(201,147,58,0.05) 0%, transparent 65%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(var(--sq-amber-rgb),0.05) 0%, transparent 65%)' }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex items-center gap-3 mb-10">
-            <div className="h-px w-8 bg-[#C9933A]" />
-            <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+            <div className="h-px w-8 bg-[var(--sq-amber)]" />
+            <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
               Shubstack, by Dr Shubs Upadhyay
             </p>
           </FadeIn>
@@ -144,18 +144,18 @@ export default function ThinkingPage() {
                   href={article.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-[#F2EFE9]/8 rounded-sm p-8 flex flex-col gap-5 hover:border-[#C9933A]/30 hover:bg-[#0F1209] transition-colors duration-200 group h-full"
+                  className="border border-[var(--sq-ink-8)] rounded-sm p-8 flex flex-col gap-5 hover:border-[var(--sq-amber-30)] hover:bg-[#0F1209] transition-colors duration-200 group h-full"
                 >
-                  <p className="text-sm text-[#C4C0B8] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  <p className="text-sm text-[var(--sq-muted)] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     {article.date}
                   </p>
-                  <h2 className="text-xl lg:text-2xl text-[#F2EFE9] leading-snug group-hover:text-[#C9933A] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  <h2 className="text-xl lg:text-2xl text-[var(--sq-ink)] leading-snug group-hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {article.title}
                   </h2>
-                  <p className="text-sm text-[#C4C0B8] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {article.excerpt}
                   </p>
-                  <span className="text-sm text-[#C9933A] group-hover:text-[#F2EFE9] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <span className="text-sm text-[var(--sq-amber)] group-hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Read on Substack →
                   </span>
                 </a>
@@ -168,7 +168,7 @@ export default function ThinkingPage() {
               href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[#C9933A]/40 text-[#C9933A] rounded hover:bg-[#C9933A]/10 hover:border-[#C9933A] transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber-10)] hover:border-[var(--sq-amber)] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               Read more thinking on Shubstack →
@@ -180,7 +180,7 @@ export default function ThinkingPage() {
 
       {/* ── PODCAST ───────────────────────────────────────────── */}
       {/* Graphic: PodcastArtGraphic replaces bare placeholder; BroadcastGraphic accent */}
-      <section className="bg-[#111410] border-y border-[#F2EFE9]/6 py-24">
+      <section className="bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-14">
             {/* Animated podcast artwork */}
@@ -192,22 +192,22 @@ export default function ThinkingPage() {
 
             <FadeIn delay={120} className="lg:col-span-2 flex flex-col gap-5 justify-center">
               <div className="flex items-center gap-3">
-                <div className="h-px w-8 bg-[#2A6B62]" />
-                <p className="text-xs tracking-widest text-[#2A6B62] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                <div className="h-px w-8 bg-[var(--sq-teal)]" />
+                <p className="text-xs tracking-widest text-[var(--sq-teal)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   The GPODH Podcast
                 </p>
               </div>
-              <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                 Global Perspectives on Digital Health
               </h2>
-              <p className="text-base text-[#C4C0B8] leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p className="text-base text-[var(--sq-muted)] leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Candid, substantive conversations with the people reshaping digital health across 60+ countries. No press releases. No PR spin. Just honest thinking about hard problems.
               </p>
               <a
                 href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 self-start px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
+                className="inline-flex items-center gap-2 self-start px-6 py-3 text-sm font-medium border border-[var(--sq-teal)] text-[var(--sq-ink)] rounded hover:bg-[var(--sq-teal)] transition-colors duration-200"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
                 Listen on gpodh.org →
@@ -216,8 +216,8 @@ export default function ThinkingPage() {
           </div>
 
           <FadeIn className="flex items-center gap-3 mb-8">
-            <div className="h-px w-8 bg-[#2A6B62]" />
-            <p className="text-xs tracking-widest text-[#2A6B62] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+            <div className="h-px w-8 bg-[var(--sq-teal)]" />
+            <p className="text-xs tracking-widest text-[var(--sq-teal)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
               GPODH highlights
             </p>
           </FadeIn>
@@ -229,18 +229,18 @@ export default function ThinkingPage() {
                   href={ep.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-[#F2EFE9]/8 rounded-sm p-7 flex flex-col gap-4 hover:border-[#2A6B62]/40 transition-colors duration-200 group h-full"
+                  className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 hover:border-[var(--sq-teal-40)] transition-colors duration-200 group h-full"
                 >
-                  <p className="text-xs text-[#2A6B62] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  <p className="text-xs text-[var(--sq-teal)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     Episode
                   </p>
-                  <h3 className="text-xl text-[#F2EFE9] leading-snug group-hover:text-[#2A6B62] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  <h3 className="text-xl text-[var(--sq-ink)] leading-snug group-hover:text-[var(--sq-teal)] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {ep.title}
                   </h3>
-                  <p className="text-sm text-[#C4C0B8] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-sm text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {ep.desc}
                   </p>
-                  <span className="text-sm text-[#2A6B62]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <span className="text-sm text-[var(--sq-teal)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     Listen →
                   </span>
                 </a>
@@ -253,7 +253,7 @@ export default function ThinkingPage() {
               href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-teal)] text-[var(--sq-ink)] rounded hover:bg-[var(--sq-teal)] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               Listen to all episodes on gpodh.org →
@@ -272,23 +272,23 @@ export default function ThinkingPage() {
         >
           <div
             className="w-[500px] h-[260px] rounded-full"
-            style={{ background: 'radial-gradient(ellipse, rgba(201,147,58,0.06) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(ellipse, rgba(var(--sq-amber-rgb),0.06) 0%, transparent 65%)' }}
           />
         </div>
         <CtaGeometricGraphic />
 
         <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
           <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-8 bg-[#C9933A]" />
-            <p className="text-xs tracking-widest text-[#C9933A] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+            <div className="h-px w-8 bg-[var(--sq-amber)]" />
+            <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
               Subscribe
             </p>
-            <div className="h-px w-8 bg-[#C9933A]" />
+            <div className="h-px w-8 bg-[var(--sq-amber)]" />
           </div>
-          <h2 className="text-4xl lg:text-5xl text-[#F2EFE9] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+          <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Honest thinking, direct to your inbox.
           </h2>
-          <p className="text-base text-[#C4C0B8] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+          <p className="text-base text-[var(--sq-muted)] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Subscribe to Shubstack for thinking on digital health strategy, evidence, and equity. Written by Dr Shubs Upadhyay. No filler.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -296,7 +296,7 @@ export default function ThinkingPage() {
               href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium bg-[#C9933A] text-[#0C0F0D] rounded hover:bg-[#b8832e] transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium bg-[var(--sq-amber)] text-[var(--sq-bg)] rounded hover:bg-[var(--sq-amber-d)] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               Subscribe to Shubstack →
@@ -305,7 +305,7 @@ export default function ThinkingPage() {
               href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium border border-[#2A6B62] text-[#F2EFE9] rounded hover:bg-[#2A6B62] transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium border border-[var(--sq-teal)] text-[var(--sq-ink)] rounded hover:bg-[var(--sq-teal)] transition-colors duration-200"
               style={{ fontFamily: "var(--font-dm-sans)" }}
             >
               Listen to GPODH →

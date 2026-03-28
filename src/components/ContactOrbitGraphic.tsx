@@ -1,16 +1,13 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Two dots tracing a Lissajous figure-8, representing two parties in conversation.
-// A = amber,  B = teal — always on opposite sides of the loop.
-
 const SIZE = 440
 const CX   = SIZE / 2
 const CY    = SIZE / 2
-const RX    = 124  // horizontal radius of the figure-8
-const RY    = 72   // vertical radius
-const SPEED = 0.45 // radians / second
-const TRAIL = 28   // number of trailing positions to draw
+const RX    = 124
+const RY    = 72
+const SPEED = 0.45
+const TRAIL = 28
 
 export default function ContactOrbitGraphic() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -29,7 +26,20 @@ export default function ContactOrbitGraphic() {
     cvs.width  = SIZE
     cvs.height = SIZE
 
-    // Lissajous figure-8: x = RX*sin(t),  y = RY*sin(2t)
+    // Read theme colors; update when data-theme changes
+    function readColors() {
+      const style = getComputedStyle(document.documentElement)
+      return {
+        amberRgb: style.getPropertyValue('--sq-amber-rgb').trim() || '201,147,58',
+        tealRgb:  style.getPropertyValue('--sq-teal-rgb').trim()  || '42,107,98',
+        amber:    style.getPropertyValue('--sq-amber').trim()     || '#C9933A',
+        teal:     style.getPropertyValue('--sq-teal').trim()      || '#2A6B62',
+      }
+    }
+    let colors = readColors()
+    const mo = new MutationObserver(() => { colors = readColors() })
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+
     function pos(t: number): [number, number] {
       return [CX + RX * Math.sin(t), CY + RY * Math.sin(2 * t)]
     }
@@ -41,8 +51,10 @@ export default function ContactOrbitGraphic() {
       if (!t0.current) t0.current = ts
       const t = (ts - t0.current) / 1000 * SPEED
 
+      const { amberRgb, tealRgb, amber, teal } = colors
+
       const pA = pos(t)
-      const pB = pos(t + Math.PI) // opposite phase
+      const pB = pos(t + Math.PI)
 
       histA.push(pA)
       histB.push(pB)
@@ -51,14 +63,14 @@ export default function ContactOrbitGraphic() {
 
       c2d.clearRect(0, 0, SIZE, SIZE)
 
-      // Ghost path of the figure-8
+      // Ghost path
       c2d.beginPath()
       for (let s = 0; s <= 100; s++) {
         const [px, py] = pos((s / 100) * Math.PI * 2)
         s === 0 ? c2d.moveTo(px, py) : c2d.lineTo(px, py)
       }
       c2d.closePath()
-      c2d.strokeStyle = 'rgba(201,147,58,0.07)'
+      c2d.strokeStyle = `rgba(${amberRgb},0.07)`
       c2d.lineWidth = 1
       c2d.stroke()
 
@@ -68,7 +80,7 @@ export default function ContactOrbitGraphic() {
         const r     = 1.5 + (i / TRAIL) * 2
         c2d.beginPath()
         c2d.arc(px, py, r, 0, Math.PI * 2)
-        c2d.fillStyle = `rgba(201,147,58,${alpha})`
+        c2d.fillStyle = `rgba(${amberRgb},${alpha})`
         c2d.fill()
       })
 
@@ -78,14 +90,14 @@ export default function ContactOrbitGraphic() {
         const r     = 1.5 + (i / TRAIL) * 2
         c2d.beginPath()
         c2d.arc(px, py, r, 0, Math.PI * 2)
-        c2d.fillStyle = `rgba(42,107,98,${alpha})`
+        c2d.fillStyle = `rgba(${tealRgb},${alpha})`
         c2d.fill()
       })
 
       // Leading dot — A
       c2d.beginPath()
       c2d.arc(pA[0], pA[1], 5, 0, Math.PI * 2)
-      c2d.fillStyle = '#C9933A'
+      c2d.fillStyle = amber
       c2d.globalAlpha = 0.9
       c2d.fill()
       c2d.globalAlpha = 1
@@ -93,7 +105,7 @@ export default function ContactOrbitGraphic() {
       // Leading dot — B
       c2d.beginPath()
       c2d.arc(pB[0], pB[1], 5, 0, Math.PI * 2)
-      c2d.fillStyle = '#2A6B62'
+      c2d.fillStyle = teal
       c2d.globalAlpha = 0.9
       c2d.fill()
       c2d.globalAlpha = 1
@@ -102,7 +114,10 @@ export default function ContactOrbitGraphic() {
     }
 
     rafRef.current = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(rafRef.current)
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      mo.disconnect()
+    }
   }, [])
 
   return (
