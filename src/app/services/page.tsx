@@ -111,6 +111,14 @@ const segments = [
     title: "Implementers & Researchers",
     desc: "Implementation science support, evidence generation, and knowledge translation for academic institutions and delivery organisations.",
   },
+  {
+    title: "Established Healthtech Vendors",
+    desc: "Clinical strategy, evidence positioning, and market access support for mature vendors entering new markets or refreshing their value proposition.",
+  },
+  {
+    title: "Philanthropy & Foundations",
+    desc: "Strategic and clinical counsel for foundations and philanthropic organisations investing in digital health, from grant design through to impact measurement.",
+  },
 ];
 
 export default function ServicesPage() {
@@ -258,7 +266,7 @@ export default function ServicesPage() {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {segments.map((seg, i) => (
               <FadeIn key={seg.title} delay={i * 80}>
                 <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 hover:border-[var(--sq-amber-30)] transition-colors duration-200 h-full">

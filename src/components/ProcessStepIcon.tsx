@@ -198,13 +198,14 @@ function DeliverIcon() {
 
     const x1 = 10, y1 = 46
     const x2 = 46, y2 = 10
-    const duration = 1.6
+    const duration = 2.2  // slightly longer for a smoother feel
 
     function tick(ts: number) {
       if (!startRef.current) startRef.current = ts
       const elapsed = (ts - startRef.current) / 1000
       const raw = (elapsed % duration) / duration
 
+      // Ease in-out for the travel
       const p = raw < 0.5
         ? 2 * raw * raw
         : 1 - Math.pow(-2 * raw + 2, 2) / 2
@@ -212,9 +213,15 @@ function DeliverIcon() {
       const dotX = x1 + (x2 - x1) * p
       const dotY = y1 + (y2 - y1) * p
 
+      // Fade out at end of sweep, fade in at start — hides the position reset
+      const fadeIn  = raw < 0.08 ? raw / 0.08 : 1
+      const fadeOut = raw > 0.88 ? Math.max(0, 1 - (raw - 0.88) / 0.12) : 1
+      const fade    = fadeIn * fadeOut
+
       if (dot) {
         dot.setAttribute('cx', String(dotX))
         dot.setAttribute('cy', String(dotY))
+        dot.setAttribute('opacity', String(0.9 * fade))
       }
 
       if (trail) {
@@ -222,7 +229,7 @@ function DeliverIcon() {
         trail.setAttribute('y1', String(y1))
         trail.setAttribute('x2', String(dotX))
         trail.setAttribute('y2', String(dotY))
-        trail.setAttribute('opacity', String(0.15 + 0.65 * p))
+        trail.setAttribute('opacity', String((0.15 + 0.65 * p) * fade))
       }
 
       rafRef.current = requestAnimationFrame(tick)
