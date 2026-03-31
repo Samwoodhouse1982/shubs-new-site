@@ -87,28 +87,29 @@ export default function VennGraphic() {
         x={CX} y={CY + 2.5}
         textAnchor="middle" dominantBaseline="middle"
         style={{ fill: 'var(--sq-amber)' }}
-        fontSize="7.5"
-        letterSpacing="2.5"
-        opacity="0.9"
+        fontSize="11"
+        letterSpacing="3"
+        opacity="0.95"
         fontFamily="var(--font-dm-mono)"
+        fontWeight="700"
       >
         SANDIQ
       </text>
 
       {/* Outer labels */}
-      <text x={CX} y="10"
-        textAnchor="middle" style={{ fill: 'var(--sq-amber)' }} fontSize="7" letterSpacing="1.2"
-        opacity="1" fontFamily="var(--font-dm-mono)" fontWeight="500">
+      <text x={CX} y="13"
+        textAnchor="middle" style={{ fill: 'var(--sq-amber)' }} fontSize="9" letterSpacing="1.0"
+        opacity="1" fontFamily="var(--font-dm-mono)" fontWeight="700">
         CLINICAL RIGOUR
       </text>
-      <text x="52" y="268"
-        textAnchor="middle" style={{ fill: 'var(--sq-teal)' }} fontSize="7" letterSpacing="1.2"
-        opacity="1" fontFamily="var(--font-dm-mono)" fontWeight="500">
+      <text x="54" y="267"
+        textAnchor="middle" style={{ fill: 'var(--sq-teal)' }} fontSize="9" letterSpacing="1.0"
+        opacity="1" fontFamily="var(--font-dm-mono)" fontWeight="700">
         IMPLEMENTATION
       </text>
-      <text x="268" y="268"
-        textAnchor="middle" style={{ fill: 'var(--sq-ink)' }} fontSize="7" letterSpacing="1.2"
-        opacity="0.75" fontFamily="var(--font-dm-mono)" fontWeight="500">
+      <text x="262" y="267"
+        textAnchor="middle" style={{ fill: 'var(--sq-ink)' }} fontSize="9" letterSpacing="1.0"
+        opacity="0.85" fontFamily="var(--font-dm-mono)" fontWeight="700">
         STRATEGIC CLARITY
       </text>
     </svg>
