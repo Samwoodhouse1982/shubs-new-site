@@ -62,12 +62,12 @@
 }
 
 [data-theme="light"] {
-  --sq-bg:       #F5F1EA;
-  --sq-bg2:      #EBE6DC;
-  --sq-bg3:      #E8E2D5;
-  --sq-surface:  #DDD7CB;
+  --sq-bg:       #F0EEE9;
+  --sq-bg2:      #E7E4DF;
+  --sq-bg3:      #E3E0DB;
+  --sq-surface:  #D9D6D1;
   --sq-ink:      #1C1F1D;
-  --sq-muted:    #5A5650;
+  --sq-muted:    #52504C;
   --sq-amber:    #B5701F;
   --sq-amber-d:  #9A5E18;
   --sq-teal:     #1D5148;
@@ -123,6 +123,25 @@ body {
   font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode ambient depth — subtle coloured aura overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 90% 0%,   rgba(201,147,58,0.07)  0%, transparent 65%),
+    radial-gradient(ellipse 55% 60% at 5%  95%,  rgba(42,107,98,0.07)   0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 50% 110%, rgba(201,147,58,0.04)  0%, transparent 65%);
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+[data-theme="light"] body::before {
+  opacity: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

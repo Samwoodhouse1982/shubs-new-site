@@ -97,18 +97,18 @@ export default function VennGraphic() {
 
       {/* Outer labels */}
       <text x={CX} y="10"
-        textAnchor="middle" style={{ fill: 'var(--sq-amber)' }} fontSize="6" letterSpacing="1.2"
-        opacity="0.6" fontFamily="var(--font-dm-mono)">
+        textAnchor="middle" style={{ fill: 'var(--sq-amber)' }} fontSize="7" letterSpacing="1.2"
+        opacity="1" fontFamily="var(--font-dm-mono)" fontWeight="500">
         CLINICAL RIGOUR
       </text>
       <text x="52" y="268"
-        textAnchor="middle" style={{ fill: 'var(--sq-teal)' }} fontSize="6" letterSpacing="1.2"
-        opacity="0.6" fontFamily="var(--font-dm-mono)">
+        textAnchor="middle" style={{ fill: 'var(--sq-teal)' }} fontSize="7" letterSpacing="1.2"
+        opacity="1" fontFamily="var(--font-dm-mono)" fontWeight="500">
         IMPLEMENTATION
       </text>
       <text x="268" y="268"
-        textAnchor="middle" style={{ fill: 'var(--sq-muted)' }} fontSize="6" letterSpacing="1.2"
-        opacity="0.6" fontFamily="var(--font-dm-mono)">
+        textAnchor="middle" style={{ fill: 'var(--sq-ink)' }} fontSize="7" letterSpacing="1.2"
+        opacity="0.75" fontFamily="var(--font-dm-mono)" fontWeight="500">
         STRATEGIC CLARITY
       </text>
     </svg>

@@ -81,15 +81,17 @@ export default function AboutPage() {
                 <p className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
                   &ldquo;Digital health must be built around clinical reality, not around what is easy to build or easy to sell.&rdquo;
                 </p>
-                <p className="text-xl lg:text-2xl text-[var(--sq-ink)] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-                  We don&apos;t accept that speed and rigour are in tension.
-                </p>
-                <p className="text-xl lg:text-2xl text-[var(--sq-ink)] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-                  We don&apos;t accept that evidence is only for academics.
-                </p>
-                <p className="text-xl lg:text-2xl text-[var(--sq-ink)] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-                  We don&apos;t accept that commercial success and genuine clinical value are different goals.
-                </p>
+                <ul className="flex flex-col gap-3 border-l-2 border-[var(--sq-amber-40)] pl-6 my-2">
+                  {[
+                    "We don\u2019t accept that speed and rigour are in tension.",
+                    "We don\u2019t accept that evidence is only for academics.",
+                    "We don\u2019t accept that commercial success and genuine clinical value are different goals.",
+                  ].map((line) => (
+                    <li key={line} className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-snug italic list-none" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
+                      {line}
+                    </li>
+                  ))}
+                </ul>
                 <p className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
                   &ldquo;The organisations that understand this are the ones that last.&rdquo;
                 </p>

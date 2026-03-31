@@ -140,7 +140,7 @@ export default function ContactPage() {
                 Start with an honest conversation.
               </h1>
               <p className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Whether you&apos;re a health tech startup navigating clinical integration, a global health programme needing strategic direction, or an investor conducting digital health due diligence: we&apos;d like to hear from you. Every project starts with an honest conversation.
+                Whether you&apos;re a health tech startup navigating clinical integration, a global health programme needing strategic direction, or an investor conducting digital health due diligence: we&apos;d like to hear from you.
               </p>
             </div>
 

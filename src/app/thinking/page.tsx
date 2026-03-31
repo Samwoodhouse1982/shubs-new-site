@@ -3,6 +3,8 @@ import FadeIn from "@/components/FadeIn";
 import PodcastArtGraphic from "@/components/PodcastArtGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import NeuralGlobeGraphic from "@/components/NeuralGlobeGraphic";
+import VideoCarousel from "@/components/VideoCarousel";
+import ShubstackArticles from "@/components/ShubstackArticles";
 
 export const metadata: Metadata = {
   title: "Thinking | SandiQ",
@@ -132,47 +134,34 @@ export default function ThinkingPage() {
       </section>
 
 
+      {/* ── VIDEO ─────────────────────────────────────────────── */}
+      <section className="relative pb-20 overflow-hidden">
+        <div className="absolute top-0 left-0 w-[500px] h-[400px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle at 20% 30%, rgba(var(--sq-teal-rgb),0.06) 0%, transparent 65%)' }} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn className="flex items-center gap-3 mb-10">
+            <div className="h-px w-8 bg-[var(--sq-teal)]" />
+            <p className="text-xs tracking-widest text-[var(--sq-teal)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+              On Video
+            </p>
+          </FadeIn>
+          <FadeIn delay={80} className="max-w-3xl">
+            <VideoCarousel />
+          </FadeIn>
+        </div>
+      </section>
+
+
       {/* ── ARTICLES ──────────────────────────────────────────── */}
       <section className="relative pb-24 overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(var(--sq-amber-rgb),0.05) 0%, transparent 65%)' }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn className="flex items-center gap-3 mb-10">
-            <div className="h-px w-8 bg-[var(--sq-amber)]" />
-            <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-              Shubstack, by Dr Shubs Upadhyay
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articles.map((article, i) => (
-              <FadeIn key={i} delay={i * 80}>
-                <a
-                  href={article.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[var(--sq-ink-8)] rounded-sm p-8 flex flex-col gap-5 hover:border-[var(--sq-amber-30)] hover:bg-[var(--sq-surface)] transition-colors duration-200 group h-full"
-                >
-                  <p className="text-sm text-[var(--sq-muted)] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                    {article.date}
-                  </p>
-                  <h2 className="text-xl lg:text-2xl text-[var(--sq-ink)] leading-snug group-hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-                    {article.title}
-                  </h2>
-                  <p className="text-sm text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    {article.excerpt}
-                  </p>
-                  <span className="text-sm text-[var(--sq-amber)] group-hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    Read on Substack →
-                  </span>
-                </a>
-              </FadeIn>
-            ))}
-          </div>
+          <ShubstackArticles articles={articles} />
 
           <FadeIn delay={520} className="flex justify-center mt-10">
             <a
-              href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking"
+              href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking&utm_content=read-more-cta"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber-10)] hover:border-[var(--sq-amber)] transition-colors duration-200"

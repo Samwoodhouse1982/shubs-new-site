@@ -94,12 +94,24 @@ export default function Footer() {
           >
             © SandiQ Global, Registered in France
           </p>
-          <p
-            className="text-sm"
-            style={{ fontFamily: "var(--font-dm-mono)", color: 'var(--sq-muted)' }}
-          >
-            Real value in digital health.
-          </p>
+          <div className="flex flex-wrap items-center gap-4 md:gap-6">
+            {[
+              { label: "Legal Notice", href: "/legal" },
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Cookie Policy", href: "/cookies" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs transition-colors duration-200"
+                style={{ fontFamily: "var(--font-dm-mono)", color: 'var(--sq-muted)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--sq-amber)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--sq-muted)')}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
