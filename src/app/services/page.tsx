@@ -8,75 +8,51 @@ import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 export const metadata: Metadata = {
   title: "Services | SandiQ",
   description:
-    "Six interconnected clinical and strategic services for digital health organisations, deployed individually or in combination.",
+    "Three services for digital health organisations serious about clinical credibility, real impact, and sustainable growth.",
 };
 
-const services: { num: string; title: string; description: string; rightFor: string[]; cta: string }[] = [
+const pillars: { id: string; stream: string; title: string; tagline: string; description: string; rightFor: string[]; cta: string }[] = [
   {
-    num: "01",
-    title: "Fractional CMO",
-    description:
-      "Senior clinical leadership doesn't have to mean a full-time hire. Our Fractional CMO service embeds experienced clinical leaders directly into your organisation, attending leadership meetings, shaping product roadmaps, and bridging the gap between clinical reality and commercial ambition.",
-    rightFor: [
-      "Health tech startups that need credible clinical leadership ahead of NHS or payer engagement",
-      "Scale-ups managing rapid growth without the budget for a full-time Chief Medical Officer",
-    ],
-    cta: "Discuss clinical leadership →",
-  },
-  {
-    num: "02",
-    title: "Clinical Product Development",
-    description:
-      "Most digital health products fail at the point of clinical integration, not because the technology doesn't work, but because clinical workflows, safety considerations, and regulatory expectations were never properly built in. We integrate clinical insight from day one, not as a final audit.",
+    id: "pillar-medical-quality-ai",
+    stream: "Stream 01",
+    title: "Because what gets measured shapes what gets built, and most digital health is measuring the wrong things.",
+    tagline: "Medical Quality & AI",
+    description: "Most digital health products fail at the point of clinical integration, not because the technology doesn't work, but because clinical workflows, safety considerations, and regulatory expectations were never built in from the start. And the evidence base that might have validated them was never designed to measure what health systems and payers actually care about. We integrate clinical insight from day one and build the evaluation frameworks that turn promising technology into something worth commissioning.",
     rightFor: [
       "Product teams building regulated or clinically-adjacent software for healthcare settings",
       "Founders navigating CE marking, DTAC, or FDA pathways for the first time",
+      "Companies preparing for NHS procurement or NICE assessment",
+      "Organisations that need to demonstrate ROI or QALY-equivalent impact to commissioners",
     ],
     cta: "Discuss your product →",
   },
   {
-    num: "03",
-    title: "Evidence Strategy & Generation",
-    description:
-      "We help you design evaluation frameworks that measure what actually matters to health systems, payers, and patients, not just what's easy to measure. From study design to health economic modelling, we build the evidence base that underpins sustainable commercial growth.",
-    rightFor: [
-      "Companies preparing for NHS procurement or NICE assessment",
-      "Organisations that need to demonstrate ROI or QALY-equivalent impact to commissioners",
-    ],
-    cta: "Discuss your evidence →",
-  },
-  {
-    num: "04",
-    title: "Market Access & Clinical Credibility",
-    description:
-      "Health system procurement is a different game. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, is a different discipline from what most digital health commercial teams are built for. We navigate this complexity on your behalf.",
-    rightFor: [
-      "Companies seeking to enter NHS, European, US, or international health markets",
-      "Startups that have great technology but struggle to communicate clinical value to non-technical buyers",
-    ],
-    cta: "Discuss market access →",
-  },
-  {
-    num: "05",
-    title: "Impact Communications",
-    description:
-      "The gap between your evidence and the decision you need is almost always a communications problem. We help you turn rigorous evidence into compelling narratives, for investors, commissioners, global health donors, and media, without oversimplifying or overstating.",
+    id: "pillar-storytelling-impact",
+    stream: "Stream 02",
+    title: "Because the distance between your evidence and the decision you need is almost always a communications problem.",
+    tagline: "Storytelling & Impact",
+    description: "The gap between your evidence and the decision you need is almost always a communications problem. But navigating health systems requires more than a good narrative. It requires understanding the procurement culture, clinical hierarchies, regulatory expectations, and political pressures that shape how decisions get made. We help organisations turn rigorous evidence into compelling arguments and provide the strategic counsel needed for the rooms and contexts that matter most.",
     rightFor: [
       "Organisations preparing impact reports, investment decks, or grant applications",
-      "Companies that need to position their evidence clearly for regulatory or procurement audiences",
+      "Companies that need to position their evidence for regulatory or procurement audiences",
+      "Organisations expanding into new national health systems or unfamiliar environments",
+      "Investors and funders conducting clinical or strategic due diligence on digital health",
     ],
-    cta: "Discuss communications →",
+    cta: "Discuss your impact →",
   },
   {
-    num: "06",
-    title: "Health System Intelligence",
-    description:
-      "Every health system has its own logic: its own procurement culture, clinical hierarchies, regulatory expectations, and political pressures. Understanding that logic is as important as having good technology. We provide strategic counsel for organisations navigating complex or unfamiliar health system contexts, drawing on deep experience across international agencies and health systems in multiple regions.",
+    id: "pillar-deep-clinical-leadership",
+    stream: "Stream 03",
+    title: "Because clinical credibility is what separates the organisations that scale from those that stall.",
+    tagline: "Deep Clinical Leadership",
+    description: "Senior clinical leadership doesn't have to mean a full-time hire. And health system procurement is a different game from what most digital health commercial teams are built for. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, requires a different discipline entirely. We embed experienced clinical leaders directly into your organisation and navigate this complexity on your behalf.",
     rightFor: [
-      "Organisations expanding into new national health systems or regulatory environments",
-      "Investors and funders conducting clinical or strategic due diligence on digital health opportunities",
+      "Health tech startups that need credible clinical leadership ahead of NHS or payer engagement",
+      "Scale-ups managing rapid growth without the budget for a full-time Chief Medical Officer",
+      "Companies seeking to enter NHS, European, US, or international health markets",
+      "Startups with great technology that struggle to communicate clinical value to non-technical buyers",
     ],
-    cta: "Discuss your market →",
+    cta: "Discuss your strategy →",
   },
 ];
 
@@ -107,30 +83,30 @@ const process = [
   },
 ];
 
-const segments = [
+const audiences: { label: string; title: string; desc: string; points: string[]; relevantStreams: string[] }[] = [
   {
-    title: "Startups & Scale-ups",
-    desc: "From MVP to market, we provide the clinical and strategic infrastructure that helps digital health companies move faster without cutting corners.",
+    label: "People building",
+    title: "Digital health founders and their teams",
+    desc: "You are building something that needs to work in clinical reality, not just in a demo. From early product decisions through to major health system procurements, we bring the clinical credibility, evidence strategy, and leadership depth that gets your product taken seriously by commissioners, payers, and the clinicians who actually have to use it.",
+    points: [
+      "Fractional CMO and clinical leadership embedded in your team",
+      "Clinical product strategy and evidence frameworks from day one",
+      "NHS, international, and payer market access",
+      "Impact narrative and positioning for buyers that need clinical proof",
+    ],
+    relevantStreams: ["Deep Clinical Leadership", "Medical Quality & AI", "Storytelling & Impact"],
   },
   {
-    title: "Investors & Donors",
-    desc: "Due diligence, portfolio support, and impact measurement for VCs, development finance institutions, and philanthropic funders in digital health.",
-  },
-  {
-    title: "Health Systems & Agencies",
-    desc: "Strategic and clinical counsel for national health bodies, multilateral agencies, and large health organisations commissioning or evaluating digital health programmes.",
-  },
-  {
-    title: "Implementers & Researchers",
-    desc: "Implementation science support, evidence generation, and knowledge translation for academic institutions and delivery organisations.",
-  },
-  {
-    title: "Established Healthtech Vendors",
-    desc: "Clinical strategy, evidence positioning, and market access support for mature vendors entering new markets or refreshing their value proposition.",
-  },
-  {
-    title: "Philanthropy & Foundations",
-    desc: "Strategic and clinical counsel for foundations and philanthropic organisations investing in digital health, from grant design through to impact measurement.",
+    label: "People investing",
+    title: "Philanthropy, foundations, and impact investors",
+    desc: "You are deploying capital or grants into digital health and need to know whether it is going somewhere meaningful, and whether the organisations you fund have what it takes to deliver. We provide the clinical intelligence, due diligence depth, and impact frameworks that help you back the right work and help that work succeed.",
+    points: [
+      "Clinical due diligence and honest portfolio assessment",
+      "Impact measurement frameworks that go beyond adoption metrics",
+      "Strategic and clinical support for grantees building credibility",
+      "Evaluation of what a programme can realistically deliver",
+    ],
+    relevantStreams: ["Medical Quality & AI", "Storytelling & Impact", "Deep Clinical Leadership"],
   },
 ];
 
@@ -158,7 +134,7 @@ export default function ServicesPage() {
                 Clinical expertise, deployed where it counts.
               </h1>
               <p className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Six interconnected services, deployed individually or in combination, for organisations serious about building digital health that actually works.
+                Three services: Medical Quality &amp; AI, Storytelling &amp; Impact, and Deep Clinical Leadership. Deployed individually or together for organisations serious about building digital health that actually works.
               </p>
             </div>
 
@@ -173,33 +149,136 @@ export default function ServicesPage() {
       </section>
 
 
-      {/* ── SERVICE CARDS ─────────────────────────────────────── */}
+      {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse, rgba(var(--sq-amber-rgb),0.06) 0%, transparent 65%)' }} />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn className="flex flex-col gap-4 mb-14">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-[var(--sq-amber)]" />
+              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                Who we work with
+              </p>
+            </div>
+            <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              Built for builders and those who back them.
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--sq-ink-8)] rounded-sm overflow-hidden">
+            {audiences.map((aud, i) => (
+              <FadeIn key={aud.label} delay={i * 100}>
+                <div className={`p-10 lg:p-12 flex flex-col gap-6 h-full ${i % 2 === 0 ? "bg-[var(--sq-bg)]" : "bg-[var(--sq-bg3)]"}`}>
+                  <div>
+                    <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                      {aud.label}
+                    </p>
+                    <h3 className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                      {aud.title}
+                    </h3>
+                  </div>
+                  <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    {aud.desc}
+                  </p>
+                  <ul className="flex flex-col gap-3">
+                    {aud.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-sm text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--sq-amber)] shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="border-t border-[var(--sq-ink-8)] pt-5 mt-2">
+                    <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                      Relevant streams
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {aud.relevantStreams.map((stream) => (
+                        <span key={stream} className="px-3 py-1 text-xs border border-[var(--sq-ink-22)] text-[var(--sq-muted)] rounded-sm" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                          {stream}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-auto">
+                    <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                      Start a conversation →
+                    </Link>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ── STREAM NAV ────────────────────────────────────────── */}
+      <nav aria-label="Jump to stream" className="sticky top-16 z-20 bg-[var(--sq-bg)] border-b border-[var(--sq-ink-8)] backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-stretch overflow-x-auto scrollbar-none">
+            {pillars.map((pillar, i) => (
+              <a
+                key={pillar.id}
+                href={`#${pillar.id}`}
+                className="flex items-center gap-3 px-6 py-4 shrink-0 border-r border-[var(--sq-ink-8)] last:border-r-0 text-[var(--sq-muted)] hover:text-[var(--sq-amber)] hover:bg-[var(--sq-amber-5)] transition-colors duration-200 group"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                <span className="text-xs text-[var(--sq-amber)] opacity-60 group-hover:opacity-100 transition-opacity duration-200 shrink-0" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-sm font-medium whitespace-nowrap">{pillar.tagline}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+
+      {/* ── PILLAR SECTIONS ───────────────────────────────────── */}
       <section className="relative pb-24 overflow-hidden">
         <div className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(var(--sq-teal-rgb),0.06) 0%, transparent 65%)' }} />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-px">
-          {services.map((service, i) => (
-            <FadeIn key={service.num} delay={i * 60}>
-              <div id={`service-${service.num}`} className={`scroll-mt-24 border border-[var(--sq-ink-8)] rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${i % 2 === 0 ? "bg-[var(--sq-bg)]" : "bg-[var(--sq-bg3)]"}`}>
-                <div className="lg:w-16 shrink-0">
-                  <p className="text-sm text-[var(--sq-amber)] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                    {service.num}
-                  </p>
-                </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-8">
+          <FadeIn className="flex flex-col gap-4 pt-4 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-[var(--sq-amber)]" />
+              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                Our services
+              </p>
+            </div>
+            <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              Three streams. Every engagement.
+            </h2>
+          </FadeIn>
 
-                <div className="flex-1 flex flex-col gap-5">
+          {pillars.map((pillar, pi) => (
+            <FadeIn key={pillar.id} delay={pi * 80}>
+              <div id={pillar.id} className={`scroll-mt-24 border border-[var(--sq-ink-8)] rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${pi % 2 === 0 ? "bg-[var(--sq-bg)]" : "bg-[var(--sq-bg3)]"}`}>
+                <div className="flex-1 flex flex-col gap-6">
+                  <div className="flex items-center gap-3 overflow-hidden">
+                    <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase whitespace-nowrap" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                      {pillar.stream}
+                    </p>
+                    <span className="text-[var(--sq-amber)] opacity-40 shrink-0" aria-hidden>·</span>
+                    <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase whitespace-nowrap" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                      {pillar.tagline}
+                    </p>
+                    <div className="h-px flex-1 shrink bg-[var(--sq-amber-20)]" />
+                  </div>
                   <h2 className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-                    {service.title}
+                    {pillar.title}
                   </h2>
                   <p className="text-base text-[var(--sq-muted)] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    {service.description}
+                    {pillar.description}
                   </p>
                   <div className="flex flex-col gap-3">
                     <p className="text-xs text-[var(--sq-amber)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                       Right for you if...
                     </p>
                     <ul className="flex flex-col gap-2">
-                      {service.rightFor.map((point, j) => (
+                      {pillar.rightFor.map((point, j) => (
                         <li key={j} className="flex items-start gap-3 text-sm text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                           <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--sq-amber)] shrink-0" />
                           {point}
@@ -208,10 +287,9 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                 </div>
-
                 <div className="lg:flex lg:items-end lg:shrink-0">
                   <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200 whitespace-nowrap" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    {service.cta}
+                    {pillar.cta}
                   </Link>
                 </div>
               </div>
@@ -233,7 +311,7 @@ export default function ServicesPage() {
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-              A process built on depth, not speed.
+              A process built on depth, not haste.
             </h2>
           </FadeIn>
 
@@ -258,41 +336,14 @@ export default function ServicesPage() {
               </FadeIn>
             ))}
           </div>
-        </div>
-      </section>
 
-
-      {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, rgba(var(--sq-amber-rgb),0.06) 0%, transparent 65%)' }} />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <FadeIn className="flex flex-col gap-4 mb-14">
-            <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-[var(--sq-amber)]" />
-              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                Who we work with
-              </p>
+          <FadeIn delay={200}>
+            <div className="mt-10 flex justify-center">
+              <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[var(--sq-amber)] text-[var(--sq-bg)] rounded hover:bg-[var(--sq-amber-d)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Tell us what you need →
+              </Link>
             </div>
-            <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-              Built for the full ecosystem.
-            </h2>
           </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {segments.map((seg, i) => (
-              <FadeIn key={seg.title} delay={i * 80}>
-                <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 hover:border-[var(--sq-amber-30)] transition-colors duration-200 h-full">
-                  <h3 className="text-xl text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-                    {seg.title}
-                  </h3>
-                  <p className="text-sm text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    {seg.desc}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -313,10 +364,10 @@ export default function ServicesPage() {
 
         <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
           <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-            Tell us what you&apos;re building.
+            Building or backing? Let&apos;s talk.
           </h2>
           <p className="text-base text-[var(--sq-muted)] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            Every project starts with a conversation. Tell us what you&apos;re working on and we&apos;ll tell you honestly whether and how we can help.
+            Whether you are building a digital health product that needs clinical credibility, or investing in the organisations doing that work, every conversation starts with understanding what you are actually trying to achieve.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="mailto:hello@sandiq.com" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[var(--sq-muted)] border border-[var(--sq-ink-25)] rounded hover:border-[var(--sq-amber)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
