@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import ServicesMeshGraphic from "@/components/ServicesMeshGraphic";
 import ProcessStepIcon from "@/components/ProcessStepIcon";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
+import FlatlineGraphic from "@/components/FlatlineGraphic";
 
 export const metadata: Metadata = {
   title: "Services | SandiQ",
@@ -19,10 +20,10 @@ const pillars: { id: string; stream: string; title: string; tagline: string; des
     tagline: "Medical Quality & AI",
     description: "Most digital health products fail at the point of clinical integration, not because the technology doesn't work, but because clinical workflows, safety considerations, and regulatory expectations were never built in from the start. And the evidence base that might have validated them was never designed to measure what health systems and payers actually care about. We integrate clinical insight from day one and build the evaluation frameworks that turn promising technology into something worth commissioning.",
     rightFor: [
-      "Product teams building regulated or clinically-adjacent software for healthcare settings",
-      "Founders navigating CE marking, DTAC, or FDA pathways for the first time",
-      "Companies preparing for NHS procurement or NICE assessment",
-      "Organisations that need to demonstrate ROI or QALY-equivalent impact to commissioners",
+      "Regulated & clinically-adjacent software teams",
+      "CE marking, DTAC, or FDA navigation",
+      "NHS procurement & NICE assessment",
+      "Demonstrating ROI or QALY-equivalent impact",
     ],
     cta: "Discuss your product →",
   },
@@ -33,10 +34,10 @@ const pillars: { id: string; stream: string; title: string; tagline: string; des
     tagline: "Storytelling & Impact",
     description: "The gap between your evidence and the decision you need is almost always a communications problem. But navigating health systems requires more than a good narrative. It requires understanding the procurement culture, clinical hierarchies, regulatory expectations, and political pressures that shape how decisions get made. We help organisations turn rigorous evidence into compelling arguments and provide the strategic counsel needed for the rooms and contexts that matter most.",
     rightFor: [
-      "Organisations preparing impact reports, investment decks, or grant applications",
-      "Companies that need to position their evidence for regulatory or procurement audiences",
-      "Organisations expanding into new national health systems or unfamiliar environments",
-      "Investors and funders conducting clinical or strategic due diligence on digital health",
+      "Impact reports, investment decks & grant applications",
+      "Regulatory & procurement positioning",
+      "New health system or market entry",
+      "Clinical & strategic due diligence",
     ],
     cta: "Discuss your impact →",
   },
@@ -47,10 +48,10 @@ const pillars: { id: string; stream: string; title: string; tagline: string; des
     tagline: "Deep Clinical Leadership",
     description: "Senior clinical leadership doesn't have to mean a full-time hire. And health system procurement is a different game from what most digital health commercial teams are built for. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, requires a different discipline entirely. We embed experienced clinical leaders directly into your organisation and navigate this complexity on your behalf.",
     rightFor: [
-      "Health tech startups that need credible clinical leadership ahead of NHS or payer engagement",
-      "Scale-ups managing rapid growth without the budget for a full-time Chief Medical Officer",
-      "Companies seeking to enter NHS, European, US, or international health markets",
-      "Startups with great technology that struggle to communicate clinical value to non-technical buyers",
+      "Pre-NHS or payer engagement startups",
+      "Scale-ups without a full-time CMO",
+      "NHS & international market entry",
+      "Communicating clinical value to non-technical buyers",
     ],
     cta: "Discuss your strategy →",
   },
@@ -189,18 +190,6 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="border-t border-[var(--sq-ink-8)] pt-5 mt-2">
-                    <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                      Relevant streams
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {aud.relevantStreams.map((stream) => (
-                        <span key={stream} className="px-3 py-1 text-xs border border-[var(--sq-ink-22)] text-[var(--sq-muted)] rounded-sm" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                          {stream}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                   <div className="mt-auto">
                     <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                       Start a conversation →
@@ -211,6 +200,19 @@ export default function ServicesPage() {
             ))}
           </div>
         </div>
+      </section>
+
+
+      {/* ── PULL QUOTE ────────────────────────────────────────── */}
+      <section className="relative bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-20 overflow-hidden">
+        <FlatlineGraphic />
+        <FadeIn>
+          <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.15] italic text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
+              &ldquo;We don&apos;t add clinical credibility as a final audit. We build it in from the start.&rdquo;
+            </blockquote>
+          </div>
+        </FadeIn>
       </section>
 
 
@@ -255,8 +257,10 @@ export default function ServicesPage() {
 
           {pillars.map((pillar, pi) => (
             <FadeIn key={pillar.id} delay={pi * 80}>
-              <div id={pillar.id} className={`scroll-mt-24 border border-[var(--sq-ink-8)] rounded-sm p-10 flex flex-col lg:flex-row gap-10 ${pi % 2 === 0 ? "bg-[var(--sq-bg)]" : "bg-[var(--sq-bg3)]"}`}>
-                <div className="flex-1 flex flex-col gap-6">
+              <div id={pillar.id} className={`scroll-mt-24 border border-[var(--sq-ink-8)] rounded-sm overflow-hidden flex flex-col lg:flex-row ${pi % 2 === 0 ? "bg-[var(--sq-bg)]" : "bg-[var(--sq-bg3)]"}`}>
+
+                {/* Left — eyebrow, why statement, description */}
+                <div className="flex-1 p-10 flex flex-col gap-6">
                   <div className="flex items-center gap-3 overflow-hidden">
                     <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase whitespace-nowrap" style={{ fontFamily: "var(--font-dm-mono)" }}>
                       {pillar.stream}
@@ -270,28 +274,32 @@ export default function ServicesPage() {
                   <h2 className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {pillar.title}
                   </h2>
-                  <p className="text-base text-[var(--sq-muted)] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {pillar.description}
                   </p>
-                  <div className="flex flex-col gap-3">
+                </div>
+
+                {/* Right — chips + CTA */}
+                <div className={`lg:w-80 xl:w-96 p-10 flex flex-col gap-6 border-t lg:border-t-0 lg:border-l border-[var(--sq-ink-8)] ${pi % 2 === 0 ? "bg-[var(--sq-bg3)]" : "bg-[var(--sq-bg)]"}`}>
+                  <div className="flex flex-col gap-4">
                     <p className="text-xs text-[var(--sq-amber)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                      Right for you if...
+                      Ideal for
                     </p>
-                    <ul className="flex flex-col gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {pillar.rightFor.map((point, j) => (
-                        <li key={j} className="flex items-start gap-3 text-sm text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--sq-amber)] shrink-0" />
+                        <span key={j} className="px-4 py-2 text-xs border border-[var(--sq-ink-15)] text-[var(--sq-muted)] rounded-full leading-snug" style={{ fontFamily: "var(--font-dm-sans)" }}>
                           {point}
-                        </li>
+                        </span>
                       ))}
-                    </ul>
+                    </div>
+                  </div>
+                  <div className="mt-auto pt-2">
+                    <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200 whitespace-nowrap" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                      {pillar.cta}
+                    </Link>
                   </div>
                 </div>
-                <div className="lg:flex lg:items-end lg:shrink-0">
-                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200 whitespace-nowrap" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    {pillar.cta}
-                  </Link>
-                </div>
+
               </div>
             </FadeIn>
           ))}
