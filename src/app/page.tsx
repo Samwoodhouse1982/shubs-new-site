@@ -68,22 +68,22 @@ const outcomes = [
 
 const articles = [
   {
+    title: "On solving actual problems in healthcare",
+    date: "Mar 2026",
+    excerpt: "Don't start with what tech or dataset you have. Start with the actual outcome and goal, and work with the people who have the problem.",
+    href: "https://shubstack.substack.com/p/on-solving-actual-problems-in-healthcare?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
+  },
+  {
+    title: "Same same, but different",
+    date: "Mar 2026",
+    excerpt: "On choosing what matters and defining better health outcomes in digital health — and why ambitious claims about AI deserve more scepticism than they usually get.",
+    href: "https://shubstack.substack.com/p/same-same-but-different?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
+  },
+  {
     title: "Evaluating tech in healthcare: measuring what matters",
     date: "Nov 2025",
     excerpt: "Why most digital health evaluation frameworks miss the point, and what rigorous value measurement actually looks like.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
-  },
-  {
-    title: "Level up your evidence comms",
-    date: "Jul 2025",
-    excerpt: "The gap between what your data shows and what your audience hears is a communications problem. Here's how to close it.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
-  },
-  {
-    title: "Can Global Health and Venture Capital get along?",
-    date: "May 2025",
-    excerpt: "On the structural tensions between impact-driven global health work and the return expectations of venture capital.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
+    href: "https://shubstack.substack.com/p/evaluating-tech-in-healthcare-measuring?utm_source=sandiq&utm_medium=website&utm_campaign=homepage",
   },
 ];
 
@@ -604,13 +604,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {articles.map((article, i) => (
               <FadeIn key={i} delay={i * 100}>
-                <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 h-full">
+                <a href={article.href} target="_blank" rel="noopener noreferrer" className="block border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 h-full hover:border-[var(--sq-amber)] transition-colors duration-200">
                   <p className="text-sm text-[var(--sq-muted)] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>{article.date}</p>
                   <h3 className="text-xl text-[var(--sq-ink)] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {article.title}
                   </h3>
                   <p className="text-sm text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>{article.excerpt}</p>
-                </div>
+                </a>
               </FadeIn>
             ))}
           </div>

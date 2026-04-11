@@ -10,7 +10,6 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Thinking", href: "/thinking" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {

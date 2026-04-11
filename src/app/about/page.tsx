@@ -71,13 +71,13 @@ export default function AboutPage() {
                 Founded on an honest answer to an inconvenient question.
               </h2>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed mb-4" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                The moment that crystallised SandiQ came in a policy meeting where a minister asked a simple question: would this app actually help his population? Everyone in the room answered diplomatically. Shubs was the only person there who could answer honestly, because he had seen the clinical reality the app was supposed to serve.
+                The industry builds well. It is less good at building things that hold up: products that work as intended in clinical practice, investment theses that survive contact with real health systems, policies that do more than signal intent.
               </p>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed mb-4" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                That gap, between what digital health products claim and what they can actually deliver, is not a technical problem. It is a structural one. The organisations building and funding them rarely have someone in the room who has worked on both the clinical and the commercial side. Someone who has been in procurement meetings, in clinical workflows, in WHO working groups, and in Series A conversations, and can speak honestly across all of them.
+                That gap matters more as AI moves to the centre of health products and health decisions. Clinical expertise in those conversations, from someone who can speak honestly to what these systems actually do in a care context across commercial, product, investor, and policy rooms, is the difference between a well-funded assumption and something that lasts.
               </p>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                SandiQ was built to be that voice. Not to validate what clients want to hear, but to help them build things that actually work.
+                SandiQ was built around that. Not to sign off at the end, but to be in the room from the start.
               </p>
             </FadeIn>
           </div>

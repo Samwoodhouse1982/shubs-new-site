@@ -61,7 +61,7 @@ export default function ShubstackArticles({ articles }: Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {list.map((article, i) => (
           <FadeIn key={article.title} delay={i * 60}>
-            <div className="border border-[var(--sq-ink-8)] rounded-sm p-8 flex flex-col gap-5 h-full">
+            <a href={article.href} target="_blank" rel="noopener noreferrer" className="block border border-[var(--sq-ink-8)] rounded-sm p-8 flex flex-col gap-5 h-full hover:border-[var(--sq-amber)] transition-colors duration-200">
               <p className="text-sm text-[var(--sq-muted)] tracking-widest" style={{ fontFamily: 'var(--font-dm-mono)' }}>
                 {article.date}
               </p>
@@ -71,7 +71,7 @@ export default function ShubstackArticles({ articles }: Props) {
               <p className="text-sm text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: 'var(--font-dm-sans)' }}>
                 {article.excerpt}
               </p>
-            </div>
+            </a>
           </FadeIn>
         ))}
       </div>

@@ -14,69 +14,69 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    title: "On solving actual problems in healthcare",
+    date: "Mar 2026",
+    excerpt:
+      "Don't start with what tech or dataset you have. Start with the actual outcome and goal, and work with patients and clinicians who have the problem.",
+    href: "https://shubstack.substack.com/p/on-solving-actual-problems-in-healthcare?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+  },
+  {
+    title: "Same same, but different",
+    date: "Mar 2026",
+    excerpt:
+      "On choosing what matters and defining better health outcomes in digital health — and why ambitious claims about AI deserve more scepticism than they usually get.",
+    href: "https://shubstack.substack.com/p/same-same-but-different?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+  },
+  {
     title: "Evaluating tech in healthcare: measuring what matters",
     date: "Nov 2025",
     excerpt:
       "Why most digital health evaluation frameworks measure the wrong things, and what rigorous value assessment actually looks like in practice. A guide for founders, commissioners, and funders.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
-  },
-  {
-    title: "Level up your evidence comms",
-    date: "Jul 2025",
-    excerpt:
-      "The gap between what your data shows and what your audience understands is almost always a communications problem. Here's a practical framework for closing it without oversimplifying.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    href: "https://shubstack.substack.com/p/evaluating-tech-in-healthcare-measuring?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Spotlight on underserved communities at HLTH Europe",
     date: "Jun 2025",
     excerpt:
       "Reflections from HLTH Europe on who was in the room, who wasn't, and what it tells us about the structural blind spots in mainstream digital health investment and innovation.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
-  },
-  {
-    title: "Can Global Health and Venture Capital get along?",
-    date: "May 2025",
-    excerpt:
-      "On the deep structural tensions between impact-driven global health work and the return expectations of venture capital, and whether alignment is actually possible, or just well-branded.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    href: "https://shubstack.substack.com/p/spotlight-on-underserved-communities?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Mental health and digital health solutions",
     date: "Mar 2025",
     excerpt:
       "Digital mental health is one of the most overhyped and underevidenced corners of the industry. Here's an honest assessment of what works, what doesn't, and why it matters.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    href: "https://shubstack.substack.com/p/mental-health-and-digital-health?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
     title: "Negotiating ethical approaches to product development",
     date: "Feb 2025",
     excerpt:
       "Ethics in digital health product development is rarely a binary decision. More often it's a negotiation between speed and safety, between ideal and possible. How to navigate it honestly.",
-    href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    href: "https://shubstack.substack.com/p/negotiating-ethical-approaches-to?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
 ];
 
 const episodes = [
   {
-    title: "The economics of digital health in Sub-Saharan Africa",
-    desc: "A frank conversation about what makes digital health business models viable, or not, across different African health system contexts.",
-    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    title: "Enhancing newborn care in rural eastern Congo: how a tool built alongside nurses changed everything",
+    desc: "Dr Josh Bress on how co-designing a clinical decision support tool with nurses on the ground transformed newborn outcomes in one of the world's most under-resourced settings.",
+    href: "https://www.gpodh.org/enhancing-newborn-care-in-rural-eastern-congo-how-a-tool-built-alongside-nurses-changed-everything/?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
-    title: "What the NHS really wants from digital health vendors",
-    desc: "An insider perspective on NHS procurement, what commissioners actually read, and how to stop pitching to the wrong people.",
-    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    title: "How to develop AI that addresses health inequities",
+    desc: "NHS anaesthetist and NIHR AI researcher Joe Alderman on how to design and deploy AI that genuinely reduces health inequities rather than embedding and scaling them.",
+    href: "https://www.gpodh.org/how-to-develop-ai-that-addresses-health-inequities/?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
-    title: "AI in diagnostics: hype, evidence, and deployment reality",
-    desc: "Moving beyond the press releases: what clinical AI actually looks like when deployed in under-resourced health systems.",
-    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    title: "Digital innovation in humanitarian settings",
+    desc: "Javier Elkin, former Head of Digital Health at the ICRC, on what digital innovation looks like in humanitarian contexts — and what the mainstream industry consistently gets wrong.",
+    href: "https://www.gpodh.org/javier-elkin-digital-innovation-humanitarian/?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
   {
-    title: "Designing for the last mile: lessons from implementation science",
-    desc: "Why so many evidence-based interventions fail to reach the people who need them most, and what implementation science tells us to do differently.",
-    href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
+    title: "Co-designing mental health solutions with young people in Rwanda",
+    desc: "Dr Jana Alagarajah of YLabs on what genuine co-design with young people looks like in practice, and why participation in digital mental health design is rarely as deep as it claims to be.",
+    href: "https://www.gpodh.org/co-designing-mental-health-solutions-with-young-people-in-rwanda/?utm_source=sandiq&utm_medium=website&utm_campaign=thinking",
   },
 ];
 
@@ -224,7 +224,7 @@ export default function ThinkingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {episodes.map((ep, i) => (
               <FadeIn key={i} delay={i * 90}>
-                <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 h-full">
+                <a href={ep.href} target="_blank" rel="noopener noreferrer" className="block border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 h-full hover:border-[var(--sq-teal)] transition-colors duration-200">
                   <p className="text-xs text-[var(--sq-teal)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     Episode
                   </p>
@@ -234,7 +234,7 @@ export default function ThinkingPage() {
                   <p className="text-sm text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {ep.desc}
                   </p>
-                </div>
+                </a>
               </FadeIn>
             ))}
           </div>
