@@ -1,17 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  --color-bg: #0C0F0D;
-  --color-amber: #C9933A;
-  --color-teal: #2A6B62;
-  --color-ivory: #F2EFE9;
-  --color-stone: #A8A49D;
-
-  --font-display: var(--font-cormorant);
-  --font-body: var(--font-dm-sans);
-  --font-mono: var(--font-dm-mono);
-}
-
 /* ── Theme tokens ─────────────────────────────────────── */
 :root {
   /* Dark theme (default) */
