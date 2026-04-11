@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollDot from "@/components/ScrollDot";
 import ThemeProvider from "@/components/ThemeProvider";
+import AmbientCursor from "@/components/AmbientCursor";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -61,6 +62,7 @@ export default function RootLayout({
           >
             Skip to main content
           </a>
+          <AmbientCursor />
           <Nav />
           <ScrollDot />
           <main id="main-content" className="flex-1">{children}</main>
