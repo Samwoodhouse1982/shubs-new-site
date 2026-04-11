@@ -301,7 +301,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--sq-ink-8)] rounded-sm overflow-hidden">
             {/* Builders */}
             <FadeIn>
-              <div className="bg-[var(--sq-bg)] p-10 lg:p-12 flex flex-col gap-6 h-full">
+              <div className="bg-[var(--sq-bg)] p-10 lg:p-12 flex flex-col gap-5 h-full">
                 <div>
                   <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     People building
@@ -310,24 +310,11 @@ export default function HomePage() {
                     Digital health founders and their teams
                   </h3>
                 </div>
-                <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  You are building something that needs to work in clinical reality, not just in a demo. Whether you are at MVP stage or preparing for a major procurement, we bring the clinical credibility, evidence strategy, and leadership depth that gets your product taken seriously by health systems, payers, and the clinicians who have to use it.
+                <p className="text-base text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  From early product decisions through to major health system procurements, we bring the clinical credibility, evidence strategy, and leadership depth that gets your product taken seriously by the people who matter.
                 </p>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    "Clinical product strategy and evidence frameworks built from day one",
-                    "Fractional clinical leadership embedded in your real meetings",
-                    "NHS, international, and payer procurement navigation",
-                    "Impact narrative and positioning that lands with the right buyers",
-                  ].map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-sm text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--sq-amber)] shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto pt-2">
-                  <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <div className="mt-auto">
+                  <Link href="/services#pillar-medical-quality-ai" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     See how we help builders →
                   </Link>
                 </div>
@@ -336,7 +323,7 @@ export default function HomePage() {
 
             {/* Investors */}
             <FadeIn delay={100}>
-              <div className="bg-[var(--sq-bg3)] p-10 lg:p-12 flex flex-col gap-6 h-full">
+              <div className="bg-[var(--sq-bg3)] p-10 lg:p-12 flex flex-col gap-5 h-full">
                 <div>
                   <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     People investing
@@ -345,24 +332,11 @@ export default function HomePage() {
                     Philanthropy, foundations, and impact investors
                   </h3>
                 </div>
-                <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  You are deploying capital or grants into digital health and need to know whether it is actually going somewhere meaningful. We provide the clinical intelligence, due diligence depth, and impact frameworks that help you make better decisions and help the organisations you fund turn promise into proof.
+                <p className="text-base text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  We provide the clinical intelligence, due diligence depth, and impact frameworks that help you back the right work and help the organisations you fund turn promise into proof.
                 </p>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    "Clinical due diligence and honest portfolio assessment",
-                    "Impact measurement that goes beyond adoption and usage metrics",
-                    "Strategic support for grantees building clinical credibility",
-                    "Evaluation of what a digital health programme can realistically deliver",
-                  ].map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-sm text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--sq-amber)] shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto pt-2">
-                  <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <div className="mt-auto">
+                  <Link href="/services#pillar-storytelling-impact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     See how we help investors →
                   </Link>
                 </div>
@@ -627,21 +601,29 @@ export default function HomePage() {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {articles.map((article, i) => (
               <FadeIn key={i} delay={i * 100}>
-                <a href={article.href} target="_blank" rel="noopener noreferrer"
-                  className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 hover:border-[var(--sq-amber-30)] hover:bg-[var(--sq-surface)] transition-colors duration-200 group h-full">
+                <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 h-full">
                   <p className="text-sm text-[var(--sq-muted)] tracking-widest" style={{ fontFamily: "var(--font-dm-mono)" }}>{article.date}</p>
-                  <h3 className="text-xl text-[var(--sq-ink)] leading-snug group-hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  <h3 className="text-xl text-[var(--sq-ink)] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {article.title}
                   </h3>
                   <p className="text-sm text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>{article.excerpt}</p>
-                  <span className="text-sm text-[var(--sq-amber)]" style={{ fontFamily: "var(--font-dm-sans)" }}>Read on Substack →</span>
-                </a>
+                </div>
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn delay={200}>
+            <div className="flex justify-center mb-16">
+              <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber-10)] hover:border-[var(--sq-amber)] transition-colors duration-200"
+                style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Read these and more on Shubstack →
+              </a>
+            </div>
+          </FadeIn>
 
           {/* Podcast strip */}
           <FadeIn delay={100}>

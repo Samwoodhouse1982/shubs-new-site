@@ -203,19 +203,6 @@ export default function ServicesPage() {
       </section>
 
 
-      {/* ── PULL QUOTE ────────────────────────────────────────── */}
-      <section className="relative bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-20 overflow-hidden">
-        <FlatlineGraphic />
-        <FadeIn>
-          <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.15] italic text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-              &ldquo;We don&apos;t add clinical credibility as a final audit. We build it in from the start.&rdquo;
-            </blockquote>
-          </div>
-        </FadeIn>
-      </section>
-
-
       {/* ── STREAM NAV ────────────────────────────────────────── */}
       <nav aria-label="Jump to stream" className="sticky top-16 z-20 bg-[var(--sq-bg)] border-b border-[var(--sq-ink-8)] backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -304,6 +291,19 @@ export default function ServicesPage() {
             </FadeIn>
           ))}
         </div>
+      </section>
+
+
+      {/* ── PULL QUOTE ────────────────────────────────────────── */}
+      <section className="relative bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-20 overflow-hidden">
+        <FlatlineGraphic />
+        <FadeIn>
+          <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.15] italic text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
+              &ldquo;We don&apos;t add clinical credibility as a final audit. We build it in from the start.&rdquo;
+            </blockquote>
+          </div>
+        </FadeIn>
       </section>
 
 

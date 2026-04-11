@@ -55,13 +55,16 @@ export default function AboutPage() {
                 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1] mb-6"
                 style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
               >
-                We exist because the industry keeps asking the wrong questions.
+                Founded on an honest answer to an inconvenient question.
               </h2>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed mb-4" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                SandiQ was founded on a simple but uncomfortable observation: the digital health industry has a systemic tendency to optimise for the wrong outcomes. It chases adoption metrics instead of health outcomes. It talks about disruption without engaging with systems. It builds for idealised users rather than real ones.
+                The moment that crystallised SandiQ came in a policy meeting where a minister asked a simple question: would this app actually help his population? Everyone in the room answered diplomatically. Shubs was the only person there who could answer honestly, because he had seen the clinical reality the app was supposed to serve.
+              </p>
+              <p className="text-base text-[var(--sq-muted)] leading-relaxed mb-4" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                That gap, between what digital health products claim and what they can actually deliver, is not a technical problem. It is a structural one. The organisations building and funding them rarely have someone in the room who has worked on both the clinical and the commercial side. Someone who has been in procurement meetings, in clinical workflows, in WHO working groups, and in Series A conversations, and can speak honestly across all of them.
               </p>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                We work at the intersection of clinical rigour, implementation reality, and strategic clarity, helping organisations from seed-stage startups to major health systems build digital health solutions that are genuinely effective, commercially sustainable, and trusted by the clinicians and patients they serve.
+                SandiQ was built to be that voice. Not to validate what clients want to hear, but to help them build things that actually work.
               </p>
             </FadeIn>
           </div>
@@ -105,6 +108,14 @@ export default function AboutPage() {
       {/* ── FOUNDING PARTNER ──────────────────────────────────── */}
       <section className="bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn className="mb-12">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-[var(--sq-amber)]" />
+              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                The person behind it
+              </p>
+            </div>
+          </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <FadeIn className="lg:col-span-1">
               <div className="w-full aspect-square max-w-xs rounded-2xl overflow-hidden">
@@ -144,7 +155,7 @@ export default function AboutPage() {
               </p>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                He hosts the GPODH (Global Perspectives on Digital Health) podcast, which has reached listeners in over 60 countries, and writes the Shubstack newsletter on digital health strategy, evidence, and equity.
+                He hosts the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">GPODH (Global Perspectives on Digital Health) podcast</Link>, which has reached listeners in over 60 countries, and writes the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Shubstack newsletter</Link> on digital health strategy, evidence, and equity.
               </p>
 
               <blockquote className="border-l-2 border-[var(--sq-teal)] pl-6 py-1 my-2">
@@ -197,10 +208,10 @@ export default function AboutPage() {
             className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]"
             style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
           >
-            Tell us what you&apos;re building.
+            Have a conversation with Shubs.
           </h2>
           <p className="text-base text-[var(--sq-muted)] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            Every project starts with a conversation.
+            Every engagement starts by understanding what you are actually trying to achieve. No pitch, no hard sell. Just an honest conversation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a

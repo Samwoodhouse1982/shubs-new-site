@@ -121,6 +121,9 @@ export default function ThinkingPage() {
                 </a>{" "}
                 if something raises a question worth exploring further. We respond to everything.
               </p>
+              <p className="text-sm text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                If the thinking resonates, <a href="/services" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">see how we work →</a>
+              </p>
             </div>
 
             {/* Right: neural globe graphic */}
@@ -221,25 +224,17 @@ export default function ThinkingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {episodes.map((ep, i) => (
               <FadeIn key={i} delay={i * 90}>
-                <a
-                  href={ep.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 hover:border-[var(--sq-teal-40)] transition-colors duration-200 group h-full"
-                >
+                <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-4 h-full">
                   <p className="text-xs text-[var(--sq-teal)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     Episode
                   </p>
-                  <h3 className="text-xl text-[var(--sq-ink)] leading-snug group-hover:text-[var(--sq-teal)] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  <h3 className="text-xl text-[var(--sq-ink)] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
                     {ep.title}
                   </h3>
                   <p className="text-sm text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                     {ep.desc}
                   </p>
-                  <span className="text-sm text-[var(--sq-teal)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    Listen →
-                  </span>
-                </a>
+                </div>
               </FadeIn>
             ))}
           </div>
