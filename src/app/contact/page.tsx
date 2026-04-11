@@ -172,9 +172,9 @@ export default function ContactPage() {
                 <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
                   Email
                 </p>
-                <a href="mailto:hello@sandiq.com" className="text-[var(--sq-ink)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400, fontSize: "1.2rem" }}>
+                <p className="text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400, fontSize: "1.2rem" }}>
                   hello@sandiq.com
-                </a>
+                </p>
               </div>
 
               <div className="h-px bg-[var(--sq-ink-8)]" />

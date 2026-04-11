@@ -10,7 +10,7 @@ const navLinks = [
 ];
 
 const connectLinks = [
-  { label: "hello@sandiq.com", href: "mailto:hello@sandiq.com", external: false },
+  { label: "Get in touch", href: "/contact", external: false },
   { label: "LinkedIn", href: "https://linkedin.com/company/sandiq", external: true },
   { label: "GPODH Podcast", href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=footer", external: true },
   { label: "Substack", href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=footer", external: true },

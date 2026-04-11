@@ -167,8 +167,8 @@ export default function CookiePolicyPage() {
             </h2>
             <p className="text-sm leading-relaxed">
               For questions about our use of cookies, contact us at{" "}
-              <a href="mailto:hello@sandiq.com" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
-                hello@sandiq.com
+              <a href="/contact" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
+                our contact form
               </a>
               . You also have the right to lodge a complaint with the{" "}
               <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">

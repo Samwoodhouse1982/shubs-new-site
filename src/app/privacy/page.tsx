@@ -39,8 +39,8 @@ export default function PrivacyPage() {
             <p className="text-sm leading-relaxed">
               The data controller for personal data collected via this website is <strong className="text-[var(--sq-ink)]">SandiQ Global</strong>, registered in France.
               You can contact us at:{" "}
-              <a href="mailto:hello@sandiq.com" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
-                hello@sandiq.com
+              <a href="/contact" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
+                our contact form
               </a>
             </p>
           </div>
@@ -139,8 +139,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="text-sm leading-relaxed">
               To exercise any of these rights, contact us at{" "}
-              <a href="mailto:hello@sandiq.com" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
-                hello@sandiq.com
+              <a href="/contact" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
+                our contact form
               </a>
               . We will respond within one month. You also have the right to lodge a complaint with the French data protection authority, the{" "}
               <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">

@@ -68,8 +68,8 @@ export default function LegalNoticePage() {
             </h2>
             <p className="text-sm leading-relaxed">
               Email:{" "}
-              <a href="mailto:hello@sandiq.com" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
-                hello@sandiq.com
+              <a href="/contact" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">
+                our contact form
               </a>
             </p>
           </div>

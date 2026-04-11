@@ -378,9 +378,6 @@ export default function ServicesPage() {
             Whether you are building a digital health product that needs clinical credibility, or investing in the organisations doing that work, every conversation starts with understanding what you are actually trying to achieve.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:hello@sandiq.com" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm text-[var(--sq-muted)] border border-[var(--sq-ink-25)] rounded hover:border-[var(--sq-amber)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-              hello@sandiq.com
-            </a>
             <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[var(--sq-amber)] text-[var(--sq-bg)] rounded hover:bg-[var(--sq-amber-d)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
               Book a call →
             </Link>
