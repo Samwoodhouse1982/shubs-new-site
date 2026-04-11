@@ -161,7 +161,7 @@ export default function ContactOrbitGraphic() {
         s === 0 ? c2d.moveTo(px, py) : c2d.lineTo(px, py)
       }
       c2d.closePath()
-      c2d.strokeStyle = `rgba(${amberRgb},0.15)`
+      c2d.strokeStyle = `rgba(${amberRgb},0.35)`
       c2d.lineWidth = 1
       c2d.stroke()
 
