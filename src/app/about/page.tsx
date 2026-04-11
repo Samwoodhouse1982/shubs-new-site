@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
+import ConvergenceGraphic from "@/components/ConvergenceGraphic";
 
 export const metadata: Metadata = {
   title: "About | SandiQ",
@@ -24,24 +25,36 @@ export default function AboutPage() {
           style={{ background: 'radial-gradient(circle, rgba(var(--sq-teal-rgb),0.07) 0%, transparent 65%)' }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8 bg-[var(--sq-amber)]" />
-            <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-              About SandiQ
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left: text */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px w-8 bg-[var(--sq-amber)]" />
+                <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                  About SandiQ
+                </p>
+              </div>
+              <h1
+                className="text-5xl lg:text-6xl xl:text-7xl text-[var(--sq-ink)] leading-[1.1] max-w-3xl mb-8"
+                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+              >
+                The thinking behind the practice.
+              </h1>
+              <p
+                className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl"
+                style={{ fontFamily: "var(--font-dm-sans)" }}
+              >
+                SandiQ exists because the digital health industry has a systemic tendency to optimise for the wrong outcomes. We were founded to fix that, one engagement at a time.
+              </p>
+            </div>
+
+            {/* Right: convergence graphic */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="w-[380px] h-[340px] opacity-90">
+                <ConvergenceGraphic />
+              </div>
+            </div>
           </div>
-          <h1
-            className="text-5xl lg:text-6xl xl:text-7xl text-[var(--sq-ink)] leading-[1.1] max-w-3xl mb-8"
-            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
-          >
-            The thinking behind the practice.
-          </h1>
-          <p
-            className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            SandiQ exists because the digital health industry has a systemic tendency to optimise for the wrong outcomes. We were founded to fix that, one engagement at a time.
-          </p>
         </div>
       </section>
 
