@@ -167,8 +167,8 @@ export default function ContactOrbitGraphic() {
 
       // Trail — A (amber)
       histA.forEach(([px, py], i) => {
-        const alpha = (i / TRAIL) * 0.82
-        const r     = 1.5 + (i / TRAIL) * 2
+        const alpha = 0.25 + (i / TRAIL) * 0.75
+        const r     = 1.5 + (i / TRAIL) * 2.5
         c2d.beginPath()
         c2d.arc(px, py, r, 0, Math.PI * 2)
         c2d.fillStyle = `rgba(${amberRgb},${alpha})`
@@ -177,8 +177,8 @@ export default function ContactOrbitGraphic() {
 
       // Trail — B (teal)
       histB.forEach(([px, py], i) => {
-        const alpha = (i / TRAIL) * 0.82
-        const r     = 1.5 + (i / TRAIL) * 2
+        const alpha = 0.25 + (i / TRAIL) * 0.75
+        const r     = 1.5 + (i / TRAIL) * 2.5
         c2d.beginPath()
         c2d.arc(px, py, r, 0, Math.PI * 2)
         c2d.fillStyle = `rgba(${tealRgb},${alpha})`
@@ -221,7 +221,7 @@ export default function ContactOrbitGraphic() {
       ref={canvasRef}
       width={SIZE}
       height={SIZE}
-      className="pointer-events-none opacity-70"
+      className="pointer-events-none"
       aria-hidden
       style={{ width: SIZE, height: SIZE, display: 'block' }}
     />
