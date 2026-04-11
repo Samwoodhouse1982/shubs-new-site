@@ -161,13 +161,13 @@ export default function ContactOrbitGraphic() {
         s === 0 ? c2d.moveTo(px, py) : c2d.lineTo(px, py)
       }
       c2d.closePath()
-      c2d.strokeStyle = `rgba(${amberRgb},0.07)`
+      c2d.strokeStyle = `rgba(${amberRgb},0.03)`
       c2d.lineWidth = 1
       c2d.stroke()
 
       // Trail — A (amber)
       histA.forEach(([px, py], i) => {
-        const alpha = (i / TRAIL) * 0.45
+        const alpha = (i / TRAIL) * 0.82
         const r     = 1.5 + (i / TRAIL) * 2
         c2d.beginPath()
         c2d.arc(px, py, r, 0, Math.PI * 2)
@@ -177,7 +177,7 @@ export default function ContactOrbitGraphic() {
 
       // Trail — B (teal)
       histB.forEach(([px, py], i) => {
-        const alpha = (i / TRAIL) * 0.45
+        const alpha = (i / TRAIL) * 0.82
         const r     = 1.5 + (i / TRAIL) * 2
         c2d.beginPath()
         c2d.arc(px, py, r, 0, Math.PI * 2)
