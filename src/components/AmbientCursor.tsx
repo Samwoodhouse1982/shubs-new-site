@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // Two glowing orbs that follow the cursor with a soft spring lag.
 // When the cursor leaves the viewport they drift in a slow Lissajous pattern.
@@ -10,10 +10,14 @@ const LERP_SECONDARY = 0.028;   // teal orb follows slower → more lag
 const IDLE_SPEED     = 0.00055; // how fast the idle drift advances
 
 export default function AmbientCursor() {
+  const [mounted, setMounted] = useState(false);
   const primaryRef   = useRef<HTMLDivElement>(null);
   const secondaryRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => { setMounted(true); }, []);
+
   useEffect(() => {
+    if (!mounted) return;
     let mouseX    = window.innerWidth  * 0.35;
     let mouseY    = window.innerHeight * 0.30;
     let onScreen  = false;
@@ -74,7 +78,9 @@ export default function AmbientCursor() {
       document.removeEventListener('mousemove', onMove);
       document.removeEventListener('mouseleave', onLeave);
     };
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) return null;
 
   return (
     <div
