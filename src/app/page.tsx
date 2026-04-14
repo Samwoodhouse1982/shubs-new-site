@@ -3,7 +3,6 @@ import Image from "next/image";
 import HeroGlobe from "@/components/HeroGlobe";
 import FadeIn from "@/components/FadeIn";
 import StatCounter from "@/components/StatCounter";
-import FlatlineGraphic from "@/components/FlatlineGraphic";
 import VennGraphic from "@/components/VennGraphic";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
@@ -167,55 +166,8 @@ export default function HomePage() {
       </section>
 
 
-      {/* ── PROBLEM BAND ───────────────────────────────────────── */}
-      <section className="relative bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-20 overflow-hidden">
-        <FlatlineGraphic />
-        <FadeIn>
-          <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.1] italic text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-              &ldquo;Most digital health fails not because of bad technology. It
-              fails because it&apos;s built against the wrong definition of
-              value.&rdquo;
-            </blockquote>
-            <div className="mt-8 flex items-center justify-center gap-3">
-              <div className="h-px w-8 bg-[var(--sq-amber)]" />
-              <Link href="/thinking" className="text-sm text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Read our thinking →
-              </Link>
-            </div>
-          </div>
-        </FadeIn>
-      </section>
 
 
-      {/* ── FOUNDER VOICE ──────────────────────────────────────── */}
-      <section className="py-20 border-b border-[var(--sq-ink-6)]">
-        <FadeIn>
-          <div className="max-w-3xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center gap-8">
-            <blockquote
-              className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-relaxed italic"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
-            >
-              &ldquo;I&apos;ve sat in clinical settings across three continents and the gap is always the same: technology that doesn&apos;t understand the system it&apos;s entering. I started SandiQ because that gap is fixable, but only if someone is being honest about it.&rdquo;
-            </blockquote>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-[var(--sq-amber-25)]">
-                <Image
-                  src="/images/shubs-headshot.webp"
-                  alt="Dr Shubs Upadhyay"
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-left">
-                <p className="text-sm text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 500 }}>Dr Shubs Upadhyay</p>
-                <p className="text-xs text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-mono)" }}>Founding Partner, SandiQ</p>
-              </div>
-            </div>
-          </div>
-        </FadeIn>
-      </section>
 
 
       {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}

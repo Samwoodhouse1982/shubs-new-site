@@ -44,7 +44,7 @@ export default function AboutPage() {
                 className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                SandiQ exists because the digital health industry has a systemic tendency to optimise for the wrong outcomes. We were founded to fix that, one engagement at a time.
+                Most digital health fails not because of bad technology. It fails because it is built against the wrong definition of value. SandiQ exists to fix that.
               </p>
             </div>
 
