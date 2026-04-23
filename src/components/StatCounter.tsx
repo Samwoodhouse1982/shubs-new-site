@@ -11,7 +11,7 @@ export default function StatCounter({
   style?: React.CSSProperties
 }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const [display, setDisplay] = useState('0')
+  const [display, setDisplay] = useState(value)
   const triggered = useRef(false)
 
   useEffect(() => {
@@ -22,6 +22,8 @@ export default function StatCounter({
     if (!match) { setDisplay(value); return }
     const target = parseInt(match[1], 10)
     const suffix = match[2]
+
+    triggered.current = false
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -39,7 +41,7 @@ export default function StatCounter({
           observer.unobserve(el)
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     )
     observer.observe(el)
     return () => observer.disconnect()

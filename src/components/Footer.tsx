@@ -34,7 +34,7 @@ export default function Footer() {
               className="text-sm leading-relaxed"
               style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
             >
-              Real value in digital health.
+              Clinical rigour at product speed.
             </p>
           </div>
 

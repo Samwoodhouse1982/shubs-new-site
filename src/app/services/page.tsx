@@ -9,49 +9,35 @@ import FlatlineGraphic from "@/components/FlatlineGraphic";
 export const metadata: Metadata = {
   title: "Services | SandiQ",
   description:
-    "Three services for digital health organisations serious about clinical credibility, real impact, and sustainable growth.",
+    "Two practice areas for digital health organisations serious about clinical rigour, product velocity, and commercial alignment.",
 };
 
 const pillars: { id: string; stream: string; title: string; tagline: string; description: string; rightFor: string[]; cta: string }[] = [
   {
-    id: "pillar-medical-quality-ai",
-    stream: "Stream 01",
-    title: "Because what gets measured shapes what gets built, and most digital health is measuring the wrong things.",
-    tagline: "Medical Quality & AI",
-    description: "Most digital health products fail at the point of clinical integration, not because the technology doesn't work, but because clinical workflows, safety considerations, and regulatory expectations were never built in from the start. And the evidence base that might have validated them was never designed to measure what health systems and payers actually care about. We integrate clinical insight from day one and build the evaluation frameworks that turn promising technology into something worth commissioning.",
+    id: "pillar-clinical-product-integration",
+    stream: "Practice Area 01",
+    title: "Clinical and Product Integration",
+    tagline: "Clinical & Product",
+    description: "Level up how clinical, product, QARA, data science, and engineering teams make decisions together. The pre-deployment work on product quality and robust monitoring lets you ship at pace and catch the right things proactively, without becoming a bottleneck or safety becoming an afterthought. Whether your clinicians are embedded or advising in, we help you build the working relationships and processes that make the whole system reliable.",
     rightFor: [
-      "Regulated & clinically-adjacent software teams",
-      "CE marking, DTAC, or FDA navigation",
-      "NHS procurement & NICE assessment",
-      "Demonstrating ROI or QALY-equivalent impact",
+      "Clinical governance that enables rather than blocks",
+      "Pre-deployment product quality and QARA",
+      "Post-market monitoring and signal detection",
+      "Cross-functional decision-making processes",
     ],
     cta: "Discuss your product →",
   },
   {
-    id: "pillar-storytelling-impact",
-    stream: "Stream 02",
-    title: "Because the distance between your evidence and the decision you need is almost always a communications problem.",
-    tagline: "Storytelling & Impact",
-    description: "The gap between your evidence and the decision you need is almost always a communications problem. But navigating health systems requires more than a good narrative. It requires understanding the procurement culture, clinical hierarchies, regulatory expectations, and political pressures that shape how decisions get made. We help organisations turn rigorous evidence into compelling arguments and provide the strategic counsel needed for the rooms and contexts that matter most.",
+    id: "pillar-commercial-clinical-alignment",
+    stream: "Practice Area 02",
+    title: "Commercial and Clinical Alignment",
+    tagline: "Commercial Alignment",
+    description: "As digital health companies scale, the sales narrative, the product roadmap, and the evidence strategy tend to drift apart. We work across commercial, product, and clinical teams to bring them back into a single line, so that what you're selling, what you're building, and what you're proving are the same story. Not a messaging project. An integrated strategic alignment that sets the priorities, the data, and the methodology to deliver and evidence the value you're promising.",
     rightFor: [
-      "Impact reports, investment decks & grant applications",
-      "Regulatory & procurement positioning",
-      "New health system or market entry",
-      "Clinical & strategic due diligence",
-    ],
-    cta: "Discuss your impact →",
-  },
-  {
-    id: "pillar-deep-clinical-leadership",
-    stream: "Stream 03",
-    title: "Because clinical credibility is what separates the organisations that scale from those that stall.",
-    tagline: "Deep Clinical Leadership",
-    description: "Senior clinical leadership doesn't have to mean a full-time hire. And health system procurement is a different game from what most digital health commercial teams are built for. Understanding what commissioners, NHSX leads, or international payers actually need, and how to speak their language, requires a different discipline entirely. We embed experienced clinical leaders directly into your organisation and navigate this complexity on your behalf.",
-    rightFor: [
-      "Pre-NHS or payer engagement startups",
-      "Scale-ups without a full-time CMO",
-      "NHS & international market entry",
-      "Communicating clinical value to non-technical buyers",
+      "Evidence strategies that answer procurement questions",
+      "Sales narratives aligned to clinical outcomes data",
+      "Roadmap and evidence strategy built in parallel",
+      "Clinical due diligence and investor positioning",
     ],
     cta: "Discuss your strategy →",
   },
@@ -95,7 +81,7 @@ const audiences: { label: string; title: string; desc: string; points: string[];
       "NHS, international, and payer market access",
       "Impact narrative and positioning for buyers that need clinical proof",
     ],
-    relevantStreams: ["Deep Clinical Leadership", "Medical Quality & AI", "Storytelling & Impact"],
+    relevantStreams: ["Clinical & Product", "Commercial Alignment"],
   },
   {
     label: "People investing",
@@ -107,7 +93,7 @@ const audiences: { label: string; title: string; desc: string; points: string[];
       "Strategic and clinical support for grantees building credibility",
       "Evaluation of what a programme can realistically deliver",
     ],
-    relevantStreams: ["Medical Quality & AI", "Storytelling & Impact", "Deep Clinical Leadership"],
+    relevantStreams: ["Clinical & Product", "Commercial Alignment"],
   },
 ];
 
@@ -135,7 +121,7 @@ export default function ServicesPage() {
                 Clinical expertise, deployed where it counts.
               </h1>
               <p className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Three services: Medical Quality &amp; AI, Storytelling &amp; Impact, and Deep Clinical Leadership. Deployed individually or together for organisations serious about building digital health that actually works.
+                Two practice areas — Clinical and Product Integration, and Commercial and Clinical Alignment — for organisations serious about building digital health that actually works.
               </p>
             </div>
 
@@ -238,7 +224,7 @@ export default function ServicesPage() {
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-              Three streams. Every engagement.
+              Two practice areas. One discipline.
             </h2>
           </FadeIn>
 

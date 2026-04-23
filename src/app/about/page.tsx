@@ -160,15 +160,15 @@ export default function AboutPage() {
               </div>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Dr Shubs Upadhyay is a physician and digital health strategist with over 15 years of experience across clinical practice, health technology, and health system strategy. He has led clinical and strategic initiatives across the NHS, international health agencies, and private sector organisations, from early-stage startups through to multilateral programmes.
+                Dr Shubs Upadhyay is a physician and digital health strategist with fifteen years of experience across clinical practice, health technology, and health system strategy. He has led clinical and strategic initiatives across the NHS, international health agencies, and private sector organisations, from early-stage startups through to multilateral programmes.
               </p>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                He has served as a clinical lead at the International Telecommunication Union (ITU) and contributed to WHO working groups on digital health standards. He founded SandiQ to provide the kind of senior, independent clinical and strategic counsel that digital health organisations rarely have access to: the perspective of someone who has sat on both the clinical and the commercial side of the table.
+                He has served as a clinical lead at the International Telecommunication Union (ITU) and co-chaired a WHO working group on clinical AI evaluation, leading a guideline publication on digital health standards. He founded SandiQ to provide the kind of senior, independent clinical and strategic counsel that digital health organisations rarely have access to: the perspective of someone who has sat on both the clinical and the commercial side of the table.
               </p>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                He hosts the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">GPODH (Global Perspectives on Digital Health) podcast</Link>, which has reached listeners in over 60 countries, and writes the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Shubstack newsletter</Link> on digital health strategy, evidence, and equity.
+                He hosts the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">GPODH (Global Perspectives on Digital Health) podcast</Link> and writes the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Shubstack newsletter</Link> on digital health strategy, evidence, and equity.
               </p>
 
               <blockquote className="border-l-2 border-[var(--sq-teal)] pl-6 py-1 my-2">

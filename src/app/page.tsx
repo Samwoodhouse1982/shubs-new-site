@@ -3,42 +3,34 @@ import Image from "next/image";
 import HeroGlobe from "@/components/HeroGlobe";
 import FadeIn from "@/components/FadeIn";
 import StatCounter from "@/components/StatCounter";
-import VennGraphic from "@/components/VennGraphic";
 import BroadcastGraphic from "@/components/BroadcastGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import PopulationFigureGraphic from "@/components/PopulationFigureGraphic";
+import VennGraphic from "@/components/VennGraphic";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SandiQ | Real Value in Digital Health",
+  title: "SandiQ | Clinical Rigour at Product Speed",
   description:
-    "For digital health founders building what matters, and the investors and donors backing their work. Clinical leadership, evidence strategy, and impact counsel that makes the difference.",
+    "SandiQ helps founders, product leaders, and medical leaders build the ways of working that align clinical, product, and commercial teams toward outcomes that matter.",
 };
 
 const pillars: { num: string; slug: string; title: string; tagline: string; desc: string; services: string[] }[] = [
   {
     num: "01",
-    slug: "pillar-medical-quality-ai",
-    title: "Because what gets measured shapes what gets built, and most digital health is measuring the wrong things.",
-    tagline: "Medical Quality & AI",
-    desc: "Linking product thinking to real clinical impact. We build the evidence frameworks and clinical infrastructure that turn good intentions into measurable results health systems trust.",
-    services: ["Clinical product strategy built from day one", "Evidence frameworks that measure what health systems trust"],
+    slug: "pillar-clinical-product-integration",
+    title: "Clinical and Product Integration",
+    tagline: "Clinical & Product",
+    desc: "Level up how clinical, product, QARA, data science, and engineering teams make decisions together. The pre-deployment work on product quality and robust monitoring lets you ship at pace and catch the right things proactively, without becoming a bottleneck or safety becoming an afterthought. Whether your clinicians are embedded or advising in, we help you build the working relationships and processes that make the whole system reliable.",
+    services: ["Pre-deployment quality and QARA that keeps you moving", "Monitoring frameworks that catch the right things proactively"],
   },
   {
     num: "02",
-    slug: "pillar-storytelling-impact",
-    title: "Because the distance between your evidence and the decision you need is almost always a communications problem.",
-    tagline: "Storytelling & Impact",
-    desc: "We help you talk about your impact honestly and compellingly, bringing that story into your positioning, communications, and the rooms that matter, without oversimplifying or overstating.",
-    services: ["Rigorous evidence turned into compelling narratives", "Strategic counsel for navigating the rooms that matter"],
-  },
-  {
-    num: "03",
-    slug: "pillar-deep-clinical-leadership",
-    title: "Because clinical credibility is what separates the organisations that scale from those that stall.",
-    tagline: "Deep Clinical Leadership",
-    desc: "Focused on what matters most: the leaders, decisions, and strategies that win by making the clinical-commercial link explicit, credible, and impossible to ignore.",
-    services: ["Embedded clinical leadership in your real meetings", "Market access and health system procurement navigation"],
+    slug: "pillar-commercial-clinical-alignment",
+    title: "Commercial and Clinical Alignment",
+    tagline: "Commercial Alignment",
+    desc: "As digital health companies scale, the sales narrative, the product roadmap, and the evidence strategy tend to drift apart. We work across commercial, product, and clinical teams to bring them back into a single line, so that what you're selling, what you're building, and what you're proving are the same story. Not a messaging project. An integrated strategic alignment that sets the priorities, the data, and the methodology to deliver and evidence the value you're promising.",
+    services: ["Sales narrative aligned with clinical evidence", "Product, commercial, and evidence strategy as a single line"],
   },
 ];
 
@@ -132,26 +124,23 @@ export default function HomePage() {
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                 }}>
-                  Real value
+                  Clinical rigour
                 </span>
                 <br />
-                <span className="text-[var(--sq-ink)]">in digital health.</span>
+                <span className="text-[var(--sq-ink)]">at product speed.</span>
               </h1>
             </div>
 
             <p className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-              For founders and teams building digital health that actually works,
-              and for the investors, foundations, and donors who back them.
-              Clinical leadership, evidence strategy, and impact counsel that makes
-              the difference between promising and proven.
+              Most digital health companies can ship fast, but struggle to know if that is in the direction of what matters. SandiQ helps founders, product leaders, and medical leaders build the ways of working that resolve it: where clinical, product and commercial teams agree on what outcomes they&apos;re building toward, and ship in that direction reliably.
             </p>
 
             <div className="flex flex-wrap gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[var(--sq-amber)] text-[var(--sq-bg)] rounded hover:bg-[var(--sq-amber-d)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Work with SandiQ →
               </Link>
-              <Link href="/services" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border border-[var(--sq-ink-20)] text-[var(--sq-ink)] rounded hover:border-[var(--sq-amber)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Our services →
+              <Link href="#how-we-work" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border border-[var(--sq-ink-20)] text-[var(--sq-ink)] rounded hover:border-[var(--sq-amber)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                How we work →
               </Link>
             </div>
           </div>
@@ -170,65 +159,101 @@ export default function HomePage() {
 
 
 
-      {/* ── ABOUT SANDIQ ───────────────────────────────────────── */}
-      {/*
-        Venn is now the right column — full column width at ~500px on desktop.
-        Manifesto sits below as a full-width panel.
-      */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left: text */}
-            <FadeIn className="flex flex-col gap-6">
-              <div className="flex items-center gap-3">
-                <div className="h-px w-8 bg-[var(--sq-amber)]" />
-                <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                  About SandiQ
+      {/* ── PROBLEM / COST / SOLUTION ───────────────────────────── */}
+      <section className="bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
+
+          {/* The Problem */}
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
+              <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-3 lg:pt-1">
+                <div className="h-px w-8 bg-[var(--sq-amber)] hidden lg:block" />
+                <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>The Problem</p>
+              </div>
+              <div className="flex flex-col gap-5">
+                <h2 className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  Shipping fast is not the same as shipping toward outcomes.
+                </h2>
+                <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  The digital health industry celebrates the wrong signals. Accuracy scores, engagement metrics, adoption curves. Easy to report, and none of it the same as health outcomes. We are wowed by model performance while clinical impact stays unmeasured. Investors and health system leaders see dashboards full of green, yet can&apos;t tell whether the product is actually changing anyone&apos;s health trajectory.
+                </p>
+                <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  When outcomes aren&apos;t sharply defined from the start, teams default to what&apos;s easily measurable. Roadmaps fill with features that move the visible metrics and drift from the things that would move outcomes. The company ships fast. It just doesn&apos;t ship toward what matters.
+                </p>
+                <div className="border-l-2 border-[var(--sq-amber-30)] pl-5 flex flex-col gap-1 my-1">
+                  {["What good looks like", "For which patients", "Against what counterfactual", "Over what horizon"].map((item) => (
+                    <p key={item} className="text-sm text-[var(--sq-muted)] italic" style={{ fontFamily: "var(--font-dm-sans)" }}>{item}</p>
+                  ))}
+                </div>
+                <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  Alongside this, a second pattern compounds the first. Clinical governance becomes a bottleneck that slows the roadmap, or the team learns to work around it, building at pace while issues accumulate unseen. Risks then surface late: in a post-market signal, a regulator&apos;s review, a procurement audit, or a clinical incident, long after they were cheaper and easier to address.
                 </p>
               </div>
-              <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-                We exist because the industry keeps asking the wrong questions.
-              </h2>
-              <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                SandiQ was founded on a simple but uncomfortable observation:
-                the digital health industry has a systemic tendency to optimise
-                for the wrong outcomes. It chases adoption metrics instead of
-                health outcomes. It talks about disruption without engaging with
-                systems. It builds for idealised users rather than real ones.
-              </p>
-              <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                We work at the intersection of clinical rigour, implementation
-                reality, and strategic clarity, helping organisations from
-                seed-stage startups to major health systems build digital health
-                solutions that are genuinely effective, commercially sustainable,
-                and trusted by the clinicians and patients they serve.
-              </p>
-            </FadeIn>
-
-            {/* Right: Venn — large feature graphic */}
-            <FadeIn delay={120}>
-              <div className="w-full max-w-[480px] mx-auto" style={{ height: 390 }}>
-                <VennGraphic />
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* Full-width manifesto below */}
-          <FadeIn delay={200} className="mt-14">
-            <aside className="border border-[var(--sq-amber-25)] rounded-sm p-10 bg-[var(--sq-amber-5)]" style={{ backdropFilter: 'blur(4px)' }}>
-              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-6" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                The SandiQ Manifesto
-              </p>
-              <blockquote className="text-xl lg:text-2xl xl:text-3xl text-[var(--sq-ink)] leading-snug italic max-w-4xl" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-                &ldquo;Digital health must be built around clinical reality, not
-                around what is easy to build or easy to sell. The organisations
-                that understand this are the ones that last.&rdquo;
-              </blockquote>
-              <Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Read our full manifesto →
-              </Link>
-            </aside>
+            </div>
           </FadeIn>
+
+          <div className="h-px bg-[var(--sq-ink-8)]" />
+
+          {/* The Cost */}
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
+              <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-3 lg:pt-1">
+                <div className="h-px w-8 bg-[var(--sq-amber)] hidden lg:block" />
+                <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>The Cost</p>
+              </div>
+              <div className="flex flex-col gap-6">
+                <h2 className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                  Not acting in the right way threatens the future of the business.
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-3">
+                    <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>For builders</p>
+                    <p className="text-sm text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                      Deals stall in procurement because the evidence proves the wrong things. Clinical hires disengage because their input arrives too late to shape direction. Safety incidents surface in post-market review instead of design. Sales narratives promise outcomes the product was never instrumented to measure. Trust erodes. Competitors with weaker technology but sharper outcomes discipline win the contracts you should have won.
+                    </p>
+                  </div>
+                  <div className="border border-[var(--sq-ink-8)] rounded-sm p-7 flex flex-col gap-3">
+                    <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>For funders and investors</p>
+                    <p className="text-sm text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                      Portfolio companies report impressive activity quarter after quarter without ever demonstrating the outcomes that justified the thesis. Diligence reveals evidence strategies that cannot answer the question a health system, regulator, or donor board will eventually ask. The vanity metric was hit, but people&apos;s lives are unchanged. Capital deployed, adoption achieved, outcomes unproven.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  In both cases, the failure is not a lack of effort or lack of innovation. It is effort pointed at the wrong target.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+
+          <div className="h-px bg-[var(--sq-ink-8)]" />
+
+          {/* The Solution */}
+          <FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
+              <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-3 lg:pt-1">
+                <div className="h-px w-8 bg-[var(--sq-amber)] hidden lg:block" />
+                <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>The Solution</p>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16 items-center">
+                <div className="flex flex-col gap-5">
+                  <h2 className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    There is a way of working that holds both.
+                  </h2>
+                  <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    Clinical rigour and product velocity need not be opposites. They are a function of how clinical, product, commercial, and regulatory disciplines are set up to work together. When clinical input shapes product decisions early rather than blocking them late, when evidence generation runs alongside the roadmap rather than bolted on at the end, and when commercial messaging, product prioritisation, and evidence strategy are built in alignment from the start, the result is faster shipping, fewer safety incidents, stronger evidence, and a clinical story that holds up everywhere it needs to.
+                  </p>
+                  <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    SandiQ helps founders, product leaders, and medical leaders build that way of working, tuned to where your organisation is, not lifted from a framework.
+                  </p>
+                </div>
+                <div className="flex justify-center lg:justify-end w-full max-w-[280px] lg:max-w-[320px] mx-auto lg:mx-0">
+                  <VennGraphic />
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
         </div>
       </section>
 
@@ -250,8 +275,8 @@ export default function HomePage() {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--sq-ink-8)] rounded-sm overflow-hidden">
-            {/* Builders */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-[var(--sq-ink-8)] rounded-sm overflow-hidden">
+            {/* Founders */}
             <FadeIn>
               <div className="bg-[var(--sq-bg)] p-10 lg:p-12 flex flex-col gap-5 h-full">
                 <div>
@@ -263,7 +288,7 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <p className="text-base text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  From early product decisions through to major health system procurements, we bring the clinical credibility, evidence strategy, and leadership depth that gets your product taken seriously by the people who matter.
+                  The primary engagement for early-stage companies past early validation, where clinical, product, commercial, and evidence challenges are becoming organisational rather than individual, and where getting the way of working right now determines whether the next stage works.
                 </p>
                 <div className="mt-auto">
                   <Link href="/services#pillar-medical-quality-ai" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -273,8 +298,30 @@ export default function HomePage() {
               </div>
             </FadeIn>
 
-            {/* Investors */}
+            {/* Sprints */}
             <FadeIn delay={100}>
+              <div className="bg-[var(--sq-bg2)] p-10 lg:p-12 flex flex-col gap-5 h-full">
+                <div>
+                  <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                    Workshops &amp; Sprints
+                  </p>
+                  <h3 className="text-3xl lg:text-4xl text-[var(--sq-ink)] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    Startups and scale-ups of any size
+                  </h3>
+                </div>
+                <p className="text-base text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                  Focused engagements through Workshops and Sprints designed to resolve specific friction, align teams, or build foundational practices before problems compound.
+                </p>
+                <div className="mt-auto">
+                  <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    See our engagements →
+                  </Link>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Investors */}
+            <FadeIn delay={200}>
               <div className="bg-[var(--sq-bg3)] p-10 lg:p-12 flex flex-col gap-5 h-full">
                 <div>
                   <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
@@ -285,7 +332,7 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <p className="text-base text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                  We provide the clinical intelligence, due diligence depth, and impact frameworks that help you back the right work and help the organisations you fund turn promise into proof.
+                  Derisking early-stage portfolio ventures and grantees by bringing senior clinical-strategic perspective into diligence, portfolio support, and cohort programming. Helping the organisations you back build the ways of working that determine whether they scale.
                 </p>
                 <div className="mt-auto">
                   <Link href="/services#pillar-storytelling-impact" className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-[var(--sq-amber-40)] text-[var(--sq-amber)] rounded hover:bg-[var(--sq-amber)] hover:text-[var(--sq-bg)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -299,7 +346,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* ── THREE PILLARS ───────────────────────────────────────── */}
+      {/* ── TWO PRACTICE AREAS ──────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex flex-col gap-4 mb-14">
@@ -310,7 +357,7 @@ export default function HomePage() {
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-              Three streams. One discipline.
+              Two practice areas. One discipline.
             </h2>
             <p className="text-base text-[var(--sq-muted)] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
               Our work flows from a single conviction: real value in digital health demands clinical rigour, honest communication, and leadership that knows what outcomes actually mean.
@@ -318,13 +365,13 @@ export default function HomePage() {
           </FadeIn>
 
           <FadeIn delay={100}>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-[var(--sq-ink-6)] rounded-sm overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--sq-ink-6)] rounded-sm overflow-hidden">
               {pillars.map((p) => (
                 <Link key={p.num} href={`/services#${p.slug}`} className="bg-[var(--sq-bg)] p-10 flex flex-col gap-6 group hover:bg-[var(--sq-surface)] transition-colors duration-300">
                   <div className="flex items-center justify-between gap-3 overflow-hidden">
                     <div className="flex items-center gap-2 min-w-0">
                       <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase whitespace-nowrap" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                        Stream {p.num}
+                        Practice Area {p.num}
                       </p>
                       <span className="text-[var(--sq-amber)] opacity-40 shrink-0" aria-hidden>·</span>
                       <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase whitespace-nowrap" style={{ fontFamily: "var(--font-dm-mono)" }}>
@@ -361,6 +408,67 @@ export default function HomePage() {
             <div className="mt-8 flex justify-center">
               <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[var(--sq-ink-20)] text-[var(--sq-muted)] rounded hover:border-[var(--sq-amber)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 View all services →
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+
+      {/* ── HOW WE WORK ─────────────────────────────────────────── */}
+      <section id="how-we-work" className="bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn className="flex flex-col gap-4 mb-14">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-[var(--sq-amber)]" />
+              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                How we work · Three Engagement Formats
+              </p>
+            </div>
+            <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              Three ways to level up your impact.
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {[
+              {
+                num: "01",
+                title: "Retainer Advisory",
+                desc: "Ongoing senior counsel to founders and leadership teams. On-site presence where it matters, in the real decisions: board conversations, clinical-product reviews, evidence strategy, commercial alignment. For companies that need a seasoned clinical-strategic partner integrated into the leadership cadence.",
+              },
+              {
+                num: "02",
+                title: "Three-Month Sprint",
+                desc: "Focused engagement to resolve a specific, thorny challenge: restructuring how clinical and product teams work, untangling a stalled evidence strategy, aligning commercial narrative to roadmap and data, or diagnosing why safety incidents or governance bottlenecks keep recurring. Clear scope, clear outcome, clear exit.",
+              },
+              {
+                num: "03",
+                title: "Workshop Series",
+                desc: "Structured cross-functional sessions that bring product, clinical, commercial, QA, and regulatory teams into alignment on specific decisions or practices. Useful for startups finding their footing, scale-ups realigning after a growth phase, or accelerators and investors derisking early ventures. Designed to leave the team with shared language, shared priorities, and a set of working practices they own.",
+              },
+            ].map((format, i) => (
+              <FadeIn key={format.num} delay={i * 100}>
+                <div className="border border-[var(--sq-ink-8)] rounded-sm p-10 flex flex-col gap-5 h-full">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs tracking-widest text-[var(--sq-amber)] opacity-60" style={{ fontFamily: "var(--font-dm-mono)" }}>{format.num}</span>
+                    <div className="h-px flex-1 bg-[var(--sq-amber)] opacity-20" />
+                  </div>
+                  <h3 className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-snug" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+                    {format.title}
+                  </h3>
+                  <p className="text-sm text-[var(--sq-muted)] leading-relaxed flex-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                    {format.desc}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn delay={300}>
+            <div className="mt-10 flex justify-center">
+              <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-sm border border-[var(--sq-ink-20)] text-[var(--sq-muted)] rounded hover:border-[var(--sq-amber)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                Discuss which format fits →
               </Link>
             </div>
           </FadeIn>

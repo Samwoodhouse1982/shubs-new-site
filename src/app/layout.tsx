@@ -30,9 +30,9 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SandiQ: Global Digital Health Consultancy",
+  title: "SandiQ: Clinical Rigour at Product Speed",
   description:
-    "SandiQ helps digital health companies, investors, and global organisations build solutions that are clinically sound, equitable, and trusted.",
+    "SandiQ helps founders, product leaders, and medical leaders build the ways of working that align clinical, product, and commercial teams toward outcomes that matter.",
 };
 
 export default function RootLayout({
