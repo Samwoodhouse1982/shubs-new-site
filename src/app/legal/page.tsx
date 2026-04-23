@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Legal Notice | SandiQ",
-  description: "Mentions légales — Legal notice for SandiQ Global, registered in France.",
+  title: "Legal Notice | Shubs Upadhyay",
+  description: "Mentions légales — Legal notice for Shubs Upadhyay / SandiQ Global, registered in France.",
 };
 
 export default function LegalNoticePage() {

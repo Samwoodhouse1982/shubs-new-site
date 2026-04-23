@@ -283,7 +283,7 @@ export default function ContactPage() {
 
                   <div className="flex flex-col gap-2">
                     <label htmlFor="referral" className="text-xs text-[var(--sq-amber)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                      How did you hear about SandiQ? <span className="normal-case text-[var(--sq-muted)] tracking-normal" style={{ fontFamily: "var(--font-dm-sans)" }}>(optional)</span>
+                      How did you hear about me? <span className="normal-case text-[var(--sq-muted)] tracking-normal" style={{ fontFamily: "var(--font-dm-sans)" }}>(optional)</span>
                     </label>
                     <select id="referral" name="referral" value={form.referral} onChange={handleChange}
                       className="w-full bg-[var(--sq-bg)] border border-[var(--sq-ink-22)] rounded-sm px-4 py-3 text-sm text-[var(--sq-ink)] focus:outline-none focus:border-[var(--sq-amber-50)] transition-colors duration-200"

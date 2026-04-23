@@ -30,9 +30,9 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SandiQ: Clinical Rigour at Product Speed",
+  title: "Shubs Upadhyay: Clinical Rigour at Product Speed",
   description:
-    "SandiQ helps founders, product leaders, and medical leaders build the ways of working that align clinical, product, and commercial teams toward outcomes that matter.",
+    "I help founders, product leaders, and medical leaders build the ways of working that align clinical, product, and commercial teams toward outcomes that matter.",
 };
 
 export default function RootLayout({

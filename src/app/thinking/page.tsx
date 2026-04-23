@@ -7,7 +7,7 @@ import VideoCarousel from "@/components/VideoCarousel";
 import ShubstackArticles from "@/components/ShubstackArticles";
 
 export const metadata: Metadata = {
-  title: "Thinking | SandiQ",
+  title: "Thinking | Shubs Upadhyay",
   description:
     "Digital health strategy, evidence, and equity. Perspectives from Dr Shubs Upadhyay via Shubstack and the GPODH podcast.",
 };

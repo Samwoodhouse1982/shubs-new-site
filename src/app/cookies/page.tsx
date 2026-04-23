@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | SandiQ",
-  description: "How SandiQ uses cookies and similar technologies. GDPR and CNIL-compliant cookie policy.",
+  title: "Cookie Policy | Shubs Upadhyay",
+  description: "How this site uses cookies and similar technologies. GDPR and CNIL-compliant cookie policy.",
 };
 
 export default function CookiePolicyPage() {

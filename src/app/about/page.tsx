@@ -8,7 +8,7 @@ import ConvergenceGraphic from "@/components/ConvergenceGraphic";
 export const metadata: Metadata = {
   title: "About | Shubs Upadhyay",
   description:
-    "The thinking behind SandiQ. Meet Dr Shubs Upadhyay — physician, digital health strategist, and the person behind SandiQ.",
+    "The thinking behind the practice. Dr Shubs Upadhyay — physician, digital health strategist, and independent advisor to founders, product leaders, and investors.",
 };
 
 export default function AboutPage() {
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                Most digital health fails not because of bad technology. It fails because it is built against the wrong definition of value — and I built SandiQ to fix that.
+                Most digital health fails not because of bad technology. It fails because it is built against the wrong definition of value — and I set up my practice to fix that.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 I think that gap matters more as AI moves to the centre of health products and health decisions. Clinical expertise in those conversations, from someone who can speak honestly to what these systems actually do in a care context across commercial, product, investor, and policy rooms, is the difference between a well-funded assumption and something that lasts.
               </p>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                I built SandiQ around that. Not to sign off at the end, but to be in the room from the start.
+                I built my practice around that. Not to sign off at the end, but to be in the room from the start.
               </p>
             </FadeIn>
           </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
           <FadeIn>
             <aside className="border border-[var(--sq-amber-25)] rounded-sm p-10 lg:p-14 bg-[var(--sq-amber-5)]" style={{ backdropFilter: 'blur(4px)' }}>
               <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-8" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                The SandiQ Manifesto
+                How I work
               </p>
               <div className="flex flex-col gap-6 max-w-3xl">
                 <p className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-snug italic" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
@@ -164,7 +164,7 @@ export default function AboutPage() {
               </p>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                I&apos;ve served as a clinical lead at the International Telecommunication Union (ITU) and co-chaired a WHO working group on clinical AI evaluation, leading a guideline publication on digital health standards. I founded SandiQ to provide the kind of senior, independent clinical and strategic counsel that digital health organisations rarely have access to: the perspective of someone who has sat on both the clinical and the commercial side of the table.
+                I&apos;ve served as a clinical lead at the International Telecommunication Union (ITU) and co-chaired a WHO working group on clinical AI evaluation, leading a guideline publication on digital health standards. I set up independently to provide the kind of senior clinical and strategic counsel that digital health organisations rarely have access to: the perspective of someone who has sat on both the clinical and the commercial side of the table.
               </p>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -176,7 +176,7 @@ export default function AboutPage() {
                   className="text-xl lg:text-2xl text-[var(--sq-ink)] leading-relaxed italic"
                   style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}
                 >
-                  &ldquo;The moment I knew I had to build something different was in a policy meeting where a minister asked me whether a particular app would actually help his population. Everyone else was answering diplomatically. I was the only person there who could answer honestly. That&apos;s what SandiQ is.&rdquo;
+                  &ldquo;The moment I knew I had to build something different was in a policy meeting where a minister asked me whether a particular app would actually help his population. Everyone else was answering diplomatically. I was the only person there who could answer honestly. That&apos;s what this practice is.&rdquo;
                 </p>
               </blockquote>
 

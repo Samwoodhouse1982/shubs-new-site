@@ -139,12 +139,12 @@ export default function HomePage() {
             </div>
 
             <p className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-              After a decade working inside venture-backed digital health, the NHS, and global health agencies, I know what separates the products that hold up from the ones that don&apos;t. I built SandiQ to put that experience in your corner.
+              After a decade working inside venture-backed digital health, the NHS, and global health agencies, I know what separates the products that hold up from the ones that don&apos;t. I set up independently to put that experience in your corner.
             </p>
 
             <div className="flex flex-wrap gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[var(--sq-amber)] text-[var(--sq-bg)] rounded hover:bg-[var(--sq-amber-d)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Work with SandiQ →
+                Work with me →
               </Link>
               <Link href="#how-we-work" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border border-[var(--sq-ink-20)] text-[var(--sq-ink)] rounded hover:border-[var(--sq-amber)] hover:text-[var(--sq-amber)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 How we work →
