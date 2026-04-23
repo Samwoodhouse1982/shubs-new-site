@@ -52,55 +52,57 @@
 
 /* Light theme (default) */
 [data-theme="light"], :root {
-  --sq-bg:  #FFFFFF;
-  --sq-bg2: #FDF7F0;
-  --sq-bg3: #F7EFE4;
-  --sq-surface: #F0E8DB;
-  --sq-ink: #1C1510;
-  --sq-ink-8:  rgba(28,21,16,0.08);
-  --sq-ink-6:  rgba(28,21,16,0.06);
-  --sq-ink-22: rgba(28,21,16,0.22);
-  --sq-muted:  #7A6355;
-  --sq-amber:     #D4700A;
-  --sq-amber-d:   #b85e08;
-  --sq-amber-rgb: 212,112,10;
-  --sq-amber-10:  rgba(212,112,10,0.10);
-  --sq-amber-30:  rgba(212,112,10,0.30);
-  --sq-amber-40:  rgba(212,112,10,0.40);
-  --sq-teal:      #0891B2;
-  --sq-teal-d:    #0779a0;
-  --sq-teal-rgb:  8,145,178;
-  --sq-teal-30:   rgba(8,145,178,0.30);
-  --sq-teal-5:    rgba(8,145,178,0.05);
+  --sq-bg:      #FFFFFF;
+  --sq-bg2:     #F5F3FF;   /* soft lavender — replaces warm cream */
+  --sq-bg3:     #EDE9FE;   /* light violet */
+  --sq-surface: #DDD6FE;   /* muted violet */
+  --sq-ink:     #1E1B4B;   /* deep indigo-black */
+  --sq-muted:   #6B6B8A;   /* muted violet-slate */
 
-  /* RGB triplets */
-  --sq-ink-rgb:   28, 21, 16;
-  --sq-bg-rgb:    255, 255, 255;
+  --sq-ink-rgb:  30, 27, 75;
+  --sq-bg-rgb:   255, 255, 255;
+  --sq-ink-5:    rgba(30,27,75,0.05);
+  --sq-ink-6:    rgba(30,27,75,0.06);
+  --sq-ink-8:    rgba(30,27,75,0.08);
+  --sq-ink-20:   rgba(30,27,75,0.20);
+  --sq-ink-22:   rgba(30,27,75,0.22);
+  --sq-ink-25:   rgba(30,27,75,0.25);
 
-  /* Pre-computed opacity tokens */
-  --sq-ink-5:    rgba(28,21,16,0.05);
-  --sq-ink-20:   rgba(28,21,16,0.20);
-  --sq-ink-25:   rgba(28,21,16,0.25);
-  --sq-amber-5:  rgba(212,112,10,0.05);
-  --sq-amber-7:  rgba(212,112,10,0.07);
-  --sq-amber-12: rgba(212,112,10,0.12);
-  --sq-amber-15: rgba(212,112,10,0.15);
-  --sq-amber-20: rgba(212,112,10,0.20);
-  --sq-amber-25: rgba(212,112,10,0.25);
-  --sq-amber-50: rgba(212,112,10,0.50);
-  --sq-amber-80: rgba(212,112,10,0.80);
-  --sq-teal-7:   rgba(8,145,178,0.07);
-  --sq-teal-10:  rgba(8,145,178,0.10);
-  --sq-teal-15:  rgba(8,145,178,0.15);
-  --sq-teal-25:  rgba(8,145,178,0.25);
-  --sq-teal-40:  rgba(8,145,178,0.40);
-  --sq-teal-50:  rgba(8,145,178,0.50);
+  /* Primary accent: electric violet */
+  --sq-amber:     #7C3AED;
+  --sq-amber-d:   #6D28D9;
+  --sq-amber-rgb: 124,58,237;
+  --sq-amber-5:   rgba(124,58,237,0.05);
+  --sq-amber-7:   rgba(124,58,237,0.07);
+  --sq-amber-10:  rgba(124,58,237,0.10);
+  --sq-amber-12:  rgba(124,58,237,0.12);
+  --sq-amber-15:  rgba(124,58,237,0.15);
+  --sq-amber-20:  rgba(124,58,237,0.20);
+  --sq-amber-25:  rgba(124,58,237,0.25);
+  --sq-amber-30:  rgba(124,58,237,0.30);
+  --sq-amber-40:  rgba(124,58,237,0.40);
+  --sq-amber-50:  rgba(124,58,237,0.50);
+  --sq-amber-80:  rgba(124,58,237,0.80);
+
+  /* Secondary accent: vibrant sky blue */
+  --sq-teal:      #0EA5E9;
+  --sq-teal-d:    #0284C7;
+  --sq-teal-rgb:  14,165,233;
+  --sq-teal-5:    rgba(14,165,233,0.05);
+  --sq-teal-7:    rgba(14,165,233,0.07);
+  --sq-teal-10:   rgba(14,165,233,0.10);
+  --sq-teal-15:   rgba(14,165,233,0.15);
+  --sq-teal-25:   rgba(14,165,233,0.25);
+  --sq-teal-30:   rgba(14,165,233,0.30);
+  --sq-teal-40:   rgba(14,165,233,0.40);
+  --sq-teal-50:   rgba(14,165,233,0.50);
+
   --sq-nav-bg:   rgba(255,255,255,0.95);
 }
 
 :root {
-  --sq-coral: #E8622A;
-  --sq-coral-rgb: 232,98,42;
+  --sq-coral:     #F97316;   /* vibrant orange as warm accent */
+  --sq-coral-rgb: 249,115,22;
 }
 
 /* ── Base styles ──────────────────────────────────────── */
@@ -130,9 +132,9 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 90% 0%,   rgba(201,147,58,0.07)  0%, transparent 65%),
-    radial-gradient(ellipse 55% 60% at 5%  95%,  rgba(42,107,98,0.07)   0%, transparent 65%),
-    radial-gradient(ellipse 45% 40% at 50% 110%, rgba(201,147,58,0.04)  0%, transparent 65%);
+    radial-gradient(ellipse 70% 55% at 90% 0%,   rgba(124,58,237,0.10)  0%, transparent 65%),
+    radial-gradient(ellipse 55% 60% at 5%  95%,  rgba(14,165,233,0.08)  0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 50% 110%, rgba(249,115,22,0.05)  0%, transparent 65%);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -201,7 +203,7 @@ body::after {
 }
 @keyframes who-bolt-flash {
   0%       { opacity: 0.2; transform: scale(0.86); }
-  16%      { opacity: 1;   transform: scale(1.16); filter: drop-shadow(0 0 8px rgba(201,147,58,0.9)); }
+  16%      { opacity: 1;   transform: scale(1.16); filter: drop-shadow(0 0 8px rgba(124,58,237,0.9)); }
   30%      { opacity: 0.85; transform: scale(1);   filter: none; }
   100%     { opacity: 0.2; transform: scale(0.86); }
 }

@@ -62,7 +62,7 @@ export default function SectionConnector() {
         const y = waveY(px, t)
         px === 0 ? c2d.moveTo(px, y) : c2d.lineTo(px, y)
       }
-      c2d.strokeStyle = 'rgba(201,147,58,0.07)'
+      c2d.strokeStyle = 'rgba(124,58,237,0.08)'
       c2d.lineWidth   = 1
       c2d.stroke()
 
@@ -77,8 +77,8 @@ export default function SectionConnector() {
           c2d.beginPath()
           c2d.arc(tx, ty, r, 0, Math.PI * 2)
           c2d.fillStyle = node.amber
-            ? `rgba(201,147,58,${j === 0 ? 0.8 : alpha})`
-            : `rgba(42,107,98,${j === 0 ? 0.75 : alpha})`
+            ? `rgba(124,58,237,${j === 0 ? 0.8 : alpha})`
+            : `rgba(14,165,233,${j === 0 ? 0.75 : alpha})`
           c2d.fill()
         }
         void i // suppress lint
