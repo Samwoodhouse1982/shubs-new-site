@@ -108,7 +108,7 @@ export default function HomePage() {
         />
         {/* Warm coral blob — top right */}
         <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none -translate-y-1/4 translate-x-1/4"
-          style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, rgba(249,115,22,0.05) 50%, transparent 72%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(240,48,106,0.12) 0%, rgba(0,85,255,0.06) 50%, transparent 72%)' }} />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left */}
