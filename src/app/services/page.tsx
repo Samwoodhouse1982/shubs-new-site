@@ -7,9 +7,9 @@ import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import FlatlineGraphic from "@/components/FlatlineGraphic";
 
 export const metadata: Metadata = {
-  title: "Services | SandiQ",
+  title: "Services | Shubs Upadhyay",
   description:
-    "Two practice areas for digital health organisations serious about clinical rigour, product velocity, and commercial alignment.",
+    "Two practice areas for digital health organisations serious about clinical rigour, product velocity, and commercial alignment — brought by Dr Shubs Upadhyay.",
 };
 
 const pillars: { id: string; stream: string; title: string; tagline: string; description: string; rightFor: string[]; cta: string }[] = [
@@ -18,7 +18,7 @@ const pillars: { id: string; stream: string; title: string; tagline: string; des
     stream: "Practice Area 01",
     title: "Clinical and Product Integration",
     tagline: "Clinical & Product",
-    description: "Level up how clinical, product, QARA, data science, and engineering teams make decisions together. The pre-deployment work on product quality and robust monitoring lets you ship at pace and catch the right things proactively, without becoming a bottleneck or safety becoming an afterthought. Whether your clinicians are embedded or advising in, we help you build the working relationships and processes that make the whole system reliable.",
+    description: "Level up how clinical, product, QARA, data science, and engineering teams make decisions together. The pre-deployment work on product quality and robust monitoring lets you ship at pace and catch the right things proactively, without becoming a bottleneck or safety becoming an afterthought. Whether your clinicians are embedded or advising in, I help you build the working relationships and processes that make the whole system reliable.",
     rightFor: [
       "Clinical governance that enables rather than blocks",
       "Pre-deployment product quality and QARA",
@@ -32,7 +32,7 @@ const pillars: { id: string; stream: string; title: string; tagline: string; des
     stream: "Practice Area 02",
     title: "Commercial and Clinical Alignment",
     tagline: "Commercial Alignment",
-    description: "As digital health companies scale, the sales narrative, the product roadmap, and the evidence strategy tend to drift apart. We work across commercial, product, and clinical teams to bring them back into a single line, so that what you're selling, what you're building, and what you're proving are the same story. Not a messaging project. An integrated strategic alignment that sets the priorities, the data, and the methodology to deliver and evidence the value you're promising.",
+    description: "As digital health companies scale, the sales narrative, the product roadmap, and the evidence strategy tend to drift apart. I work across commercial, product, and clinical teams to bring them back into a single line, so that what you're selling, what you're building, and what you're proving are the same story. Not a messaging project. An integrated strategic alignment that sets the priorities, the data, and the methodology to deliver and evidence the value you're promising.",
     rightFor: [
       "Evidence strategies that answer procurement questions",
       "Sales narratives aligned to clinical outcomes data",
@@ -48,25 +48,25 @@ const process = [
     step: "01",
     label: "LISTEN",
     type: "listen" as const,
-    desc: "We begin every engagement by deeply understanding your context: not just the brief, but the pressures, histories, and blind spots that shape it.",
+    desc: "I begin every engagement by deeply understanding your context: not just the brief, but the pressures, histories, and blind spots that shape it.",
   },
   {
     step: "02",
     label: "MATCH",
     type: "match" as const,
-    desc: "We identify the right approach and skill set for the specific challenge at hand, bringing in trusted independent specialists where the engagement calls for it.",
+    desc: "I identify the right approach and skill set for the specific challenge at hand, bringing in trusted independent specialists where the engagement calls for it.",
   },
   {
     step: "03",
     label: "EMBED",
     type: "embed" as const,
-    desc: "We work with your team, not at them. Our model is collaborative by design and we transfer knowledge as we deliver.",
+    desc: "I work with your team, not at them. My model is collaborative by design and I transfer knowledge as I deliver.",
   },
   {
     step: "04",
     label: "DELIVER",
     type: "deliver" as const,
-    desc: "We are accountable to outcomes. Every engagement ends with something tangible: a strategy, a product, an evidence base, a deal.",
+    desc: "I am accountable to outcomes. Every engagement ends with something tangible: a strategy, a product, an evidence base, a deal.",
   },
 ];
 
@@ -74,7 +74,7 @@ const audiences: { label: string; title: string; desc: string; points: string[];
   {
     label: "People building",
     title: "Digital health founders and their teams",
-    desc: "You are building something that needs to work in clinical reality, not just in a demo. From early product decisions through to major health system procurements, we bring the clinical credibility, evidence strategy, and leadership depth that gets your product taken seriously by commissioners, payers, and the clinicians who actually have to use it.",
+    desc: "You are building something that needs to work in clinical reality, not just in a demo. From early product decisions through to major health system procurements, I bring the clinical credibility, evidence strategy, and leadership depth that gets your product taken seriously by commissioners, payers, and the clinicians who actually have to use it.",
     points: [
       "Fractional CMO and clinical leadership embedded in your team",
       "Clinical product strategy and evidence frameworks from day one",
@@ -86,7 +86,7 @@ const audiences: { label: string; title: string; desc: string; points: string[];
   {
     label: "People investing",
     title: "Philanthropy, foundations, and impact investors",
-    desc: "You are deploying capital or grants into digital health and need to know whether it is going somewhere meaningful, and whether the organisations you fund have what it takes to deliver. We provide the clinical intelligence, due diligence depth, and impact frameworks that help you back the right work and help that work succeed.",
+    desc: "You are deploying capital or grants into digital health and need to know whether it is going somewhere meaningful, and whether the organisations you fund have what it takes to deliver. I provide the clinical intelligence, due diligence depth, and impact frameworks that help you back the right work and help that work succeed.",
     points: [
       "Clinical due diligence and honest portfolio assessment",
       "Impact measurement frameworks that go beyond adoption metrics",
@@ -145,7 +145,7 @@ export default function ServicesPage() {
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[var(--sq-amber)]" />
               <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                Who we work with
+                Who I work with
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[var(--sq-amber)]" />
               <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                Our services
+                My services
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
@@ -286,7 +286,7 @@ export default function ServicesPage() {
         <FadeIn>
           <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.15] italic text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
-              &ldquo;We don&apos;t add clinical credibility as a final audit. We build it in from the start.&rdquo;
+              &ldquo;I don&apos;t add clinical credibility as a final audit. I build it in from the start.&rdquo;
             </blockquote>
           </div>
         </FadeIn>
@@ -301,7 +301,7 @@ export default function ServicesPage() {
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-[var(--sq-amber)]" />
               <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                How we work
+                How I work
               </p>
             </div>
             <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
@@ -334,7 +334,7 @@ export default function ServicesPage() {
           <FadeIn delay={200}>
             <div className="mt-10 flex justify-center">
               <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[var(--sq-amber)] text-[var(--sq-bg)] rounded hover:bg-[var(--sq-amber-d)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Tell us what you need →
+                Tell me what you need →
               </Link>
             </div>
           </FadeIn>

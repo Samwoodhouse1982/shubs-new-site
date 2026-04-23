@@ -32,8 +32,8 @@ export default function Nav() {
             className="text-xl tracking-tight"
             style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
           >
-            <span style={{ color: 'var(--sq-ink)' }}>Sandi</span>
-            <span style={{ color: 'var(--sq-amber)' }}>Q</span>
+            <span style={{ color: 'var(--sq-ink)' }}>Shubs</span>
+            <span style={{ color: 'var(--sq-amber)' }}>.</span>
           </Link>
 
           {/* Desktop nav links */}

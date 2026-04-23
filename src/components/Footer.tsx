@@ -27,14 +27,14 @@ export default function Footer() {
               className="text-2xl tracking-tight"
               style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
             >
-              <span style={{ color: 'var(--sq-ink)' }}>Sandi</span>
-              <span style={{ color: 'var(--sq-amber)' }}>Q</span>
+              <span style={{ color: 'var(--sq-ink)' }}>Shubs</span>
+              <span style={{ color: 'var(--sq-amber)' }}>.</span>
             </Link>
             <p
               className="text-sm leading-relaxed"
               style={{ fontFamily: "var(--font-dm-sans)", color: 'var(--sq-muted)' }}
             >
-              Clinical rigour at product speed.
+              Real work. Real health. Real impact.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export default function Footer() {
             className="text-sm"
             style={{ fontFamily: "var(--font-dm-mono)", color: 'var(--sq-muted)' }}
           >
-            © SandiQ Global, Registered in France
+            © Shubs Upadhyay / SandiQ Global
           </p>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
             {[

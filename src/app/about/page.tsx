@@ -6,9 +6,9 @@ import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import ConvergenceGraphic from "@/components/ConvergenceGraphic";
 
 export const metadata: Metadata = {
-  title: "About | SandiQ",
+  title: "About | Shubs Upadhyay",
   description:
-    "The thinking behind SandiQ. Learn about our founding partner Dr Shubs Upadhyay and why SandiQ exists.",
+    "The thinking behind SandiQ. Meet Dr Shubs Upadhyay — physician, digital health strategist, and the person behind SandiQ.",
 };
 
 export default function AboutPage() {
@@ -31,7 +31,7 @@ export default function AboutPage() {
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-8 bg-[var(--sq-amber)]" />
                 <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                  About SandiQ
+                  About
                 </p>
               </div>
               <h1
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl"
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
-                Most digital health fails not because of bad technology. It fails because it is built against the wrong definition of value. SandiQ exists to fix that.
+                Most digital health fails not because of bad technology. It fails because it is built against the wrong definition of value — and I built SandiQ to fix that.
               </p>
             </div>
 
@@ -71,13 +71,13 @@ export default function AboutPage() {
                 Founded on an honest answer to an inconvenient question.
               </h2>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed mb-4" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                The industry builds well. It is less good at building things that hold up: products that work as intended in clinical practice, investment theses that survive contact with real health systems, policies that do more than signal intent.
+                What I&apos;ve seen, across the NHS, multilateral agencies, and venture-backed companies, is that the industry builds well. It is less good at building things that hold up: products that work as intended in clinical practice, investment theses that survive contact with real health systems, policies that do more than signal intent.
               </p>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed mb-4" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                That gap matters more as AI moves to the centre of health products and health decisions. Clinical expertise in those conversations, from someone who can speak honestly to what these systems actually do in a care context across commercial, product, investor, and policy rooms, is the difference between a well-funded assumption and something that lasts.
+                I think that gap matters more as AI moves to the centre of health products and health decisions. Clinical expertise in those conversations, from someone who can speak honestly to what these systems actually do in a care context across commercial, product, investor, and policy rooms, is the difference between a well-funded assumption and something that lasts.
               </p>
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                SandiQ was built around that. Not to sign off at the end, but to be in the room from the start.
+                I built SandiQ around that. Not to sign off at the end, but to be in the room from the start.
               </p>
             </FadeIn>
           </div>
@@ -99,9 +99,9 @@ export default function AboutPage() {
                 </p>
                 <ul className="flex flex-col gap-3 border-l-2 border-[var(--sq-amber-40)] pl-6 my-2">
                   {[
-                    "We don\u2019t accept that speed and rigour are in tension.",
-                    "We don\u2019t accept that evidence is only for academics.",
-                    "We don\u2019t accept that commercial success and genuine clinical value are different goals.",
+                    "I don\u2019t accept that speed and rigour are in tension.",
+                    "I don\u2019t accept that evidence is only for academics.",
+                    "I don\u2019t accept that commercial success and genuine clinical value are different goals.",
                   ].map((line) => (
                     <li key={line} className="text-2xl lg:text-3xl text-[var(--sq-ink)] leading-snug italic list-none" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
                       {line}
@@ -160,15 +160,15 @@ export default function AboutPage() {
               </div>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Dr Shubs Upadhyay is a physician and digital health strategist with fifteen years of experience across clinical practice, health technology, and health system strategy. He has led clinical and strategic initiatives across the NHS, international health agencies, and private sector organisations, from early-stage startups through to multilateral programmes.
+                I&apos;m a physician and digital health strategist with fifteen years of experience across clinical practice, health technology, and health system strategy. I&apos;ve led clinical and strategic initiatives across the NHS, international health agencies, and private sector organisations, from early-stage startups through to multilateral programmes.
               </p>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                He has served as a clinical lead at the International Telecommunication Union (ITU) and co-chaired a WHO working group on clinical AI evaluation, leading a guideline publication on digital health standards. He founded SandiQ to provide the kind of senior, independent clinical and strategic counsel that digital health organisations rarely have access to: the perspective of someone who has sat on both the clinical and the commercial side of the table.
+                I&apos;ve served as a clinical lead at the International Telecommunication Union (ITU) and co-chaired a WHO working group on clinical AI evaluation, leading a guideline publication on digital health standards. I founded SandiQ to provide the kind of senior, independent clinical and strategic counsel that digital health organisations rarely have access to: the perspective of someone who has sat on both the clinical and the commercial side of the table.
               </p>
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                He hosts the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">GPODH (Global Perspectives on Digital Health) podcast</Link> and writes the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Shubstack newsletter</Link> on digital health strategy, evidence, and equity.
+                I host the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">GPODH (Global Perspectives on Digital Health) podcast</Link> and write the <Link href="/thinking" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Shubstack newsletter</Link> on digital health strategy, evidence, and equity.
               </p>
 
               <blockquote className="border-l-2 border-[var(--sq-teal)] pl-6 py-1 my-2">
