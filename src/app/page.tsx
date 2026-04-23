@@ -7,6 +7,7 @@ import BroadcastGraphic from "@/components/BroadcastGraphic";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
 import PopulationFigureGraphic from "@/components/PopulationFigureGraphic";
 import VennGraphic from "@/components/VennGraphic";
+import { BuildersIcon, ScaleupsIcon, InvestorsIcon } from "@/components/WhoIcons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -113,7 +114,7 @@ export default function HomePage() {
               <div className="flex items-center gap-3">
                 <div className="h-px w-8 bg-[var(--sq-amber)]" />
                 <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                  Tackling global digital health
+                  Built to hold up
                 </p>
               </div>
 
@@ -279,6 +280,7 @@ export default function HomePage() {
             {/* Founders */}
             <FadeIn>
               <div className="bg-[var(--sq-bg)] p-10 lg:p-12 flex flex-col gap-5 h-full">
+                <BuildersIcon />
                 <div>
                   <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     People building
@@ -301,6 +303,7 @@ export default function HomePage() {
             {/* Sprints */}
             <FadeIn delay={100}>
               <div className="bg-[var(--sq-bg2)] p-10 lg:p-12 flex flex-col gap-5 h-full">
+                <ScaleupsIcon />
                 <div>
                   <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     Workshops &amp; Sprints
@@ -323,6 +326,7 @@ export default function HomePage() {
             {/* Investors */}
             <FadeIn delay={200}>
               <div className="bg-[var(--sq-bg3)] p-10 lg:p-12 flex flex-col gap-5 h-full">
+                <InvestorsIcon />
                 <div>
                   <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase mb-3" style={{ fontFamily: "var(--font-dm-mono)" }}>
                     People investing
@@ -547,7 +551,7 @@ export default function HomePage() {
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 Dr Shubs Upadhyay is a physician and digital health strategist
-                with over 15 years of experience across clinical practice, health
+                with fifteen years of experience across clinical practice, health
                 technology, and health system strategy. He has led clinical and
                 strategic initiatives across the NHS, international health
                 agencies, and private sector organisations, from early-stage
@@ -556,8 +560,7 @@ export default function HomePage() {
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 He has served as a clinical lead at the International
-                Telecommunication Union (ITU) and contributed to WHO working
-                groups on digital health standards. He founded SandiQ to provide
+                Telecommunication Union (ITU) and co-chaired a WHO working group on clinical AI evaluation, leading a guideline publication on digital health standards. He founded SandiQ to provide
                 the kind of senior, independent clinical and strategic counsel
                 that digital health organisations rarely have access to: the
                 perspective of someone who has sat on both the clinical and the
@@ -566,9 +569,8 @@ export default function HomePage() {
 
               <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
                 He hosts the GPODH (Global Perspectives on Digital Health)
-                podcast, which has reached listeners in over 60 countries, and
-                writes the Shubstack newsletter on digital health strategy,
-                evidence, and equity.
+                podcast and writes the Shubstack newsletter on digital health
+                strategy, evidence, and equity.
               </p>
 
               <div className="border-t border-[var(--sq-ink-8)] pt-6 flex flex-wrap gap-3">
@@ -730,12 +732,10 @@ export default function HomePage() {
 
         <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-            Ready to build something that actually works?
+            Ready to build something the right way?
           </h2>
           <p className="text-base text-[var(--sq-muted)] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
-            Whether you are building a digital health product that needs clinical credibility,
-            or investing in the organisations doing that work. Every conversation with us
-            starts by understanding what you are actually trying to achieve.
+            Whether you&apos;re building a digital health product that needs to hold up to clinical scrutiny, or investing in the organisations doing that work, every conversation with us starts by understanding what you&apos;re actually trying to achieve.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact"
