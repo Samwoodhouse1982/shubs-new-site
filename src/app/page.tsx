@@ -520,74 +520,61 @@ export default function HomePage() {
       </section>
 
 
-      {/* ── THE FOUNDER ────────────────────────────────────────── */}
+      {/* ── WHY SANDIQ ─────────────────────────────────────────── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <FadeIn className="lg:col-span-1">
-              <div className="w-full aspect-square max-w-xs rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/shubs-headshot.webp"
-                  alt="Dr Shubs Upadhyay"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </FadeIn>
 
-            <FadeIn delay={120} className="lg:col-span-2 flex flex-col gap-6">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="h-px w-8 bg-[var(--sq-amber)]" />
-                  <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                    Founding Partner
+          {/* Heading block */}
+          <FadeIn className="flex flex-col gap-4 mb-14 max-w-3xl">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-8 bg-[var(--sq-amber)]" />
+              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                Why SandiQ
+              </p>
+            </div>
+            <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+              Lived, not lifted.
+            </h2>
+          </FadeIn>
+
+          {/* Body copy */}
+          <FadeIn delay={80} className="max-w-3xl flex flex-col gap-6 mb-20">
+            <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              SandiQ is led by a physician who has spent a decade at the point where these problems actually get solved. As senior clinical and medical director at a venture-backed digital health company deploying regulated AI across multiple markets, the work was defining what good looked like — for which patients, against what counterfactual — and then building the clinical, product, and evidence practices that could deliver it at the pace the business demanded.
+            </p>
+            <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              That work has continued since. Co-chairing a WHO working group on AI evaluation. Clinical practice across different health systems. Keynotes and leadership sessions for senior tech and product audiences at companies like Doctolib, the Wellcome Trust, and at conferences and accelerators across Europe. A podcast built around a single question: whether digital health actually reaches and helps the people it claims to serve.
+            </p>
+            <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              What we bring is not a playbook. It is hard won lessons from having lived these problems, and the ability to translate credibly across every discipline in the room — clinicians, product, data science, engineering, regulatory, commercial. That fluency is the work. Very few advisors can hold all of those conversations. That is why founders, product leaders, medical leaders, and the investors who back them bring us in to help them build towards what matters.
+            </p>
+          </FadeIn>
+
+          {/* Testimonial placeholders */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => (
+              <FadeIn key={i} delay={i * 100}>
+                <div className="border border-[var(--sq-ink-8)] rounded-sm p-8 flex flex-col gap-6 h-full">
+                  {/* Quote mark */}
+                  <span className="text-4xl leading-none text-[var(--sq-amber)] opacity-60" style={{ fontFamily: "var(--font-cormorant)" }}>&ldquo;</span>
+                  {/* Placeholder quote */}
+                  <p className="text-base text-[var(--sq-muted)] leading-relaxed flex-1 italic" style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.1rem" }}>
+                    Testimonial coming soon.
                   </p>
+                  {/* Attribution */}
+                  <div className="border-t border-[var(--sq-ink-8)] pt-5 flex flex-col gap-1">
+                    <p className="text-sm text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 500 }}>
+                      Name, Role
+                    </p>
+                    <p className="text-xs text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-mono)" }}>
+                      Organisation
+                    </p>
+                  </div>
                 </div>
-                <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
-                  Dr Shubs Upadhyay
-                </h2>
-              </div>
-
-              <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Dr Shubs Upadhyay is a physician and digital health strategist
-                with fifteen years of experience across clinical practice, health
-                technology, and health system strategy. He has led clinical and
-                strategic initiatives across the NHS, international health
-                agencies, and private sector organisations, from early-stage
-                startups through to multilateral programmes.
-              </p>
-
-              <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                He has served as a clinical lead at the International
-                Telecommunication Union (ITU) and co-chaired a WHO working group on clinical AI evaluation, leading a guideline publication on digital health standards. He founded SandiQ to provide
-                the kind of senior, independent clinical and strategic counsel
-                that digital health organisations rarely have access to: the
-                perspective of someone who has sat on both the clinical and the
-                commercial side of the table.
-              </p>
-
-              <p className="text-base text-[var(--sq-muted)] leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                He hosts the GPODH (Global Perspectives on Digital Health)
-                podcast and writes the Shubstack newsletter on digital health
-                strategy, evidence, and equity.
-              </p>
-
-              <div className="border-t border-[var(--sq-ink-8)] pt-6 flex flex-wrap gap-3">
-                {["MBBS", "MSc Global Health", "Former ITU Clinical Lead", "WHO Contributor", "NHS Digital Health Advisor"].map((cred) => (
-                  <span key={cred} className="px-3 py-1 text-sm border border-[var(--sq-ink-22)] text-[var(--sq-muted)] rounded-sm" style={{ fontFamily: "var(--font-dm-mono)" }}>
-                    {cred}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-6">
-                <a href="https://linkedin.com/in/shubs-upadhyay" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>LinkedIn →</a>
-                <a href="https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=homepage" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>Shubstack →</a>
-                <a href="https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=homepage" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>GPODH Podcast →</a>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            ))}
           </div>
+
         </div>
       </section>
 
