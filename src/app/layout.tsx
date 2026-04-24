@@ -4,8 +4,8 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollDot from "@/components/ScrollDot";
-import ThemeProvider from "@/components/ThemeProvider";
 import AmbientCursor from "@/components/AmbientCursor";
+import ScrollThread from "@/components/ScrollThread";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -43,32 +43,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
+      data-theme="light"
       className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable} h-full antialiased`}
     >
-      <head>
-        {/* Anti-FOUC: apply saved theme before first paint */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('sq-theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else{document.documentElement.setAttribute('data-theme','light');}}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col" style={{ backgroundColor: 'var(--sq-bg)', color: 'var(--sq-ink)' }}>
-        <ThemeProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:text-sm focus:rounded focus:font-medium"
-            style={{ backgroundColor: 'var(--sq-amber)', color: 'var(--sq-bg)', fontFamily: 'var(--font-dm-sans)' }}
-          >
-            Skip to main content
-          </a>
-          <AmbientCursor />
-          <Nav />
-          <ScrollDot />
-          <main id="main-content" className="flex-1">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:text-sm focus:rounded focus:font-medium"
+          style={{ backgroundColor: 'var(--sq-amber)', color: 'var(--sq-bg)', fontFamily: 'var(--font-dm-sans)' }}
+        >
+          Skip to main content
+        </a>
+        <AmbientCursor />
+        <ScrollThread />
+        <Nav />
+        <ScrollDot />
+        <main id="main-content" className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

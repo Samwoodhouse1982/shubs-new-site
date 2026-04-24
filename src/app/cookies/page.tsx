@@ -8,12 +8,8 @@ export const metadata: Metadata = {
 
 export default function CookiePolicyPage() {
   return (
-    <section className="relative pt-24 pb-32 overflow-hidden">
-      <div
-        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(var(--sq-amber-rgb),0.06) 0%, transparent 65%)' }}
-      />
-      <div className="relative max-w-3xl mx-auto px-6 lg:px-8">
+    <section className="pt-24 pb-32">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-6">
           <div className="h-px w-8 bg-[var(--sq-amber)]" />
           <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
@@ -27,7 +23,7 @@ export default function CookiePolicyPage() {
           Cookie Policy
         </h1>
         <p className="text-sm text-[var(--sq-muted)] mb-12" style={{ fontFamily: "var(--font-dm-mono)" }}>
-          Politique de cookies — Last updated: March 2026
+          Politique de cookies, Last updated: March 2026
         </p>
 
         <div className="flex flex-col gap-10 text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -149,10 +145,10 @@ export default function CookiePolicyPage() {
               When you first visit this site, you will be asked to consent to non-essential cookies. You can withdraw or update your consent at any time. You can also manage cookies directly via your browser settings:
             </p>
             <ul className="text-sm leading-relaxed flex flex-col gap-2 pl-4">
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Google Chrome</a></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Mozilla Firefox</a></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Apple Safari</a></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><a href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Microsoft Edge</a></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Google Chrome</a></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Mozilla Firefox</a></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Apple Safari</a></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><a href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer" className="text-[var(--sq-amber)] hover:text-[var(--sq-ink)] transition-colors duration-200">Microsoft Edge</a></li>
             </ul>
             <p className="text-sm leading-relaxed">
               Please note that disabling certain cookies may affect the functionality of the website.

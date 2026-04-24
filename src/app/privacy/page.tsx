@@ -8,12 +8,8 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="relative pt-24 pb-32 overflow-hidden">
-      <div
-        className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(var(--sq-teal-rgb),0.06) 0%, transparent 65%)' }}
-      />
-      <div className="relative max-w-3xl mx-auto px-6 lg:px-8">
+    <section className="pt-24 pb-32">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-6">
           <div className="h-px w-8 bg-[var(--sq-amber)]" />
           <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
@@ -27,7 +23,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="text-sm text-[var(--sq-muted)] mb-12" style={{ fontFamily: "var(--font-dm-mono)" }}>
-          Politique de confidentialité — Last updated: March 2026
+          Politique de confidentialité, Last updated: March 2026
         </p>
 
         <div className="flex flex-col gap-10 text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -53,9 +49,9 @@ export default function PrivacyPage() {
             </h2>
             <p className="text-sm leading-relaxed">We collect personal data in the following circumstances:</p>
             <ul className="text-sm leading-relaxed flex flex-col gap-2 pl-4">
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Contact form:</strong> Name, organisation, role, message, and how you heard about us. This is collected only when you voluntarily submit the form.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Email correspondence:</strong> Your email address and the contents of any email you send us.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Usage data:</strong> Anonymised analytics data about how visitors interact with the site (see Cookie Policy for details).</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Contact form:</strong> Name, organisation, role, message, and how you heard about us. This is collected only when you voluntarily submit the form.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Email correspondence:</strong> Your email address and the contents of any email you send us.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Usage data:</strong> Anonymised analytics data about how visitors interact with the site (see Cookie Policy for details).</span></li>
             </ul>
             <p className="text-sm leading-relaxed">We do not collect sensitive personal data (as defined under GDPR Article 9) unless you voluntarily provide it in your message.</p>
           </div>
@@ -70,7 +66,7 @@ export default function PrivacyPage() {
               <div className="border border-[var(--sq-ink-8)] rounded-sm p-4">
                 <p className="text-[var(--sq-ink)] font-medium mb-1">Responding to enquiries</p>
                 <p>Purpose: To process and respond to contact form submissions and email enquiries.</p>
-                <p className="mt-1">Legal basis: Legitimate interests (GDPR Art. 6(1)(f)) — our legitimate interest in responding to business enquiries.</p>
+                <p className="mt-1">Legal basis: Legitimate interests (GDPR Art. 6(1)(f)), our legitimate interest in responding to business enquiries.</p>
               </div>
               <div className="border border-[var(--sq-ink-8)] rounded-sm p-4">
                 <p className="text-[var(--sq-ink)] font-medium mb-1">Service delivery</p>
@@ -80,7 +76,7 @@ export default function PrivacyPage() {
               <div className="border border-[var(--sq-ink-8)] rounded-sm p-4">
                 <p className="text-[var(--sq-ink)] font-medium mb-1">Website analytics</p>
                 <p>Purpose: To understand how visitors use the site and improve its content.</p>
-                <p className="mt-1">Legal basis: Consent (GDPR Art. 6(1)(a)) — obtained via cookie consent banner.</p>
+                <p className="mt-1">Legal basis: Consent (GDPR Art. 6(1)(a)), obtained via cookie consent banner.</p>
               </div>
               <div className="border border-[var(--sq-ink-8)] rounded-sm p-4">
                 <p className="text-[var(--sq-ink)] font-medium mb-1">Legal compliance</p>
@@ -97,9 +93,9 @@ export default function PrivacyPage() {
               4. Data Retention
             </h2>
             <ul className="text-sm leading-relaxed flex flex-col gap-2 pl-4">
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span>Contact form data is retained for up to 3 years from the date of submission, unless a business relationship is established.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span>Client engagement data is retained for 5 years from the end of the engagement, in line with French accounting and commercial law obligations.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span>Anonymised analytics data may be retained indefinitely as it cannot be used to identify individuals.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span>Contact form data is retained for up to 3 years from the date of submission, unless a business relationship is established.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span>Client engagement data is retained for 5 years from the end of the engagement, in line with French accounting and commercial law obligations.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span>Anonymised analytics data may be retained indefinitely as it cannot be used to identify individuals.</span></li>
             </ul>
           </div>
 
@@ -113,8 +109,8 @@ export default function PrivacyPage() {
               We do not sell, rent, or trade your personal data to third parties. We may share data with:
             </p>
             <ul className="text-sm leading-relaxed flex flex-col gap-2 pl-4">
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Service providers</strong> acting as data processors on our behalf (e.g., hosting provider Vercel Inc.), bound by appropriate data processing agreements.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Legal authorities</strong> where required by applicable law or court order.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Service providers</strong> acting as data processors on our behalf (e.g., hosting provider Vercel Inc.), bound by appropriate data processing agreements.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Legal authorities</strong> where required by applicable law or court order.</span></li>
             </ul>
             <p className="text-sm leading-relaxed">
               Where data is transferred outside the European Economic Area (EEA), we ensure appropriate safeguards are in place (e.g., Standard Contractual Clauses).
@@ -129,13 +125,13 @@ export default function PrivacyPage() {
             </h2>
             <p className="text-sm leading-relaxed">Under the GDPR and French data protection law (loi Informatique et Libertés), you have the following rights:</p>
             <ul className="text-sm leading-relaxed flex flex-col gap-2 pl-4">
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Right of access</strong> — request a copy of the personal data we hold about you.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Right to rectification</strong> — request correction of inaccurate data.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Right to erasure</strong> — request deletion of your data where there is no overriding legal basis for retention.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Right to restriction</strong> — request that we restrict processing of your data.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Right to data portability</strong> — receive your data in a structured, machine-readable format.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Right to object</strong> — object to processing based on legitimate interests.</span></li>
-              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">—</span><span><strong className="text-[var(--sq-ink)]">Right to withdraw consent</strong> — where processing is based on consent, withdraw it at any time without affecting prior lawful processing.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Right of access</strong>, request a copy of the personal data we hold about you.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Right to rectification</strong>, request correction of inaccurate data.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Right to erasure</strong>, request deletion of your data where there is no overriding legal basis for retention.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Right to restriction</strong>, request that we restrict processing of your data.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Right to data portability</strong>, receive your data in a structured, machine-readable format.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Right to object</strong>, object to processing based on legitimate interests.</span></li>
+              <li className="flex gap-2"><span className="text-[var(--sq-amber)] shrink-0">›</span><span><strong className="text-[var(--sq-ink)]">Right to withdraw consent</strong>, where processing is based on consent, withdraw it at any time without affecting prior lawful processing.</span></li>
             </ul>
             <p className="text-sm leading-relaxed">
               To exercise any of these rights, contact us at{" "}

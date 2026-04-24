@@ -11,8 +11,8 @@ const navLinks = [
 
 const connectLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/in/shubs-upadhyay", external: true },
-  { label: "GPODH Podcast", href: "https://gpodh.org?utm_source=sandiq&utm_medium=website&utm_campaign=footer", external: true },
-  { label: "Substack", href: "https://shubstack.substack.com?utm_source=sandiq&utm_medium=website&utm_campaign=footer", external: true },
+  { label: "GPODH Podcast", href: "https://gpodh.org?utm_source=shubs&utm_medium=website&utm_campaign=footer", external: true },
+  { label: "Substack", href: "https://shubstack.substack.com?utm_source=shubs&utm_medium=website&utm_campaign=footer", external: true },
 ];
 
 export default function Footer() {

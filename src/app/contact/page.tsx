@@ -114,12 +114,7 @@ export default function ContactPage() {
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
       {/* Graphic: ContactOrbitGraphic — figure-8 orbit in right column */}
-      <section className="relative pt-24 pb-16 overflow-hidden">
-        {/* Ambient glows */}
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(var(--sq-amber-rgb),0.09) 0%, transparent 65%)' }} />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(var(--sq-teal-rgb),0.07) 0%, transparent 65%)' }} />
+      <section className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
@@ -154,9 +149,7 @@ export default function ContactPage() {
 
 
       {/* ── FORM + CONTACT INFO ───────────────────────────────── */}
-      <section className="relative pb-24 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, rgba(var(--sq-amber-rgb),0.04) 0%, transparent 65%)' }} />
+      <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Contact info sidebar */}
@@ -196,9 +189,9 @@ export default function ContactPage() {
                 </p>
                 <ul className="flex flex-col gap-3">
                   {[
-                    "We respond to all enquiries within 2 business days",
+                    "I respond to all enquiries within 2 business days",
                     "Initial calls are 30 minutes, no hard sell",
-                    "We'll tell you honestly if we're not the right fit",
+                    "I'll tell you honestly if I'm not the right fit",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
                       {/* Sonar dot accent */}
@@ -230,7 +223,7 @@ export default function ContactPage() {
                     Message received.
                   </h2>
                   <p className="text-base text-[var(--sq-muted)] max-w-md leading-relaxed" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                    Thank you for reaching out. We&apos;ll review your message and get back to you within 2 business days.
+                    Thank you for reaching out. I&apos;ll review your message and get back to you within 2 business days.
                   </p>
                   <button
                     onClick={() => { setSubmitted(false); setForm({ name: "", organisation: "", role: "", message: "", referral: "" }); }}

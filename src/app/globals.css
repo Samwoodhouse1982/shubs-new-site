@@ -52,10 +52,10 @@
 
 /* Light theme (default) */
 [data-theme="light"], :root {
-  --sq-bg:      #FFFFFF;
-  --sq-bg2:     #FAFAFA;   /* near-white neutral */
-  --sq-bg3:     #F4F4F5;   /* light neutral */
-  --sq-surface: #E4E4E7;
+  --sq-bg:      #F7F6F3;   /* warm off-white — the unified canvas */
+  --sq-bg2:     #EFEEEA;
+  --sq-bg3:     #E6E5E0;
+  --sq-surface: #DDDBD5;
   --sq-ink:     #09090B;   /* near-black — maximum contrast */
   --sq-muted:   #71717A;   /* zinc mid-tone */
 
@@ -97,7 +97,7 @@
   --sq-teal-40:   rgba(240,48,106,0.40);
   --sq-teal-50:   rgba(240,48,106,0.50);
 
-  --sq-nav-bg:   rgba(255,255,255,0.96);
+  --sq-nav-bg:   rgba(247,246,243,0.96);
 }
 
 :root {
@@ -195,17 +195,15 @@ body::after {
   88%, 100%{ transform: translateY(12px); opacity: 0;   }
 }
 
-/* Scale-ups: bolt charges then flashes */
-@keyframes who-bolt-glow {
-  0%, 100% { opacity: 0;    transform: scale(0.6); }
-  18%      { opacity: 0.18; transform: scale(1);   }
-  32%      { opacity: 0;    transform: scale(1.3); }
-}
-@keyframes who-bolt-flash {
-  0%       { opacity: 0.2; transform: scale(0.86); }
-  16%      { opacity: 1;   transform: scale(1.16); filter: drop-shadow(0 0 10px rgba(0,85,255,0.9)); }
-  30%      { opacity: 0.85; transform: scale(1);   filter: none; }
-  100%     { opacity: 0.2; transform: scale(0.86); }
+/* Workshops & Sprints: bolt scales in from top, holds, fades */
+@keyframes bolt-drop {
+  0%    { transform: scaleY(0);   opacity: 0;   }
+  8%    { transform: scaleY(0);   opacity: 0.9; }
+  30%   { transform: scaleY(1);   opacity: 1;   }
+  65%   { transform: scaleY(1);   opacity: 1;   }
+  80%   { transform: scaleY(1);   opacity: 0;   }
+  81%   { transform: scaleY(0);   opacity: 0;   }
+  100%  { transform: scaleY(0);   opacity: 0;   }
 }
 
 /* Investors: bars grow up from zero, staggered */
@@ -235,6 +233,12 @@ body::after {
 }
 .sonar-ring-delay {
   animation: sonar-pulse 2.2s ease-out 1.1s infinite;
+}
+
+/* Horizontal marquee ticker */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Scroll reveal animation */

@@ -4,12 +4,11 @@ import FadeIn from "@/components/FadeIn";
 import ServicesMeshGraphic from "@/components/ServicesMeshGraphic";
 import ProcessStepIcon from "@/components/ProcessStepIcon";
 import CtaGeometricGraphic from "@/components/CtaGeometricGraphic";
-import FlatlineGraphic from "@/components/FlatlineGraphic";
 
 export const metadata: Metadata = {
   title: "Services | Shubs Upadhyay",
   description:
-    "Two practice areas for digital health organisations serious about clinical rigour, product velocity, and commercial alignment — brought by Dr Shubs Upadhyay.",
+    "Two practice areas for digital health organisations serious about clinical rigour, product velocity, and commercial alignment, brought by Dr Shubs Upadhyay.",
 };
 
 const pillars: { id: string; stream: string; title: string; tagline: string; description: string; rightFor: string[]; cta: string }[] = [
@@ -101,14 +100,9 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
-      {/* Graphic: ServicesMeshGraphic — particle network in right column */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
-        {/* Ambient glows */}
-        <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(var(--sq-amber-rgb),0.08) 0%, transparent 65%)' }} />
-        <div className="absolute top-20 right-0 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(var(--sq-teal-rgb),0.10) 0%, transparent 65%)' }} />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      {/* Graphic: ServicesMeshGraphic, particle network in right column */}
+      <section className="pt-24 pb-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -121,7 +115,7 @@ export default function ServicesPage() {
                 Clinical expertise, deployed where it counts.
               </h1>
               <p className="text-base lg:text-lg text-[var(--sq-muted)] leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                Two practice areas — Clinical and Product Integration, and Commercial and Clinical Alignment — for organisations serious about building digital health that actually works.
+                Two practice areas, Clinical and Product Integration, and Commercial and Clinical Alignment, for organisations serious about building digital health that actually works.
               </p>
             </div>
 
@@ -137,14 +131,12 @@ export default function ServicesPage() {
 
 
       {/* ── WHO WE WORK WITH ──────────────────────────────────── */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, rgba(var(--sq-amber-rgb),0.06) 0%, transparent 65%)' }} />
+      <section className="py-24" style={{ borderTop: "1px solid rgba(9,9,11,0.07)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-[var(--sq-amber)]" />
-              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+              <div className="h-px w-8" style={{ background: "#0055FF" }} />
+              <p className="text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)", color: "#0055FF" }}>
                 Who I work with
               </p>
             </div>
@@ -212,14 +204,12 @@ export default function ServicesPage() {
 
 
       {/* ── PILLAR SECTIONS ───────────────────────────────────── */}
-      <section className="relative pb-24 overflow-hidden">
-        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(var(--sq-teal-rgb),0.06) 0%, transparent 65%)' }} />
+      <section className="pb-24" style={{ borderTop: "1px solid rgba(9,9,11,0.07)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-8">
           <FadeIn className="flex flex-col gap-4 pt-4 mb-6">
             <div className="flex items-center gap-3">
-              <div className="h-px w-8 bg-[var(--sq-amber)]" />
-              <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
+              <div className="h-px w-8" style={{ background: "#0055FF" }} />
+              <p className="text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)", color: "#0055FF" }}>
                 My services
               </p>
             </div>
@@ -232,7 +222,7 @@ export default function ServicesPage() {
             <FadeIn key={pillar.id} delay={pi * 80}>
               <div id={pillar.id} className={`scroll-mt-24 border border-[var(--sq-ink-8)] rounded-sm overflow-hidden flex flex-col lg:flex-row ${pi % 2 === 0 ? "bg-[var(--sq-bg)]" : "bg-[var(--sq-bg3)]"}`}>
 
-                {/* Left — eyebrow, why statement, description */}
+                {/* Left, eyebrow, why statement, description */}
                 <div className="flex-1 p-10 flex flex-col gap-6">
                   <div className="flex items-center gap-3 overflow-hidden">
                     <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase whitespace-nowrap" style={{ fontFamily: "var(--font-dm-mono)" }}>
@@ -252,7 +242,7 @@ export default function ServicesPage() {
                   </p>
                 </div>
 
-                {/* Right — chips + CTA */}
+                {/* Right, chips + CTA */}
                 <div className={`lg:w-80 xl:w-96 p-10 flex flex-col gap-6 border-t lg:border-t-0 lg:border-l border-[var(--sq-ink-8)] ${pi % 2 === 0 ? "bg-[var(--sq-bg3)]" : "bg-[var(--sq-bg)]"}`}>
                   <div className="flex flex-col gap-4">
                     <p className="text-xs text-[var(--sq-amber)] tracking-widest uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
@@ -281,11 +271,10 @@ export default function ServicesPage() {
 
 
       {/* ── PULL QUOTE ────────────────────────────────────────── */}
-      <section className="relative bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-20 overflow-hidden">
-        <FlatlineGraphic />
+      <section className="py-20" style={{ backgroundColor: "#0055FF" }}>
         <FadeIn>
-          <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.15] italic text-[var(--sq-ink)]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
+          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <blockquote className="text-3xl lg:text-4xl xl:text-5xl leading-[1.15] italic text-white" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 400 }}>
               &ldquo;I don&apos;t add clinical credibility as a final audit. I build it in from the start.&rdquo;
             </blockquote>
           </div>
@@ -294,8 +283,8 @@ export default function ServicesPage() {
 
 
       {/* ── PROCESS ───────────────────────────────────────────── */}
-      {/* Graphic: ProcessStepIcon — unique animation per step */}
-      <section className="bg-[var(--sq-bg2)] border-y border-[var(--sq-ink-6)] py-24">
+      {/* Graphic: ProcessStepIcon, unique animation per step */}
+      <section className="py-24" style={{ borderTop: "1px solid rgba(9,9,11,0.07)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn className="flex flex-col gap-4 mb-14">
             <div className="flex items-center gap-3">
@@ -312,7 +301,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--sq-ink-6)] rounded-sm overflow-hidden">
             {process.map((step, i) => (
               <FadeIn key={step.step} delay={i * 100}>
-                <div className="bg-[var(--sq-bg2)] p-8 flex flex-col gap-4 h-full">
+                <div className="bg-[var(--sq-bg)] p-8 flex flex-col gap-4 h-full">
                   {/* Animated step icon */}
                   <div className="mb-1">
                     <ProcessStepIcon type={step.type} />
@@ -343,31 +332,26 @@ export default function ServicesPage() {
 
 
       {/* ── FOOTER CTA ────────────────────────────────────────── */}
-      {/* Graphic: CtaGeometricGraphic — rotating diamonds (reused from homepage) */}
-      <section className="relative bg-[var(--sq-bg2)] border-t border-[var(--sq-ink-6)] py-24 overflow-hidden">
-        <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          aria-hidden
-        >
-          <div
-            className="w-[600px] h-[300px] rounded-full"
-            style={{ background: 'radial-gradient(ellipse, rgba(var(--sq-amber-rgb),0.06) 0%, transparent 65%)' }}
-          />
-        </div>
+      <section
+        className="relative py-24 overflow-hidden"
+        style={{ backgroundColor: "#0055FF" }}
+      >
         <CtaGeometricGraphic />
 
         <FadeIn className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-8">
-          <h2 className="text-4xl lg:text-5xl text-[var(--sq-ink)] leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
+          <h2 className="text-4xl lg:text-5xl text-white leading-[1.1]" style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}>
             Building or backing? Let&apos;s talk.
           </h2>
-          <p className="text-base text-[var(--sq-muted)] max-w-lg" style={{ fontFamily: "var(--font-dm-sans)" }}>
+          <p className="text-base max-w-lg" style={{ fontFamily: "var(--font-dm-sans)", color: "rgba(255,255,255,0.75)" }}>
             Whether you are building a digital health product that needs clinical credibility, or investing in the organisations doing that work, every conversation starts with understanding what you are actually trying to achieve.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[var(--sq-amber)] text-[var(--sq-bg)] rounded hover:bg-[var(--sq-amber-d)] transition-colors duration-200" style={{ fontFamily: "var(--font-dm-sans)" }}>
-              Book a call →
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium text-white rounded transition-colors duration-200"
+            style={{ fontFamily: "var(--font-dm-sans)", backgroundColor: "#F0306A" }}
+          >
+            Book a call →
+          </Link>
         </FadeIn>
       </section>
     </>

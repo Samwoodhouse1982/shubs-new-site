@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -56,9 +55,8 @@ export default function Nav() {
             })}
           </div>
 
-          {/* CTA + theme toggle + hamburger */}
+          {/* CTA + hamburger */}
           <div className="flex items-center gap-3">
-            <ThemeToggle />
             <Link
               href="/contact"
               className="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium rounded transition-colors duration-200"
@@ -70,7 +68,7 @@ export default function Nav() {
               onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--sq-amber-d)')}
               onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--sq-amber)')}
             >
-              Work with us
+              Speak to me
             </Link>
 
             {/* Hamburger button */}
@@ -130,7 +128,7 @@ export default function Nav() {
                 color: 'var(--sq-bg)',
               }}
             >
-              Work with us
+              Speak to me
             </Link>
           </div>
         </div>

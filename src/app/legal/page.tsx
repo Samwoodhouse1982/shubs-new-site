@@ -3,17 +3,13 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Legal Notice | Shubs Upadhyay",
-  description: "Mentions légales — Legal notice for Shubs Upadhyay / SandiQ Global, registered in France.",
+  description: "Mentions légales, Legal notice for Shubs Upadhyay / SandiQ Global, registered in France.",
 };
 
 export default function LegalNoticePage() {
   return (
-    <section className="relative pt-24 pb-32 overflow-hidden">
-      <div
-        className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(var(--sq-amber-rgb),0.06) 0%, transparent 65%)' }}
-      />
-      <div className="relative max-w-3xl mx-auto px-6 lg:px-8">
+    <section className="pt-24 pb-32">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <div className="flex items-center gap-3 mb-6">
           <div className="h-px w-8 bg-[var(--sq-amber)]" />
           <p className="text-xs tracking-widest text-[var(--sq-amber)] uppercase" style={{ fontFamily: "var(--font-dm-mono)" }}>
@@ -27,7 +23,7 @@ export default function LegalNoticePage() {
           Legal Notice
         </h1>
         <p className="text-sm text-[var(--sq-muted)] mb-12" style={{ fontFamily: "var(--font-dm-mono)" }}>
-          Mentions légales — Last updated: March 2026
+          Mentions légales, Last updated: March 2026
         </p>
 
         <div className="flex flex-col gap-10 text-[var(--sq-muted)]" style={{ fontFamily: "var(--font-dm-sans)" }}>
@@ -100,7 +96,7 @@ export default function LegalNoticePage() {
               5. Intellectual Property
             </h2>
             <p className="text-sm leading-relaxed">
-              All content on this website — including but not limited to text, graphics, logos, and images — is the exclusive property of SandiQ Global or its licensors and is protected under French and international intellectual property law. Any reproduction, distribution, or use without prior written consent is strictly prohibited.
+              All content on this website, including but not limited to text, graphics, logos, and images, is the exclusive property of SandiQ Global or its licensors and is protected under French and international intellectual property law. Any reproduction, distribution, or use without prior written consent is strictly prohibited.
             </p>
           </div>
 

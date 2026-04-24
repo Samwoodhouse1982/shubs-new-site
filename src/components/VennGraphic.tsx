@@ -82,7 +82,7 @@ export default function VennGraphic() {
       <circle className="vg-border" cx={brCx}  cy={brCy}  r={BR.r}
         fill="none" style={{ stroke: 'var(--sq-muted)' }} strokeWidth="0.9" strokeDasharray="6 4" opacity="0.35" />
 
-      {/* SANDIQ — centroid */}
+      {/* SHUBS — centroid */}
       <text
         x={CX} y={CY + 2.5}
         textAnchor="middle" dominantBaseline="middle"
@@ -93,7 +93,7 @@ export default function VennGraphic() {
         fontFamily="var(--font-dm-mono)"
         fontWeight="700"
       >
-        SANDIQ
+        SHUBS
       </text>
 
       {/* Outer labels */}
